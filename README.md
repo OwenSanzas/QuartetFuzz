@@ -500,3 +500,5 @@ A live RQ3 / single-case run writes:
 This is an anonymous submission.  The artifact ships with no author
 or institution metadata; once accepted, the authoritative repository
 will be linked from the camera-ready paper.
+
+<!-- last-updated: 2026-04-29T21:38:35Z -->
