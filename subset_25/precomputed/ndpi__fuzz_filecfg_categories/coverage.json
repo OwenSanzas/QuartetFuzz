@@ -1,0 +1,10 @@
+{
+  "case_id": "ndpi/fuzz_filecfg_categories",
+  "line_pct": 6.27,
+  "branch_pct": 2.32,
+  "function_pct": 3.44,
+  "cost_usd": 0.86,
+  "turns": 49,
+  "iter": 0,
+  "wall_seconds": 409.2
+}

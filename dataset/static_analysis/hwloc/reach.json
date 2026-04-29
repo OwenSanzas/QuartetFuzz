@@ -1,0 +1,28 @@
+{
+  "hwloc_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "hwloc_decode_from_base64",
+      "file_path": "hwloc/base64.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "hwloc_encode_to_base64",
+      "file_path": "hwloc/base64.c",
+      "depth": 1,
+      "is_external": false
+    }
+  ]
+}

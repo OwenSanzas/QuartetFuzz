@@ -1,0 +1,1433 @@
+[
+  {
+    "caller_name": "yajl_alloc",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_bs_push_inline",
+    "callee_file": "ext-yajl/yajl_bytestack.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_alloc",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_buf_alloc",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_alloc",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_lex_alloc",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_alloc",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_set_default_alloc_funcs",
+    "callee_file": "ext-yajl/yajl_alloc.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_free",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_buf_free",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_free",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_lex_free",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_get_error",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_render_error_string",
+    "callee_file": "ext-yajl/yajl_parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_do_parse",
+    "callee_file": "ext-yajl/yajl_parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse_complete",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_parse",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_reset_parser",
+    "caller_file": "ext-yajl/yajl.c",
+    "callee_name": "yajl_lex_realloc",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "noop_malloc",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "noop_realloc",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_append",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_ensure_available",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_clear",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_data",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_ensure_available",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_set_error",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_len",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_buf_truncate",
+    "caller_file": "ext-yajl/yajl_buf.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_string_decode",
+    "caller_file": "ext-yajl/yajl_encode.c",
+    "callee_name": "Utf32toUtf8",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_string_decode",
+    "caller_file": "ext-yajl/yajl_encode.c",
+    "callee_name": "hexToDigit",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_string_decode",
+    "caller_file": "ext-yajl/yajl_encode.c",
+    "callee_name": "yajl_buf_append",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_string_encode",
+    "caller_file": "ext-yajl/yajl_encode.c",
+    "callee_name": "yajl_string_encode2",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_string_encode2",
+    "caller_file": "ext-yajl/yajl_encode.c",
+    "callee_name": "CharToHex",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_protected_yajl_projector_filter",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_filter",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_encoder_encode",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_encode_part",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_encoder_encode",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_clear",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_encoder_encode",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_get_buf",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_encoder_encode",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_raise_encode_error_for_status",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_encoder_new",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_alloc",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_array_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_array_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_false_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_false_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_fixnum_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_fixnum_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_float_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_float_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_hash_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_hash_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_nil_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_nil_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_string_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_string_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_true_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_encode",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_json_ext_true_to_json",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_encoder_new",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_new",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_alloc",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_parse",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_parser_set_complete_cb",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_parse",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_parse",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_parse_chunk",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_parse",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_parse_complete",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_parser_parse_chunk",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_parse_chunk",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_simple_value",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_build_string",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_buf_alloc",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_buf_free",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_build_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_string_decode",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_build_simple_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_filter_array_subtree",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_filter_object_subtree",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_array_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_filter",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_array_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_event_stream_next",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_array_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_tok_name",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_object_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_build_string",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_object_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_filter",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_object_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_ignore_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_object_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_event_stream_next",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_filter_object_subtree",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_tok_name",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_ignore_container",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_event_stream_next",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_ignore_value",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "rb_yajl_projector_ignore_container",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_ignore_value",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_event_stream_next",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_ignore_value",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_tok_name",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_project",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_event_stream_next",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_project",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_lex_alloc",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_project",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_lex_free",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "rb_yajl_projector_project",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_tok_name",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_encode_part",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_array_close",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_array_open",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_bool",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_clear",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_get_buf",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_long",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_map_close",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_map_open",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_null",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_number",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_string",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_raise_encode_error_for_status",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part_hash_i",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_encode_part",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encode_part_hash_i",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_key_to_string",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_encoder_wrapper_free",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_gen_free",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_event_stream_next",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_lex_lex",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_event_stream_next",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_lex_peek",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_boolean",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_boolean",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_end_array",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_end_hash",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_hash_key",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_hash_key",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_null",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_null",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_number",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_start_array",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_start_hash",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_check_and_fire_callback",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_found_string",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_set_static_value",
+    "callee_file": "ext-yajl/yajl_ext.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse_chunk",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_free_error",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse_chunk",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_get_error",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse_chunk",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_parse",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parse_chunk",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_status_to_string",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_parser_wrapper_free",
+    "caller_file": "ext-yajl/yajl_ext.c",
+    "callee_name": "yajl_free",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_alloc",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_gen_alloc2",
+    "callee_file": "ext-yajl/yajl_gen.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_alloc2",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_alloc",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_alloc2",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_set_default_alloc_funcs",
+    "callee_file": "ext-yajl/yajl_alloc.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_clear",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_clear",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_free",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_free",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_get_buf",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_get_buf",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_get_buf",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_gen_string",
+    "caller_file": "ext-yajl/yajl_gen.c",
+    "callee_name": "yajl_string_encode2",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_alloc",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_alloc",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_comment",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_comment",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_free",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_free",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_append",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_clear",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_lex_comment",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_lex_number",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_lex",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_lex_string",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_number",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_number",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_peek",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_peek",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_truncate",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_peek",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_lex_lex",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_realloc",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_clear",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_string",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_string",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_string",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_lex_utf8_char",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_utf8_char",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_lex_utf8_char",
+    "caller_file": "ext-yajl/yajl_lex.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_bs_push_inline",
+    "callee_file": "ext-yajl/yajl_bytestack.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_bs_set_inline",
+    "callee_file": "ext-yajl/yajl_bytestack.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_buf_append",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_buf_clear",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_buf_data",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_buf_err",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_buf_len",
+    "callee_file": "ext-yajl/yajl_buf.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_lex_lex",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_reset_parser",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_do_parse",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_string_decode",
+    "callee_file": "ext-yajl/yajl_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_render_error_string",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_lex_error_to_string",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "yajl_render_error_string",
+    "caller_file": "ext-yajl/yajl_parser.c",
+    "callee_name": "yajl_lex_get_error",
+    "callee_file": "ext-yajl/yajl_lex.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "json_fuzzer.c",
+    "callee_name": "yajl_alloc",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "json_fuzzer.c",
+    "callee_name": "yajl_free",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "json_fuzzer.c",
+    "callee_name": "yajl_parse",
+    "callee_file": "ext-yajl/yajl.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "joern"
+  }
+]

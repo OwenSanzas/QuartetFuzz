@@ -1,0 +1,19 @@
+{
+  "name": "libyaml scanner",
+  "description": "This logic group encompasses the core scanning functionality of libyaml, which is responsible for lexical analysis of YAML input. It converts a raw character stream into a series of tokens such as document indicators, directives, block entries, and various types of scalars (plain, quoted, and block). The scanner manages complex state transitions related to indentation, whitespace handling, and YAML-specific character escaping. Targeting this group allows for deep testing of the library's ability to handle malformed or malicious YAML input at the tokenization level, where many parsing vulnerabilities often reside.",
+  "entries": [
+    "yaml_parser_scan"
+  ],
+  "core": [
+    "yaml_parser_fetch_next_token",
+    "yaml_parser_scan_to_next_token",
+    "yaml_parser_fetch_flow_scalar",
+    "yaml_parser_fetch_plain_scalar",
+    "yaml_parser_fetch_block_scalar"
+  ],
+  "project": "libyaml",
+  "risk_level": "",
+  "danger_scores": {
+    "yaml_parser_scan": 0.0
+  }
+}

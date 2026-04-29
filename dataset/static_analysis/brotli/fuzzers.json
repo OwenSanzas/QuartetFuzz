@@ -1,0 +1,13 @@
+[
+  {
+    "name": "decode_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

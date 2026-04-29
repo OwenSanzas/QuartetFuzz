@@ -1,0 +1,54 @@
+{
+  "auth_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "Base64Decode",
+      "file_path": "src/iperf_auth.c",
+      "depth": 1,
+      "is_external": false
+    }
+  ],
+  "cjson_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "cJSON_Delete",
+      "file_path": "src/cjson.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "cJSON_Parse",
+      "file_path": "src/cjson.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "cJSON_ParseWithOpts",
+      "file_path": "src/cjson.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+[
+  {
+    "name": "fuzz_alg_bins",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_bins.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_bytestream",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_bytestream.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_crc32_md5",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_crc32_md5.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_hll",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_hll.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_hw_rsi_outliers_da",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_hw_rsi_outliers_da.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_jitter",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_jitter.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_memmem",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_memmem.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_quick_encryption",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_quick_encryption.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_ranking",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_ranking.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_ses_des",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_ses_des.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_shoco",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_shoco.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_alg_strnstr",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_alg_strnstr.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_binaryfusefilter",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_binaryfusefilter.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_community_id",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_community_id.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_config",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_config.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_dga",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_dga.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_address_cache",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_address_cache.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_ahocorasick",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_ahocorasick.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_bitmap",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_bitmap.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_bitmap64_fuse",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_bitmap64_fuse.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_btree",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_btree.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_cmsketch",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_cmsketch.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_domain_classify",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_domain_classify.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_filter",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_filter.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_hash",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_hash.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_kdtree",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_kdtree.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_libcache",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_libcache.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_patricia",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_patricia.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_ptree",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_ptree.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ds_tree",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ds_tree.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_categories",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_categories.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_category",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_category.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_config",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_config.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_malicious_ja4",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_malicious_ja4.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_malicious_sha1",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_malicious_sha1.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_protocols",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_protocols.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filecfg_risk_domains",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_filecfg_risk_domains.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_gcrypt_aes",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_gcrypt_aes.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_gcrypt_cipher",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_gcrypt_cipher.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_gcrypt_gcm",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_gcrypt_gcm.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_gcrypt_light",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_gcrypt_light.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_is_stun",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_is_stun.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_libinjection",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_libinjection.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_match_custom_category",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_match_custom_category.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_ndpi_reader",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_ndpi_reader.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_process_packet",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_process_packet.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_quic_get_crypto_data",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_quic_get_crypto_data.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_readerutils_workflow",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_readerutils_workflow.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_serialization",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_serialization.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_tls_certificate",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-ndpi-4qdlljv1/fuzzer_sources/fuzz_tls_certificate.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

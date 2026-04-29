@@ -1,0 +1,24 @@
+[
+  {
+    "name": "xpath",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libxslt/tests/fuzz/xpath.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "xslt",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libxslt/tests/fuzz/xslt.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

@@ -1,0 +1,641 @@
+[
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_compress_fuzzer.cc",
+    "callee_name": "ZopfliCompress",
+    "callee_file": "src/zopfli/zopfli_lib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_compress_fuzzer.cc",
+    "callee_name": "ZopfliInitOptions",
+    "callee_file": "src/zopfli/util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_compress_fuzzer.cc",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_deflate_fuzzer.cc",
+    "callee_name": "ZopfliDeflate",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_deflate_fuzzer.cc",
+    "callee_name": "ZopfliInitOptions",
+    "callee_file": "src/zopfli/util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_deflate_fuzzer.cc",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "FindMinimum",
+    "caller_file": "src/zopfli/blocksplitter.c",
+    "callee_name": "SplitCost",
+    "callee_file": "src/zopfli/blocksplitter.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliBlockSplit",
+    "caller_file": "src/zopfli/blocksplitter.c",
+    "callee_name": "ZopfliBlockSplitLZ77",
+    "callee_file": "src/zopfli/blocksplitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCacheToSublen",
+    "caller_file": "src/zopfli/cache.c",
+    "callee_name": "ZopfliMaxCachedSublen",
+    "callee_file": "src/zopfli/cache.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddDynamicTree",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "EncodeTree",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddHuffmanBits",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddNonCompressedBlock",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "GetDynamicLengths",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "GetFixedTree",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliLZ77GetByteRange",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Block",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliLengthsToSymbols",
+    "callee_file": "src/zopfli/tree.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddBits",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddLZ77Block",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCalculateBlockSize",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCleanBlockState",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCleanLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliInitBlockState",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliInitLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliLZ77GetByteRange",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77BlockAutoType",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliLZ77OptimalFixed",
+    "callee_file": "src/zopfli/squeeze.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Data",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddBits",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Data",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "AddHuffmanBits",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Data",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliGetDistSymbol",
+    "callee_file": "src/zopfli/symbols.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "AddLZ77Data",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliGetLengthSymbol",
+    "callee_file": "src/zopfli/symbols.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeTree",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCalculateBitLengths",
+    "callee_file": "src/zopfli/tree.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "TryOptimizeHuffmanForRle",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "PatchDistanceCodesForBuggyDecoders",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "TryOptimizeHuffmanForRle",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCalculateBitLengths",
+    "callee_file": "src/zopfli/tree.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflate",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliDeflatePart",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliBlockSplit",
+    "callee_file": "src/zopfli/blocksplitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliBlockSplitLZ77",
+    "callee_file": "src/zopfli/blocksplitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCalculateBlockSizeAutoType",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCleanBlockState",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliCleanLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliInitBlockState",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliDeflatePart",
+    "caller_file": "src/zopfli/deflate.c",
+    "callee_name": "ZopfliInitLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliGzipCompress",
+    "caller_file": "src/zopfli/gzip_container.c",
+    "callee_name": "ZopfliDeflate",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliAppendLZ77Store",
+    "caller_file": "src/zopfli/lz77.c",
+    "callee_name": "ZopfliStoreLitLenDist",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCopyLZ77Store",
+    "caller_file": "src/zopfli/lz77.c",
+    "callee_name": "ZopfliCleanLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCopyLZ77Store",
+    "caller_file": "src/zopfli/lz77.c",
+    "callee_name": "ZopfliInitLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliFindLongestMatch",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliResetHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliStoreLitLenDist",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliUpdateHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliVerifyLenDist",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "FollowPath",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliWarmupHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetBestLengths",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "GetCostStat",
+    "callee_file": "src/zopfli/squeeze.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetBestLengths",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliFindLongestMatch",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetBestLengths",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliResetHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetBestLengths",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliUpdateHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetBestLengths",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliWarmupHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetCostFixed",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliGetDistExtraBits.84",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetCostFixed",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliGetLengthExtraBits.82",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetCostFixed",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliGetLengthSymbol.81",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "GetCostModelMinCost",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "GetCostStat",
+    "callee_file": "src/zopfli/squeeze.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliAllocHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliCalculateBlockSize",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliCleanHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliCleanLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliInitLZ77Store",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77Optimal",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliLZ77Greedy",
+    "callee_file": "src/zopfli/lz77.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77OptimalFixed",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliAllocHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliLZ77OptimalFixed",
+    "caller_file": "src/zopfli/squeeze.c",
+    "callee_name": "ZopfliCleanHash",
+    "callee_file": "src/zopfli/hash.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliZlibCompress",
+    "caller_file": "src/zopfli/zlib_container.c",
+    "callee_name": "ZopfliDeflate",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCompress",
+    "caller_file": "src/zopfli/zopfli_lib.c",
+    "callee_name": "ZopfliDeflate",
+    "callee_file": "src/zopfli/deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCompress",
+    "caller_file": "src/zopfli/zopfli_lib.c",
+    "callee_name": "ZopfliGzipCompress",
+    "callee_file": "src/zopfli/gzip_container.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ZopfliCompress",
+    "caller_file": "src/zopfli/zopfli_lib.c",
+    "callee_name": "ZopfliZlibCompress",
+    "callee_file": "src/zopfli/zlib_container.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

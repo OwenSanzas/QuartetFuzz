@@ -1,0 +1,9 @@
+{
+  "case_id": "yajl-ruby/json_fuzzer",
+  "project": "yajl-ruby",
+  "fuzzer_name": "json_fuzzer",
+  "target_function": "yajl_parse",
+  "repo_url": "https://github.com/brianmario/yajl-ruby",
+  "source_file": "json_fuzzer.c",
+  "prompt": "This harness fuzzes the `yajl_parse` JSON parsing function from the yajl-ruby C library by feeding arbitrary byte sequences as raw JSON input. It configures the parser with comment support and UTF-8 validation enabled, then drives parsing through a full set of event callbacks that track nesting levels for arrays and objects. The goal is to uncover crashes, memory corruption, assertion violations, or incorrect nesting behavior\u2014such as mismatched array/object open and close events\u2014that could arise from malformed, truncated, or adversarially crafted JSON input."
+}

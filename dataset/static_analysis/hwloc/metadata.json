@@ -1,0 +1,88 @@
+{
+  "project": "hwloc",
+  "snapshot": {
+    "id": "307aa3b2-22fc-4d27-aeb8-4598b9b95199",
+    "repo_url": "https://github.com/open-mpi/hwloc",
+    "repo_name": "hwloc",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:21:12.832606+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "hwloc_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "hwloc_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "hwloc_fuzzer": {
+      "matched_fuzzer_names": [
+        "hwloc_fuzzer"
+      ],
+      "reach_count": 4,
+      "external_reach_count": 2,
+      "internal_reach_count": 2,
+      "max_depth": 1
+    }
+  },
+  "target_function_matches": {
+    "hwloc_fuzzer": {
+      "target_function": "hwloc_encode_to_base64",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "hwloc_encode_to_base64",
+          "file_path": "hwloc/base64.c",
+          "start_line": 135
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 1012,
+    "external_functions": 203,
+    "edges": 1346,
+    "fuzzers": 1,
+    "reach_total": 4,
+    "reach_by_fuzzer": {
+      "hwloc_fuzzer": 4
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 122.88,
+    "analysis_sec": 21.39,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.61,
+    "total_sec": 145.1,
+    "wall_sec": 146.12,
+    "started_at": "2026-04-11T00:18:47Z",
+    "ended_at": "2026-04-11T00:21:13Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/hwloc:latest",
+    "image_id": "sha256:58d206108cc9e38010640de09eb0f4c2d3c07968e62d07e6c28c8459c14a9bd5",
+    "image_created": "2026-04-10T23:00:19.469304901Z",
+    "source_commits": {
+      "/src/hwloc": "c8c9edb646d14882789f9333bab6f9c7b8427317"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 1011,
+      "edge_count": 1342,
+      "benchmark_targets_hit": [
+        "hwloc_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 145.11
+    }
+  ],
+  "exported_at": "2026-04-11T05:04:42Z"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "YAJL JSON streaming parser",
+  "description": "The core YAJL parsing engine provides a stream-oriented JSON parser. The process involves allocating a parser handle with optional configurations for comment support and UTF-8 validation, followed by feeding JSON data chunks into the parser. The internal logic employs a state-machine-based approach and a lexer to efficiently tokenize and decode JSON input, triggering user-defined callbacks for various JSON elements. The parser handles complex tasks such as UTF-8 validation, string escape sequence decoding, and number parsing.",
+  "entries": [
+    "yajl_free",
+    "yajl_parse",
+    "yajl_parse_complete",
+    "yajl_alloc",
+    "yajl_get_error",
+    "yajl_free_error"
+  ],
+  "core": [
+    "yajl_do_parse",
+    "yajl_lex_lex",
+    "yajl_lex_string",
+    "yajl_lex_number",
+    "yajl_string_decode"
+  ],
+  "project": "yajl-ruby",
+  "risk_level": "",
+  "danger_scores": {
+    "yajl_free": 2.5,
+    "yajl_parse": 0.33,
+    "yajl_parse_complete": 0.25,
+    "yajl_alloc": 0.0,
+    "yajl_get_error": 0.0,
+    "yajl_free_error": 0.0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "case_id": "pugixml/fuzz_xpath",
+  "line_pct": 35.95,
+  "branch_pct": 29.36,
+  "function_pct": 33.75,
+  "cost_usd": 0.33,
+  "turns": 28,
+  "iter": 0,
+  "wall_seconds": 296.5
+}

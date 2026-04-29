@@ -1,0 +1,19 @@
+{
+  "name": "QuickJS JSON Parser",
+  "description": "The QuickJS JSON parser converts JSON-formatted strings into JavaScript values. It is implemented as a recursive-descent parser that is separate from the main JavaScript parser to ensure compliance with the JSON specification while allowing for performance optimizations. It supports both standard JSON and an extended mode (JS_PARSE_JSON_EXT) which enables non-standard features such as unquoted identifiers and trailing commas. The parser handles nested objects, arrays, and various primitive types including strings and numbers, with dedicated logic for tokenization and value construction.",
+  "entries": [
+    "JS_ParseJSON",
+    "JS_ParseJSON2"
+  ],
+  "core": [
+    "JS_ParseJSON3",
+    "json_parse_value",
+    "json_next_token"
+  ],
+  "project": "quickjs",
+  "risk_level": "",
+  "danger_scores": {
+    "JS_ParseJSON": 0.83,
+    "JS_ParseJSON2": 0.0
+  }
+}

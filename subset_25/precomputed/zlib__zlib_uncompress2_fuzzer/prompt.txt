@@ -1,0 +1,1 @@
+Write a fuzzer for zlib that targets `uncompress2`. This replicates the OSS-Fuzz harness `zlib_uncompress2_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

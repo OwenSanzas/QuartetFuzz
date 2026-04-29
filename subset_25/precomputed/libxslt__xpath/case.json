@@ -1,0 +1,9 @@
+{
+  "case_id": "libxslt/xpath",
+  "project": "libxslt",
+  "fuzzer_name": "xpath",
+  "target_function": "xsltFuzzXPath",
+  "repo_url": "https://gitlab.gnome.org/GNOME/libxslt.git",
+  "source_file": "xpath.c",
+  "prompt": "This harness fuzzes libxslt's XPath expression evaluation by feeding arbitrary byte sequences directly into `xsltFuzzXPath`, which parses and evaluates the input as an XPath expression against a fixed XML document. The fuzzer targets the XPath parser, compiler, and evaluator code paths, exercising expression tokenization, syntax handling, and object lifecycle management. Interesting failure classes include crashes from malformed or deeply nested expressions, memory corruption or leaks during object allocation and freeing, and undefined behavior triggered by unexpected or boundary-case XPath syntax."
+}

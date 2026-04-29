@@ -1,0 +1,2034 @@
+{
+  "fuzz_parse": [
+    {
+      "function_name": "load_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "load_buffer_impl",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "reset",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_create",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "_destroy",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "auto_deleter",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_buffer_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "make_parse_result",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_tree",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "release",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "append_new_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "binary_op_t",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "construct",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "contents",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_generic",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_latin1",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "current",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_page",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "delete_xpath_variable",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "error",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "flush",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_allocator",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_mutable_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_wchar_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "guess_buffer_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "has_element_node_siblings",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_little_endian",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_contents",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_skip_bom",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_tree",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "push",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_escape",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "write",
+      "file_path": "docs/samples/save_custom_writer.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "any",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "append_new_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "append_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_output",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "current_pos",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "error_rec",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_latin1_7bit_prefix_length",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_strconv_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_strconv_pcdata",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_write_native_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_declaration_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_exclamation",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_expression_rec",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_path_or_unary_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_question",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "process",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "reserve",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "strlength",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "alloc_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_object",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "append",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "append_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_output_generic",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "endian_swap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "high",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "low",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "next",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_group",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_filter_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_location_path",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_node_test_type",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_relative_location_path",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "rettype",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "state",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_cdata",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_comment",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strcpy_insitu",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_memory",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "allow_insert_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "length",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_ignore",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_primitive",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_primary_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_step",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "reallocate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "set_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "strcpy_insitu_allow",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "type",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "xml_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "alloc_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_memory_oob",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_string_to_number_scratch",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_memory",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "error_oom",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "get_variable_scratch",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_axis_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_function",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "set_next",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "set_right",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_lexer_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_page",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_string_to_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "get",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "_data",
+      "file_path": "src/pugixml.cpp",
+      "depth": 10,
+      "is_external": false
+    },
+    {
+      "function_name": "_find",
+      "file_path": "src/pugixml.cpp",
+      "depth": 10,
+      "is_external": false
+    },
+    {
+      "function_name": "check_string_to_number_format",
+      "file_path": "src/pugixml.cpp",
+      "depth": 10,
+      "is_external": false
+    },
+    {
+      "function_name": "gen_nan",
+      "file_path": "src/pugixml.cpp",
+      "depth": 10,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 11,
+      "is_external": false
+    },
+    {
+      "function_name": "is_text_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 11,
+      "is_external": false
+    },
+    {
+      "function_name": "name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 11,
+      "is_external": false
+    },
+    {
+      "function_name": "strequal",
+      "file_path": "src/pugixml.cpp",
+      "depth": 11,
+      "is_external": false
+    }
+  ],
+  "fuzz_xpath": [
+    {
+      "function_name": "add",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "c_str",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "data",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_boolean",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_node_set",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "load_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "push_back",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "size",
+      "file_path": "src/pugixml.cpp",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "_data",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "begin",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "duplicate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "end",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_boolean",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_node_set",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "evaluate_node_set_prepare",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "first",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gen_nan",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "length",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "load_buffer_impl",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "new_xpath_variable",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "push_back_grow",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "reset",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "strequal",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "strlength",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "type",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "xml_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_node_set",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_assign",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "_create",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "_destroy",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "_move",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "append",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "apply_predicate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "auto_deleter",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "compare_eq",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "compare_rel",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_number_to_boolean",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_number_to_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_string_to_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "empty",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_once",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "eval_string_concat",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "find_substring",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "from_const",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "from_heap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "from_heap_preallocated",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_boolean",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_buffer_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_node_set",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "is_nan",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "is_text_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "is_xpath_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "local_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "make_parse_result",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "namespace_uri",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_tree",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "normalize_space",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parent",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "qualified_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "reallocate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "release",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "remove_duplicates",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "rettype",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "root",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "round_nearest",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "round_nearest_nzero",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "set_type",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "sort_do",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "starts_with",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "step_do",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "string_value",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "tolower_ascii",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "translate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "translate_table",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "uses_heap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "value",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_exception",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_first",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_node_set_raw",
+      "file_path": "src/pugixml.cpp",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "_clone",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_swap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "append_new_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "apply_predicate_boolean",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "apply_predicate_number",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "apply_predicate_number_const",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "apply_predicates",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "binary_op_t",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "check_string_to_number_format",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "construct",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "contents",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_generic",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_latin1",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_number_to_mantissa_exponent",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_number_to_string_special",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "current",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_page",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "delete_xpath_variable",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "error",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "find_char",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "first_child",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "flush",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_allocator",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_document",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_mutable_buffer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_wchar_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "guess_buffer_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "has_element_node_siblings",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_insert",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "internal_object",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_attribute_of",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_little_endian",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "min_element",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "next_sibling",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_contents",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_skip_bom",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_tree",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "push",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "step_fill",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_escape",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "swap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "unique",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "xml_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_sort",
+      "file_path": "src/pugixml.cpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "find_attribute",
+      "file_path": "src/pugixml.hpp",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "write",
+      "file_path": "docs/samples/save_custom_writer.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "any",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "append_new_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "append_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_output",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "copy_xpath_variable",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "current_pos",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "error_rec",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "first_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_latin1_7bit_prefix_length",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_strconv_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_strconv_pcdata",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "get_write_native_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "next_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_copy_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_is_ancestor",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_declaration_encoding",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_exclamation",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_expression_rec",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_path_or_unary_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_question",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "process",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "reserve",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "reverse",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "sort",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "step_push",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "truncate",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "truncate_zeros",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_get_order",
+      "file_path": "src/pugixml.cpp",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "alloc_node",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_object",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "append_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_buffer_output_generic",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "endian_swap",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "high",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "insertion_sort",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "low",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "median3",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "next",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_group",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_filter_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_location_path",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_node_test_type",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_relative_location_path",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "partition3",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "set",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "state",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_cdata",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strconv_comment",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "strcpy_insitu",
+      "file_path": "src/pugixml.cpp",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "_data_new",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_memory",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "allow_insert_attribute",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_ignore",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_doctype_primitive",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_primary_expression",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_step",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "set_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "set_value_bool",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "set_value_convert",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "set_value_integer",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "strcpy_insitu_allow",
+      "file_path": "src/pugixml.cpp",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "alloc_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_memory_oob",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "append_child",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_string_to_number_scratch",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "deallocate_memory",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "error_oom",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "get_variable_scratch",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "integer_to_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_axis_name",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_function",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "set_next",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "set_right",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "set_value_ascii",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "xpath_lexer_string",
+      "file_path": "src/pugixml.cpp",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "allocate_page",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "allow_insert_child",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "get",
+      "file_path": "src/pugixml.cpp",
+      "depth": 9,
+      "is_external": false
+    },
+    {
+      "function_name": "_find",
+      "file_path": "src/pugixml.cpp",
+      "depth": 10,
+      "is_external": false
+    }
+  ]
+}

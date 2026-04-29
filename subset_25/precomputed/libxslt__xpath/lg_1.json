@@ -1,0 +1,22 @@
+{
+  "name": "libxslt XPath evaluation",
+  "description": "This feature provides the integration between libxml2's XPath engine and libxslt's transformation context. It handles the resolution of XSLT-specific variables and extension functions (including the EXSLT module suite) during expression evaluation. It also provides the mechanisms for evaluating XPath expressions within the context of a stylesheet, such as for attribute value templates (AVTs) and patterns.",
+  "entries": [
+    "xsltApplyStylesheetUser",
+    "xsltNewTransformContext",
+    "xsltXPathCompile"
+  ],
+  "core": [
+    "xsltXPathFunctionLookup",
+    "xsltXPathVariableLookup",
+    "xsltEvalXPathStringNs",
+    "xsltXPathCompileFlags"
+  ],
+  "project": "libxslt",
+  "risk_level": "",
+  "danger_scores": {
+    "xsltApplyStylesheetUser": 8.31,
+    "xsltNewTransformContext": 4.95,
+    "xsltXPathCompile": 0.0
+  }
+}

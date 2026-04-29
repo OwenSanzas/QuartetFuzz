@@ -1,0 +1,9 @@
+{
+  "case_id": "libxslt/xslt",
+  "project": "libxslt",
+  "fuzzer_name": "xslt",
+  "target_function": "xsltFuzzXslt",
+  "repo_url": "https://gitlab.gnome.org/GNOME/libxslt.git",
+  "source_file": "xslt.c",
+  "prompt": "This harness fuzzes libxslt's XSLT stylesheet processing pipeline via `xsltFuzzXslt`, feeding arbitrary byte sequences as combined stylesheet-and-document input to exercise parsing, compilation, and transformation logic. The fuzzer targets the full chain from XML/XSLT parsing through template matching and output serialization, looking for crashes, memory corruption, use-after-free errors, infinite loops, and other undefined behaviors that can arise when malformed or adversarial stylesheets interact with the transformation engine."
+}

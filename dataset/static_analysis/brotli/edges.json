@@ -1,0 +1,1721 @@
+[
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+    "callee_name": "BrotliDecoderCreateInstance",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+    "callee_name": "BrotliDecoderDecompressStream",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+    "callee_name": "BrotliDecoderDestroyInstance",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "/usr/include/stdlib.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-brotli-d22sa41y/fuzzer_sources/decode_fuzzer.c",
+    "callee_name": "malloc",
+    "callee_file": "/usr/include/stdlib.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "BrotliSharedDictionaryCreateInstance",
+    "caller_file": "c/common/shared_dictionary.c",
+    "callee_name": "BrotliGetDictionary",
+    "callee_file": "c/common/dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSharedDictionaryDestroyInstance",
+    "caller_file": "c/common/shared_dictionary.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSharedDictionaryDestroyInstance",
+    "caller_file": "c/common/shared_dictionary.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderAttachDictionary",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliSharedDictionaryAttach",
+    "callee_file": "c/common/shared_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderDecompress",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDecoderStateCleanup",
+    "callee_file": "c/dec/state.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderDecompress",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDecoderStateInit",
+    "callee_file": "c/dec/state.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderDecompressStream",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderDecompressStream",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderDecompressStream",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliWarmupBitReader",
+    "callee_file": "c/dec/bit_reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderTakeOutput",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SaveErrorCode",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderTakeOutput",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "WrapRingBuffer",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderTakeOutput",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "WriteRingBuffer",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEnsureRingBuffer",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEnsureRingBuffer",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "CopyUncompressedBlockToOutput",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "WriteRingBuffer",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DecodeContextMap",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DecodeContextMap",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DecodeContextMap",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "DecodeVarLenUint8",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DecodeContextMap",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "ReadHuffmanCode",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DecodeContextMap",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SafeDecodeSymbol",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ProcessCommands",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliTransformDictionaryWord",
+    "callee_file": "c/common/transform.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ProcessCommands",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliWarmupBitReader",
+    "callee_file": "c/dec/bit_reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ReadHuffmanCode",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliWarmupBitReader",
+    "callee_file": "c/dec/bit_reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "SafeDecodeCommandBlockSwitch",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SafeDecodeSymbol",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "SafeDecodeDistanceBlockSwitch",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SafeDecodeSymbol",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "SafeDecodeLiteralBlockSwitch",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SafeDecodeSymbol",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "SafeProcessCommands",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "BrotliTransformDictionaryWord",
+    "callee_file": "c/common/transform.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "SafeProcessCommands",
+    "caller_file": "c/dec/decode.c",
+    "callee_name": "SafeDecodeSymbol",
+    "callee_file": "c/dec/decode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderHuffmanTreeGroupInit",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderHuffmanTreeGroupInit",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateCleanup",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateCleanup",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateCleanup",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliSharedDictionaryDestroyInstance",
+    "callee_file": "c/common/shared_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateCleanupAfterMetablock",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateCleanupAfterMetablock",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateInit",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliInitBitReader",
+    "callee_file": "c/dec/bit_reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDecoderStateInit",
+    "caller_file": "c/dec/state.c",
+    "callee_name": "BrotliSharedDictionaryCreateInstance",
+    "callee_file": "c/common/shared_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliFindAllStaticDictionaryMatches",
+    "callee_file": "c/enc/static_dict.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliZopfliCreateCommands",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "UpdateNodes",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateHqZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "ZopfliCostModelSetFromLiteralCosts",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliZopfliComputeShortestPath",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateZopfliBackwardReferences",
+    "caller_file": "c/enc/backward_references_hq.c",
+    "callee_name": "BrotliZopfliCreateCommands",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDestroyBlockSplit",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSplitBlock",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSplitBlock",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSplitBlock",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliPopulationCostCommand",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSplitBlock",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliSplitBlock",
+    "caller_file": "c/enc/block_splitter.c",
+    "callee_name": "BrotliPopulationCostLiteral",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildAndStoreHuffmanTreeFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliConvertBitDepthsToSymbols",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlock",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlock",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliBuildAndStoreHuffmanTreeFast",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "StoreCompressedMetaBlockHeader",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockFast",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "StoreDataWithHuffmanCodes",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockTrivial",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockTrivial",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockTrivial",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BuildAndStoreHuffmanTree",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliStoreMetaBlockTrivial",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "StoreCompressedMetaBlockHeader",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreHuffmanTree",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliConvertBitDepthsToSymbols",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreHuffmanTree",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliCreateHuffmanTree",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreHuffmanTree",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliStoreHuffmanTree",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeContextMap",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeContextMap",
+    "caller_file": "c/enc/brotli_bit_stream.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramCombineCommand",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramReindexCommand",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramRemapCommand",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostCommand",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramCombineDistance",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramReindexDistance",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramRemapDistance",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramCombineLiteral",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramReindexLiteral",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliHistogramRemapLiteral",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliClusterHistogramsLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostLiteral",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompareAndPushToQueueCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostCommand",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompareAndPushToQueueDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompareAndPushToQueueLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostLiteral",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramBitCostDistanceCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostCommand",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramBitCostDistanceDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramBitCostDistanceLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostLiteral",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramReindexLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramRemapCommand",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostCommand",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramRemapDistance",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliHistogramRemapLiteral",
+    "caller_file": "c/enc/cluster_inc.h",
+    "callee_name": "BrotliPopulationCostLiteral",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "CreatePreparedDictionary",
+    "caller_file": "c/enc/compound_dictionary.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "CreatePreparedDictionary",
+    "caller_file": "c/enc/compound_dictionary.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "DestroyPreparedDictionary",
+    "caller_file": "c/enc/compound_dictionary.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreLiteralPrefixCode",
+    "caller_file": "c/enc/compress_fragment.c",
+    "callee_name": "BrotliBuildAndStoreHuffmanTreeFast",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl10",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl11",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl12",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl13",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl14",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl15",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl16",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl17",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl8",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCompressFragmentTwoPassImpl9",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreCommandPrefixCode",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliConvertBitDepthsToSymbols",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreCommandPrefixCode",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliCreateHuffmanTree",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BuildAndStoreCommandPrefixCode",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliStoreHuffmanTree",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "StoreCommands",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliBuildAndStoreHuffmanTreeFast",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "StoreCommands",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliConvertBitDepthsToSymbols",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "StoreCommands",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliCreateHuffmanTree",
+    "callee_file": "c/enc/entropy_encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "StoreCommands",
+    "caller_file": "c/enc/compress_fragment_two_pass.c",
+    "callee_name": "BrotliStoreHuffmanTree",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderAttachPreparedDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "AttachPreparedDictionary",
+    "callee_file": "c/enc/compound_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompress",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliEncoderCreateInstance",
+    "callee_file": "c/enc/encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompress",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliEncoderDestroyInstance",
+    "callee_file": "c/enc/encode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompressStream",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompressStream",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCompressFragmentFast",
+    "callee_file": "c/enc/compress_fragment.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompressStream",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCompressFragmentTwoPass",
+    "callee_file": "c/enc/compress_fragment_two_pass.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderCompressStream",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderDestroyInstance",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderDestroyPreparedDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCleanupSharedEncoderDictionary",
+    "callee_file": "c/enc/encoder_dict.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderDestroyPreparedDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliDestroyManagedDictionary",
+    "callee_file": "c/enc/encoder_dict.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderDestroyPreparedDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderDestroyPreparedDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "DestroyPreparedDictionary",
+    "callee_file": "c/enc/compound_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderEstimatePeakMemoryUsage",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliInitSharedEncoderDictionary",
+    "callee_file": "c/enc/encoder_dict.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliEncoderPrepareDictionary",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "CreatePreparedDictionary",
+    "callee_file": "c/enc/compound_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCompressFragmentFast",
+    "callee_file": "c/enc/compress_fragment.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCompressFragmentTwoPass",
+    "callee_file": "c/enc/compress_fragment_two_pass.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCreateBackwardReferences",
+    "callee_file": "c/enc/backward_references.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCreateHqZopfliBackwardReferences",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliCreateZopfliBackwardReferences",
+    "callee_file": "c/enc/backward_references_hq.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliDestroyBlockSplit",
+    "callee_file": "c/enc/block_splitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliInitBlockSplit",
+    "callee_file": "c/enc/block_splitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliIsMostlyUTF8",
+    "callee_file": "c/enc/utf8_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliStoreMetaBlock",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliStoreMetaBlockFast",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliStoreMetaBlockTrivial",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "EncodeData",
+    "caller_file": "c/enc/encode.c",
+    "callee_name": "BrotliStoreUncompressedMetaBlock",
+    "callee_file": "c/enc/brotli_bit_stream.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCleanupSharedEncoderDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCleanupSharedEncoderDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "DestroyPreparedDictionary",
+    "callee_file": "c/enc/compound_dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateManagedDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliBootstrapAlloc",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliCreateManagedDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliInitMemoryManager",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliDestroyManagedDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliBootstrapFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliInitSharedEncoderDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliGetDictionary",
+    "callee_file": "c/common/dictionary.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliInitSharedEncoderDictionary",
+    "caller_file": "c/enc/encoder_dict.c",
+    "callee_name": "BrotliGetTransforms",
+    "callee_file": "c/common/transform.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliAllocate",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliAllocate",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBootstrapFree",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBootstrapFree",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliFree",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultAllocFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliFree",
+    "caller_file": "c/enc/memory.c",
+    "callee_name": "BrotliDefaultFreeFunc",
+    "callee_file": "c/common/platform.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliClusterHistogramsDistance",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliClusterHistogramsLiteral",
+    "callee_file": "c/enc/cluster_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliPopulationCostDistance",
+    "callee_file": "c/enc/bit_cost_inc.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliSplitBlock",
+    "callee_file": "c/enc/block_splitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlockGreedy",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BrotliBuildMetaBlockGreedy",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ContextBlockSplitterFinishBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ContextBlockSplitterFinishBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ContextBlockSplitterFinishBlock",
+    "caller_file": "c/enc/metablock.c",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BlockSplitterFinishBlockCommand",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BlockSplitterFinishBlockDistance",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "BlockSplitterFinishBlockLiteral",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliBitsEntropy",
+    "callee_file": "c/enc/bit_cost.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterCommand",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterCommand",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterDistance",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterDistance",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterLiteral",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliAllocate",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "InitBlockSplitterLiteral",
+    "caller_file": "c/enc/metablock_inc.h",
+    "callee_name": "BrotliFree",
+    "callee_file": "c/enc/memory.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

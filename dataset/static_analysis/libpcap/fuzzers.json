@@ -1,0 +1,35 @@
+[
+  {
+    "name": "fuzz_both",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_filter",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_pcap",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

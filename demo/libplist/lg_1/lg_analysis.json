@@ -1,0 +1,23 @@
+{
+  "name": "libplist cross-format serialization",
+  "description": "This Logic Group targets the serialization/output paths of libplist. After parsing arbitrary input via plist_from_memory (which auto-detects binary/XML/JSON/OpenStep formats), the resulting plist tree is serialized back through multiple output format writers. The core consists of recursive tree-walking serializers: serialize_plist (binary plist output with circular reference detection and offset table construction), node_to_xml (XML output with base64 encoding and date formatting), node_to_json (JSON output with string escaping), node_to_openstep (OpenStep output with quoting logic), and node_to_string (default/limd/plutil human-readable output). The dispatcher plist_write_to_string routes to all non-binary formats based on a format enum, while plist_to_bin handles binary serialization separately. These serializers perform deep recursive walks over the plist node tree, handle type-specific encoding (dates, data blobs, unicode strings), and manage dynamic buffer growth \u2014 all areas prone to bugs under adversarial tree structures.",
+  "entries": [
+    "plist_to_bin",
+    "plist_from_memory",
+    "plist_write_to_string"
+  ],
+  "core": [
+    "serialize_plist",
+    "node_to_xml",
+    "node_to_json",
+    "node_to_openstep",
+    "node_to_string"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_to_bin": 14.83,
+    "plist_from_memory": 7.73,
+    "plist_write_to_string": 6.5
+  }
+}

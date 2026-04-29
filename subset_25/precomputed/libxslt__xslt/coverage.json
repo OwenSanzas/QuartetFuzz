@@ -1,0 +1,10 @@
+{
+  "case_id": "libxslt/xslt",
+  "line_pct": 7.71,
+  "branch_pct": 5.87,
+  "function_pct": 12.19,
+  "cost_usd": 0.41,
+  "turns": 38,
+  "iter": 0,
+  "wall_seconds": 384.6
+}

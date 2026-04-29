@@ -1,0 +1,24 @@
+[
+  {
+    "name": "fftw3 DFT planner and executor",
+    "description": "FFTW (Fastest Fourier Transform in the West) uses a sophisticated planner to determine the most efficient algorithm for a given transform size and hardware. This Logic Group covers the lifecycle of Discrete Fourier Transform (DFT) plans, including problem creation, plan optimization (planning), and execution. The core logic involves the planner's heuristic and measured selection of solvers, which can be influenced by various flags and pre-existing 'wisdom' data. Targeting this group allows for testing the complex state machine and algorithmic selection logic within the FFTW kernel.",
+    "entries": [
+      "fftw_destroy_plan",
+      "fftw_plan_dft_1d",
+      "fftw_execute"
+    ],
+    "core": [
+      "fftw_mkapiplan",
+      "fftw_mkproblem_dft_d",
+      "mkplan0",
+      "mkplan"
+    ],
+    "project": "fftw3",
+    "risk_level": "",
+    "danger_scores": {
+      "fftw_destroy_plan": 1.0,
+      "fftw_plan_dft_1d": 0.0,
+      "fftw_execute": 0.0
+    }
+  }
+]

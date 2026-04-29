@@ -1,0 +1,10 @@
+{
+  "case_id": "libplist/jplist_fuzzer",
+  "line_pct": 26.44,
+  "branch_pct": 24.11,
+  "function_pct": 30.26,
+  "cost_usd": 0.3,
+  "turns": 29,
+  "iter": 0,
+  "wall_seconds": 256.5
+}

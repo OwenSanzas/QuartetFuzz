@@ -1,0 +1,1 @@
+Write a fuzzer for iperf that targets `cJSON_Parse`. This replicates the OSS-Fuzz harness `cjson_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

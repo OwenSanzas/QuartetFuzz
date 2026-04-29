@@ -1,0 +1,24 @@
+[
+  {
+    "name": "libxslt transformation engine",
+    "description": "The XSLT transformation engine in libxslt processes XML documents using XSLT stylesheets. The logic involves two main phases: parsing the stylesheet into an internal representation (compiled stylesheet) and then applying this stylesheet to a source XML document. The parsing phase handles template compilation, attribute set resolution, and namespace processing. The transformation phase manages the transformation context, evaluates XPath expressions, executes instructions (like xsl:apply-templates, xsl:call-template), and generates the result document. This logic group covers the core engine including the recursive node processing and instruction execution.",
+    "entries": [
+      "xsltApplyStylesheetUser",
+      "xsltParseStylesheetUser",
+      "xsltSaveResultToString"
+    ],
+    "core": [
+      "xsltParseStylesheetProcess",
+      "xsltApplyStylesheetInternal",
+      "xsltProcessOneNode",
+      "xsltApplySequenceConstructor"
+    ],
+    "project": "libxslt",
+    "risk_level": "",
+    "danger_scores": {
+      "xsltApplyStylesheetUser": 8.31,
+      "xsltParseStylesheetUser": 7.93,
+      "xsltSaveResultToString": 0.0
+    }
+  }
+]

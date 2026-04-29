@@ -1,0 +1,117 @@
+{
+  "project": "libpcap",
+  "snapshot": {
+    "id": "af7b0eca-43d9-4a10-9045-32dc72fe9022",
+    "repo_url": "https://github.com/the-tcpdump-group/libpcap.git",
+    "repo_name": "libpcap",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:26:20.812289+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "fuzz_both",
+    "fuzz_filter"
+  ],
+  "benchmark_targets_hit": [
+    "fuzz_both",
+    "fuzz_filter"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [
+    "fuzz_pcap"
+  ],
+  "case_reachability": {
+    "fuzz_filter": {
+      "matched_fuzzer_names": [
+        "fuzz_filter"
+      ],
+      "reach_count": 10,
+      "external_reach_count": 3,
+      "internal_reach_count": 7,
+      "max_depth": 2
+    },
+    "fuzz_both": {
+      "matched_fuzzer_names": [
+        "fuzz_both"
+      ],
+      "reach_count": 19,
+      "external_reach_count": 9,
+      "internal_reach_count": 10,
+      "max_depth": 3
+    }
+  },
+  "target_function_matches": {
+    "fuzz_filter": {
+      "target_function": "pcap_compile",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "pcap_compile",
+          "file_path": "gencode.c",
+          "start_line": 1302
+        }
+      ]
+    },
+    "fuzz_both": {
+      "target_function": "pcap_compile",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "pcap_compile",
+          "file_path": "gencode.c",
+          "start_line": 1302
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 700,
+    "external_functions": 100,
+    "edges": 668,
+    "fuzzers": 3,
+    "reach_total": 42,
+    "reach_by_fuzzer": {
+      "fuzz_both": 19,
+      "fuzz_filter": 10,
+      "fuzz_pcap": 13
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 82.98,
+    "analysis_sec": 5.72,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.27,
+    "total_sec": 89.13,
+    "wall_sec": 90.16,
+    "started_at": "2026-04-11T00:24:50Z",
+    "ended_at": "2026-04-11T00:26:21Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/libpcap:latest",
+    "image_id": "sha256:1dc0a60a827c5a57823187565e15d09a03b9e61debabf22602c7cffa93fc5b7e",
+    "image_created": "2026-04-10T23:08:57.523553767Z",
+    "source_commits": {
+      "/src/libpcap": "bac2884bfabe20f9ff0f711eb9eb7589569e6a01",
+      "/src/tcpdump": "1c910cafdb0127cee22afb86c7ae5b5f420c0479"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 697,
+      "edge_count": 633,
+      "benchmark_targets_hit": [
+        "fuzz_both",
+        "fuzz_filter"
+      ],
+      "error_phase": "",
+      "wall_sec": 89.14
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:04Z"
+}

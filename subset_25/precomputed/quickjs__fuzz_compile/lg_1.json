@@ -1,0 +1,20 @@
+{
+  "name": "quickjs JSON parser",
+  "description": "QuickJS provides a built-in JSON parser that converts JSON strings into internal JavaScript values (JSValue). This parser is implemented as a recursive-descent parser within the core engine. It supports both the standard JSON specification and an extended mode (including JSON5-like features such as comments, hex literals, and trailing commas) when specifically enabled. The implementation handles complex nested structures, string unescaping, and numeric parsing while integrating with the engine's atom and memory management systems to prevent leaks and ensure efficient object creation.",
+  "entries": [
+    "JS_ParseJSON",
+    "JS_ParseJSON2"
+  ],
+  "core": [
+    "json_parse_value",
+    "json_next_token",
+    "json_parse_expect",
+    "JS_ParseJSON3"
+  ],
+  "project": "quickjs",
+  "risk_level": "",
+  "danger_scores": {
+    "JS_ParseJSON": 0.83,
+    "JS_ParseJSON2": 0.0
+  }
+}

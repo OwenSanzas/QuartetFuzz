@@ -1,0 +1,9 @@
+{
+  "case_id": "brotli/decode_fuzzer",
+  "project": "brotli",
+  "fuzzer_name": "decode_fuzzer",
+  "target_function": "BrotliDecoderDecompressStream",
+  "repo_url": "https://github.com/google/brotli.git",
+  "source_file": "decode_fuzzer.c",
+  "prompt": "This fuzzer targets the Brotli streaming decompression API, specifically `BrotliDecoderDecompressStream`, by feeding arbitrary byte sequences as compressed input and exercising both fast (full-buffer) and slow (small-chunk, up to 7 bytes at a time) decoding paths. The last byte of the input controls the chunk size, allowing the fuzzer to stress incremental decoding behavior across many input splits. The goal is to uncover crashes, memory corruption, infinite loops, or incorrect state handling when the decoder encounters malformed, truncated, or adversarially crafted compressed data."
+}

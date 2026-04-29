@@ -1,0 +1,111 @@
+{
+  "project": "libxslt",
+  "snapshot": {
+    "id": "c12e3c20-2572-43e8-bc3b-677341467eec",
+    "repo_url": "https://gitlab.gnome.org/GNOME/libxslt.git",
+    "repo_name": "libxslt",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T02:50:54.017460+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "xpath",
+    "xslt"
+  ],
+  "benchmark_targets_hit": [
+    "xpath",
+    "xslt"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "xpath": {
+      "matched_fuzzer_names": [
+        "xpath"
+      ],
+      "reach_count": 0,
+      "external_reach_count": 0,
+      "internal_reach_count": 0,
+      "max_depth": 0
+    },
+    "xslt": {
+      "matched_fuzzer_names": [
+        "xslt"
+      ],
+      "reach_count": 0,
+      "external_reach_count": 0,
+      "internal_reach_count": 0,
+      "max_depth": 0
+    }
+  },
+  "target_function_matches": {
+    "xpath": {
+      "target_function": "xsltFuzzXPath",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "xsltFuzzXPath",
+          "file_path": "tests/fuzz/fuzz.c",
+          "start_line": 121
+        }
+      ]
+    },
+    "xslt": {
+      "target_function": "xsltFuzzXslt",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "xsltFuzzXslt",
+          "file_path": "tests/fuzz/fuzz.c",
+          "start_line": 262
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 816,
+    "external_functions": 0,
+    "edges": 1119,
+    "fuzzers": 2,
+    "reach_total": 0,
+    "reach_by_fuzzer": {}
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 106.29,
+    "analysis_sec": 5.03,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.26,
+    "total_sec": 111.78,
+    "wall_sec": 112.67,
+    "started_at": "2026-04-11T01:33:23Z",
+    "ended_at": "2026-04-11T01:35:15Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/libxslt:latest",
+    "image_id": "sha256:77bed0d0fa105da6b7d0eaa2d014f2afb0a1468275d74ac44786038a819cc1f6",
+    "image_created": "2026-04-10T23:09:55.618563466Z",
+    "source_commits": {
+      "/src/libxml2": "4c6b2c3096b1da0d0780fe0b4f147e837140468d",
+      "/src/libxslt": "35323d6a15f6e63c9919ddbc0abe64c90a0dd88a"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 871,
+      "edge_count": 605,
+      "benchmark_targets_hit": [
+        "xpath",
+        "xslt"
+      ],
+      "error_phase": "",
+      "wall_sec": 111.79
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:04Z"
+}

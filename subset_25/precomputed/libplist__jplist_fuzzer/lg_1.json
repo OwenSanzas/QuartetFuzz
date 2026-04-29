@@ -1,0 +1,21 @@
+{
+  "name": "libplist JSON parser",
+  "description": "This feature implements the loading of JSON-formatted property lists into the libplist internal tree structure. The process involves a custom tokenizer (JSMN) and a recursive descent parser that handles objects (dictionaries), arrays, and primitives. The parser includes complex manual logic for decoding numerical values and unescaping JSON string literals (including Unicode escape sequences), as well as recursion depth limits to prevent stack exhaustion on maliciously crafted, deeply nested inputs.",
+  "entries": [
+    "plist_from_memory",
+    "plist_from_json"
+  ],
+  "core": [
+    "jsmn_parse",
+    "parse_primitive",
+    "unescape_string",
+    "parse_array",
+    "parse_object"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_from_memory": 7.73,
+    "plist_from_json": 3.7
+  }
+}

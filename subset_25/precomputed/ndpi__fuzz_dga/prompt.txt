@@ -1,0 +1,1 @@
+Write a fuzzer for ndpi that targets `ndpi_check_dga_name`. This replicates the OSS-Fuzz harness `fuzz_dga` from the 100-case gold-standard dataset (paper §5.3, Table 4).

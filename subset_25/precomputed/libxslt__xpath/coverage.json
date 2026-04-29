@@ -1,0 +1,10 @@
+{
+  "case_id": "libxslt/xpath",
+  "line_pct": 8.18,
+  "branch_pct": 6.4,
+  "function_pct": 12.67,
+  "cost_usd": 0.76,
+  "turns": 48,
+  "iter": 0,
+  "wall_seconds": 373.4
+}

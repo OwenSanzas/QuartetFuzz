@@ -1,0 +1,34 @@
+{
+  "fftw3_fuzzer": [
+    {
+      "function_name": "fftw_destroy_plan",
+      "file_path": "api/apiplan.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "fftw_execute",
+      "file_path": "api/execute.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "fftw_plan_dft_1d",
+      "file_path": "api/plan-dft-1d.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "fftw_plan_dft",
+      "file_path": "api/plan-dft.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "fftw_ifree",
+      "file_path": "kernel/alloc.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ]
+}

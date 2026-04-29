@@ -1,0 +1,9 @@
+{
+  "case_id": "libplist/oplist_fuzzer",
+  "project": "libplist",
+  "fuzzer_name": "oplist_fuzzer",
+  "target_function": "plist_from_openstep",
+  "repo_url": "https://github.com/libimobiledevice/libplist",
+  "source_file": "oplist_fuzzer.cc",
+  "prompt": "This fuzzer targets the `plist_from_openstep` function in libplist, which parses OpenStep-format property list data. Arbitrary byte sequences of varying length are fed directly as raw input to the parser, exercising its ability to handle malformed, truncated, or adversarially crafted OpenStep plist syntax. The goal is to uncover bugs such as buffer overflows, out-of-bounds reads, use-after-free errors, infinite loops, or crashes that can arise when the parser encounters unexpected or malicious input."
+}

@@ -1,0 +1,9 @@
+{
+  "case_id": "libplist/xplist_fuzzer",
+  "project": "libplist",
+  "fuzzer_name": "xplist_fuzzer",
+  "target_function": "plist_from_xml",
+  "repo_url": "https://github.com/libimobiledevice/libplist",
+  "source_file": "xplist_fuzzer.cc",
+  "prompt": "This fuzzer targets libplist's XML property list parsing functionality, specifically the `plist_from_xml` API, by feeding it arbitrary byte sequences as if they were XML-formatted plist data. The fuzzer exercises the full XML parsing and plist object construction pipeline, including memory allocation and tree building, followed by cleanup via `plist_free`. The goal is to uncover crashes, memory corruption, infinite loops, or other misbehavior triggered by malformed, truncated, or adversarially crafted XML plist input."
+}

@@ -1,0 +1,201 @@
+[
+  {
+    "name": "libplist cross-format serialization",
+    "description": "This Logic Group targets the serialization/output paths of libplist. After parsing arbitrary input via plist_from_memory (which auto-detects binary/XML/JSON/OpenStep formats), the resulting plist tree is serialized back through multiple output format writers. The core consists of recursive tree-walking serializers: serialize_plist (binary plist output with circular reference detection and offset table construction), node_to_xml (XML output with base64 encoding and date formatting), node_to_json (JSON output with string escaping), node_to_openstep (OpenStep output with quoting logic), and node_to_string (default/limd/plutil human-readable output). The dispatcher plist_write_to_string routes to all non-binary formats based on a format enum, while plist_to_bin handles binary serialization separately. These serializers perform deep recursive walks over the plist node tree, handle type-specific encoding (dates, data blobs, unicode strings), and manage dynamic buffer growth \u2014 all areas prone to bugs under adversarial tree structures.",
+    "entries": [
+      "plist_to_bin",
+      "plist_from_memory",
+      "plist_write_to_string"
+    ],
+    "core": [
+      "serialize_plist",
+      "node_to_xml",
+      "node_to_json",
+      "node_to_openstep",
+      "node_to_string"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_to_bin": 14.83,
+      "plist_from_memory": 7.73,
+      "plist_write_to_string": 6.5
+    }
+  },
+  {
+    "name": "binary plist parse-serialize round-trip",
+    "description": "This Logic Group targets the binary plist (bplist) round-trip path: parsing binary plist data via plist_from_bin (which delegates to parse_bin_node_at_index for recursive object tree construction with offset table lookups and reference counting), then serializing the resulting tree back to binary format via plist_to_bin (which uses serialize_plist for recursive tree traversal with circular reference detection and max nesting depth checks, write_dict/write_array for container serialization, and offset table construction). The round-trip exercises both the parser's length/size validation and the serializer's byte-level encoding, offset table generation, and object reference counting \u2014 areas prone to integer overflow and buffer handling bugs.",
+    "entries": [
+      "plist_to_bin",
+      "plist_from_bin"
+    ],
+    "core": [
+      "parse_bin_node_at_index",
+      "serialize_plist",
+      "write_dict",
+      "write_array"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_to_bin": 14.83,
+      "plist_from_bin": 3.79
+    }
+  },
+  {
+    "name": "libplist post-parse tree manipulation",
+    "description": "After parsing arbitrary plist data via plist_from_memory (which auto-detects binary/XML/JSON/OpenStep format), this Logic Group exercises the recursive tree manipulation operations: plist_copy performs a deep recursive clone of the entire node tree via plist_copy_node, walking every child and duplicating all data types including nested containers; plist_sort recursively sorts dictionary keys and array elements; plist_dict_merge iterates a source dictionary and deep-copies each entry into a target dictionary, exercising both tree traversal and insertion logic; and plist_compare_node_value compares node data across all plist types via plist_data_compare. These operations stress recursive tree walks, memory allocation during deep copies, hash table manipulation during dict merges, and type-specific value handling \u2014 all on attacker-controlled tree structures produced by the parser.",
+    "entries": [
+      "plist_from_memory",
+      "plist_dict_merge",
+      "plist_copy",
+      "plist_sort",
+      "plist_compare_node_value"
+    ],
+    "core": [
+      "plist_copy_node",
+      "plist_copy_node_shallow",
+      "plist_data_compare",
+      "plist_free_children",
+      "node_first_child"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_memory": 7.73,
+      "plist_dict_merge": 2.78,
+      "plist_copy": 2.2,
+      "plist_sort": 0.0,
+      "plist_compare_node_value": 0.0
+    }
+  },
+  {
+    "name": "libplist auto-detect format dispatcher",
+    "description": "The plist_from_memory function implements a format auto-detection heuristic that inspects the first bytes of input to route parsing to one of four format-specific parsers. It first checks for the \"bplist00\" magic via plist_is_binary (8-byte memcmp), then skips whitespace and inspects the first non-whitespace character: '<' routes to XML, '[' to JSON, '(' to OpenStep, and '{' triggers an ambiguity resolution loop that scans for a ':' after a quoted key to distinguish JSON from OpenStep. Each branch dispatches to the corresponding internal parser state machine \u2014 parse_bin_node_at_index for binary plists (recursive node tree builder with offset table lookups), node_from_xml for XML (recursive tag parser), jsmn_parse for JSON (token-based state machine), and node_from_openstep (recursive descent parser). This single entry point exercises format detection edge cases (boundary conditions in whitespace skipping, escape handling in the JSON/OpenStep disambiguator) plus all four parser cores, making it uniquely valuable compared to the existing per-format fuzzers.",
+    "entries": [
+      "plist_from_memory"
+    ],
+    "core": [
+      "plist_is_binary",
+      "parse_bin_node_at_index",
+      "node_from_xml",
+      "jsmn_parse",
+      "node_from_openstep"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_memory": 7.73
+    }
+  },
+  {
+    "name": "libplist pretty-print output formatters",
+    "description": "The libplist library includes three distinct \"pretty print\" output formatters (default, limd, plutil) that each implement their own recursive node_to_string function to walk a plist tree and serialize it into a human-readable string. These are accessed via plist_write_to_string (with PLIST_FORMAT_PRINT, PLIST_FORMAT_LIMD, PLIST_FORMAT_PLUTIL format constants) or plist_write_to_stream. Each formatter recursively traverses the tree via node_first_child/node_next_sibling, handles type-specific serialization (base64 encoding for data nodes, date formatting via gmtime64_r, nested dict/array output), and writes into a strbuf. Fuzzing this path exercises parse-then-serialize round-trips with recursive tree walks and format-specific length handling that differ from the binary/XML/JSON/OpenStep serializers already covered.",
+    "entries": [
+      "plist_from_memory",
+      "plist_write_to_string"
+    ],
+    "core": [
+      "plist_write_to_string_default",
+      "plist_write_to_string_limd",
+      "plist_write_to_string_plutil",
+      "node_to_string",
+      "_plist_write_to_strbuf"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_memory": 7.73,
+      "plist_write_to_string": 6.5
+    }
+  },
+  {
+    "name": "libplist per-format parsers",
+    "description": "The four individual format parsers in libplist each implement distinct state machines and recursive tree-building logic. plist_from_bin drives parse_bin_node_at_index which walks offset tables and handles variable-length integer decoding. plist_from_xml calls node_from_xml for recursive XML element parsing. plist_from_json uses a JSMN tokenizer followed by recursive parse_array/parse_object/parse_primitive handlers. plist_from_openstep calls node_from_openstep and parse_dict_data for the NeXTSTEP format. Fuzzing all four parsers through a single harness that selects the parser based on fuzz input exercises length/size handling, recursive descent, and format-specific edge cases across all supported plist formats simultaneously.",
+    "entries": [
+      "plist_from_openstep",
+      "plist_from_bin",
+      "plist_from_json",
+      "plist_from_xml"
+    ],
+    "core": [
+      "parse_bin_node_at_index",
+      "node_from_xml",
+      "parse_array",
+      "parse_object",
+      "node_from_openstep",
+      "parse_dict_data"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_openstep": 5.58,
+      "plist_from_bin": 3.79,
+      "plist_from_json": 3.7,
+      "plist_from_xml": 3.52
+    }
+  },
+  {
+    "name": "OpenStep plist parse-then-serialize round-trip",
+    "description": "Round-trip fuzzing of the OpenStep plist format: first parsing untrusted OpenStep input via plist_from_openstep (which calls into the recursive descent parser node_from_openstep, parse_dict_data, and parse_skip_ws handling comments, escape sequences, and quoted/unquoted strings), then re-serializing the resulting tree back to OpenStep via plist_to_openstep (which walks the tree through node_to_openstep with recursive container handling and string quoting logic). This exercises both the parser state machine and the serializer's recursive tree walk, catching inconsistencies in escape handling, container nesting, and memory management across the round-trip.",
+    "entries": [
+      "plist_from_openstep",
+      "plist_to_openstep"
+    ],
+    "core": [
+      "node_from_openstep",
+      "parse_dict_data",
+      "parse_skip_ws",
+      "node_to_openstep",
+      "plist_to_openstep_with_options"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_openstep": 5.58,
+      "plist_to_openstep": 0.5
+    }
+  },
+  {
+    "name": "JSON plist parse-then-serialize round-trip",
+    "description": "This Logic Group exercises the full JSON plist round-trip pipeline. Fuzz input is fed to plist_from_json, which invokes the JSMN tokenizer (jsmn_parse) to split the input into tokens, then recursively builds a plist tree via parse_object, parse_array, parse_primitive, and parse_string \u2014 these are mutually recursive and handle nested JSON structures, string unescaping, and numeric/boolean/null parsing. The resulting plist node is then serialized back to JSON via plist_to_json, which calls node_estimate_size for buffer allocation and node_to_json for recursive tree-walking output generation including string escaping and indentation. This round-trip stresses the JSMN state machine, recursive descent parser, size estimation logic, and the JSON serializer's handling of all plist node types.",
+    "entries": [
+      "plist_from_json",
+      "plist_to_json"
+    ],
+    "core": [
+      "jsmn_parse",
+      "parse_object",
+      "parse_array",
+      "parse_primitive",
+      "node_to_json"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_json": 3.7,
+      "plist_to_json": 0.5
+    }
+  },
+  {
+    "name": "XML plist parse-then-serialize round-trip",
+    "description": "This Logic Group targets the XML plist format's full parse-then-serialize pipeline. The parser entry `plist_from_xml` invokes `node_from_xml`, a 600-line recursive state machine that scans XML tags, dispatches element types (dict, array, string, integer, real, date, data, boolean), and builds a plist node tree. Key internal helpers include `get_text_parts` (extracts text content and CDATA sections between tags), `unescape_entities` (handles XML character entity references including numeric &#xNN; forms), `text_parts_get_content` (assembles extracted text fragments), and `base64decode` (decodes data elements). The serializer `plist_to_xml` drives `node_to_xml`, which recursively walks the tree and emits XML with base64 encoding and date formatting via `gmtime64_r`. Fuzzing this round-trip exercises the XML token scanner, entity unescaping, base64 codec, date parsing, recursive tree construction, and size estimation \u2014 all areas prone to off-by-one, buffer overflow, and integer overflow bugs.",
+    "entries": [
+      "plist_from_xml",
+      "plist_to_xml"
+    ],
+    "core": [
+      "node_from_xml",
+      "get_text_parts",
+      "unescape_entities",
+      "text_parts_get_content",
+      "node_to_xml"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_xml": 3.52,
+      "plist_to_xml": 1.0
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "case_id": "zlib/zlib_uncompress2_fuzzer",
+  "line_pct": 51.74,
+  "branch_pct": 47.65,
+  "function_pct": 34.62,
+  "cost_usd": 0.32,
+  "turns": 27,
+  "iter": 0,
+  "wall_seconds": 214.6
+}

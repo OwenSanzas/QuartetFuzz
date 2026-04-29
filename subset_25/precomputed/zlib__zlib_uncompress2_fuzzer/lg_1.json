@@ -1,0 +1,21 @@
+{
+  "name": "zlib uncompress2 memory decompression",
+  "description": "The `uncompress2` logic group provides a simplified interface for memory-to-memory decompression using the DEFLATE algorithm. It encapsulates the complexities of managing a `z_stream` state, including proper initialization and termination. The core logic involves a state-driven inflation engine that performs Huffman decoding, handles various block types (stored, fixed, and dynamic), and manages a sliding window for distance-based decompression. This group is particularly useful for testing the robustness of the decoder against malformed or malicious compressed data streams.",
+  "entries": [
+    "uncompress2_z",
+    "uncompress2"
+  ],
+  "core": [
+    "inflate",
+    "inflate_table",
+    "inflate_fast",
+    "updatewindow",
+    "inflate_fixed"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {
+    "uncompress2_z": 1.42,
+    "uncompress2": 1.03
+  }
+}

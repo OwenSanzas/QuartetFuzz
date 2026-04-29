@@ -1,0 +1,20 @@
+{
+  "name": "binary plist parse-serialize round-trip",
+  "description": "This Logic Group targets the binary plist (bplist) round-trip path: parsing binary plist data via plist_from_bin (which delegates to parse_bin_node_at_index for recursive object tree construction with offset table lookups and reference counting), then serializing the resulting tree back to binary format via plist_to_bin (which uses serialize_plist for recursive tree traversal with circular reference detection and max nesting depth checks, write_dict/write_array for container serialization, and offset table construction). The round-trip exercises both the parser's length/size validation and the serializer's byte-level encoding, offset table generation, and object reference counting \u2014 areas prone to integer overflow and buffer handling bugs.",
+  "entries": [
+    "plist_to_bin",
+    "plist_from_bin"
+  ],
+  "core": [
+    "parse_bin_node_at_index",
+    "serialize_plist",
+    "write_dict",
+    "write_array"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_to_bin": 14.83,
+    "plist_from_bin": 3.79
+  }
+}

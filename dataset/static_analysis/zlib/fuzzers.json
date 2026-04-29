@@ -1,0 +1,123 @@
+[
+  {
+    "name": "checksum_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "compress_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "example_dict_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "example_flush_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "example_large_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "example_small_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "gzio_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "minigzip_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "zlib_uncompress2_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress2_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "zlib_uncompress3_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress3_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "zlib_uncompress_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "fuzz_parse",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-pugixml/tests/fuzz_parse.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_xpath",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-pugixml/tests/fuzz_xpath.cpp",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

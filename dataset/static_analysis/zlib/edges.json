@@ -1,0 +1,2090 @@
+[
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "adler32_combine",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "adler32_z",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "crc32",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "crc32_combine",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "crc32_combine_gen",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "crc32_combine_op",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/checksum_fuzzer.c",
+    "callee_name": "crc32_z",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+    "callee_name": "compress2",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+    "callee_name": "compressBound",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+    "callee_name": "malloc",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/compress_fuzzer.c",
+    "callee_name": "uncompress",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "deflateBound",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "deflateSetDictionary",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_dict_fuzzer.c",
+    "callee_name": "inflateSetDictionary",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "compressBound",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_flush_fuzzer.c",
+    "callee_name": "inflateSync",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "deflateParams",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_large_fuzzer.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "compressBound",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/example_small_fuzzer.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "close",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "get_crc_table",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzbuffer",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzclearerr",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzclose",
+    "callee_file": "gzclose.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzclose_r",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzdirect",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzeof",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzerror",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzflush",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzfread",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzfwrite",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzgetc",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzgetc_",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzgets",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzoffset",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzopen",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzprintf",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzputc",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzputs",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzread",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzrewind",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzseek",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzsetparams",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gztell",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "gzungetc",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "zError",
+    "callee_file": "zutil.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "zlibCompileFlags",
+    "callee_file": "zutil.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/gzio_fuzzer.c",
+    "callee_name": "zlibVersion",
+    "callee_file": "zutil.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "gzclose",
+    "callee_file": "gzclose.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "gzerror",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "gzopen",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "gzread",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "gzwrite",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "snprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/minigzip_fuzzer.c",
+    "callee_name": "strlen",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress2_fuzzer.cc",
+    "callee_name": "uncompress2",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress3_fuzzer.cc",
+    "callee_name": "uncompress2",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-zlib-kipzq0uh/fuzzer_sources/zlib_uncompress_fuzzer.cc",
+    "callee_name": "uncompress",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "adler32",
+    "caller_file": "adler32.c",
+    "callee_name": "adler32_z",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "adler32_combine64",
+    "caller_file": "adler32.c",
+    "callee_name": "adler32_combine_",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress",
+    "caller_file": "compress.c",
+    "callee_name": "compress2",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress2",
+    "caller_file": "compress.c",
+    "callee_name": "compress2_z",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress2_z",
+    "caller_file": "compress.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress2_z",
+    "caller_file": "compress.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress2_z",
+    "caller_file": "compress.c",
+    "callee_name": "deflateInit_",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compressBound",
+    "caller_file": "compress.c",
+    "callee_name": "compressBound_z",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compress_z",
+    "caller_file": "compress.c",
+    "callee_name": "compress2_z",
+    "callee_file": "compress.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32",
+    "caller_file": "crc32.c",
+    "callee_name": "crc32_z",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32_combine",
+    "caller_file": "crc32.c",
+    "callee_name": "crc32_combine64",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32_combine64",
+    "caller_file": "crc32.c",
+    "callee_name": "crc32_combine_gen64",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32_combine64",
+    "caller_file": "crc32.c",
+    "callee_name": "crc32_combine_op",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32_combine_gen",
+    "caller_file": "crc32.c",
+    "callee_name": "crc32_combine_gen64",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "crc32_combine_op",
+    "caller_file": "crc32.c",
+    "callee_name": "multmodp",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "_tr_stored_block",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "crc32",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "crc32_z",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "deflate_fast",
+    "callee_file": "deflate.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "deflate_slow",
+    "callee_file": "deflate.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "deflate_stored",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate",
+    "caller_file": "deflate.c",
+    "callee_name": "flush_pending",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateBound",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateBound_z",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateBound_z",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateCopy",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateCopy",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateEnd",
+    "caller_file": "deflate.c",
+    "callee_name": "zcfree",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateGetDictionary",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateParams",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateParams",
+    "caller_file": "deflate.c",
+    "callee_name": "slide_hash",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflatePending",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflatePrime",
+    "caller_file": "deflate.c",
+    "callee_name": "_tr_flush_bits",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflatePrime",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateResetKeep",
+    "caller_file": "deflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateResetKeep",
+    "caller_file": "deflate.c",
+    "callee_name": "crc32",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateSetDictionary",
+    "caller_file": "deflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateSetDictionary",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateSetDictionary",
+    "caller_file": "deflate.c",
+    "callee_name": "fill_window",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateSetHeader",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateTune",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflateUsed",
+    "caller_file": "deflate.c",
+    "callee_name": "deflateStateCheck",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_huff",
+    "caller_file": "deflate.c",
+    "callee_name": "_tr_flush_block",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_huff",
+    "caller_file": "deflate.c",
+    "callee_name": "fill_window",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_huff",
+    "caller_file": "deflate.c",
+    "callee_name": "flush_pending",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_rle",
+    "caller_file": "deflate.c",
+    "callee_name": "_tr_flush_block",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_rle",
+    "caller_file": "deflate.c",
+    "callee_name": "fill_window",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "deflate_rle",
+    "caller_file": "deflate.c",
+    "callee_name": "flush_pending",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "read_buf",
+    "caller_file": "deflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "read_buf",
+    "caller_file": "deflate.c",
+    "callee_name": "crc32",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_reset",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzclearerr",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzdopen",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_open",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzoffset",
+    "caller_file": "gzlib.c",
+    "callee_name": "gzoffset64",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzopen64",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_open",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzrewind",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_reset",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzseek",
+    "caller_file": "gzlib.c",
+    "callee_name": "gzseek64",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzseek64",
+    "caller_file": "gzlib.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzseek64",
+    "caller_file": "gzlib.c",
+    "callee_name": "gzrewind",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gztell",
+    "caller_file": "gzlib.c",
+    "callee_name": "gztell64",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_avail",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_load",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_decomp",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_decomp",
+    "caller_file": "gzread.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_fetch",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_load",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_look",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_avail",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_look",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_look",
+    "caller_file": "gzread.c",
+    "callee_name": "inflateInit2_",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_look",
+    "caller_file": "gzread.c",
+    "callee_name": "inflateReset",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzclose_r",
+    "caller_file": "gzread.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzdirect",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_look",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzfread",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzfread",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_read",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgetc",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgetc",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_read",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgetc_",
+    "caller_file": "gzread.c",
+    "callee_name": "gzgetc",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgets",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgets",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_fetch",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzgets",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_skip",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzread",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzungetc",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzungetc",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_look",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzungetc",
+    "caller_file": "gzread.c",
+    "callee_name": "gz_skip",
+    "callee_file": "gzread.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_comp",
+    "caller_file": "gzwrite.c",
+    "callee_name": "deflate",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_comp",
+    "caller_file": "gzwrite.c",
+    "callee_name": "deflateReset",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_init",
+    "caller_file": "gzwrite.c",
+    "callee_name": "deflateInit2_",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_init",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_vacate",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_comp",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_write",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_comp",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_write",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_init",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gz_write",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_zero",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzclose_w",
+    "caller_file": "gzwrite.c",
+    "callee_name": "deflateEnd",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzflush",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_comp",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzflush",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzflush",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_zero",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzfwrite",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzfwrite",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_write",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzprintf",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gzvprintf",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzputc",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzputc",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_write",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzputc",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_zero",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzputs",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzputs",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_write",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzsetparams",
+    "caller_file": "gzwrite.c",
+    "callee_name": "deflateParams",
+    "callee_file": "deflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzsetparams",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_comp",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzsetparams",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzsetparams",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_zero",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzvprintf",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzvprintf",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_init",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzvprintf",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_zero",
+    "callee_file": "gzwrite.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gzwrite",
+    "caller_file": "gzwrite.c",
+    "callee_name": "gz_error",
+    "callee_file": "gzlib.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "crc32",
+    "callee_file": "crc32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "inflate_fast",
+    "callee_file": "inffast.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "inflate_fixed",
+    "callee_file": "inftrees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflate",
+    "caller_file": "inflate.c",
+    "callee_name": "inflate_table",
+    "callee_file": "inftrees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateCodesUsed",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateCopy",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateEnd",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateEnd",
+    "caller_file": "inflate.c",
+    "callee_name": "zcfree",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateGetDictionary",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateGetHeader",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateInit2_",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateReset2",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateInit2_",
+    "caller_file": "inflate.c",
+    "callee_name": "zcalloc",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateInit2_",
+    "caller_file": "inflate.c",
+    "callee_name": "zcfree",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateInit_",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateInit2_",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateMark",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflatePrime",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateReset",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateResetKeep",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateReset",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateReset2",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateReset",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateReset2",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateReset2",
+    "caller_file": "inflate.c",
+    "callee_name": "zcfree",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSetDictionary",
+    "caller_file": "inflate.c",
+    "callee_name": "adler32",
+    "callee_file": "adler32.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSetDictionary",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSetDictionary",
+    "caller_file": "inflate.c",
+    "callee_name": "updatewindow",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSync",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateReset",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSync",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateSyncPoint",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateUndermine",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "inflateValidate",
+    "caller_file": "inflate.c",
+    "callee_name": "inflateStateCheck",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "updatewindow",
+    "caller_file": "inflate.c",
+    "callee_name": "zcalloc",
+    "callee_file": "zutil.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "_tr_align",
+    "caller_file": "trees.c",
+    "callee_name": "bi_flush",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "_tr_init",
+    "caller_file": "trees.c",
+    "callee_name": "init_block",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "build_bl_tree",
+    "caller_file": "trees.c",
+    "callee_name": "build_tree",
+    "callee_file": "trees.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress",
+    "caller_file": "uncompr.c",
+    "callee_name": "uncompress2",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress2",
+    "caller_file": "uncompr.c",
+    "callee_name": "uncompress2_z",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress2_z",
+    "caller_file": "uncompr.c",
+    "callee_name": "inflate",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress2_z",
+    "caller_file": "uncompr.c",
+    "callee_name": "inflateEnd",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress2_z",
+    "caller_file": "uncompr.c",
+    "callee_name": "inflateInit_",
+    "callee_file": "inflate.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "uncompress_z",
+    "caller_file": "uncompr.c",
+    "callee_name": "uncompress2_z",
+    "callee_file": "uncompr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

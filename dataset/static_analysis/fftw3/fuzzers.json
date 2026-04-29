@@ -1,0 +1,13 @@
+[
+  {
+    "name": "fftw3_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-fftw3-_w4sz_wv/fuzzer_sources/fftw3_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

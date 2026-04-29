@@ -1,0 +1,260 @@
+{
+  "fuzz_both": [
+    {
+      "function_name": "close",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fclose",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fopen",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fwrite",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "printf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "snprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "pcap_compile",
+      "file_path": "gencode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_freecode",
+      "file_path": "gencode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_close",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_next_ex",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_offline_filter",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_open_offline",
+      "file_path": "savefile.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcapint_filter",
+      "file_path": "bpf_filter.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "pcapint_fmt_errmsg_for_errno",
+      "file_path": "fmtutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_open_offline_with_tstamp_precision",
+      "file_path": "savefile.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "pcapint_filter_with_aux_data",
+      "file_path": "bpf_filter.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "fuzz_filter": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "printf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "pcap_compile",
+      "file_path": "gencode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_freecode",
+      "file_path": "gencode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_close",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_open_dead",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_perror",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_setfilter",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcapint_fmt_errmsg_for_errno",
+      "file_path": "fmtutils.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ],
+  "fuzz_pcap": [
+    {
+      "function_name": "close",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fclose",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fopen",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "fwrite",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "printf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "snprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "pcap_close",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_next_ex",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_stats",
+      "file_path": "pcap.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_open_offline",
+      "file_path": "savefile.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pcap_open_offline_with_tstamp_precision",
+      "file_path": "savefile.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "pcapint_fmt_errmsg_for_errno",
+      "file_path": "fmtutils.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ]
+}

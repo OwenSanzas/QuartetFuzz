@@ -1,0 +1,9 @@
+{
+  "case_id": "libplist/bplist_fuzzer",
+  "project": "libplist",
+  "fuzzer_name": "bplist_fuzzer",
+  "target_function": "plist_from_bin",
+  "repo_url": "https://github.com/libimobiledevice/libplist",
+  "source_file": "bplist_fuzzer.cc",
+  "prompt": "This fuzzer targets the binary plist parsing functionality in libplist, specifically the `plist_from_bin` API, which deserializes raw binary Apple property list data into an in-memory `plist_t` tree. Arbitrary byte sequences of varying length are fed directly as binary plist input, exercising all parsing code paths including header validation, object table traversal, and recursive data structure construction. The goal is to uncover memory safety issues such as buffer overflows, out-of-bounds reads, use-after-free, and integer overflows that could arise when processing malformed or maliciously crafted binary plist files."
+}

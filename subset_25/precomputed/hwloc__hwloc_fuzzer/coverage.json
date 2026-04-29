@@ -1,0 +1,10 @@
+{
+  "case_id": "hwloc/hwloc_fuzzer",
+  "line_pct": 13.73,
+  "branch_pct": 62.77,
+  "function_pct": 4.0,
+  "cost_usd": 0.792375,
+  "turns": 14,
+  "iter": 0,
+  "wall_seconds": 741.2
+}

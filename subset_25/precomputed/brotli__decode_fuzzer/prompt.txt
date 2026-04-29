@@ -1,0 +1,1 @@
+Write a fuzzer for brotli that targets `BrotliDecoderDecompressStream`. This replicates the OSS-Fuzz harness `decode_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

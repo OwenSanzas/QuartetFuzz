@@ -1,0 +1,2030 @@
+{
+  "fuzz_compile": [
+    {
+      "function_name": "free",
+      "file_path": "/usr/include/malloc.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "/usr/include/malloc.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_module_set_import_meta",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_await",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_dump_error",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_free_handlers",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_loop",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_Eval",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_EvalFunction",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeContext",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeRuntime",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewContext",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewRuntime",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ReadObject",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ResolveModule",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_WriteObject",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "pstrcat",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_os_poll",
+      "file_path": "quickjs-libc.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_promise_rejection_check",
+      "file_path": "quickjs-libc.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicBaseObjects",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicMapSet",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicPromise",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicProxy",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicRegExp",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicTypedArrays",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicWeakRef",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AtomToCStringLen",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefinePropertyValueStr",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_EvalFunctionInternal",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ExecutePendingJob",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeAtom",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeAtomStruct",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeCString",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetException",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetRuntime",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetRuntimeOpaque",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewAtomStr",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCConstructor",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewStringLen",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_PrintValue",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetPropertyFunctionList",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_Throw",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowInternalError",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowSyntaxError",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowTypeError",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_FreeValue",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_FreeValueRT",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_free_cycles",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_scan",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_rt",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_resolve_module",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "mark_children",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_default_realloc",
+      "file_path": "cutils.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "call_handler",
+      "file_path": "quickjs-libc.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "interrupt_handler",
+      "file_path": "quickjs-libc.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicBigInt",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AtomGetStrRT",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_CallInternal",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefineAutoInitProperty",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefineProperty",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefinePropertyValue",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetPropertyInternal",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewAtomLen",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCFunction3",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCFunctionData",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewClass1",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectFromShape",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoClassAlloc",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoList",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetConstructor2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetObjectData",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowError2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowOutOfMemory",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToCStringLen2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_AtomToValue",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_NewAtom",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "__async_func_free",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "add_shape_property",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "free_function_bytecode",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "free_object",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_decref_child",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_closure",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_module_def",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_host_resolve_imported_module",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_new_promise_capability",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_new_shape2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_object_seal",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_random_init",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_realloc_rt",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_bytecode_realloc",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_CallConstructorInternal",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreePropertyEnum",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetOwnPropertyInternal",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetOwnPropertyNamesInternal",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoClass",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetPropertyValue",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowReferenceError",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowTypeErrorReadOnly",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToNumberHintFree",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "add_property",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "build_backtrace",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "delete_property",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "free_var_ref",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "free_zero_refcount",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int8",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint8",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_array_buffer_get_detached",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_buffer",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_byteLength",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_byteOffset",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_function_proto_fileName",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_get_this",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_iterator_proto_get_toStringTag",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_object_get___proto__",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_pow",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_realloc_bytecode_rt",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_regexp_get_flags",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_regexp_get_source",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_symbol_get_description",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_buffer",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_byteLength",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_byteOffset",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_length",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_toStringTag",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_realloc",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "set_value",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AtomIsArrayIndex",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AutoInitProperty",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetPrototype",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowReferenceErrorUninitialized",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToBoolFree",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToObject",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "__js_poll_interrupts",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "convert_fast_array_to_array",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "free_property",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_clone_shape",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_shape0",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_strict_eq2",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "remove_global_object_property",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_end",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_putc16_slow",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "typed_array_is_oob",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_realloc",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_widen",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    }
+  ],
+  "fuzz_eval": [
+    {
+      "function_name": "free",
+      "file_path": "/usr/include/malloc.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "/usr/include/malloc.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_free_handlers",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_loop",
+      "file_path": "quickjs-libc.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_Eval",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeContext",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeRuntime",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewContext",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewRuntime",
+      "file_path": "quickjs.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "js_os_poll",
+      "file_path": "quickjs-libc.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_std_promise_rejection_check",
+      "file_path": "quickjs-libc.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicBaseObjects",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicMapSet",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicPromise",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicProxy",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicRegExp",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicTypedArrays",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicWeakRef",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ExecutePendingJob",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeAtomStruct",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetException",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetRuntime",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetRuntimeOpaque",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCConstructor",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_PrintValue",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetPropertyFunctionList",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_FreeValue",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_FreeValueRT",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_free_cycles",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_scan",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_rt",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "mark_children",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_default_realloc",
+      "file_path": "cutils.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "call_handler",
+      "file_path": "quickjs-libc.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "interrupt_handler",
+      "file_path": "quickjs-libc.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AddIntrinsicBigInt",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AtomGetStrRT",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefineAutoInitProperty",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefineProperty",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefinePropertyValue",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_DefinePropertyValueStr",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetPropertyInternal",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCFunction3",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewCFunctionData",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewClass1",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectFromShape",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoClassAlloc",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoList",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetConstructor2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_SetObjectData",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowOutOfMemory",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_AtomToValue",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "__async_func_free",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "add_shape_property",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "free_function_bytecode",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "free_object",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "gc_decref_child",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_module_def",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_new_shape2",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_object_seal",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_random_init",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_realloc_rt",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_bytecode_realloc",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetOwnPropertyInternal",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetOwnPropertyNamesInternal",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewAtomLen",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewObjectProtoClass",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowTypeError",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "add_property",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_float64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_int8",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint16",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint32",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint64",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_TA_get_uint8",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_array_buffer_get_detached",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_buffer",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_byteLength",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_dataview_get_byteOffset",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_function_proto_fileName",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_get_this",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_iterator_proto_get_toStringTag",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_object_get___proto__",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_pow",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_realloc_bytecode_rt",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_regexp_get_flags",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_regexp_get_source",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_symbol_get_description",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_buffer",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_byteLength",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_byteOffset",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_length",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "js_typed_array_get_toStringTag",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_realloc",
+      "file_path": "quickjs.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AtomIsArrayIndex",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_AutoInitProperty",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_GetPrototype",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewAtomStr",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_NewStringLen",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowError2",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowInternalError",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowReferenceErrorUninitialized",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToBoolFree",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ToObject",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_clone_shape",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_free_shape0",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "js_strict_eq2",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_end",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_putc16_slow",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "typed_array_is_oob",
+      "file_path": "quickjs.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_NewAtom",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_realloc",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "string_buffer_widen",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    }
+  ],
+  "fuzz_regexp": [
+    {
+      "function_name": "free",
+      "file_path": "/usr/include/malloc.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_compile",
+      "file_path": "libregexp.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_exec",
+      "file_path": "libregexp.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_get_capture_count",
+      "file_path": "libregexp.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "__dbuf_put_u16",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__dbuf_put_u32",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "__dbuf_putc",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_free",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_init2",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_put",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "pstrcpy",
+      "file_path": "cutils.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_disjunction",
+      "file_path": "libregexp.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_error",
+      "file_path": "libregexp.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "stack_realloc",
+      "file_path": "libregexp.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_canonicalize",
+      "file_path": "libunicode.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_is_space_non_ascii",
+      "file_path": "libunicode.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_realloc",
+      "file_path": "quickjs.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_claim",
+      "file_path": "cutils.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "dbuf_default_realloc",
+      "file_path": "cutils.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_term",
+      "file_path": "libregexp.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_case_conv_entry",
+      "file_path": "libunicode.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "js_realloc_rt",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_check_stack_overflow",
+      "file_path": "quickjs.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "find_group_name",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "get_class_atom",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_duplicate_group_name",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_count_captures",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_char",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_goto",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_goto_u8",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_goto_u8_u32",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_string_list",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_has_named_captures",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_captures",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_group_name",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_modifiers",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_nested_class",
+      "file_path": "libregexp.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_free",
+      "file_path": "libunicode.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "rqsort",
+      "file_path": "cutils.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "unicode_from_utf8",
+      "file_path": "cutils.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "unicode_to_utf8",
+      "file_path": "cutils.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_parse_escape",
+      "file_path": "libregexp.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_class_string_disjunction",
+      "file_path": "libregexp.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "re_emit_range",
+      "file_path": "libregexp.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "re_parse_class_set_operand",
+      "file_path": "libregexp.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "re_string_find2",
+      "file_path": "libregexp.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_default_realloc",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_init",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_invert",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_op1",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_regexp_canonicalize",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_is_id_continue",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_is_id_start",
+      "file_path": "libunicode.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_add_interval.246",
+      "file_path": "",
+      "depth": 6,
+      "is_external": true
+    },
+    {
+      "function_name": "re_string_list_canonicalize",
+      "file_path": "libregexp.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_op",
+      "file_path": "libunicode.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "cr_sort_and_remove_overlap",
+      "file_path": "libunicode.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "lre_is_in_table",
+      "file_path": "libunicode.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "unicode_case1",
+      "file_path": "libunicode.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "exported_names_cmp",
+      "file_path": "quickjs.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_AtomToValue",
+      "file_path": "quickjs.c",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "__JS_FreeValueRT",
+      "file_path": "quickjs.c",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "js_string_compare",
+      "file_path": "quickjs.c",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_FreeAtomStruct",
+      "file_path": "quickjs.c",
+      "depth": 8,
+      "is_external": false
+    },
+    {
+      "function_name": "JS_ThrowOutOfMemory",
+      "file_path": "quickjs.c",
+      "depth": 8,
+      "is_external": false
+    }
+  ]
+}

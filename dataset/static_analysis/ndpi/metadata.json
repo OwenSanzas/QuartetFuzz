@@ -1,0 +1,394 @@
+{
+  "project": "ndpi",
+  "snapshot": {
+    "id": "6cd8bbe5-c7d0-4af5-865b-95c0408449b6",
+    "repo_url": "https://github.com/ntop/nDPI.git",
+    "repo_name": "nDPI",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:18:43.398690+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "fuzz_alg_bins",
+    "fuzz_community_id",
+    "fuzz_ds_tree",
+    "fuzz_filecfg_categories",
+    "fuzz_filecfg_category",
+    "fuzz_filecfg_config",
+    "fuzz_filecfg_malicious_ja4",
+    "fuzz_filecfg_malicious_sha1",
+    "fuzz_filecfg_protocols",
+    "fuzz_filecfg_risk_domains"
+  ],
+  "benchmark_targets_hit": [
+    "fuzz_alg_bins",
+    "fuzz_community_id",
+    "fuzz_ds_tree",
+    "fuzz_filecfg_categories",
+    "fuzz_filecfg_category",
+    "fuzz_filecfg_config",
+    "fuzz_filecfg_malicious_ja4",
+    "fuzz_filecfg_malicious_sha1",
+    "fuzz_filecfg_protocols",
+    "fuzz_filecfg_risk_domains"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [
+    "fuzz_alg_bytestream",
+    "fuzz_alg_crc32_md5",
+    "fuzz_alg_hll",
+    "fuzz_alg_hw_rsi_outliers_da",
+    "fuzz_alg_jitter",
+    "fuzz_alg_memmem",
+    "fuzz_alg_quick_encryption",
+    "fuzz_alg_ranking",
+    "fuzz_alg_ses_des",
+    "fuzz_alg_shoco",
+    "fuzz_alg_strnstr",
+    "fuzz_binaryfusefilter",
+    "fuzz_config",
+    "fuzz_dga",
+    "fuzz_ds_address_cache",
+    "fuzz_ds_ahocorasick",
+    "fuzz_ds_bitmap",
+    "fuzz_ds_bitmap64_fuse",
+    "fuzz_ds_btree",
+    "fuzz_ds_cmsketch",
+    "fuzz_ds_domain_classify",
+    "fuzz_ds_filter",
+    "fuzz_ds_hash",
+    "fuzz_ds_kdtree",
+    "fuzz_ds_libcache",
+    "fuzz_ds_patricia",
+    "fuzz_ds_ptree",
+    "fuzz_gcrypt_aes",
+    "fuzz_gcrypt_cipher",
+    "fuzz_gcrypt_gcm",
+    "fuzz_gcrypt_light",
+    "fuzz_is_stun",
+    "fuzz_libinjection",
+    "fuzz_match_custom_category",
+    "fuzz_ndpi_reader",
+    "fuzz_process_packet",
+    "fuzz_quic_get_crypto_data",
+    "fuzz_readerutils_workflow",
+    "fuzz_serialization",
+    "fuzz_tls_certificate"
+  ],
+  "case_reachability": {
+    "fuzz_filecfg_categories": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_categories"
+      ],
+      "reach_count": 52,
+      "external_reach_count": 1,
+      "internal_reach_count": 51,
+      "max_depth": 7
+    },
+    "fuzz_filecfg_category": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_category"
+      ],
+      "reach_count": 50,
+      "external_reach_count": 1,
+      "internal_reach_count": 49,
+      "max_depth": 7
+    },
+    "fuzz_filecfg_config": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_config"
+      ],
+      "reach_count": 49,
+      "external_reach_count": 1,
+      "internal_reach_count": 48,
+      "max_depth": 7
+    },
+    "fuzz_filecfg_malicious_ja4": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_malicious_ja4"
+      ],
+      "reach_count": 51,
+      "external_reach_count": 1,
+      "internal_reach_count": 50,
+      "max_depth": 7
+    },
+    "fuzz_filecfg_malicious_sha1": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_malicious_sha1"
+      ],
+      "reach_count": 9,
+      "external_reach_count": 1,
+      "internal_reach_count": 8,
+      "max_depth": 3
+    },
+    "fuzz_filecfg_protocols": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_protocols"
+      ],
+      "reach_count": 50,
+      "external_reach_count": 1,
+      "internal_reach_count": 49,
+      "max_depth": 7
+    },
+    "fuzz_filecfg_risk_domains": {
+      "matched_fuzzer_names": [
+        "fuzz_filecfg_risk_domains"
+      ],
+      "reach_count": 50,
+      "external_reach_count": 1,
+      "internal_reach_count": 49,
+      "max_depth": 7
+    },
+    "fuzz_ds_tree": {
+      "matched_fuzzer_names": [
+        "fuzz_ds_tree"
+      ],
+      "reach_count": 8,
+      "external_reach_count": 0,
+      "internal_reach_count": 8,
+      "max_depth": 2
+    },
+    "fuzz_alg_bins": {
+      "matched_fuzzer_names": [
+        "fuzz_alg_bins"
+      ],
+      "reach_count": 15,
+      "external_reach_count": 0,
+      "internal_reach_count": 15,
+      "max_depth": 2
+    },
+    "fuzz_community_id": {
+      "matched_fuzzer_names": [
+        "fuzz_community_id"
+      ],
+      "reach_count": 10,
+      "external_reach_count": 0,
+      "internal_reach_count": 10,
+      "max_depth": 4
+    }
+  },
+  "target_function_matches": {
+    "fuzz_filecfg_categories": {
+      "target_function": "load_categories_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_categories_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 5996
+        }
+      ]
+    },
+    "fuzz_filecfg_category": {
+      "target_function": "load_category_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_category_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 6075
+        }
+      ]
+    },
+    "fuzz_filecfg_config": {
+      "target_function": "load_config_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_config_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 5903
+        }
+      ]
+    },
+    "fuzz_filecfg_malicious_ja4": {
+      "target_function": "load_malicious_ja4_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_malicious_ja4_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 6482
+        }
+      ]
+    },
+    "fuzz_filecfg_malicious_sha1": {
+      "target_function": "load_malicious_sha1_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_malicious_sha1_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 6556
+        }
+      ]
+    },
+    "fuzz_filecfg_protocols": {
+      "target_function": "load_protocols_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_protocols_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 6647
+        }
+      ]
+    },
+    "fuzz_filecfg_risk_domains": {
+      "target_function": "load_risk_domain_file_fd",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "load_risk_domain_file_fd",
+          "file_path": "src/lib/ndpi_main.c",
+          "start_line": 6422
+        }
+      ]
+    },
+    "fuzz_ds_tree": {
+      "target_function": "ndpi_tsearch",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "ndpi_tsearch",
+          "file_path": "src/lib/ndpi_utils.c",
+          "start_line": 135
+        }
+      ]
+    },
+    "fuzz_alg_bins": {
+      "target_function": "ndpi_init_bin",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "ndpi_init_bin",
+          "file_path": "src/lib/ndpi_analyze.c",
+          "start_line": 375
+        }
+      ]
+    },
+    "fuzz_community_id": {
+      "target_function": "ndpi_flowv4_flow_hash",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "ndpi_flowv4_flow_hash",
+          "file_path": "src/lib/ndpi_community_id.c",
+          "start_line": 251
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 3325,
+    "external_functions": 148,
+    "edges": 5140,
+    "fuzzers": 50,
+    "reach_total": 1626,
+    "reach_by_fuzzer": {
+      "fuzz_alg_bins": 15,
+      "fuzz_alg_bytestream": 4,
+      "fuzz_alg_crc32_md5": 27,
+      "fuzz_alg_hll": 15,
+      "fuzz_alg_hw_rsi_outliers_da": 36,
+      "fuzz_alg_jitter": 6,
+      "fuzz_alg_memmem": 3,
+      "fuzz_alg_quick_encryption": 16,
+      "fuzz_alg_ranking": 11,
+      "fuzz_alg_ses_des": 11,
+      "fuzz_alg_shoco": 5,
+      "fuzz_alg_strnstr": 4,
+      "fuzz_binaryfusefilter": 8,
+      "fuzz_community_id": 10,
+      "fuzz_config": 223,
+      "fuzz_dga": 8,
+      "fuzz_ds_address_cache": 35,
+      "fuzz_ds_ahocorasick": 29,
+      "fuzz_ds_bitmap": 263,
+      "fuzz_ds_bitmap64_fuse": 11,
+      "fuzz_ds_btree": 23,
+      "fuzz_ds_cmsketch": 7,
+      "fuzz_ds_domain_classify": 18,
+      "fuzz_ds_filter": 58,
+      "fuzz_ds_hash": 7,
+      "fuzz_ds_kdtree": 20,
+      "fuzz_ds_libcache": 10,
+      "fuzz_ds_patricia": 26,
+      "fuzz_ds_ptree": 21,
+      "fuzz_ds_tree": 8,
+      "fuzz_filecfg_categories": 52,
+      "fuzz_filecfg_category": 50,
+      "fuzz_filecfg_config": 49,
+      "fuzz_filecfg_malicious_ja4": 51,
+      "fuzz_filecfg_malicious_sha1": 9,
+      "fuzz_filecfg_protocols": 50,
+      "fuzz_filecfg_risk_domains": 50,
+      "fuzz_gcrypt_aes": 8,
+      "fuzz_gcrypt_cipher": 18,
+      "fuzz_gcrypt_gcm": 9,
+      "fuzz_gcrypt_light": 31,
+      "fuzz_is_stun": 9,
+      "fuzz_libinjection": 6,
+      "fuzz_match_custom_category": 2,
+      "fuzz_ndpi_reader": 48,
+      "fuzz_process_packet": 79,
+      "fuzz_quic_get_crypto_data": 32,
+      "fuzz_readerutils_workflow": 20,
+      "fuzz_serialization": 96,
+      "fuzz_tls_certificate": 19
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 145.06,
+    "analysis_sec": 35.97,
+    "fuzzer_parse_sec": 0.08,
+    "import_sec": 3.81,
+    "total_sec": 185.93,
+    "wall_sec": 187.11,
+    "started_at": "2026-04-11T00:15:40Z",
+    "ended_at": "2026-04-11T00:18:47Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/ndpi:latest",
+    "image_id": "sha256:5d953dcbf248d49a79f1cb333d3d132ae382ffa6709790b752b8e476ecd855a5",
+    "image_created": "2026-04-10T23:12:56.229971904Z",
+    "source_commits": {
+      "/src/ndpi": "a6fa73921b1bb3377ed5fca7fda0763b717f9fab"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 3275,
+      "edge_count": 4551,
+      "benchmark_targets_hit": [
+        "fuzz_alg_bins",
+        "fuzz_community_id",
+        "fuzz_ds_tree",
+        "fuzz_filecfg_categories",
+        "fuzz_filecfg_category",
+        "fuzz_filecfg_config",
+        "fuzz_filecfg_malicious_ja4",
+        "fuzz_filecfg_malicious_sha1",
+        "fuzz_filecfg_protocols",
+        "fuzz_filecfg_risk_domains"
+      ],
+      "error_phase": "",
+      "wall_sec": 185.97
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:06Z"
+}

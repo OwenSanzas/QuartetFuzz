@@ -1,0 +1,101 @@
+[
+  {
+    "name": "libyaml_deconstructor_alt_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_deconstructor_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_dumper_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_emitter_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_loader_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_parser_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_reformatter_alt_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_reformatter_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "libyaml_scanner_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

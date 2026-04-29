@@ -1,0 +1,9 @@
+{
+  "case_id": "libplist/jplist_fuzzer",
+  "project": "libplist",
+  "fuzzer_name": "jplist_fuzzer",
+  "target_function": "plist_from_json",
+  "repo_url": "https://github.com/libimobiledevice/libplist",
+  "source_file": "jplist_fuzzer.cc",
+  "prompt": "This fuzzer targets the `plist_from_json` function in libplist, which parses arbitrary JSON-formatted byte sequences into an in-memory property list structure. It feeds raw, unconstrained byte buffers of varying lengths directly to the parser, exercising all JSON parsing code paths including malformed, truncated, deeply nested, or otherwise adversarial input. The goal is to uncover crashes, memory corruption, buffer overflows, infinite loops, or other undefined behavior that could arise when the JSON parser encounters unexpected or malicious input."
+}

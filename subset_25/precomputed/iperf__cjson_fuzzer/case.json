@@ -1,0 +1,9 @@
+{
+  "case_id": "iperf/cjson_fuzzer",
+  "project": "iperf",
+  "fuzzer_name": "cjson_fuzzer",
+  "target_function": "cJSON_Parse",
+  "repo_url": "https://github.com/esnet/iperf",
+  "source_file": "cjson_fuzzer.c",
+  "prompt": "This fuzzer targets the `cJSON_Parse` function in iperf's bundled cJSON library, which is responsible for parsing arbitrary JSON text into an in-memory tree structure. It feeds raw, potentially malformed byte sequences as null-terminated strings directly into `cJSON_Parse`, then frees any successfully parsed result via `cJSON_Delete`. The goal is to uncover bugs such as buffer overflows, out-of-bounds reads, use-after-free errors, infinite loops, or crashes that could arise when the parser encounters unexpected, malformed, or adversarially crafted JSON input."
+}

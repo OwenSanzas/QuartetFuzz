@@ -1,0 +1,3683 @@
+[
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "sprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_add_mapping",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_add_scalar",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_add_sequence",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_append_mapping_pair",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_append_sequence_item",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_document_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_close",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_dump",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_open",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_event_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_alt_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "sprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_document_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_document_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_event_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_mapping_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_mapping_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_scalar_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_sequence_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_sequence_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_stream_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_deconstructor_fuzzer.c",
+    "callee_name": "yaml_stream_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "strcmp",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "strncmp",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_add_mapping",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_add_scalar",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_add_sequence",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_append_mapping_pair",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_append_sequence_item",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_get_node",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_get_root_node",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_document_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_close",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_dump",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_open",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_parser_load",
+    "callee_file": "src/loader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_dumper_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "memcmp",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "strcmp",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_alias_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_document_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_document_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_event_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_mapping_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_mapping_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_scalar_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_sequence_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_sequence_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_stream_end_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_emitter_fuzzer.c",
+    "callee_name": "yaml_stream_start_event_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_document_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_document_get_root_node",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_parser_load",
+    "callee_file": "src/loader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_loader_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+    "callee_name": "yaml_event_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_parser_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_document_get_root_node",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_dump",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_parser_load",
+    "callee_file": "src/loader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_alt_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_canonical",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_output",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_emitter_set_unicode",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_reformatter_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+    "callee_name": "yaml_parser_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+    "callee_name": "yaml_parser_initialize",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+    "callee_name": "yaml_parser_scan",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+    "callee_name": "yaml_parser_set_input_string",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libyaml-kkcm8b9q/fuzzer_sources/libyaml_scanner_fuzzer.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "yaml_alias_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_alias_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_mapping",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_mapping",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_mapping",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_mapping",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_mapping",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_scalar",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_scalar",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_scalar",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_scalar",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_scalar",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_sequence",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_sequence",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_sequence",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_sequence",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_add_sequence",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_append_mapping_pair",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_append_sequence_item",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_delete",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_document_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_delete",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_event_delete",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_mapping_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_mapping_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_mapping_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_delete",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_queue_extend",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_realloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_scalar_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_scalar_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_scalar_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_scalar_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_sequence_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_check_utf8",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_sequence_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_sequence_start_event_initialize",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_stack_extend",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_realloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_string_extend",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_realloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_string_join",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_token_delete",
+    "caller_file": "src/api.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_close",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_delete_document_and_anchors",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_document_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_delete_document_and_anchors",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_close",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_open",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_alias",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_mapping",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_dump_node",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_mapping",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_scalar",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_sequence",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_dump_node",
+    "callee_file": "src/dumper.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_dump_sequence",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_generate_anchor",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_open",
+    "caller_file": "src/dumper.c",
+    "callee_name": "yaml_emitter_emit",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_analyze_anchor",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_analyze_tag",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_analyze_tag_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_analyze_version_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_append_tag_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_append_tag_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_append_tag_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_append_tag_directive",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_check_simple_key",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_check_empty_mapping",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_check_simple_key",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_check_empty_sequence",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_event_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_alias",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_block_mapping_key",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_block_mapping_value",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_block_sequence_item",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_document_content",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_document_end",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_document_end",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_document_start",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_flow_mapping_key",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_flow_mapping_value",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_flow_sequence_item",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_emit_node",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_increase_indent",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_process_anchor",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_process_tag",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_select_scalar_style",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_set_emitter_error",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_anchor",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_block_scalar_hints",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_bom",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_double_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_double_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indent",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_double_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_folded_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_folded_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indent",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_folded_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_indent",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_indicator",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_literal_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_literal_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indent",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_literal_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_plain_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_plain_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indent",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_single_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_single_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indent",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_single_quoted_scalar",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_write_indicator",
+    "callee_file": "src/emitter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_tag_content",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_emitter_write_tag_handle",
+    "caller_file": "src/emitter.c",
+    "callee_name": "yaml_emitter_flush",
+    "callee_file": "src/writer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_delete_aliases",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_document_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_alias",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_document",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_document",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_mapping",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_mapping",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_mapping",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_mapping",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_node_add",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_nodes",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_parser_parse",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_scalar",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_scalar",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_scalar",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_sequence",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_sequence",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_sequence",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_load_sequence",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_register_anchor",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_register_anchor",
+    "caller_file": "src/loader.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_maximum_level_reached",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_set_parser_error_context",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_append_tag_directive",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_append_tag_directive",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_set_parser_error",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_append_tag_directive",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_append_tag_directive",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_strdup",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_block_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_content",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_end",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_end",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_start",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_start",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_document_start",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_end",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_key",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_flow_sequence_entry_mapping_value",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_indentless_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_indentless_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_parse_node",
+    "callee_file": "src/parser.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_indentless_sequence_entry",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_node",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_node",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_node",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_parse_stream_start",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_process_directives",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_process_directives",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_process_directives",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_parser_fetch_more_tokens",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_process_directives",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_process_empty_scalar",
+    "caller_file": "src/parser.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_block_entry",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_unroll_indent",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_document_indicator",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_unroll_indent",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_document_indicator",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_flow_collection_end",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_flow_collection_start",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_flow_entry",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_key",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_next_token",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_stale_simple_keys",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_next_token",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_stream_end",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_unroll_indent",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_stream_end",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_stream_start",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_stream_start",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_token_delete",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_fetch_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_increase_flow_level",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_remove_simple_key",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_roll_indent",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_roll_indent",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_stack_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_anchor",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_join",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar_breaks",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar_breaks",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_block_scalar_breaks",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive_name",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive_name",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive_name",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive_name",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_directive_name",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_flow_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_join",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_plain_scalar",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_join",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_scan_tag_handle",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_scan_tag_uri",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_handle",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_handle",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_handle",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_handle",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_handle",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_uri",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_free",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_uri",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_malloc",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_uri",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_uri",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_tag_uri",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_string_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_to_next_token",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_uri_escapes",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_uri_escapes",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_version_directive_number",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_version_directive_number",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_version_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_set_scanner_error",
+    "callee_file": "src/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_scan_version_directive_value",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_parser_update_buffer",
+    "callee_file": "src/reader.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "yaml_parser_unroll_indent",
+    "caller_file": "src/scanner.c",
+    "callee_name": "yaml_queue_extend",
+    "callee_file": "src/api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

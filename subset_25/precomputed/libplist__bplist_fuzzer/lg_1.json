@@ -1,0 +1,19 @@
+{
+  "name": "libplist binary format parser",
+  "description": "The binary property list (bplist) parser is responsible for decoding Apple's proprietary binary plist format. The process begins with validating the magic header and version, followed by parsing the trailer to locate the object offset table. The core logic recursively traverses the binary data to reconstruct the property list tree, handling various data types such as integers, floating-point numbers, UTF-8/UTF-16 strings, and complex containers like arrays and dictionaries. It incorporates security-critical checks, including recursion limits and offset validation, to handle malformed or malicious input safely.",
+  "entries": [
+    "plist_from_bin"
+  ],
+  "core": [
+    "parse_bin_node",
+    "parse_bin_node_at_index",
+    "parse_dict_node",
+    "parse_array_node",
+    "parse_unicode_node"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_from_bin": 3.79
+  }
+}

@@ -1,0 +1,6014 @@
+[
+  {
+    "caller_name": "incoming_isochronous_transfer_completed_len.754",
+    "caller_file": "",
+    "callee_name": "u_int_sum.752",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "close",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "fclose",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "fopen",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "fprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "fwrite",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "malloc",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_compile",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_freecode",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_next_ex",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_offline_filter",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "pcap_open_offline",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "printf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_both.c",
+    "callee_name": "snprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "malloc",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_compile",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_freecode",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_open_dead",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_perror",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "pcap_setfilter",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_filter.c",
+    "callee_name": "printf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "close",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "fclose",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "fopen",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "fprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "fwrite",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "pcap_next_ex",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "pcap_open_offline",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "pcap_stats",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "printf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-libpcap-gkbvoiyc/fuzzer_sources/fuzz_pcap.c",
+    "callee_name": "snprintf",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "bpf_filter",
+    "caller_file": "bpf_filter.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "bpf_validate",
+    "caller_file": "bpf_filter.c",
+    "callee_name": "pcapint_validate_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_filter",
+    "caller_file": "bpf_filter.c",
+    "callee_name": "pcapint_filter_with_aux_data",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_parse",
+    "caller_file": "build/grammar.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_error",
+    "caller_file": "build/grammar.y",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pfaction_to_num",
+    "caller_file": "build/grammar.y",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pfaction_to_num",
+    "caller_file": "build/grammar.y",
+    "callee_name": "str2tok",
+    "callee_file": "build/grammar.y",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pfreason_to_num",
+    "caller_file": "build/grammar.y",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pfreason_to_num",
+    "caller_file": "build/grammar.y",
+    "callee_name": "str2tok",
+    "callee_file": "build/grammar.y",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__flush_buffer",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__load_buffer_state",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__scan_buffer",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_alloc",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__scan_buffer",
+    "caller_file": "build/scanner.c",
+    "callee_name": "yy_fatal_error",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__scan_bytes",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_alloc",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__scan_bytes",
+    "caller_file": "build/scanner.c",
+    "callee_name": "yy_fatal_error",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__switch_to_buffer",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__load_buffer_state",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap__switch_to_buffer",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_ensure_buffer_stack",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex",
+    "caller_file": "build/scanner.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__load_buffer_state",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex",
+    "caller_file": "build/scanner.c",
+    "callee_name": "sdup",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex_destroy",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__delete_buffer",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex_init_extra",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_alloc",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex_init_extra",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_set_extra",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lex_init_extra",
+    "caller_file": "build/scanner.c",
+    "callee_name": "yy_init_globals",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_pop_buffer_state",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__delete_buffer",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_push_buffer_state",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__load_buffer_state",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_push_buffer_state",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_ensure_buffer_stack",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_restart",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__create_buffer",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_restart",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap__load_buffer_state",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_restart",
+    "caller_file": "build/scanner.c",
+    "callee_name": "pcap_ensure_buffer_stack",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_column",
+    "caller_file": "build/scanner.c",
+    "callee_name": "yy_fatal_error",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_lineno",
+    "caller_file": "build/scanner.c",
+    "callee_name": "yy_fatal_error",
+    "callee_file": "build/scanner.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_findalldevs_interfaces",
+    "caller_file": "fad-getad.c",
+    "callee_name": "can_be_bound",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_findalldevs_interfaces",
+    "caller_file": "fad-getad.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "alloc_reg",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "assert_atm",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "assert_nonwlan_dqual",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "assert_nonwlan_dqual",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "assert_pflog",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "atmkw",
+    "caller_file": "gencode.c",
+    "callee_name": "qual2kw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "dqkw",
+    "caller_file": "gencode.c",
+    "callee_name": "qual2kw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "ethertype_to_ppptype",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "fail_kw_on_dlt",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "fail_kw_on_dlt",
+    "caller_file": "gencode.c",
+    "callee_name": "pcapint_datalink_val_to_string",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "finish_parse",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_retblk_internal",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_abs_offset_varpart",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_arth",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atm_prototype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atm_vci",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_atmfield_code_internal",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atm_vpi",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_atmfield_code_internal",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmfield_code_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmfield_code_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmfield_code_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmmulti_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmmulti_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_atmtype_abbrev",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmmulti_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmtype_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_atmtype_llc",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_atm_prototype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bcmp",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bcmp",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bcmp",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_broadcast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_broadcast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bsd_af_linktype_live",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bsd_af_linktype_offline",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_bsd_af_linktype_offline",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_byteop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_byteop",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp_ge",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp_gt",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp_le",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp_lt",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_cmp_ne",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhost",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_nonwlan_dqual",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhost",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhost",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhost",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhost",
+    "caller_file": "gencode.c",
+    "callee_name": "tqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_dnhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_encap_ll_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_encap_ll_check",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_encap_ll_check",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_endian_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ether_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ether_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ether_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ether_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_frelay_nlpid",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_gateway",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_gateway",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_gateway",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_host46_byname",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_gateway",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mac48host_byname",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_gateway",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_loadx_iphdrlen",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve4",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve4",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_abs_offset_varpart",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve6",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve6",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_check",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_port",
+    "callee_file": "gencode.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_port6",
+    "callee_file": "gencode.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_geneve_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_nonwlan_dqual",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host46_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host46_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_host",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host46_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_host6",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host46_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_nonwlan_dqual",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_host6",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_hostop6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_true",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_inbound_outbound",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ip_version",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ip_version",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ipfrag",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ipnet_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ipnet_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_jmp_k",
+    "caller_file": "gencode.c",
+    "callee_name": "new_block",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_jmp_x",
+    "caller_file": "gencode.c",
+    "callee_name": "new_block",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_just_after_mpls_stack",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_just_after_mpls_stack",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_set",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_len",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_k",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_len",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_less",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linux_sll_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linux_sll_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linux_sll_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_linux_sll_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_i",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp_le",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp_ne",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_true",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_s",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_s_subtype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_u",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_llc_u_subtype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_802_11_header_len",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_802_11_header_len",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetarthrel",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_absoffsetrel",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetarthrel",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetarthrel",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetarthrel",
+    "caller_file": "gencode.c",
+    "callee_name": "xfer_to_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetarthrel",
+    "caller_file": "gencode.c",
+    "callee_name": "xfer_to_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetrel",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetrel",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_absoffsetrel",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_avs_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_avs_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "free_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_abs_offset_varpart",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_loadx_iphdrlen",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_pflog_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_pflog_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_ppi_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_ppi_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_prism_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_prism_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_radiotap_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_load_radiotap_llprefixlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadi_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadi_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadi_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "newchunk",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadlen",
+    "caller_file": "gencode.c",
+    "callee_name": "newchunk",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadx_iphdrlen",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_abs_offset_varpart",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadx_iphdrlen",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loadx_iphdrlen",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loopback_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loopback_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_false",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loopback_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loopback_linktype_live",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_loopback_linktype_live",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "fail_kw_on_dlt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_bcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_prevlinkhdr_check",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "fail_kw_on_dlt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mac48host",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac48host_byname",
+    "caller_file": "gencode.c",
+    "callee_name": "is_mac48_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "fail_kw_on_dlt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac8host",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac_multicast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mac_multicast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_set",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mcmp",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mcmp_ne",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ncmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "fail_kw_on_dlt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_just_after_mpls_stack",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mpls_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_msg_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_mtp2type_abbrev",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_multicast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_multicast",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ncmp",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ncmp",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_ncode",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_neg",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port",
+    "caller_file": "gencode.c",
+    "callee_name": "tqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6_common",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ip6_proto",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port6_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ip_proto",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ipfrag",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_port_common",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portatom",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portatom6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_port_common",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange6",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange6",
+    "caller_file": "gencode.c",
+    "callee_name": "dqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrange6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_port6_common",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp_ge",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp_le",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_portatom",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp_le",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_portrangeatom6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_portatom6",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_pppoes",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ip6_proto",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_ip_proto",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto_abbrev_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto_abbrev_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_proto_abbrev_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "free_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_k",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_loadx_iphdrlen",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_protochain",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "free_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "xfer_to_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_relation_internal",
+    "caller_file": "gencode.c",
+    "callee_name": "xfer_to_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_scode",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_set",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_k",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_uncond",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_k",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_uncond",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_unset",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_not",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_k",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_no_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_patch_tpid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "sprepend_to_block",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_patch_vid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_patch_vid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_patch_vid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "sprepend_to_block",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_tpid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_linktype",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_tpid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_vid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_vid_test",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_vloffset_add",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_vloffset_add",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vlan_vloffset_add",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan4",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_loadx_iphdrlen",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan4",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan4",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_abs_offset_varpart",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan6",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_jmp_x",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan6",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan6",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_check",
+    "caller_file": "gencode.c",
+    "callee_name": "assert_maxval",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_cmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_check",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_port6",
+    "callee_file": "gencode.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_vxlan_offsets",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_and",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_bcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_load_a",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_mcmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_or",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_set",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "gen_wlanhostop",
+    "caller_file": "gencode.c",
+    "callee_name": "gen_unset",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "init_linktype",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "initchunks_ok",
+    "caller_file": "gencode.c",
+    "callee_name": "initcurrentchunk_ok",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "initcurrentchunk_ok",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "insert_compute_vloffsets",
+    "caller_file": "gencode.c",
+    "callee_name": "alloc_reg",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "insert_compute_vloffsets",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "insert_compute_vloffsets",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "insert_compute_vloffsets",
+    "caller_file": "gencode.c",
+    "callee_name": "sprepend_to_block",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "lookup_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "lookup_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "lookup_proto",
+    "caller_file": "gencode.c",
+    "callee_name": "tqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "nametoport",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "new_stmt",
+    "caller_file": "gencode.c",
+    "callee_name": "newchunk",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "newchunk",
+    "caller_file": "gencode.c",
+    "callee_name": "newchunk_nolongjmp",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "newchunk_nolongjmp",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_compile",
+    "caller_file": "gencode.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_compile_nopcap",
+    "caller_file": "gencode.c",
+    "callee_name": "pcap_compile",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "port_pq_to_ipproto",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "port_pq_to_ipproto",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_ethertype",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_ethertype",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_ipproto",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_ipproto",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_llcsap",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_llcsap",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_nlpid",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pq_to_nlpid",
+    "caller_file": "gencode.c",
+    "callee_name": "pqkw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pqkw",
+    "caller_file": "gencode.c",
+    "callee_name": "qual2kw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "require_basic_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "require_basic_bpf_extensions",
+    "caller_file": "gencode.c",
+    "callee_name": "pcapint_datalink_val_to_string",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "sprepend_to_block",
+    "caller_file": "gencode.c",
+    "callee_name": "sappend",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "stringtoport",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "stringtoportrange",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "syntax",
+    "caller_file": "gencode.c",
+    "callee_name": "bpf_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tqkw",
+    "caller_file": "gencode.c",
+    "callee_name": "qual2kw",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "xfer_to_a",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "xfer_to_x",
+    "caller_file": "gencode.c",
+    "callee_name": "new_stmt",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ether_aton",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_atomac48",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ether_hostton",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_nametoportrange",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcap_nametoport",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_atoan",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_xdtoi",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_atomac48_x_xx_6_times",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_xdtoi",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_atomac48_xxxx_3_times",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_xdtoi",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_atomac48_xxxxxxxxxxxx",
+    "caller_file": "nametoaddr.c",
+    "callee_name": "pcapint_xdtoi",
+    "callee_file": "nametoaddr.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "and_pullup",
+    "caller_file": "optimize.c",
+    "callee_name": "find_dom",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compute_local_ud",
+    "caller_file": "optimize.c",
+    "callee_name": "atomdef",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "compute_local_ud",
+    "caller_file": "optimize.c",
+    "callee_name": "atomuse",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "fold_op",
+    "caller_file": "optimize.c",
+    "callee_name": "opt_error",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "number_blks_r",
+    "caller_file": "optimize.c",
+    "callee_name": "opt_error",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "opt_init",
+    "caller_file": "optimize.c",
+    "callee_name": "slength",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "or_pullup",
+    "caller_file": "optimize.c",
+    "callee_name": "find_dom",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_install_bpf_program",
+    "caller_file": "optimize.c",
+    "callee_name": "pcap_freecode",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_install_bpf_program",
+    "caller_file": "optimize.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_install_bpf_program",
+    "caller_file": "optimize.c",
+    "callee_name": "pcapint_validate_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_ring",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "destroy_ring",
+    "callee_file": "pcap-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_ring",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_ring",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "device_still_exists",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "fix_program",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_if_flags",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_if_flags",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_bind",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_dsa_get_proto_info",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_ethtool_flag_ioctl",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_ethtool_flag_ioctl",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_arptype",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_arptype",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_id",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_id",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_mtu",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_mtu",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_ts_types",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "get_if_ioctl_socket",
+    "callee_file": "pcap-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_ts_types",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_get_ts_types",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iface_set_all_ts_types",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "init_tpacket",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "map_arphrd_to_dlt",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "is_wifi",
+    "callee_file": "pcap-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "map_arphrd_to_dlt",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_breakloop_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_breakloop_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_cleanup_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_cleanup_live_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_handle_packet_mmap",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_filter_with_aux_data",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_inject_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_inject_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_protocol_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setfilter_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcap_strerror",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setfilter_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setfilter_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_install_bpf_program",
+    "callee_file": "optimize.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setfilter_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setnonblock_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setnonblock_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_setnonblock_fd",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_stats_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "linux_if_drops",
+    "callee_file": "pcap-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_stats_linux",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_wait_for_frames_mmap",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_wait_for_frames_mmap",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_create_interface",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_create_interface",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_create_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_create_interface",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "set_kernel_filter",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "setup_mmapped",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "setup_socket",
+    "caller_file": "pcap-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "netfilter_activate",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "netfilter_findalldevs",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "netfilter_handle_send_msg_error",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "netfilter_read_linux",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "netfilter_read_linux",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "nflog_send_config_msg",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "netfilter_send_config_msg",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "nfqueue_send_verdict",
+    "caller_file": "pcap-netfilter-linux.c",
+    "callee_name": "netfilter_send_config_msg",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_findalldevs_ex",
+    "caller_file": "pcap-new.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open",
+    "caller_file": "pcap-new.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setsampling",
+    "caller_file": "pcap-new.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "incoming_isochronous_transfer_completed_len",
+    "caller_file": "pcap-usb-linux-common.h",
+    "callee_name": "iso_pseudo_header_len",
+    "callee_file": "pcap-usb-linux-common.h",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_activate",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_cleanup_linux_mmap",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_cleanup_live_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_dev_add",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_add_dev",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_read_linux_bin",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_read_linux_bin",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_read_linux_mmap",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_read_linux_mmap",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_set_ring_size",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "usb_stats_linux_bin",
+    "caller_file": "pcap-usb-linux.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "initialize_ops",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "netfilter_activate",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "netfilter_set_datalink",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "netfilter_stats_linux",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_activate_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_breakloop_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_breakloop_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_can_set_rfmon_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_can_set_rfmon_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_cant_set_rfmon",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_cleanup_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_cleanup_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_getnonblock_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_getnonblock_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_getnonblock_not_initialized",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_datalink_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_datalink_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_datalink_not_initialized",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setdirection_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setdirection_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setdirection_not_initialized",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setfilter_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setfilter_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setfilter_not_initialized",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setnonblock_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setnonblock_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_setnonblock_unactivated",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_stats_dead",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_stats_linux",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_stats_not_initialized",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_breakloop_common",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_cleanup_live_common",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_getnonblock_fd",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_install_bpf_program",
+    "callee_file": "optimize.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_setnonblock_fd",
+    "callee_file": "pcap.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "usb_activate",
+    "callee_file": "pcap-usb-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "usb_cleanup_linux_mmap",
+    "callee_file": "pcap-usb-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "usb_setdirection_linux",
+    "callee_file": "pcap-usb-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_activate",
+    "caller_file": "pcap.c",
+    "callee_name": "usb_stats_linux_bin",
+    "callee_file": "pcap-usb-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_alloc_pcap_t",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_close_all",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_create",
+    "caller_file": "pcap.c",
+    "callee_name": "netfilter_create",
+    "callee_file": "pcap-netfilter-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_create",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_create",
+    "caller_file": "pcap.c",
+    "callee_name": "usb_create",
+    "callee_file": "pcap-usb-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_createsrcstr",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_datalink_name_to_val",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strcasecmp",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_datalink_val_to_description_or_dlt",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_datalink_val_to_description",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_getnonblock",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_init",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_set_encoding",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_inject",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_list_datalinks",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_list_tstamp_types",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lookupdev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_findalldevs",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lookupdev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_freealldevs",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lookupdev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lookupnet",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_lookupnet",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_loop",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_offline_read",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_offline_filter",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_activate",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_close",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_create",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_promisc",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_snaplen",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_set_timeout",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_statustostr",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_live",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_parsesrcstr",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_sendpacket",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_buffer_size",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_datalink",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_datalink_val_to_name",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_immediate_mode",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_promisc",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_rfmon",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_snaplen",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_timeout",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_tstamp_precision",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_set_tstamp_type",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_check_activated",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setnonblock",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_tstamp_type_name_to_val",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strcasecmp",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_add_addr_to_dev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_add_any_dev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_add_dev",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_add_dev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_cleanup_live_common",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_freecode",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_createsrcstr_ex",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_do_addexit",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_find_or_add_dev",
+    "caller_file": "pcap.c",
+    "callee_name": "get_if_flags",
+    "callee_file": "pcap-linux.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_find_or_add_dev",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_add_dev",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_getnonblock_fd",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_open_offline_common",
+    "caller_file": "pcap.c",
+    "callee_name": "pcap_alloc_pcap_t",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_parsesrcstr_ex",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_setnonblock_fd",
+    "caller_file": "pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_fopen_offline",
+    "caller_file": "savefile.c",
+    "callee_name": "pcap_fopen_offline_with_tstamp_precision",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_fopen_offline_with_tstamp_precision",
+    "caller_file": "savefile.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_offline",
+    "caller_file": "savefile.c",
+    "callee_name": "pcap_open_offline_with_tstamp_precision",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_open_offline_with_tstamp_precision",
+    "caller_file": "savefile.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_adjust_snapshot",
+    "caller_file": "savefile.c",
+    "callee_name": "max_snaplen_for_dlt",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_offline_read",
+    "caller_file": "savefile.c",
+    "callee_name": "pcapint_filter",
+    "callee_file": "bpf_filter.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcapint_sf_cleanup",
+    "caller_file": "savefile.c",
+    "callee_name": "pcap_freecode",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "sf_inject",
+    "caller_file": "savefile.c",
+    "callee_name": "pcapint_strlcpy",
+    "callee_file": "missing/strlcpy.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "stou",
+    "caller_file": "scanner.l",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "stou",
+    "caller_file": "scanner.l",
+    "callee_name": "stoulen",
+    "callee_file": "scanner.l",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "stoulen",
+    "caller_file": "scanner.l",
+    "callee_name": "bpf_set_error",
+    "callee_file": "gencode.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_check_header",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "linktype_to_dlt",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_check_header",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_check_header",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_open_offline_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_fopen",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "dlt_to_linktype",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_fopen",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcap_setup_dump",
+    "callee_file": "sf-pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "dlt_to_linktype",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open_append",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "dlt_to_linktype",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open_append",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcap_setup_dump",
+    "callee_file": "sf-pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open_append",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_dump_open_append",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "sf_write_header",
+    "callee_file": "sf-pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_next_packet",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "max_snaplen_for_dlt",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_next_packet",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_next_packet",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_post_process",
+    "callee_file": "pcap-util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_setup_dump",
+    "caller_file": "sf-pcap.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_opthdr_from_block_data",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "get_from_block_data",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_optvalue_from_block_data",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "get_from_block_data",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_check_header",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "linktype_to_dlt",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_check_header",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "max_snaplen_for_dlt",
+    "callee_file": "pcap-common.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_check_header",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_check_header",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_open_offline_common",
+    "callee_file": "pcap.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_cleanup",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_sf_cleanup",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_next_packet",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "add_interface",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_next_packet",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "get_from_block_data",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_next_packet",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_adjust_snapshot",
+    "callee_file": "savefile.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_next_packet",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_post_process",
+    "callee_file": "pcap-util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "pcap_ng_next_packet",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "read_block",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "read_block",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "read_bytes",
+    "callee_file": "sf-pcapng.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "read_bytes",
+    "caller_file": "sf-pcapng.c",
+    "callee_name": "pcapint_fmt_errmsg_for_errno",
+    "callee_file": "fmtutils.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

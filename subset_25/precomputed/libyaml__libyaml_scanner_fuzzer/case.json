@@ -1,0 +1,9 @@
+{
+  "case_id": "libyaml/libyaml_scanner_fuzzer",
+  "project": "libyaml",
+  "fuzzer_name": "libyaml_scanner_fuzzer",
+  "target_function": "yaml_parser_scan",
+  "repo_url": "https://github.com/yaml/libyaml",
+  "source_file": "libyaml_scanner_fuzzer.c",
+  "prompt": "This fuzzer targets libyaml's lexical scanning layer, specifically the `yaml_parser_scan` API, by feeding arbitrary byte sequences as YAML input and repeatedly calling the scanner until the stream ends or an error occurs. The goal is to discover crashes, hangs, memory corruption, or incorrect error handling in the tokenization logic that converts raw bytes into YAML tokens (scalars, keys, anchors, directives, etc.). Because YAML's syntax is complex and context-sensitive, malformed or adversarial inputs can expose edge cases in buffer management, encoding handling, and state-machine transitions within the scanner."
+}

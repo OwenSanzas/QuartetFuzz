@@ -1,0 +1,109 @@
+{
+  "project": "zlib",
+  "snapshot": {
+    "id": "d5ec989b-9f6f-4f63-9946-60b21cb9a642",
+    "repo_url": "https://github.com/madler/zlib.git",
+    "repo_name": "zlib",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-10T22:54:19.520109+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "zlib_uncompress2_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "zlib_uncompress2_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [
+    "checksum_fuzzer",
+    "compress_fuzzer",
+    "example_dict_fuzzer",
+    "example_flush_fuzzer",
+    "example_large_fuzzer",
+    "example_small_fuzzer",
+    "gzio_fuzzer",
+    "minigzip_fuzzer",
+    "zlib_uncompress3_fuzzer",
+    "zlib_uncompress_fuzzer"
+  ],
+  "case_reachability": {
+    "zlib_uncompress2_fuzzer": {
+      "matched_fuzzer_names": [
+        "zlib_uncompress2_fuzzer"
+      ],
+      "reach_count": 19,
+      "external_reach_count": 0,
+      "internal_reach_count": 19,
+      "max_depth": 7
+    }
+  },
+  "target_function_matches": {
+    "zlib_uncompress2_fuzzer": {
+      "target_function": "uncompress2",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "uncompress2",
+          "file_path": "uncompr.c",
+          "start_line": 83
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 191,
+    "external_functions": 21,
+    "edges": 232,
+    "fuzzers": 11,
+    "reach_total": 276,
+    "reach_by_fuzzer": {
+      "checksum_fuzzer": 11,
+      "compress_fuzzer": 35,
+      "example_dict_fuzzer": 27,
+      "example_flush_fuzzer": 25,
+      "example_large_fuzzer": 22,
+      "example_small_fuzzer": 22,
+      "gzio_fuzzer": 68,
+      "minigzip_fuzzer": 8,
+      "zlib_uncompress2_fuzzer": 19,
+      "zlib_uncompress3_fuzzer": 19,
+      "zlib_uncompress_fuzzer": 20
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 51.44,
+    "analysis_sec": 2.51,
+    "fuzzer_parse_sec": 0.02,
+    "import_sec": 1.69,
+    "total_sec": 55.81,
+    "wall_sec": 68.26,
+    "started_at": "2026-04-10T22:53:12Z",
+    "ended_at": "2026-04-10T22:54:21Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/zlib:latest",
+    "image_id": "sha256:540c615965ae7eecd383342a4d00fffdd25a1b263ceab2d16cd7475dd4672268",
+    "image_created": "2026-04-10T22:44:12.22008664Z",
+    "source_commits": {
+      "/src/zlib": "f9dd6009be3ed32415edf1e89d1bc38380ecb95d"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 180,
+      "edge_count": 153,
+      "benchmark_targets_hit": [
+        "zlib_uncompress2_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 55.82
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:30Z"
+}

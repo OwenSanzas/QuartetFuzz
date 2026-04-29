@@ -1,0 +1,10 @@
+{
+  "case_id": "libpcap/fuzz_filter",
+  "line_pct": 18.64,
+  "branch_pct": 21.38,
+  "function_pct": 22.56,
+  "cost_usd": 0.45,
+  "turns": 33,
+  "iter": 0,
+  "wall_seconds": 316.3
+}

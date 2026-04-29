@@ -1,0 +1,10 @@
+{
+  "case_id": "libplist/bplist_fuzzer",
+  "line_pct": 19.87,
+  "branch_pct": 15.68,
+  "function_pct": 25.99,
+  "cost_usd": 0.37,
+  "turns": 28,
+  "iter": 0,
+  "wall_seconds": 236.3
+}

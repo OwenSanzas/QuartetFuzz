@@ -1,0 +1,25 @@
+{
+  "name": "Brotli stream decoder",
+  "description": "This logic group covers the core Brotli decompression engine, which is responsible for transforming a compressed bitstream back into its original uncompressed form. The decompression process is driven by a complex state machine within the library that handles various aspects of the Brotli format, including reading metadata blocks, decoding multiple groups of Huffman trees, and interpreting context-mapped literal and distance symbols. The heart of the feature lies in the command processing logic, which executes LZ77 literal and copy operations to reconstruct the data. The engine also supports configuration via parameters (such as enabling large window support) and the use of shared dictionaries, both of which significantly influence the internal decoding paths and state transitions.",
+  "entries": [
+    "BrotliDecoderDecompressStream",
+    "BrotliDecoderDecompress",
+    "BrotliDecoderSetParameter",
+    "BrotliDecoderAttachDictionary"
+  ],
+  "core": [
+    "ProcessCommands",
+    "SafeProcessCommands",
+    "HuffmanTreeGroupDecode",
+    "DecodeContextMap",
+    "ReadHuffmanCode"
+  ],
+  "project": "brotli",
+  "risk_level": "",
+  "danger_scores": {
+    "BrotliDecoderDecompressStream": 2.0,
+    "BrotliDecoderDecompress": 1.33,
+    "BrotliDecoderSetParameter": 0.0,
+    "BrotliDecoderAttachDictionary": 0.0
+  }
+}

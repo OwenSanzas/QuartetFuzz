@@ -1,0 +1,19 @@
+[
+  {
+    "name": "libplist OpenStep parser",
+    "description": "The OpenStep property list parser in libplist is a recursive descent parser that converts OpenStep-formatted text into a plist node tree. It supports complex nested structures such as dictionaries and arrays, along with primitive types like strings (with support for various escape sequences and octal/hex character codes) and hex-encoded data blocks. The parser is robust, featuring comprehensive whitespace and comment skipping (both single-line and block comments), and can automatically handle both standard OpenStep files and the 'strings' file variant used for localization.",
+    "entries": [
+      "plist_from_openstep"
+    ],
+    "core": [
+      "node_from_openstep",
+      "parse_dict_data",
+      "parse_skip_ws"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_openstep": 5.58
+    }
+  }
+]

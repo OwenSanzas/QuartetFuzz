@@ -1,0 +1,1 @@
+Write a fuzzer for libyaml that targets `yaml_parser_load`. This replicates the OSS-Fuzz harness `libyaml_loader_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

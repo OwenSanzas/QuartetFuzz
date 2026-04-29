@@ -1,0 +1,21 @@
+[
+  {
+    "name": "libplist XML parser",
+    "description": "This logic group focuses on the XML property list (plist) parsing engine. It consists of an iterative parser that handles the hierarchical structure of XML plists, managing node creation for various types such as dictionaries, arrays, strings, integers, and dates. The engine includes specialized logic for scanning XML tags, handling comments and CDATA sections, and decoding text content including entity references. The parser is designed to be iterative to avoid stack overflow on deeply nested inputs.",
+    "entries": [
+      "plist_from_xml"
+    ],
+    "core": [
+      "node_from_xml",
+      "get_text_parts",
+      "text_parts_get_content",
+      "parse_date",
+      "find_str"
+    ],
+    "project": "libplist",
+    "risk_level": "",
+    "danger_scores": {
+      "plist_from_xml": 3.52
+    }
+  }
+]

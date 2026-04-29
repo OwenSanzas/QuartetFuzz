@@ -1,0 +1,9 @@
+{
+  "case_id": "zlib/compress_fuzzer",
+  "project": "zlib",
+  "fuzzer_name": "compress_fuzzer",
+  "target_function": "compress2",
+  "repo_url": "https://github.com/madler/zlib.git",
+  "source_file": "compress_fuzzer.c",
+  "prompt": "This fuzzer targets zlib's `compress2` and `uncompress` APIs, exercising the full compress-then-decompress round-trip with arbitrary input data and varying compression levels (0\u20139). The fuzzer also constructs synthetic zlib-format headers with fuzz-controlled compression method and flag fields, then feeds those directly to `uncompress` to stress the decompressor's header parsing. The goal is to uncover memory corruption, assertion failures, or incorrect decompression results\u2014particularly cases where compressing and then decompressing does not reproduce the original input, or where malformed headers trigger unsafe behavior in the inflate path."
+}

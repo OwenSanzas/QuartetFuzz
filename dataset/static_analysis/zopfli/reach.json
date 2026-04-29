@@ -1,0 +1,156 @@
+{
+  "zopfli_compress_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "ZopfliInitOptions",
+      "file_path": "src/zopfli/util.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCompress",
+      "file_path": "src/zopfli/zopfli_lib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliDeflate",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliGzipCompress",
+      "file_path": "src/zopfli/gzip_container.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliZlibCompress",
+      "file_path": "src/zopfli/zlib_container.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliDeflatePart",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliBlockSplit",
+      "file_path": "src/zopfli/blocksplitter.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliBlockSplitLZ77",
+      "file_path": "src/zopfli/blocksplitter.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCalculateBlockSizeAutoType",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCleanBlockState",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCleanLZ77Store",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliInitBlockState",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliInitLZ77Store",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 4,
+      "is_external": false
+    }
+  ],
+  "zopfli_deflate_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "ZopfliDeflate",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliInitOptions",
+      "file_path": "src/zopfli/util.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliDeflatePart",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliBlockSplit",
+      "file_path": "src/zopfli/blocksplitter.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliBlockSplitLZ77",
+      "file_path": "src/zopfli/blocksplitter.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCalculateBlockSizeAutoType",
+      "file_path": "src/zopfli/deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCleanBlockState",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliCleanLZ77Store",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliInitBlockState",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ZopfliInitLZ77Store",
+      "file_path": "src/zopfli/lz77.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ]
+}

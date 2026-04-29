@@ -1,0 +1,9 @@
+{
+  "case_id": "libpcap/fuzz_filter",
+  "project": "libpcap",
+  "fuzzer_name": "fuzz_filter",
+  "target_function": "pcap_compile",
+  "repo_url": "https://github.com/the-tcpdump-group/libpcap.git",
+  "source_file": "fuzz_filter.c",
+  "prompt": "This harness fuzzes libpcap's BPF filter compilation pipeline, specifically `pcap_compile` and `pcap_setfilter`. It uses arbitrary byte input to simultaneously select a link-layer type (from the last byte) and construct a null-terminated filter expression string (from the remaining bytes), feeding both into a dead capture handle. The goal is to uncover crashes, memory corruption, or infinite loops in the filter expression parser and BPF bytecode compiler, which must safely handle malformed, unexpected, or adversarially crafted filter strings across all supported link types."
+}

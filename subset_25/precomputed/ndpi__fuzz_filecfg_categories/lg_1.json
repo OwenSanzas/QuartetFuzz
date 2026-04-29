@@ -1,0 +1,21 @@
+{
+  "name": "ndpi category loader",
+  "description": "The nDPI category loader is responsible for parsing custom category configuration files and populating the library's internal classification structures. It supports TAB-separated files where each line maps a hostname or an IP address (including CIDR notation for both IPv4 and IPv6) to a numeric category ID. The implementation handles line-by-line parsing, skips comments, and dispatches entries to specialized loaders: IP addresses are stored in Patricia trees for efficient longest-prefix matching, while hostnames are added to a domain classification hash table. This allows nDPI to extend its built-in protocol detection with user-defined categories for specific network entities.",
+  "entries": [
+    "load_categories_file_fd",
+    "ndpi_load_categories_file"
+  ],
+  "core": [
+    "load_categories_file_fd",
+    "ndpi_load_category",
+    "ndpi_load_ip_category",
+    "ndpi_load_hostname_category",
+    "ndpi_domain_classify_add"
+  ],
+  "project": "ndpi",
+  "risk_level": "",
+  "danger_scores": {
+    "load_categories_file_fd": 0.0,
+    "ndpi_load_categories_file": 0.0
+  }
+}

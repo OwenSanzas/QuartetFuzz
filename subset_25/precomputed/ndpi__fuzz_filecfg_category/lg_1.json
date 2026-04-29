@@ -1,0 +1,22 @@
+{
+  "name": "nDPI category file loader",
+  "description": "This logic group is responsible for parsing and loading protocol category information from files or file descriptors into nDPI's internal detection structures. It reads input line-by-line, identifies whether each entry is an IP address (with optional CIDR mask) or a hostname, and populates the corresponding internal data structures (patricia trees for IPs and domain classifiers for hostnames). This allows for dynamic extension of nDPI's classification capabilities through external configuration files. The loader handles both IPv4/IPv6 address ranges and domain name strings, ensuring they are correctly inserted into the shadowed data structures used during the detection phase.",
+  "entries": [
+    "ndpi_load_category_file",
+    "load_category_file_fd",
+    "ndpi_load_category"
+  ],
+  "core": [
+    "load_category_file_fd",
+    "ndpi_load_category",
+    "ndpi_load_ip_category",
+    "ndpi_load_hostname_category"
+  ],
+  "project": "ndpi",
+  "risk_level": "",
+  "danger_scores": {
+    "ndpi_load_category_file": 0.0,
+    "load_category_file_fd": 0.0,
+    "ndpi_load_category": 0.0
+  }
+}

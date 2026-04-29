@@ -1,0 +1,25 @@
+[
+  {
+    "name": "zlib compress2",
+    "description": "This logic group encompasses the compress2 high-level API and its underlying compression engine. compress2 is a simplified interface that manages the z_stream state to perform DEFLATE compression with a user-specified compression level. The core of this feature lies in the deflate function and its various strategy-specific implementations like deflate_fast and deflate_slow. These internal functions perform the actual work of pattern matching (using longest_match), sliding window management (via fill_window), and block-level compression.",
+    "entries": [
+      "compress2_z",
+      "compress2",
+      "compressBound"
+    ],
+    "core": [
+      "deflate_fast",
+      "deflate_slow",
+      "longest_match",
+      "fill_window",
+      "deflate_stored"
+    ],
+    "project": "zlib",
+    "risk_level": "",
+    "danger_scores": {
+      "compress2_z": 0.5,
+      "compress2": 0.33,
+      "compressBound": 0.0
+    }
+  }
+]

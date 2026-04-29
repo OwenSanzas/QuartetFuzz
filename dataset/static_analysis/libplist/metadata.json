@@ -1,0 +1,163 @@
+{
+  "project": "libplist",
+  "snapshot": {
+    "id": "76b51f60-632a-478d-a185-ec292f7fb071",
+    "repo_url": "https://github.com/libimobiledevice/libplist",
+    "repo_name": "libplist",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T02:51:05.439267+00:00"
+  },
+  "backend_used": "joern",
+  "benchmark_targets": [
+    "bplist_fuzzer",
+    "jplist_fuzzer",
+    "oplist_fuzzer",
+    "xplist_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "bplist_fuzzer",
+    "jplist_fuzzer",
+    "oplist_fuzzer",
+    "xplist_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "bplist_fuzzer": {
+      "matched_fuzzer_names": [
+        "bplist_fuzzer"
+      ],
+      "reach_count": 43,
+      "external_reach_count": 0,
+      "internal_reach_count": 43,
+      "max_depth": 7
+    },
+    "jplist_fuzzer": {
+      "matched_fuzzer_names": [
+        "jplist_fuzzer"
+      ],
+      "reach_count": 58,
+      "external_reach_count": 0,
+      "internal_reach_count": 58,
+      "max_depth": 5
+    },
+    "oplist_fuzzer": {
+      "matched_fuzzer_names": [
+        "oplist_fuzzer"
+      ],
+      "reach_count": 49,
+      "external_reach_count": 0,
+      "internal_reach_count": 49,
+      "max_depth": 5
+    },
+    "xplist_fuzzer": {
+      "matched_fuzzer_names": [
+        "xplist_fuzzer"
+      ],
+      "reach_count": 60,
+      "external_reach_count": 0,
+      "internal_reach_count": 60,
+      "max_depth": 5
+    }
+  },
+  "target_function_matches": {
+    "bplist_fuzzer": {
+      "target_function": "plist_from_bin",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "plist_from_bin",
+          "file_path": "src/bplist.c",
+          "start_line": 905
+        }
+      ]
+    },
+    "jplist_fuzzer": {
+      "target_function": "plist_from_json",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "plist_from_json",
+          "file_path": "src/jplist.c",
+          "start_line": 954
+        }
+      ]
+    },
+    "oplist_fuzzer": {
+      "target_function": "plist_from_openstep",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "plist_from_openstep",
+          "file_path": "src/oplist.c",
+          "start_line": 1013
+        }
+      ]
+    },
+    "xplist_fuzzer": {
+      "target_function": "plist_from_xml",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "plist_from_xml",
+          "file_path": "src/xplist.c",
+          "start_line": 1637
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 458,
+    "external_functions": 0,
+    "edges": 843,
+    "fuzzers": 4,
+    "reach_total": 210,
+    "reach_by_fuzzer": {
+      "bplist_fuzzer": 43,
+      "jplist_fuzzer": 58,
+      "oplist_fuzzer": 49,
+      "xplist_fuzzer": 60
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 0.0,
+    "analysis_sec": 15.36,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.51,
+    "total_sec": 16.18,
+    "wall_sec": 17.18,
+    "started_at": "2026-04-11T02:50:48Z",
+    "ended_at": "2026-04-11T02:51:05Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/libplist:latest",
+    "image_id": "sha256:95af475f8d1e128f2bb7eb98e4eb654295336b445b43fbdff82d82bef43e4562",
+    "image_created": "2026-04-10T23:09:28.332309595Z",
+    "source_commits": {
+      "/src/libplist": "dddb76d74a646a7ec41cfa6b9f7772830b7acbd2"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "joern",
+      "success": true,
+      "function_count": 510,
+      "edge_count": 1432,
+      "benchmark_targets_hit": [
+        "bplist_fuzzer",
+        "jplist_fuzzer",
+        "oplist_fuzzer",
+        "xplist_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 16.18
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:04Z"
+}

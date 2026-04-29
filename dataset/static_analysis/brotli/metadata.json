@@ -1,0 +1,88 @@
+{
+  "project": "brotli",
+  "snapshot": {
+    "id": "b60cf79b-15e6-48ce-a3e5-ee07d37cfc94",
+    "repo_url": "https://github.com/google/brotli.git",
+    "repo_name": "brotli",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:54:54.696279+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "decode_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "decode_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "decode_fuzzer": {
+      "matched_fuzzer_names": [
+        "decode_fuzzer"
+      ],
+      "reach_count": 8,
+      "external_reach_count": 0,
+      "internal_reach_count": 8,
+      "max_depth": 2
+    }
+  },
+  "target_function_matches": {
+    "decode_fuzzer": {
+      "target_function": "BrotliDecoderDecompressStream",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "BrotliDecoderDecompressStream",
+          "file_path": "c/dec/decode.c",
+          "start_line": 2422
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 259,
+    "external_functions": 32,
+    "edges": 191,
+    "fuzzers": 1,
+    "reach_total": 8,
+    "reach_by_fuzzer": {
+      "decode_fuzzer": 8
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 66.96,
+    "analysis_sec": 7.7,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.24,
+    "total_sec": 75.2,
+    "wall_sec": 76.14,
+    "started_at": "2026-04-11T00:53:38Z",
+    "ended_at": "2026-04-11T00:54:54Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/brotli:latest",
+    "image_id": "sha256:71e2793b154cd51a8dde3074062659f383bad31803290642aff01644da7324cf",
+    "image_created": "2026-04-10T22:53:32.875828673Z",
+    "source_commits": {
+      "/src/brotli": "bad6cb59b5534f284d69f6f48f708fbbfed05391"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 258,
+      "edge_count": 186,
+      "benchmark_targets_hit": [
+        "decode_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 75.21
+    }
+  ],
+  "exported_at": "2026-04-11T05:04:35Z"
+}

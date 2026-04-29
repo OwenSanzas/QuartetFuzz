@@ -1,0 +1,44 @@
+[project]
+name = "agf"
+version = "0.1.0"
+description = "AI Guided Fuzzing — harness generation, quality checking, and benchmarking"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.0",
+    "google-genai>=1.0",
+    "litellm>=1.50",
+    "mcp>=1.20",
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "structlog>=24.0",
+    "jinja2>=3.1",
+]
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.8",
+    "pytest>=8.0",
+    "pytest-asyncio>=1.3.0",
+    "pyyaml>=6.0",
+    "ruff>=0.9",
+]
+
+[tool.setuptools.packages.find]
+include = ["agent*", "infra*", "harness*", "benchmark*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "agent/tests",
+    "harness/generator/tests",
+    "harness/checker/tests",
+    "harness/tests",
+    "benchmark/oss_fuzz_harness/tests",
+    "benchmark/oss_fuzz_harness/data/pre_cleanup/selection",
+]

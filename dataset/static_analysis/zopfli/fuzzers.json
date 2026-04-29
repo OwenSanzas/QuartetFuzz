@@ -1,0 +1,24 @@
+[
+  {
+    "name": "zopfli_compress_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_compress_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "zopfli_deflate_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-zopfli-rt9f2ji3/fuzzer_sources/zopfli_deflate_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

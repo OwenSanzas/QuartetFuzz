@@ -1,0 +1,10 @@
+{
+  "case_id": "quickjs/fuzz_compile",
+  "line_pct": 22.4,
+  "branch_pct": 18.7,
+  "function_pct": 34.2,
+  "cost_usd": 0.47,
+  "turns": 39,
+  "iter": 0,
+  "wall_seconds": 389.4
+}

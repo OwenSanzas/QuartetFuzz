@@ -1,0 +1,9 @@
+{
+  "case_id": "zopfli/zopfli_deflate_fuzzer",
+  "project": "zopfli",
+  "fuzzer_name": "zopfli_deflate_fuzzer",
+  "target_function": "ZopfliDeflate",
+  "repo_url": "https://github.com/google/zopfli",
+  "source_file": "zopfli_deflate_fuzzer.cc",
+  "prompt": "This harness fuzzes Zopfli's `ZopfliDeflate` function, which performs DEFLATE compression at the block level. The fuzzer drives the API with arbitrary byte sequences as input data while also varying the block type (`btype` \u2208 {0, 1, 2}) and the `is_final` flag, covering all three DEFLATE block encoding modes (no compression, fixed Huffman, dynamic Huffman) across both final and non-final block scenarios. The goal is to uncover memory safety issues\u2014such as buffer overflows, heap corruption, or use-after-free bugs\u2014in Zopfli's compression logic when processing malformed or adversarial input data."
+}

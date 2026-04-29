@@ -1,0 +1,20 @@
+{
+  "name": "zopfli deflate",
+  "description": "The Zopfli DEFLATE compression engine, which achieves higher compression ratios than standard DEFLATE implementations by using iterative LZ77 optimization and block splitting. This feature encompasses the entire deflate process, including input partitioning into blocks, shortest-path search for optimal LZ77 command sequences, and the generation of dynamic Huffman trees. The core of the algorithm involves a graph-based search for the lowest-cost LZ77 representation, which is then encoded into blocks.",
+  "entries": [
+    "ZopfliDeflate",
+    "ZopfliInitOptions"
+  ],
+  "core": [
+    "ZopfliLZ77Optimal",
+    "ZopfliBlockSplit",
+    "ZopfliCalculateBitLengths",
+    "ZopfliDeflatePart"
+  ],
+  "project": "zopfli",
+  "risk_level": "",
+  "danger_scores": {
+    "ZopfliDeflate": 0.0,
+    "ZopfliInitOptions": 0.0
+  }
+}

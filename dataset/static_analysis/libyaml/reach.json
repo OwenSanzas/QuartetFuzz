@@ -1,0 +1,1136 @@
+{
+  "libyaml_deconstructor_alt_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "sprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_document_add_mapping",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_add_scalar",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_add_sequence",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_append_mapping_pair",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_append_sequence_item",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_close",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_dump",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_open",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_check_utf8",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stack_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_strdup",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "libyaml_deconstructor_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "sprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_document_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_mapping_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_mapping_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_scalar_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_sequence_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_sequence_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stream_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stream_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_check_utf8",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stack_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_strdup",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "libyaml_dumper_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "strcmp",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "strncmp",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_document_add_mapping",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_add_scalar",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_add_sequence",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_append_mapping_pair",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_append_sequence_item",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_get_node",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_get_root_node",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_close",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_dump",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_open",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_load",
+      "file_path": "src/loader.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_flush",
+      "file_path": "src/writer.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_check_utf8",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stack_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_strdup",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "libyaml_emitter_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "memcmp",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "strcmp",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_alias_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_mapping_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_mapping_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_scalar_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_sequence_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_sequence_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stream_end_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stream_start_event_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_check_utf8",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_stack_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_strdup",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "libyaml_loader_fuzzer": [
+    {
+      "function_name": "yaml_document_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_get_root_node",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_load",
+      "file_path": "src/loader.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ],
+  "libyaml_parser_fuzzer": [
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ],
+  "libyaml_reformatter_alt_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_document_get_root_node",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_dump",
+      "file_path": "src/dumper.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_load",
+      "file_path": "src/loader.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_document_delete",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_close",
+      "file_path": "src/dumper.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_open",
+      "file_path": "src/dumper.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 4,
+      "is_external": false
+    }
+  ],
+  "libyaml_reformatter_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "yaml_emitter_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_canonical",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_output",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_set_unicode",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_emitter_emit",
+      "file_path": "src/emitter.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_parse",
+      "file_path": "src/parser.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_event_delete",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_queue_extend",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_realloc",
+      "file_path": "src/api.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "libyaml_scanner_fuzzer": [
+    {
+      "function_name": "yaml_parser_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_initialize",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_set_input_string",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_token_delete",
+      "file_path": "src/api.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_parser_scan",
+      "file_path": "src/scanner.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_free",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "yaml_malloc",
+      "file_path": "src/api.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ]
+}

@@ -1,0 +1,1680 @@
+{
+  "checksum_fuzzer": [
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_combine",
+      "file_path": "adler32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_combine",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_combine_gen",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_combine_op",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_combine64",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_combine_gen64",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "multmodp",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ],
+  "compress_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "compress2",
+      "file_path": "compress.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "compressBound",
+      "file_path": "compress.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress",
+      "file_path": "uncompr.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "compress2_z",
+      "file_path": "compress.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "compressBound_z",
+      "file_path": "compress.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2",
+      "file_path": "uncompr.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateEnd",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateInit_",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2_z",
+      "file_path": "uncompr.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit_",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit2_",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset2",
+      "file_path": "inflate.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 8,
+      "is_external": false
+    }
+  ],
+  "example_dict_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateBound",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateEnd",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateSetDictionary",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateSetDictionary",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateBound_z",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "fill_window",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "updatewindow",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "example_flush_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "compressBound",
+      "file_path": "compress.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateEnd",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateSync",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "compressBound_z",
+      "file_path": "compress.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "example_large_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateEnd",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateParams",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "slide_hash",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "example_small_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "compressBound",
+      "file_path": "compress.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateEnd",
+      "file_path": "deflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "compressBound_z",
+      "file_path": "compress.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 3,
+      "is_external": false
+    }
+  ],
+  "gzio_fuzzer": [
+    {
+      "function_name": "close",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "get_crc_table",
+      "file_path": "crc32.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzclose",
+      "file_path": "gzclose.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzbuffer",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzclearerr",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzeof",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzerror",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzoffset",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzopen",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzrewind",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzseek",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gztell",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzclose_r",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzdirect",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzfread",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzgetc",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzgetc_",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzgets",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzread",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzungetc",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzflush",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzfwrite",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzprintf",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzputc",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzputs",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzsetparams",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "zError",
+      "file_path": "zutil.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "zlibCompileFlags",
+      "file_path": "zutil.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "zlibVersion",
+      "file_path": "zutil.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateParams",
+      "file_path": "deflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_error",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_reset",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gzoffset64",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gzseek64",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gztell64",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_fetch",
+      "file_path": "gzread.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_look",
+      "file_path": "gzread.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_read",
+      "file_path": "gzread.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_skip",
+      "file_path": "gzread.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_comp",
+      "file_path": "gzwrite.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_write",
+      "file_path": "gzwrite.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_zero",
+      "file_path": "gzwrite.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "gzvprintf",
+      "file_path": "gzwrite.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateReset",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateStateCheck",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "slide_hash",
+      "file_path": "deflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_avail",
+      "file_path": "gzread.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_init",
+      "file_path": "gzwrite.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit2_",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflateInit2_",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_fast",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_slow",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "deflate_stored",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "flush_pending",
+      "file_path": "deflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_load",
+      "file_path": "gzread.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset2",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_tr_stored_block",
+      "file_path": "trees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 5,
+      "is_external": false
+    }
+  ],
+  "minigzip_fuzzer": [
+    {
+      "function_name": "snprintf",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "strlen",
+      "file_path": "",
+      "depth": 1,
+      "is_external": true
+    },
+    {
+      "function_name": "gzclose",
+      "file_path": "gzclose.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzerror",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzopen",
+      "file_path": "gzlib.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzread",
+      "file_path": "gzread.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gzwrite",
+      "file_path": "gzwrite.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "gz_error",
+      "file_path": "gzlib.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ],
+  "zlib_uncompress2_fuzzer": [
+    {
+      "function_name": "uncompress2",
+      "file_path": "uncompr.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2_z",
+      "file_path": "uncompr.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit_",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit2_",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset2",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 7,
+      "is_external": false
+    }
+  ],
+  "zlib_uncompress3_fuzzer": [
+    {
+      "function_name": "uncompress2",
+      "file_path": "uncompr.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2_z",
+      "file_path": "uncompr.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit_",
+      "file_path": "inflate.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit2_",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset2",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 7,
+      "is_external": false
+    }
+  ],
+  "zlib_uncompress_fuzzer": [
+    {
+      "function_name": "uncompress",
+      "file_path": "uncompr.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2",
+      "file_path": "uncompr.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "uncompress2_z",
+      "file_path": "uncompr.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateEnd",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit_",
+      "file_path": "inflate.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32",
+      "file_path": "adler32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32",
+      "file_path": "crc32.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fast",
+      "file_path": "inffast.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateInit2_",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateStateCheck",
+      "file_path": "inflate.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_fixed",
+      "file_path": "inftrees.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "inflate_table",
+      "file_path": "inftrees.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "zcfree",
+      "file_path": "zutil.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "adler32_z",
+      "file_path": "adler32.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "crc32_z",
+      "file_path": "crc32.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset2",
+      "file_path": "inflate.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "zcalloc",
+      "file_path": "zutil.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateReset",
+      "file_path": "inflate.c",
+      "depth": 7,
+      "is_external": false
+    },
+    {
+      "function_name": "inflateResetKeep",
+      "file_path": "inflate.c",
+      "depth": 8,
+      "is_external": false
+    }
+  ]
+}

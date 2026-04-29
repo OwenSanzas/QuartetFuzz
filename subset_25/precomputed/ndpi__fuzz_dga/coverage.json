@@ -1,0 +1,10 @@
+{
+  "case_id": "ndpi/fuzz_dga",
+  "line_pct": 14.07,
+  "branch_pct": 5.5,
+  "function_pct": 18.83,
+  "cost_usd": 0.65,
+  "turns": 35,
+  "iter": 0,
+  "wall_seconds": 393.0
+}

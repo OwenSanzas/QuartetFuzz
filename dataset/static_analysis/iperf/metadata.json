@@ -1,0 +1,91 @@
+{
+  "project": "iperf",
+  "snapshot": {
+    "id": "de806914-1667-452a-b6ba-9236612d295f",
+    "repo_url": "https://github.com/esnet/iperf",
+    "repo_name": "iperf",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:56:05.380449+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "cjson_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "cjson_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [
+    "auth_fuzzer"
+  ],
+  "case_reachability": {
+    "cjson_fuzzer": {
+      "matched_fuzzer_names": [
+        "cjson_fuzzer"
+      ],
+      "reach_count": 5,
+      "external_reach_count": 2,
+      "internal_reach_count": 3,
+      "max_depth": 2
+    }
+  },
+  "target_function_matches": {
+    "cjson_fuzzer": {
+      "target_function": "cJSON_Parse",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "cJSON_Parse",
+          "file_path": "src/cjson.c",
+          "start_line": 1186
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 591,
+    "external_functions": 160,
+    "edges": 485,
+    "fuzzers": 2,
+    "reach_total": 8,
+    "reach_by_fuzzer": {
+      "auth_fuzzer": 3,
+      "cjson_fuzzer": 5
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 65.36,
+    "analysis_sec": 3.91,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.46,
+    "total_sec": 69.88,
+    "wall_sec": 70.86,
+    "started_at": "2026-04-11T00:54:54Z",
+    "ended_at": "2026-04-11T00:56:05Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/iperf:latest",
+    "image_id": "sha256:561f43b6058f770115ac7dfd2bc935fdfa36362c260b46aab0c8f66c55fc9861",
+    "image_created": "2026-04-10T23:05:06.431136557Z",
+    "source_commits": {
+      "/src/iperf": "a4b48a20a2c85468a7f3ab86790e4ab0e7b09cf7"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 589,
+      "edge_count": 478,
+      "benchmark_targets_hit": [
+        "cjson_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 69.89
+    }
+  ],
+  "exported_at": "2026-04-11T05:04:54Z"
+}

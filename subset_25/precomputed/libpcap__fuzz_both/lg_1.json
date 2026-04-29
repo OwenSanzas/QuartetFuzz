@@ -1,0 +1,20 @@
+{
+  "name": "libpcap BPF compiler",
+  "description": "The libpcap BPF compiler translates human-readable filter expressions into BPF (Berkeley Packet Filter) bytecode. The compilation process involves a Yacc-based parser (pcap_parse) that generates an intermediate representation (icode), followed by a multi-pass optimizer (bpf_optimize) that simplifies the code. Finally, the optimized icode is converted into a flat array of BPF instructions (icode_to_fcode). The compiler is sensitive to the link-layer type (DLT), which dictates the interpretation of protocol headers and offsets in the filter expression.",
+  "entries": [
+    "pcap_compile_nopcap",
+    "pcap_compile"
+  ],
+  "core": [
+    "pcap_parse",
+    "bpf_optimize",
+    "icode_to_fcode",
+    "gen_retblk"
+  ],
+  "project": "libpcap",
+  "risk_level": "",
+  "danger_scores": {
+    "pcap_compile_nopcap": 0.0,
+    "pcap_compile": 0.0
+  }
+}

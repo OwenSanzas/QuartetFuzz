@@ -1,0 +1,9 @@
+{
+  "case_id": "pugixml/fuzz_xpath",
+  "project": "pugixml",
+  "fuzzer_name": "fuzz_xpath",
+  "target_function": "evaluate_node_set",
+  "repo_url": "https://github.com/zeux/pugixml",
+  "source_file": "fuzz_xpath.cpp",
+  "prompt": "This harness fuzzes pugixml's XPath query evaluation engine, specifically targeting the compilation and multi-type evaluation of arbitrary XPath expressions against fuzz-generated XML documents. It splits the input into an XPath expression string, a set of randomly typed XPath variables, and an XML document buffer, then compiles the expression via `xpath_query` and exercises all five evaluation methods \u2014 `evaluate_boolean`, `evaluate_number`, `evaluate_string`, `evaluate_node`, and `evaluate_node_set` \u2014 against the parsed document. The goal is to uncover crashes, memory corruption, or incorrect behavior in XPath parsing, query compilation, variable handling, and result-set construction across the full range of XPath value types and malformed or adversarial inputs."
+}

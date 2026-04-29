@@ -1,0 +1,27 @@
+{
+  "name": "libplist post-parse tree manipulation",
+  "description": "After parsing arbitrary plist data via plist_from_memory (which auto-detects binary/XML/JSON/OpenStep format), this Logic Group exercises the recursive tree manipulation operations: plist_copy performs a deep recursive clone of the entire node tree via plist_copy_node, walking every child and duplicating all data types including nested containers; plist_sort recursively sorts dictionary keys and array elements; plist_dict_merge iterates a source dictionary and deep-copies each entry into a target dictionary, exercising both tree traversal and insertion logic; and plist_compare_node_value compares node data across all plist types via plist_data_compare. These operations stress recursive tree walks, memory allocation during deep copies, hash table manipulation during dict merges, and type-specific value handling \u2014 all on attacker-controlled tree structures produced by the parser.",
+  "entries": [
+    "plist_from_memory",
+    "plist_dict_merge",
+    "plist_copy",
+    "plist_sort",
+    "plist_compare_node_value"
+  ],
+  "core": [
+    "plist_copy_node",
+    "plist_copy_node_shallow",
+    "plist_data_compare",
+    "plist_free_children",
+    "node_first_child"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_from_memory": 7.73,
+    "plist_dict_merge": 2.78,
+    "plist_copy": 2.2,
+    "plist_sort": 0.0,
+    "plist_compare_node_value": 0.0
+  }
+}

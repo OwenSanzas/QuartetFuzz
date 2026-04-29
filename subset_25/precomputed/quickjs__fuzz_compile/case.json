@@ -1,0 +1,9 @@
+{
+  "case_id": "quickjs/fuzz_compile",
+  "project": "quickjs",
+  "fuzzer_name": "fuzz_compile",
+  "target_function": "JS_Eval",
+  "repo_url": "https://github.com/bellard/quickjs",
+  "source_file": "fuzz_compile.c",
+  "prompt": "This harness fuzzes the QuickJS JavaScript engine's compilation and execution pipeline by feeding arbitrary byte sequences as JavaScript module source code to `JS_Eval` with `JS_EVAL_FLAG_COMPILE_ONLY | JS_EVAL_TYPE_MODULE`, then serializing the resulting bytecode via `JS_WriteObject` and deserializing it with `JS_ReadObject`, and finally executing it through `JS_EvalFunction`. The goal is to uncover bugs such as crashes, memory corruption, or incorrect behavior in the parser, compiler, bytecode serializer/deserializer, and module resolution/execution paths that could be triggered by malformed or unexpected JavaScript input."
+}

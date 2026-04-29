@@ -1,0 +1,24 @@
+[
+  {
+    "name": "auth_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/auth_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "cjson_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/cjson_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

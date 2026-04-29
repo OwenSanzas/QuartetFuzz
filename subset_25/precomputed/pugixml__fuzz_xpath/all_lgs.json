@@ -1,0 +1,22 @@
+[
+  {
+    "name": "pugixml XPath node-set evaluator",
+    "description": "The XPath evaluation engine in pugixml processes compiled queries against an XML document. It recursively evaluates an abstract syntax tree (AST) where each node represents an XPath operation, such as axis traversal, predicate filtering, or type conversion. The engine handles complex navigation through the XML tree using axes like descendant or following-sibling and manages temporary node sets and memory via a specialized allocator. Evaluation can return various types, but node-set evaluation is the most complex path, involving sorting and duplicate removal to maintain document order.",
+    "entries": [
+      "pugi::xpath_query::evaluate_node_set",
+      "pugi::xml_node::select_nodes"
+    ],
+    "core": [
+      "pugixml::impl::xpath_ast_node::eval_node_set",
+      "pugixml::impl::xpath_ast_node::eval_string",
+      "pugixml::impl::step_do",
+      "pugixml::impl::apply_predicate"
+    ],
+    "project": "pugixml",
+    "risk_level": "",
+    "danger_scores": {
+      "pugi::xpath_query::evaluate_node_set": 0.0,
+      "pugi::xml_node::select_nodes": 0.0
+    }
+  }
+]

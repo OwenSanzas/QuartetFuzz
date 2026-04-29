@@ -1,0 +1,20 @@
+{
+  "name": "libyaml document loader",
+  "description": "This logic group implements the YAML document loader, which is responsible for transforming a stream of YAML events into a complete document object model (DOM). It processes the sequential output of the parser and recursively constructs a tree of nodes, including scalars, sequences, and mappings. The loader specifically handles complex YAML features such as anchors and aliases, ensuring that cross-references within the document are correctly resolved and that the resulting graph structure is valid. It also manages the lifecycle and memory allocation of the nodes within the yaml_document_t structure.",
+  "entries": [
+    "yaml_parser_load"
+  ],
+  "core": [
+    "yaml_parser_load_document",
+    "yaml_parser_load_nodes",
+    "yaml_parser_load_scalar",
+    "yaml_parser_load_sequence",
+    "yaml_parser_load_mapping",
+    "yaml_parser_register_anchor"
+  ],
+  "project": "libyaml",
+  "risk_level": "",
+  "danger_scores": {
+    "yaml_parser_load": 1.5
+  }
+}

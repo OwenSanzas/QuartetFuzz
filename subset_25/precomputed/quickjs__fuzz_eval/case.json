@@ -1,0 +1,9 @@
+{
+  "case_id": "quickjs/fuzz_eval",
+  "project": "quickjs",
+  "fuzzer_name": "fuzz_eval",
+  "target_function": "JS_Eval",
+  "repo_url": "https://github.com/bellard/quickjs",
+  "source_file": "fuzz_eval.c",
+  "prompt": "This harness fuzzes the QuickJS JavaScript engine's `JS_Eval` API, which parses and executes arbitrary JavaScript source code. Raw byte sequences from the fuzzer are treated as null-terminated JavaScript strings and evaluated in a freshly created global context, with the event loop subsequently drained via `js_std_loop`. The goal is to uncover crashes, memory corruption, infinite loops, and incorrect error handling that may arise from malformed, unexpected, or adversarially crafted JavaScript input during parsing, compilation, and execution."
+}

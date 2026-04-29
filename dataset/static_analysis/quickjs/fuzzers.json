@@ -1,0 +1,35 @@
+[
+  {
+    "name": "fuzz_compile",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-quickjs-kvqaeoky/fuzzer_sources/fuzz_compile.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_eval",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-quickjs-kvqaeoky/fuzzer_sources/fuzz_eval.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "fuzz_regexp",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-quickjs-kvqaeoky/fuzzer_sources/fuzz_regexp.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

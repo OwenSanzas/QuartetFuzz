@@ -1,0 +1,10 @@
+{
+  "case_id": "libplist/xplist_fuzzer",
+  "line_pct": 15.55,
+  "branch_pct": 12.05,
+  "function_pct": 21.05,
+  "cost_usd": 0.53,
+  "turns": 25,
+  "iter": 0,
+  "wall_seconds": 224.2
+}

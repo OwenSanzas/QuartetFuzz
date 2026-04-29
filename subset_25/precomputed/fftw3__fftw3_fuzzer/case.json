@@ -1,0 +1,9 @@
+{
+  "case_id": "fftw3/fftw3_fuzzer",
+  "project": "fftw3",
+  "fuzzer_name": "fftw3_fuzzer",
+  "target_function": "fftw_plan_dft_1d",
+  "repo_url": "https://github.com/fftw/fftw3.git",
+  "source_file": "fftw3_fuzzer.cc",
+  "prompt": "This fuzzer targets FFTW3's one-dimensional discrete Fourier transform planning and execution pipeline, specifically exercising `fftw_plan_dft_1d` followed by `fftw_execute` and `fftw_destroy_plan`. It drives the API by using fuzz-supplied bytes to determine both the transform size (1\u2013250 complex elements) and the complex-valued input signal data, then performs a forward DFT. The goal is to uncover crashes, memory corruption, or undefined behavior triggered by arbitrary array sizes and extreme or malformed floating-point input values during plan creation and FFT computation."
+}

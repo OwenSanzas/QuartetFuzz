@@ -1,0 +1,10 @@
+{
+  "case_id": "libyaml/libyaml_loader_fuzzer",
+  "line_pct": 73.89,
+  "branch_pct": 57.74,
+  "function_pct": 71.53,
+  "cost_usd": 0.34,
+  "turns": 28,
+  "iter": 0,
+  "wall_seconds": 220.3
+}

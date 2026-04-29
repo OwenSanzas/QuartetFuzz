@@ -1,0 +1,9 @@
+{
+  "case_id": "ndpi/fuzz_dga",
+  "project": "ndpi",
+  "fuzzer_name": "fuzz_dga",
+  "target_function": "ndpi_check_dga_name",
+  "repo_url": "https://github.com/ntop/nDPI.git",
+  "source_file": "fuzz_dga.c",
+  "prompt": "This harness fuzzes nDPI's domain generation algorithm (DGA) detection logic, specifically the `ndpi_check_dga_name` API, by feeding it arbitrary byte sequences treated as null-terminated domain name strings. The fuzzer alternates between using a custom DGA callback (`ndpi_custom_dga_fn`) and the default built-in detection, exercising both code paths. Targeting this function is valuable because DGA classifiers involve complex string parsing, heuristics, and statistical analysis that can harbor out-of-bounds reads, crashes, or incorrect classifications when given malformed, non-printable, or adversarially crafted domain names."
+}

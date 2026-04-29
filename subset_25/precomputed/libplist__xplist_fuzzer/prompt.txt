@@ -1,0 +1,1 @@
+Write a fuzzer for libplist that targets `plist_from_xml`. This replicates the OSS-Fuzz harness `xplist_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

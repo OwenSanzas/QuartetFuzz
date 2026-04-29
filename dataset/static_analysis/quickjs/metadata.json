@@ -1,0 +1,139 @@
+{
+  "project": "quickjs",
+  "snapshot": {
+    "id": "75890540-8661-4090-ad9e-cea124406952",
+    "repo_url": "https://github.com/bellard/quickjs",
+    "repo_name": "quickjs",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T02:19:11.931088+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "fuzz_compile",
+    "fuzz_eval",
+    "fuzz_regexp"
+  ],
+  "benchmark_targets_hit": [
+    "fuzz_compile",
+    "fuzz_eval",
+    "fuzz_regexp"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "fuzz_eval": {
+      "matched_fuzzer_names": [
+        "fuzz_eval"
+      ],
+      "reach_count": 118,
+      "external_reach_count": 0,
+      "internal_reach_count": 118,
+      "max_depth": 6
+    },
+    "fuzz_compile": {
+      "matched_fuzzer_names": [
+        "fuzz_compile"
+      ],
+      "reach_count": 154,
+      "external_reach_count": 0,
+      "internal_reach_count": 154,
+      "max_depth": 6
+    },
+    "fuzz_regexp": {
+      "matched_fuzzer_names": [
+        "fuzz_regexp"
+      ],
+      "reach_count": 65,
+      "external_reach_count": 1,
+      "internal_reach_count": 64,
+      "max_depth": 8
+    }
+  },
+  "target_function_matches": {
+    "fuzz_eval": {
+      "target_function": "JS_Eval",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "JS_Eval",
+          "file_path": "quickjs.c",
+          "start_line": 36776
+        }
+      ]
+    },
+    "fuzz_compile": {
+      "target_function": "JS_Eval",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "JS_Eval",
+          "file_path": "quickjs.c",
+          "start_line": 36776
+        }
+      ]
+    },
+    "fuzz_regexp": {
+      "target_function": "lre_compile",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "lre_compile",
+          "file_path": "libregexp.c",
+          "start_line": 2522
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 1448,
+    "external_functions": 92,
+    "edges": 4883,
+    "fuzzers": 3,
+    "reach_total": 337,
+    "reach_by_fuzzer": {
+      "fuzz_compile": 154,
+      "fuzz_eval": 118,
+      "fuzz_regexp": 65
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 151.03,
+    "analysis_sec": 70.35,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.88,
+    "total_sec": 222.84,
+    "wall_sec": 224.92,
+    "started_at": "2026-04-11T02:15:27Z",
+    "ended_at": "2026-04-11T02:19:12Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/quickjs:latest",
+    "image_id": "sha256:60238ff38c14669b0c987a11e16b79b70131935beccce69cbbf41f6ab3a97da6",
+    "image_created": "2026-04-11T02:15:13.472869794Z",
+    "source_commits": {
+      "/src/quickjs-corpus": "e4a5f4b5e67d5f1303435417b81ff27ea6555623",
+      "/src/quickjs": "d7ae12ae71dfd6ab2997527d295014a8996fa0f9"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 1445,
+      "edge_count": 4853,
+      "benchmark_targets_hit": [
+        "fuzz_compile",
+        "fuzz_eval",
+        "fuzz_regexp"
+      ],
+      "error_phase": "",
+      "wall_sec": 222.87
+    }
+  ],
+  "exported_at": "2026-04-11T05:05:24Z"
+}

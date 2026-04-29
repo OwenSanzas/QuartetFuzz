@@ -1,0 +1,9 @@
+{
+  "case_id": "ndpi/fuzz_filecfg_categories",
+  "project": "ndpi",
+  "fuzzer_name": "fuzz_filecfg_categories",
+  "target_function": "load_categories_file_fd",
+  "repo_url": "https://github.com/ntop/nDPI.git",
+  "source_file": "fuzz_filecfg_categories.c",
+  "prompt": "This fuzzer targets nDPI's `load_categories_file_fd` function, which parses a categories configuration file to classify network traffic. Arbitrary byte sequences are fed as a synthetic file descriptor, exercising the file parsing logic across malformed, truncated, or adversarially crafted category definitions. The goal is to uncover bugs such as buffer overflows, use-after-free errors, null pointer dereferences, or infinite loops that could arise when the parser encounters unexpected input formats or edge cases in the category file structure."
+}

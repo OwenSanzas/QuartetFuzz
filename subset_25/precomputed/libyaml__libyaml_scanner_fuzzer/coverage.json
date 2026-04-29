@@ -1,0 +1,10 @@
+{
+  "case_id": "libyaml/libyaml_scanner_fuzzer",
+  "line_pct": 67.3,
+  "branch_pct": 55.37,
+  "function_pct": 58.59,
+  "cost_usd": 0.3,
+  "turns": 33,
+  "iter": 0,
+  "wall_seconds": 237.3
+}

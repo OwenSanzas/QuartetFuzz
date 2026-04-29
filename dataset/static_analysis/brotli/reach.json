@@ -1,0 +1,52 @@
+{
+  "decode_fuzzer": [
+    {
+      "function_name": "free",
+      "file_path": "/usr/include/stdlib.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "malloc",
+      "file_path": "/usr/include/stdlib.h",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliDecoderCreateInstance",
+      "file_path": "c/dec/decode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliDecoderDecompressStream",
+      "file_path": "c/dec/decode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliDecoderDestroyInstance",
+      "file_path": "c/dec/decode.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliDefaultAllocFunc",
+      "file_path": "c/common/platform.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliDefaultFreeFunc",
+      "file_path": "c/common/platform.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "BrotliWarmupBitReader",
+      "file_path": "c/dec/bit_reader.c",
+      "depth": 2,
+      "is_external": false
+    }
+  ]
+}

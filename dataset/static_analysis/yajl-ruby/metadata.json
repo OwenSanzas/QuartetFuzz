@@ -1,0 +1,97 @@
+{
+  "project": "yajl-ruby",
+  "snapshot": {
+    "id": "19dace3e-f9b0-4b35-bed8-ea488a9ffea2",
+    "repo_url": "https://github.com/brianmario/yajl-ruby",
+    "repo_name": "yajl-ruby",
+    "version": "HEAD",
+    "backend": "joern",
+    "created_at": "2026-04-11T16:00:06.567179+00:00"
+  },
+  "backend_used": "joern",
+  "benchmark_targets": [
+    "json_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "json_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "json_fuzzer": {
+      "matched_fuzzer_names": [
+        "json_fuzzer"
+      ],
+      "reach_count": 0,
+      "external_reach_count": 0,
+      "internal_reach_count": 0,
+      "max_depth": 0
+    }
+  },
+  "target_function_matches": {
+    "json_fuzzer": {
+      "target_function": "yajl_parse",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "yajl_parse",
+          "file_path": "ext/yajl/yajl.c",
+          "start_line": 135
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 130,
+    "external_functions": 0,
+    "edges": 159,
+    "fuzzers": 0,
+    "reach_total": 0,
+    "reach_by_fuzzer": {}
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 0.0,
+    "analysis_sec": 32.07,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 0.1,
+    "total_sec": 32.72,
+    "wall_sec": 85.92,
+    "started_at": "2026-04-11T01:27:32Z",
+    "ended_at": "2026-04-11T01:28:58Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/yajl-ruby:latest",
+    "image_id": "sha256:3071fbafc64862e99a7e1133219b0901ae4a03d8952c87e4ad9081f2bdf68625",
+    "image_created": "2026-04-10T23:18:57.621550885Z",
+    "source_commits": {
+      "/src/yajl-ruby": "6501652d113557d976676134056aa983e7863020"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 2,
+      "edge_count": 0,
+      "benchmark_targets_hit": [
+        "json_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 52.16
+    },
+    {
+      "backend": "joern",
+      "success": true,
+      "function_count": 206,
+      "edge_count": 141,
+      "benchmark_targets_hit": [
+        "json_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 32.72
+    }
+  ],
+  "exported_at": "2026-04-11T16:00:16Z"
+}

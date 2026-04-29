@@ -1,0 +1,10 @@
+{
+  "case_id": "brotli/decode_fuzzer",
+  "line_pct": 84.15,
+  "branch_pct": 77.18,
+  "function_pct": 81.33,
+  "cost_usd": 0.22,
+  "turns": 21,
+  "iter": 0,
+  "wall_seconds": 194.5
+}

@@ -1,0 +1,1 @@
+Write a fuzzer for fftw3 that targets `fftw_plan_dft_1d`. This replicates the OSS-Fuzz harness `fftw3_fuzzer` from the 100-case gold-standard dataset (paper §5.3, Table 4).

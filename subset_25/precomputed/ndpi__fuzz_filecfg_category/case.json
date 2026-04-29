@@ -1,0 +1,9 @@
+{
+  "case_id": "ndpi/fuzz_filecfg_category",
+  "project": "ndpi",
+  "fuzzer_name": "fuzz_filecfg_category",
+  "target_function": "load_category_file_fd",
+  "repo_url": "https://github.com/ntop/nDPI.git",
+  "source_file": "fuzz_filecfg_category.c",
+  "prompt": "This harness fuzzes nDPI's `load_category_file_fd` function, which parses a configuration file that maps hostnames or patterns to protocol categories. The fuzzer feeds arbitrary byte sequences as a synthetic file descriptor to this parser, exercising its ability to handle malformed, truncated, or adversarially crafted category configuration data. The goal is to uncover crashes, memory corruption, infinite loops, or incorrect parsing behavior that could arise from unexpected file content, particularly given that memory allocation failures are also simulated."
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "bplist_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libplist/fuzz/bplist_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "jplist_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libplist/fuzz/jplist_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "oplist_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libplist/fuzz/oplist_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  },
+  {
+    "name": "xplist_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/joern-libplist/fuzz/xplist_fuzzer.cc",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]

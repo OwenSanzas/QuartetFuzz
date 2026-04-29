@@ -1,0 +1,9 @@
+{
+  "case_id": "libpcap/fuzz_both",
+  "project": "libpcap",
+  "fuzzer_name": "fuzz_both",
+  "target_function": "pcap_compile",
+  "repo_url": "https://github.com/the-tcpdump-group/libpcap.git",
+  "source_file": "fuzz_both.c",
+  "prompt": "This harness fuzzes libpcap's BPF filter compilation and packet-matching pipeline by splitting raw fuzz input into two parts: a variable-length string fed to `pcap_compile` as a filter expression, and a binary blob written to a temporary file and opened with `pcap_open_offline` as a capture file. If compilation succeeds, packets are iterated via `pcap_next_ex` and evaluated against the compiled filter using `pcap_offline_filter`. The goal is to uncover crashes, memory corruption, or infinite loops in the filter expression parser, the BPF compiler, the pcap file parser, and the packet-filtering logic when both malformed capture data and malformed filter strings are combined."
+}

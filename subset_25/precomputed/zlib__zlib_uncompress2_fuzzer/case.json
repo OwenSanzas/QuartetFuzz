@@ -1,0 +1,9 @@
+{
+  "case_id": "zlib/zlib_uncompress2_fuzzer",
+  "project": "zlib",
+  "fuzzer_name": "zlib_uncompress2_fuzzer",
+  "target_function": "uncompress2",
+  "repo_url": "https://github.com/madler/zlib.git",
+  "source_file": "zlib_uncompress2_fuzzer.cc",
+  "prompt": "This fuzzer targets zlib's `uncompress2` API, which decompresses a zlib-compressed byte stream into a fixed-size output buffer. Arbitrary byte sequences are fed directly as the compressed input, exercising the decompression logic across malformed, truncated, and adversarially crafted data. The goal is to uncover crashes, out-of-bounds memory accesses, infinite loops, or other undefined behavior that could arise when `uncompress2` processes invalid or unexpected compressed data."
+}

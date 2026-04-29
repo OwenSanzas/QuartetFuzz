@@ -1,0 +1,22 @@
+[
+  {
+    "name": "iperf3 control protocol JSON handler",
+    "description": "The iperf3 control protocol uses JSON to exchange configuration parameters and performance results between the client and server. This logic group covers the ingestion of these JSON messages from the control socket, including length-prefix handling in JSON_read and the subsequent field-by-field parsing in get_parameters and get_results. It represents a critical network-facing attack surface where malformed JSON can influence the internal state of the iperf_test structure.",
+    "entries": [
+      "iperf_exchange_parameters",
+      "iperf_exchange_results"
+    ],
+    "core": [
+      "JSON_read",
+      "get_parameters",
+      "get_results",
+      "iperf_cJSON_GetObjectItemType"
+    ],
+    "project": "iperf",
+    "risk_level": "",
+    "danger_scores": {
+      "iperf_exchange_parameters": 1.0,
+      "iperf_exchange_results": 0.0
+    }
+  }
+]

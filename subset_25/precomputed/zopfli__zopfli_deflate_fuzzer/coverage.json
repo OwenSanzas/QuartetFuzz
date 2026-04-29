@@ -1,0 +1,10 @@
+{
+  "case_id": "zopfli/zopfli_deflate_fuzzer",
+  "line_pct": 80.06,
+  "branch_pct": 59.13,
+  "function_pct": 92.08,
+  "cost_usd": 0.23,
+  "turns": 23,
+  "iter": 0,
+  "wall_seconds": 223.5
+}

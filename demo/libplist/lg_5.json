@@ -1,0 +1,21 @@
+{
+  "name": "libplist pretty-print output formatters",
+  "description": "The libplist library includes three distinct \"pretty print\" output formatters (default, limd, plutil) that each implement their own recursive node_to_string function to walk a plist tree and serialize it into a human-readable string. These are accessed via plist_write_to_string (with PLIST_FORMAT_PRINT, PLIST_FORMAT_LIMD, PLIST_FORMAT_PLUTIL format constants) or plist_write_to_stream. Each formatter recursively traverses the tree via node_first_child/node_next_sibling, handles type-specific serialization (base64 encoding for data nodes, date formatting via gmtime64_r, nested dict/array output), and writes into a strbuf. Fuzzing this path exercises parse-then-serialize round-trips with recursive tree walks and format-specific length handling that differ from the binary/XML/JSON/OpenStep serializers already covered.",
+  "entries": [
+    "plist_from_memory",
+    "plist_write_to_string"
+  ],
+  "core": [
+    "plist_write_to_string_default",
+    "plist_write_to_string_limd",
+    "plist_write_to_string_plutil",
+    "node_to_string",
+    "_plist_write_to_strbuf"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_from_memory": 7.73,
+    "plist_write_to_string": 6.5
+  }
+}

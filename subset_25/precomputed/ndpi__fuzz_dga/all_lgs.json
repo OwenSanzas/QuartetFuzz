@@ -1,0 +1,20 @@
+[
+  {
+    "name": "nDPI DGA detection",
+    "description": "The DGA (Domain Generation Algorithm) detection module in nDPI identifies algorithmically generated domain names typically used by malware. It implements a heuristic-based analysis that evaluates domain components using bigram and trigram frequency distributions (comparing against common English patterns), 'impossible' bigram detection, and various statistical measures including vowel-to-consonant ratios, digit density, and character repetition patterns.",
+    "entries": [
+      "ndpi_check_dga_name"
+    ],
+    "core": [
+      "ndpi_match_bigram",
+      "ndpi_match_impossible_bigram",
+      "ndpi_match_trigram",
+      "ndpi_match_xgram"
+    ],
+    "project": "ndpi",
+    "risk_level": "",
+    "danger_scores": {
+      "ndpi_check_dga_name": 1.0
+    }
+  }
+]

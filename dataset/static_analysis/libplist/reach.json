@@ -1,0 +1,1270 @@
+{
+  "bplist_fuzzer": [
+    {
+      "function_name": "plist_from_bin",
+      "file_path": "src/bplist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free",
+      "file_path": "src/plist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_bin_node_at_index",
+      "file_path": "src/bplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "uint64_mul_overflow",
+      "file_path": "src/bplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_node",
+      "file_path": "src/plist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_free",
+      "file_path": "src/ptrarray.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_new",
+      "file_path": "src/ptrarray.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "node_destroy",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_detach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "UINT_TO_HOST",
+      "file_path": "src/bplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_bin_node",
+      "file_path": "src/bplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_children",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_add",
+      "file_path": "src/ptrarray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_index",
+      "file_path": "src/ptrarray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_set",
+      "file_path": "src/ptrarray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_size",
+      "file_path": "src/ptrarray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_create",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_first_child",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_destroy",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_remove",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_array_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_data_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_date_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_dict_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_int_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_real_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_string_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_uid_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_unicode_node",
+      "file_path": "src/bplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_plist_data",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_insert",
+      "file_path": "src/ptrarray.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_attach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_utf16be_to_utf8",
+      "file_path": "src/bplist.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_destroy",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_add",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_create",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "node_depth_from_root",
+      "file_path": "libcnary/node.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "node_subtree_max_depth",
+      "file_path": "libcnary/node.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "would_create_cycle",
+      "file_path": "libcnary/node.c",
+      "depth": 6,
+      "is_external": false
+    },
+    {
+      "function_name": "node_next_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 7,
+      "is_external": false
+    }
+  ],
+  "jplist_fuzzer": [
+    {
+      "function_name": "plist_from_json",
+      "file_path": "src/jplist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free",
+      "file_path": "src/plist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_array",
+      "file_path": "src/jplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_object",
+      "file_path": "src/jplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_primitive",
+      "file_path": "src/jplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_string",
+      "file_path": "src/jplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_init",
+      "file_path": "src/jsmn.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_parse",
+      "file_path": "src/jsmn.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_node",
+      "file_path": "src/plist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "node_destroy",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_detach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_decimal",
+      "file_path": "src/jplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "unescape_string",
+      "file_path": "src/jplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_alloc_token",
+      "file_path": "src/jsmn.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_parse_primitive",
+      "file_path": "src/jsmn.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_parse_string",
+      "file_path": "src/jsmn.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_array_append_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_set_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_children",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_array",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_bool",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_dict",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_int",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_node",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_plist_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_real",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_uint",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_attach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_create",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_first_child",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_insert",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_next_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_prev_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_destroy",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_remove",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_insert",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_new",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "strndup",
+      "file_path": "src/jplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "jsmn_fill_token",
+      "file_path": "src/jsmn.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_array_post_insert",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_get_item",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_node_type",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_key",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_add",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_create",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_insert",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_depth_from_root",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_subtree_max_depth",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "would_create_cycle",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_destroy",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_lookup",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_add",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_free",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_insert",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_new",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    }
+  ],
+  "oplist_fuzzer": [
+    {
+      "function_name": "plist_from_openstep",
+      "file_path": "src/oplist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free",
+      "file_path": "src/plist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "node_from_openstep",
+      "file_path": "src/oplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_dict_data",
+      "file_path": "src/oplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_node",
+      "file_path": "src/plist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_dict",
+      "file_path": "src/plist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "node_destroy",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_detach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "byte_array_append",
+      "file_path": "src/bytearray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "byte_array_free",
+      "file_path": "src/bytearray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "byte_array_new",
+      "file_path": "src/bytearray.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_skip_ws",
+      "file_path": "src/oplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_array_append_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_set_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_children",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_node_type",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_string_ptr",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_node",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_plist_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_attach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_create",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_first_child",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_insert",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_next_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_prev_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_destroy",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_remove",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "byte_array_grow",
+      "file_path": "src/bytearray.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_insert",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_new",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_array_post_insert",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_get_item",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_key",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_xml_ws",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_add",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_create",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_insert",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_depth_from_root",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_subtree_max_depth",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "would_create_cycle",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_destroy",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_lookup",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_add",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_free",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_insert",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_new",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    }
+  ],
+  "xplist_fuzzer": [
+    {
+      "function_name": "plist_free",
+      "file_path": "src/plist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_from_xml",
+      "file_path": "src/xplist.c",
+      "depth": 1,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_node",
+      "file_path": "src/plist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "node_from_xml",
+      "file_path": "src/xplist.c",
+      "depth": 2,
+      "is_external": false
+    },
+    {
+      "function_name": "node_destroy",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_detach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "base64decode",
+      "file_path": "src/base64.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_array_append_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_get_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_get_size",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_dict_set_item",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_children",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_node_type",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_uint_val",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_node",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_plist_data",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_uid",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_set_uid_val",
+      "file_path": "src/plist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "timegm64",
+      "file_path": "src/time64.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "find_next",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "find_str",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "get_text_parts",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "parse_date",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "text_parts_free",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "text_parts_get_content",
+      "file_path": "src/xplist.c",
+      "depth": 3,
+      "is_external": false
+    },
+    {
+      "function_name": "node_attach",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_create",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_first_child",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_insert",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_n_children",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_next_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_prev_sibling",
+      "file_path": "libcnary/include/node.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_destroy",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_remove",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_insert",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_lookup",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_new",
+      "file_path": "src/hashtable.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_array_post_insert",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "_plist_free_data",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_get_type_and_value",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_new_key",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "plist_set_element_val",
+      "file_path": "src/plist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "find_char",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "is_xml_ws",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "text_part_append",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "text_part_init",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "unescape_entities",
+      "file_path": "src/xplist.c",
+      "depth": 4,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_add",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_create",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_list_insert",
+      "file_path": "libcnary/include/node_list.h",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_depth_from_root",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "node_subtree_max_depth",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "would_create_cycle",
+      "file_path": "libcnary/node.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "hash_table_destroy",
+      "file_path": "src/hashtable.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_add",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_free",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_insert",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    },
+    {
+      "function_name": "ptr_array_new",
+      "file_path": "src/ptrarray.c",
+      "depth": 5,
+      "is_external": false
+    }
+  ]
+}

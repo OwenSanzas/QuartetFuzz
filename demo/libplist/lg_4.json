@@ -1,0 +1,19 @@
+{
+  "name": "libplist auto-detect format dispatcher",
+  "description": "The plist_from_memory function implements a format auto-detection heuristic that inspects the first bytes of input to route parsing to one of four format-specific parsers. It first checks for the \"bplist00\" magic via plist_is_binary (8-byte memcmp), then skips whitespace and inspects the first non-whitespace character: '<' routes to XML, '[' to JSON, '(' to OpenStep, and '{' triggers an ambiguity resolution loop that scans for a ':' after a quoted key to distinguish JSON from OpenStep. Each branch dispatches to the corresponding internal parser state machine \u2014 parse_bin_node_at_index for binary plists (recursive node tree builder with offset table lookups), node_from_xml for XML (recursive tag parser), jsmn_parse for JSON (token-based state machine), and node_from_openstep (recursive descent parser). This single entry point exercises format detection edge cases (boundary conditions in whitespace skipping, escape handling in the JSON/OpenStep disambiguator) plus all four parser cores, making it uniquely valuable compared to the existing per-format fuzzers.",
+  "entries": [
+    "plist_from_memory"
+  ],
+  "core": [
+    "plist_is_binary",
+    "parse_bin_node_at_index",
+    "node_from_xml",
+    "jsmn_parse",
+    "node_from_openstep"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {
+    "plist_from_memory": 7.73
+  }
+}

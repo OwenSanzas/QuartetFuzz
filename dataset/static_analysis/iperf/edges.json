@@ -1,0 +1,4367 @@
+[
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/auth_fuzzer.c",
+    "callee_name": "Base64Decode",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/auth_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/auth_fuzzer.c",
+    "callee_name": "malloc",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/cjson_fuzzer.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/cjson_fuzzer.c",
+    "callee_name": "cJSON_Parse",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/cjson_fuzzer.c",
+    "callee_name": "free",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "LLVMFuzzerTestOneInput",
+    "caller_file": "/data2/ze/Z-Code-Analyzer/workspace/auto-iperf-qe5prhyp/fuzzer_sources/cjson_fuzzer.c",
+    "callee_name": "malloc",
+    "callee_file": "",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "fuzzer_parser"
+  },
+  {
+    "caller_name": "add_item_to_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_array",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "add_item_to_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_strdup",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddArrayToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddArrayToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddBoolToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddBoolToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddFalseToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddFalseToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddItemReferenceToArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_array",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddItemReferenceToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddItemReferenceToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "create_reference",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddItemToObjectCS",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddNullToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddNullToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddNumberToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddNumberToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddObjectToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddObjectToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddRawToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddRawToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddStringToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddStringToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddTrueToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_AddTrueToObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Compare",
+    "caller_file": "src/cjson.c",
+    "callee_name": "compare_double",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Compare",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_object_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateArrayReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateArrayReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cast_away_const",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateBool",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateDoubleArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateDoubleArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateNumber",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateDoubleArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateDoubleArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "suffix_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateFalse",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateFloatArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateFloatArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateNumber",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateFloatArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateFloatArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "suffix_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateIntArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateIntArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateNumber",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateIntArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateIntArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "suffix_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateNull",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateNumber",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateObjectReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateObjectReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cast_away_const",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateRaw",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateRaw",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateRaw",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_strdup",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateString",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateString",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateString",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_strdup",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_CreateString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "suffix_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateStringReference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cast_away_const",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_CreateTrue",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemFromArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemFromObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromObjectCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DeleteItemFromObjectCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemFromObjectCaseSensitive",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemViaPointer",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_array_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemViaPointer",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromObject",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromObjectCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_DetachItemViaPointer",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_DetachItemFromObjectCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_GetObjectItemCaseSensitive",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Duplicate",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Duplicate",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Duplicate",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_strdup",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_GetObjectItemCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_object_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_HasObjectItem",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_InsertItemInArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "add_item_to_array",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_InsertItemInArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_array_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_Parse",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_ParseWithOpts",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ParseWithLength",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_ParseWithLengthOpts",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ParseWithLengthOpts",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_PrintBuffered",
+    "caller_file": "src/cjson.c",
+    "callee_name": "print_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_PrintPreallocated",
+    "caller_file": "src/cjson.c",
+    "callee_name": "print_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_PrintUnformatted",
+    "caller_file": "src/cjson.c",
+    "callee_name": "print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ReplaceItemInArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_ReplaceItemViaPointer",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ReplaceItemInArray",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_array_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ReplaceItemInObjectCaseSensitive",
+    "caller_file": "src/cjson.c",
+    "callee_name": "replace_item_in_object",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cJSON_ReplaceItemViaPointer",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_reference",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "buffer_skip_whitespace",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "parse_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "buffer_skip_whitespace",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_New_Item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "parse_string",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "parse_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "parse_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "ensure",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "print_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_array",
+    "caller_file": "src/cjson.c",
+    "callee_name": "update_offset",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_number",
+    "caller_file": "src/cjson.c",
+    "callee_name": "ensure",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_number",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_decimal_point",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "ensure",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "print_value",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "update_offset",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_string_ptr",
+    "caller_file": "src/cjson.c",
+    "callee_name": "ensure",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "replace_item_in_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_ReplaceItemViaPointer",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "replace_item_in_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "replace_item_in_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "cJSON_strdup",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "replace_item_in_object",
+    "caller_file": "src/cjson.c",
+    "callee_name": "get_object_item",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemReferenceToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_PrintUnformatted",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSONStream_Output",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSON_read",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Parse",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSON_read",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSON_write",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSON_write",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_PrintUnformatted",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "JSON_write",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "connect_msg",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "connect_msg",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "has_tcpinfo_retransmits",
+    "callee_file": "src/tcp_info.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_bidirectional",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_get_server_output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_reverse",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_udp_counters_64bit",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "set_protocol",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "JSON_read",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_DetachItemFromObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_GetArrayItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_GetArraySize",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_cJSON_GetObjectItemType",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "get_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_get_server_output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_check_total_rate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_check_total_rate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_verbose",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_check_total_rate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_common_sockopts",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "getsockdomain",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_common_sockopts",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_mapped_v4",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_create_pidfile",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_errexit",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_defaults",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "protocol_free",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_defaults",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "protocol_new",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_defaults",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "set_protocol",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_exchange_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_exchange_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "test_is_authorized",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_free_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_close_logfile",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_got_sigend",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_got_sigend",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_errexit",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_got_sigend",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_init_stream",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "getsockdomain",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_init_stream",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_dont_fragment",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_init_stream",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_protocol_id",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_init_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "JSONStream_Output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iflush",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_finish",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_cJSON_GetObjectItemType",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "getsockdomain",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_json_printf",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_mapped_v4",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_connect",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "mapped_v4_to_regular_v4",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_test_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_test_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_json_printf",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_on_test_start",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Version",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "has_sendfile",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_bind_address",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_server_hostname",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_parse_hostname",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_bidirectional",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_bind_address",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_bind_dev",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_reverse",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_role",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_server_hostname",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_timestamp_format",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_timestamps",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "load_privkey_from_file",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "load_pubkey_from_file",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "set_protocol",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "usage",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "usage_long",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_arguments",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_parse_hostname",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "JSONStream_Output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_json_printf",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_intermediate",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_get_server_output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_json_printf",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_print_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_printf",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_get_server_output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_printf",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_timestamp_format",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_printf",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_timestamps",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_stats",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "get_total_retransmits",
+    "callee_file": "src/tcp_info.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_stats",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_stats",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "save_tcpinfo",
+    "callee_file": "src/tcp_info.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_close_logfile",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_free_stream",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "set_protocol",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_reset_test",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "tmr_cancel",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_send_mt",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_check_throttle",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_set_control_keepalive",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_set_send_state",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_set_test_bidirectional",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_set_test_reverse",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_set_test_reverse",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "check_sender_has_retransmits",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_set_test_zerocopy",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "has_sendfile",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_stats_callback",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "add_to_interval_list",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_stats_callback",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_check_total_rate",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_stats_callback",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_stats_callback",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_stats_callback",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iflush",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_json_printf",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_compare",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "print_interval_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "unit_snprintf",
+    "callee_file": "src/units.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddTrueToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_get_server_output",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_parameters",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_get_test_udp_counters_64bit",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "JSON_write",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemReferenceToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Delete",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_Print",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "cJSON_free",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "send_results",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "set_protocol",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "check_sender_has_retransmits",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "test_is_authorized",
+    "caller_file": "src/iperf_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "decode_auth_setting",
+    "caller_file": "src/iperf_auth.c",
+    "callee_name": "Base64Decode",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "load_privkey_from_base64",
+    "caller_file": "src/iperf_auth.c",
+    "callee_name": "Base64Decode",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "test_load_private_key_from_file",
+    "caller_file": "src/iperf_auth.c",
+    "callee_name": "load_privkey_from_file",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "test_load_pubkey_from_file",
+    "caller_file": "src/iperf_auth.c",
+    "callee_name": "load_pubkey_from_file",
+    "callee_file": "src/iperf_auth.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "client_omit_timer_proc",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "client_omit_timer_proc",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_reset_stats",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_client_omit_timer",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_client_omit_timer",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_client_timers",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_client_timers",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_client_end",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_client_end",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_client_worker_run",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_recv_mt",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_client_worker_run",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_send_mt",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_connect",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_connect",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_connect",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_set_control_keepalive",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_connect",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "netdial",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_connect",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_create_streams",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_create_streams",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_new_stream",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "Nread",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "cpu_util",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_create_send_timers",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_create_streams",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_exchange_parameters",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_exchange_results",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_init_test",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_strerror",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "state_to_text",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "cJSON_CreateString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "cpu_util",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "get_system_info",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iflush",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_client_end",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_client_worker_run",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_connect",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_handle_message_client",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_json_finish",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_json_start",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_open_logfile",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_setaffinity",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_strerror",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_time_in_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_client",
+    "caller_file": "src/iperf_client_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_err",
+    "caller_file": "src/iperf_error.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_exit",
+    "caller_file": "src/iperf_error.c",
+    "callee_name": "cJSON_AddStringToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_exit",
+    "caller_file": "src/iperf_error.c",
+    "callee_name": "iperf_get_test_timestamp_format",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_signormalexit",
+    "caller_file": "src/iperf_error.c",
+    "callee_name": "iperf_exit",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_strerror",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_sync_close_socket",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cleanup_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_cancel",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_server_omit_timer",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_server_omit_timer",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_create",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_server_timers",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "create_server_timers",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_create",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nread",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_exchange_parameters",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_control_keepalive",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_accept",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_setaffinity",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nread",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "cpu_util",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_exchange_results",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_test_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_handle_message_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "state_to_text",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "cJSON_CreateString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "cpu_util",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "get_system_info",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iflush",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_accept",
+    "callee_file": "src/iperf_server_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_clearaffinity",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_common_sockopts",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_create_send_timers",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_get_test_one_off",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_get_verbose",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_handle_message_server",
+    "callee_file": "src/iperf_server_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_init_test",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_json_finish",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_json_start",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_new_stream",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_open_logfile",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_server_listen",
+    "callee_file": "src/iperf_server_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_server_worker_run",
+    "callee_file": "src/iperf_server_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_test_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_setaffinity",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_time_in_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "netannounce",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_run",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_timeout",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_run_server",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_listen",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iflush",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_listen",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_listen",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "netannounce",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_listen",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_worker_run",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_recv_mt",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_server_worker_run",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_send_mt",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_omit_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_omit_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_reset_stats",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_omit_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "tmr_reset",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_free_stream",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "server_timer_proc",
+    "caller_file": "src/iperf_server_api.c",
+    "callee_name": "iperf_set_send_state",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_accept",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "Nread",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_accept",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_accept",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_accept",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_connect",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_connect",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_connect",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_connect",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_listen",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_recv",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "state_to_text",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_tcp_send",
+    "caller_file": "src/iperf_tcp.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_time_now",
+    "caller_file": "src/iperf_time.c",
+    "callee_name": "clock_gettime_helper",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_accept",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_buffercheck",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "cJSON_AddNumberToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_buffercheck",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_buffercheck",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_connect",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "warning",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_gro",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_gso",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_printf",
+    "callee_file": "src/iperf_api.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_recv",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_recv",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_time_in_secs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_recv",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_send",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "Nwrite",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_udp_send",
+    "caller_file": "src/iperf_udp.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cpu_util",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cpu_util",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "iperf_time_in_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "cpu_util",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_GetObjectItem",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_IsArray",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_IsBool",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_IsNumber",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_IsString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_cJSON_GetObjectItemType",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_printf",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_AddItemToObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_printf",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_CreateBool",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_printf",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_CreateNumber",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_printf",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_CreateObject",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_json_printf",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "cJSON_CreateString",
+    "callee_file": "src/cjson.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "make_cookie",
+    "caller_file": "src/iperf_util.c",
+    "callee_name": "readentropy",
+    "callee_file": "src/iperf_util.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "Nread_no_select",
+    "caller_file": "src/net.c",
+    "callee_name": "Nrecv_no_select",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "Nrecv",
+    "caller_file": "src/net.c",
+    "callee_name": "iperf_time_compare",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "Nrecv",
+    "caller_file": "src/net.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "iperf_sync_close_socket",
+    "caller_file": "src/net.c",
+    "callee_name": "Nread",
+    "callee_file": "src/net.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "save_tcpinfo",
+    "caller_file": "src/tcp_info.c",
+    "callee_name": "iperf_err",
+    "callee_file": "src/iperf_error.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "getnow",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_now",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "list_add",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_compare",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "list_resort",
+    "caller_file": "src/timer.c",
+    "callee_name": "list_add",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "list_resort",
+    "caller_file": "src/timer.c",
+    "callee_name": "list_remove",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_create",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_add_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_destroy",
+    "caller_file": "src/timer.c",
+    "callee_name": "tmr_cancel",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_destroy",
+    "caller_file": "src/timer.c",
+    "callee_name": "tmr_cleanup",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_reset",
+    "caller_file": "src/timer.c",
+    "callee_name": "getnow",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_reset",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_add_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "client_omit_timer_proc",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "client_reporter_timer_proc",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "client_stats_timer_proc",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "getnow",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_add_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_compare",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "list_resort",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "test_timer_proc",
+    "callee_file": "src/iperf_client_api.c",
+    "call_type": "fptr",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_run",
+    "caller_file": "src/timer.c",
+    "callee_name": "tmr_cancel",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_timeout",
+    "caller_file": "src/timer.c",
+    "callee_name": "getnow",
+    "callee_file": "src/timer.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_timeout",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_diff",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  },
+  {
+    "caller_name": "tmr_timeout",
+    "caller_file": "src/timer.c",
+    "callee_name": "iperf_time_in_usecs",
+    "callee_file": "src/iperf_time.c",
+    "call_type": "direct",
+    "confidence": 1.0,
+    "backend": "svf"
+  }
+]

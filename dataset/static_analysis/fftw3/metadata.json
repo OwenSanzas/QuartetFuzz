@@ -1,0 +1,88 @@
+{
+  "project": "fftw3",
+  "snapshot": {
+    "id": "667b3528-8109-4080-aaae-a87fdbddcac7",
+    "repo_url": "https://github.com/fftw/fftw3.git",
+    "repo_name": "fftw3",
+    "version": "HEAD",
+    "backend": "svf",
+    "created_at": "2026-04-11T00:17:44.207299+00:00"
+  },
+  "backend_used": "svf",
+  "benchmark_targets": [
+    "fftw3_fuzzer"
+  ],
+  "benchmark_targets_hit": [
+    "fftw3_fuzzer"
+  ],
+  "benchmark_targets_missed": [],
+  "other_fuzzers_detected": [],
+  "case_reachability": {
+    "fftw3_fuzzer": {
+      "matched_fuzzer_names": [
+        "fftw3_fuzzer"
+      ],
+      "reach_count": 5,
+      "external_reach_count": 0,
+      "internal_reach_count": 5,
+      "max_depth": 2
+    }
+  },
+  "target_function_matches": {
+    "fftw3_fuzzer": {
+      "target_function": "fftw_plan_dft_1d",
+      "matched": true,
+      "strategy": "exact",
+      "matches": [
+        {
+          "name": "fftw_plan_dft_1d",
+          "file_path": "api/plan-dft-1d.c",
+          "start_line": 24
+        }
+      ]
+    }
+  },
+  "counts": {
+    "functions": 1713,
+    "external_functions": 465,
+    "edges": 2441,
+    "fuzzers": 1,
+    "reach_total": 5,
+    "reach_by_fuzzer": {
+      "fftw3_fuzzer": 5
+    }
+  },
+  "timings": {
+    "image_rebuild_sec": 0.0,
+    "build_sec": 425.52,
+    "analysis_sec": 54.0,
+    "fuzzer_parse_sec": 0.0,
+    "import_sec": 1.19,
+    "total_sec": 481.38,
+    "wall_sec": 482.32,
+    "started_at": "2026-04-11T00:09:42Z",
+    "ended_at": "2026-04-11T00:17:45Z"
+  },
+  "image_provenance": {
+    "image": "gcr.io/oss-fuzz/fftw3:latest",
+    "image_id": "sha256:ba8baf15969d54e6304db2c994681fc76a221d96f6344c8cb69e1a7d868385a6",
+    "image_created": "2026-04-10T22:55:33.211236056Z",
+    "source_commits": {
+      "/src/fftw3": "6c8f5c3e620ebc38262cd80ca6f65e9f85783d9e"
+    }
+  },
+  "attempts": [
+    {
+      "backend": "svf",
+      "success": true,
+      "function_count": 1712,
+      "edge_count": 2438,
+      "benchmark_targets_hit": [
+        "fftw3_fuzzer"
+      ],
+      "error_phase": "",
+      "wall_sec": 481.41
+    }
+  ],
+  "exported_at": "2026-04-11T05:04:36Z"
+}

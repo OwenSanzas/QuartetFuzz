@@ -1,0 +1,13 @@
+[
+  {
+    "name": "hwloc_fuzzer",
+    "entry_function": "LLVMFuzzerTestOneInput",
+    "files": [
+      {
+        "path": "/data2/ze/Z-Code-Analyzer/workspace/auto-hwloc-0bag52p1/fuzzer_sources/hwloc_fuzzer.c",
+        "source": "auto"
+      }
+    ],
+    "focus": ""
+  }
+]
