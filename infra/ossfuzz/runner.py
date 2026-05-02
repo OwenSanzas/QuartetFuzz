@@ -141,10 +141,16 @@ def collect_coverage(
     if result.timed_out:
         return CoverageMetrics(error="Coverage collection timed out")
 
+    # The oss-fuzz coverage helper sometimes exits non-zero even after producing
+    # a valid summary.json (e.g. HTML report-generation step fails on a sibling
+    # fuzzer while llvm-cov export already succeeded). Try the summary first;
+    # only surface the rc!=0 error if no parseable summary exists.
+    metrics = parse_coverage_summary(oss_fuzz_dir, project, fuzz_target)
+    if not metrics.error:
+        return metrics
     if result.returncode != 0:
         return CoverageMetrics(error=f"Coverage failed (exit {result.returncode}): {result.combined_output[-4000:]}")
-
-    return parse_coverage_summary(oss_fuzz_dir, project, fuzz_target)
+    return metrics
 
 
 def parse_coverage_summary(
@@ -152,12 +158,23 @@ def parse_coverage_summary(
     project: str,
     fuzz_target: str,
 ) -> CoverageMetrics:
-    """Parse the llvm-cov summary.json produced by oss-fuzz coverage collection."""
-    summary_path = OssFuzzPaths(oss_fuzz_dir).coverage_summary(project, fuzz_target)
+    """Parse the llvm-cov summary.json produced by oss-fuzz coverage collection.
+
+    Primary path is ``report_target/<fuzz_target>/linux/summary.json`` (the
+    per-target report). For some projects the per-target step fails inside
+    helper.py while the overall ``report/linux/summary.json`` still gets
+    written. Since each ``collect_coverage`` call invokes helper.py with a
+    single ``--fuzz-target`` and parses immediately after the helper exits,
+    the overall report at that moment reflects this single target.
+    """
+    paths = OssFuzzPaths(oss_fuzz_dir)
+    primary = paths.coverage_summary(project, fuzz_target)
+    fallback = paths.build_out(project) / "report" / "linux" / "summary.json"
+    candidates = [p for p in (primary, fallback) if p.is_file()]
+    if not candidates:
+        return CoverageMetrics(error=f"Summary not found: {primary}")
     try:
-        data = json.loads(summary_path.read_text())
-    except FileNotFoundError:
-        return CoverageMetrics(error=f"Summary not found: {summary_path}")
+        data = json.loads(candidates[0].read_text())
     except (json.JSONDecodeError, KeyError) as exc:
         return CoverageMetrics(error=f"Failed to parse summary: {exc}")
 
