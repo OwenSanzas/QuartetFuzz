@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 271,
+  "count": 22565,
+  "percent": 1.201
+ },
+ "functions": {
+  "covered": 32,
+  "count": 2400,
+  "percent": 1.333
+ },
+ "regions": {
+  "covered": 187,
+  "count": 19866,
+  "percent": 0.941
+ },
+ "branches": {
+  "covered": 127,
+  "count": 13153,
+  "percent": 0.966
+ },
+ "scope": "/src/znc/",
+ "files_in_scope": 74,
+ "files_total": 75,
+ "all_linked": {
+  "lines": {
+   "covered": 279,
+   "count": 22573,
+   "percent": 1.236
+  },
+  "functions": {
+   "covered": 33,
+   "count": 2401,
+   "percent": 1.374
+  },
+  "regions": {
+   "covered": 188,
+   "count": 19867,
+   "percent": 0.946
+  },
+  "branches": {
+   "covered": 127,
+   "count": 13153,
+   "percent": 0.966
+  }
+ },
+ "timestamp": "2026-08-28T20:50:12Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

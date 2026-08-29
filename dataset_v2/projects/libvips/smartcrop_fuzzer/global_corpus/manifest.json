@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_smartcrop_fuzzer/public.zip",
+ "qualified_name": "libvips_smartcrop_fuzzer",
+ "seeds": 29509,
+ "unpacked_bytes": 206274224,
+ "zip_bytes": 43424465,
+ "zip_sha256": "d475e2b7b822aa70a2dbe5c80303140cdcf1f8ef374ec7c09265faaacd1ba145"
+}

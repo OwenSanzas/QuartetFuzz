@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/unicorn-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/unicorn_fuzz_emu_s390x_be/public.zip",
+ "qualified_name": "unicorn_fuzz_emu_s390x_be",
+ "seeds": 28224,
+ "unpacked_bytes": 2136015,
+ "zip_bytes": 5947411,
+ "zip_sha256": "faa72b23f4269c938222ce48a16cdfe650d6ac64685f8b1e96cb33b133c63ca1"
+}

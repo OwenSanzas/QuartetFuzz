@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_json_jmespath/public.zip",
+ "qualified_name": "glaze_json_jmespath",
+ "seeds": 5674,
+ "unpacked_bytes": 48467275,
+ "zip_bytes": 1548727,
+ "zip_sha256": "cb37e755b5dcba4dc689a60b26f76c648488ff7c7e159fc74876f086942efa70"
+}

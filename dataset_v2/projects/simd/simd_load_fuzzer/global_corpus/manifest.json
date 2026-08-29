@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/simd-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simd_load_fuzzer/public.zip",
+ "qualified_name": "simd_load_fuzzer",
+ "seeds": 7398,
+ "unpacked_bytes": 82285346,
+ "zip_bytes": 13794841,
+ "zip_sha256": "f6fbe9e9f2b9a520b7fff90c319748177e56262ccf57195197cbd262d4e38a19"
+}

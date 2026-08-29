@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_json_minify/public.zip",
+ "qualified_name": "glaze_json_minify",
+ "seeds": 1421,
+ "unpacked_bytes": 72735869,
+ "zip_bytes": 2034246,
+ "zip_sha256": "465f005e1d1cdcd4eb8ce77445db2da0a16c10658cafce1380322c86778b6d73"
+}

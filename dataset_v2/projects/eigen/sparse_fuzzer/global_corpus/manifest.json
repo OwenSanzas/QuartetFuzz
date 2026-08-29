@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_sparse_fuzzer/public.zip",
+ "qualified_name": "eigen_sparse_fuzzer",
+ "seeds": 2705,
+ "unpacked_bytes": 21131534,
+ "zip_bytes": 942149,
+ "zip_sha256": "7b2581593087c875f64a620a9b38497cb04437e6900e57391ae72f73aa443276"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_geometry_fuzzer/public.zip",
+ "qualified_name": "eigen_geometry_fuzzer",
+ "seeds": 1000,
+ "unpacked_bytes": 83982423,
+ "zip_bytes": 35804850,
+ "zip_sha256": "46034acedabb8b03c0fbf99a08cd314a1c2ea4ce29f4c93c7f862e566f72be7d"
+}

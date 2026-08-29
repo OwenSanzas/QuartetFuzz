@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 3993,
+  "count": 30074,
+  "percent": 13.277
+ },
+ "functions": {
+  "covered": 178,
+  "count": 818,
+  "percent": 21.76
+ },
+ "regions": {
+  "covered": 5055,
+  "count": 44942,
+  "percent": 11.248
+ },
+ "branches": {
+  "covered": 1810,
+  "count": 18762,
+  "percent": 9.647
+ },
+ "scope": "/src/yara/",
+ "files_in_scope": 85,
+ "files_total": 85,
+ "all_linked": {
+  "lines": {
+   "covered": 3993,
+   "count": 30074,
+   "percent": 13.277
+  },
+  "functions": {
+   "covered": 178,
+   "count": 818,
+   "percent": 21.76
+  },
+  "regions": {
+   "covered": 5055,
+   "count": 44942,
+   "percent": 11.248
+  },
+  "branches": {
+   "covered": 1810,
+   "count": 18762,
+   "percent": 9.647
+  }
+ },
+ "timestamp": "2026-08-28T20:49:14Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

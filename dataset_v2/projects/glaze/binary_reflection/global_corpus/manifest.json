@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_binary_reflection/public.zip",
+ "qualified_name": "glaze_binary_reflection",
+ "seeds": 8857,
+ "unpacked_bytes": 121314961,
+ "zip_bytes": 6119063,
+ "zip_sha256": "58cf36dd9662d734226b241174cda89e93ebfb015f1486d0d36e11e70e0ea951"
+}

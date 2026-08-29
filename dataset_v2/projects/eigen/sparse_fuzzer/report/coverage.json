@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4807,
+  "count": 11143,
+  "percent": 43.139
+ },
+ "functions": {
+  "covered": 740,
+  "count": 1620,
+  "percent": 45.679
+ },
+ "regions": {
+  "covered": 3570,
+  "count": 5758,
+  "percent": 62.001
+ },
+ "branches": {
+  "covered": 1295,
+  "count": 2187,
+  "percent": 59.214
+ },
+ "scope": "/src/eigen/",
+ "files_in_scope": 130,
+ "files_total": 131,
+ "all_linked": {
+  "lines": {
+   "covered": 4855,
+   "count": 11191,
+   "percent": 43.383
+  },
+  "functions": {
+   "covered": 742,
+   "count": 1622,
+   "percent": 45.746
+  },
+  "regions": {
+   "covered": 3585,
+   "count": 5773,
+   "percent": 62.099
+  },
+  "branches": {
+   "covered": 1307,
+   "count": 2201,
+   "percent": 59.382
+  }
+ },
+ "timestamp": "2026-08-28T20:28:10Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 27054,
+  "count": 213603,
+  "percent": 12.666
+ },
+ "functions": {
+  "covered": 2613,
+  "count": 14980,
+  "percent": 17.443
+ },
+ "regions": {
+  "covered": 38495,
+  "count": 309904,
+  "percent": 12.422
+ },
+ "branches": {
+  "covered": 11398,
+  "count": 100383,
+  "percent": 11.355
+ },
+ "scope": "/src/unicorn/",
+ "files_in_scope": 366,
+ "files_total": 366,
+ "all_linked": {
+  "lines": {
+   "covered": 27054,
+   "count": 213603,
+   "percent": 12.666
+  },
+  "functions": {
+   "covered": 2613,
+   "count": 14980,
+   "percent": 17.443
+  },
+  "regions": {
+   "covered": 38495,
+   "count": 309904,
+   "percent": 12.422
+  },
+  "branches": {
+   "covered": 11398,
+   "count": 100383,
+   "percent": 11.355
+  }
+ },
+ "timestamp": "2026-08-28T20:46:55Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

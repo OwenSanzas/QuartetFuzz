@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_mosaic_fuzzer/public.zip",
+ "qualified_name": "libvips_mosaic_fuzzer",
+ "seeds": 27889,
+ "unpacked_bytes": 139472930,
+ "zip_bytes": 36847372,
+ "zip_sha256": "fdd8308930e209f516cb7de3ac2fe261409cf69d9a709015bbfbb848fff578ba"
+}

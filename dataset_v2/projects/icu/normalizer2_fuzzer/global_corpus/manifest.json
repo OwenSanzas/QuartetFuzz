@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_normalizer2_fuzzer/public.zip",
+ "qualified_name": "icu_normalizer2_fuzzer",
+ "seeds": 3179,
+ "unpacked_bytes": 3815231,
+ "zip_bytes": 899460,
+ "zip_sha256": "482d1fabc2534d624c78d0bc49b7388a57d051609a14636f45aee4836d64a73e"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/znc-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/znc_msg_parse_fuzzer/public.zip",
+ "qualified_name": "znc_msg_parse_fuzzer",
+ "seeds": 2142,
+ "unpacked_bytes": 245926171,
+ "zip_bytes": 4207252,
+ "zip_sha256": "aa9e7ab0d01f90233b4290a2af8067250fb822964bc9f4a9db83a584e395eed2"
+}

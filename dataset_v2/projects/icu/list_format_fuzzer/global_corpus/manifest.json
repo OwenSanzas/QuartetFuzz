@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_list_format_fuzzer/public.zip",
+ "qualified_name": "icu_list_format_fuzzer",
+ "seeds": 1099,
+ "unpacked_bytes": 203256619,
+ "zip_bytes": 27362036,
+ "zip_sha256": "50a93dd7bb43e348846e709c0d6a570aae6a97dccfb9b0e535ef6759d67135a6"
+}

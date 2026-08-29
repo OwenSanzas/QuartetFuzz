@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4363,
+  "count": 6396,
+  "percent": 68.215
+ },
+ "functions": {
+  "covered": 88,
+  "count": 132,
+  "percent": 66.667
+ },
+ "regions": {
+  "covered": 1872,
+  "count": 4698,
+  "percent": 39.847
+ },
+ "branches": {
+  "covered": 1076,
+  "count": 3354,
+  "percent": 32.081
+ },
+ "scope": "/src/libidn2/",
+ "files_in_scope": 66,
+ "files_total": 66,
+ "all_linked": {
+  "lines": {
+   "covered": 4363,
+   "count": 6396,
+   "percent": 68.215
+  },
+  "functions": {
+   "covered": 88,
+   "count": 132,
+   "percent": 66.667
+  },
+  "regions": {
+   "covered": 1872,
+   "count": 4698,
+   "percent": 39.847
+  },
+  "branches": {
+   "covered": 1076,
+   "count": 3354,
+   "percent": 32.081
+  }
+ },
+ "timestamp": "2026-08-28T20:35:43Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

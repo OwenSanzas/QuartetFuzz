@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1407,
+  "count": 1799,
+  "percent": 78.21
+ },
+ "functions": {
+  "covered": 143,
+  "count": 187,
+  "percent": 76.471
+ },
+ "regions": {
+  "covered": 818,
+  "count": 1003,
+  "percent": 81.555
+ },
+ "branches": {
+  "covered": 464,
+  "count": 606,
+  "percent": 76.568
+ },
+ "scope": "/src/fast_float/",
+ "files_in_scope": 8,
+ "files_total": 8,
+ "all_linked": {
+  "lines": {
+   "covered": 1407,
+   "count": 1799,
+   "percent": 78.21
+  },
+  "functions": {
+   "covered": 143,
+   "count": 187,
+   "percent": 76.471
+  },
+  "regions": {
+   "covered": 818,
+   "count": 1003,
+   "percent": 81.555
+  },
+  "branches": {
+   "covered": 464,
+   "count": 606,
+   "percent": 76.568
+  }
+ },
+ "timestamp": "2026-08-28T20:28:14Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

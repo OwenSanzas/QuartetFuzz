@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_decode_simple_ber_fuzzer/public.zip",
+ "qualified_name": "libtasn1_asn1_decode_simple_ber_fuzzer",
+ "seeds": 1001,
+ "unpacked_bytes": 55341537,
+ "zip_bytes": 12430022,
+ "zip_sha256": "2d103cdc7b86db2a7cd14ee3fd5b5360756abe48e7a5dee5089793299f02d5b1"
+}

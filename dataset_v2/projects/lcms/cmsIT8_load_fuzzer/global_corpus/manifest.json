@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/lcms-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lcms_cmsIT8_load_fuzzer/public.zip",
+ "qualified_name": "lcms_cmsIT8_load_fuzzer",
+ "seeds": 2550,
+ "unpacked_bytes": 53245767,
+ "zip_bytes": 984449,
+ "zip_sha256": "c80bce0b2e30ac7182fc84ad98be5c59c4e4074976e64b421e6ad84e111fd486"
+}

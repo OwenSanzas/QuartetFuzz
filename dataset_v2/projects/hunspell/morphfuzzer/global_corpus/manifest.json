@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/hunspell-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hunspell_morphfuzzer/public.zip",
+ "qualified_name": "hunspell_morphfuzzer",
+ "seeds": 19219,
+ "unpacked_bytes": 156617168,
+ "zip_bytes": 26071743,
+ "zip_sha256": "b995f88f598c583abd52717b1fe9fd74809937b8e31b69445afa8eeea6f3be0c"
+}

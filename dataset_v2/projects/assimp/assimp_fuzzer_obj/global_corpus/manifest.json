@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/assimp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/assimp_fuzzer_obj/public.zip",
+ "qualified_name": "assimp_fuzzer_obj",
+ "seeds": 10594,
+ "unpacked_bytes": 158593563,
+ "zip_bytes": 9278721,
+ "zip_sha256": "eecf31d56f5912da193e5488f5eba7fa8436b276d9b0df256ff7f59d76e8be69"
+}

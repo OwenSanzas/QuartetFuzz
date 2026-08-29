@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 218,
+  "count": 453,
+  "percent": 48.124
+ },
+ "functions": {
+  "covered": 11,
+  "count": 27,
+  "percent": 40.741
+ },
+ "regions": {
+  "covered": 978,
+  "count": 1064,
+  "percent": 91.917
+ },
+ "branches": {
+  "covered": 30,
+  "count": 64,
+  "percent": 46.875
+ },
+ "scope": "/src/pycryptodome/",
+ "files_in_scope": 5,
+ "files_total": 6,
+ "all_linked": {
+  "lines": {
+   "covered": 236,
+   "count": 473,
+   "percent": 49.894
+  },
+  "functions": {
+   "covered": 12,
+   "count": 28,
+   "percent": 42.857
+  },
+  "regions": {
+   "covered": 1010,
+   "count": 1098,
+   "percent": 91.985
+  },
+  "branches": {
+   "covered": 36,
+   "count": 72,
+   "percent": 50.0
+  }
+ },
+ "timestamp": "2026-08-28T20:45:29Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

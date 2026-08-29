@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_read_binary_ir_fuzzer/public.zip",
+ "qualified_name": "wabt_read_binary_ir_fuzzer",
+ "seeds": 20639,
+ "unpacked_bytes": 115979418,
+ "zip_bytes": 11251958,
+ "zip_sha256": "0320865f9cae9a453769a8a62c8b6ef25c530debe626c51411cfcaee20aacf2d"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_tensor_fuzzer/public.zip",
+ "qualified_name": "eigen_tensor_fuzzer",
+ "seeds": 344,
+ "unpacked_bytes": 83892681,
+ "zip_bytes": 5731823,
+ "zip_sha256": "156f760797325dec6001b8489cad7de35d8bb942ea45bc32e9938790cc6e46c1"
+}

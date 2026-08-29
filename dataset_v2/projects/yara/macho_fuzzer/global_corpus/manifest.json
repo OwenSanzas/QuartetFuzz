@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_macho_fuzzer/public.zip",
+ "qualified_name": "yara_macho_fuzzer",
+ "seeds": 4045,
+ "unpacked_bytes": 61613499,
+ "zip_bytes": 3299396,
+ "zip_sha256": "a5c0d108376e3269309ec30044e9115245f08afe4be8023a77a3c62f34c88b5a"
+}

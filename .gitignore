@@ -23,3 +23,20 @@ plots/
 .e2e-logs/
 demo/*/run-*/
 !demo/libplist/run-*/
+
+# dataset_v2: the manifests, reports, scripts and hashes are committed; the
+# binaries and corpora they describe are 29 GB and are not. run_asan.sh and
+# run_cov.sh rebuild the measurements from the official OSS-Fuzz images.
+dataset_v2/projects/*/*/asan_build/
+dataset_v2/projects/*/*/cov_build/
+dataset_v2/projects/*/*/global_corpus/seeds/
+dataset_v2/projects/*/*/report/crashes/
+dataset_v2/projects/*/*/report/coverage_export.json
+dataset_v2/projects/*/*/report/coverage_scoped.json
+dataset_v2/projects/*/*/report/_scope.py
+dataset_v2/projects/*/*/report/*.log
+dataset_v2/retired/
+dataset_v2/build_frame/
+
+# selection material and full-fidelity copies stay local
+dataset_v2/_private/

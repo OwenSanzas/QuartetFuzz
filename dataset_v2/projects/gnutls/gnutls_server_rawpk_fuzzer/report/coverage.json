@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 12601,
+  "count": 78282,
+  "percent": 16.097
+ },
+ "functions": {
+  "covered": 785,
+  "count": 3223,
+  "percent": 24.356
+ },
+ "regions": {
+  "covered": 12460,
+  "count": 107717,
+  "percent": 11.567
+ },
+ "branches": {
+  "covered": 5263,
+  "count": 50178,
+  "percent": 10.489
+ },
+ "scope": "/src/gnutls/",
+ "files_in_scope": 345,
+ "files_total": 975,
+ "all_linked": {
+  "lines": {
+   "covered": 19888,
+   "count": 112448,
+   "percent": 17.686
+  },
+  "functions": {
+   "covered": 1151,
+   "count": 4454,
+   "percent": 25.842
+  },
+  "regions": {
+   "covered": 24970,
+   "count": 170662,
+   "percent": 14.631
+  },
+  "branches": {
+   "covered": 8221,
+   "count": 73174,
+   "percent": 11.235
+  }
+ },
+ "timestamp": "2026-08-28T20:30:05Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

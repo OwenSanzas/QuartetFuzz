@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/fast_float-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/fast_float_from_chars/public.zip",
+ "qualified_name": "fast_float_from_chars",
+ "seeds": 5462,
+ "unpacked_bytes": 8298020,
+ "zip_bytes": 1081673,
+ "zip_sha256": "b62f8080e260433719d4e1f17acb62beab6353fdc0b72a98d7e05872a1f9da23"
+}

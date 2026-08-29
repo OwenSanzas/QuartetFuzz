@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1525,
+  "count": 27472,
+  "percent": 5.551
+ },
+ "functions": {
+  "covered": 107,
+  "count": 1794,
+  "percent": 5.964
+ },
+ "regions": {
+  "covered": 1719,
+  "count": 20408,
+  "percent": 8.423
+ },
+ "branches": {
+  "covered": 758,
+  "count": 8427,
+  "percent": 8.995
+ },
+ "scope": "/src/openssh/",
+ "files_in_scope": 79,
+ "files_total": 79,
+ "all_linked": {
+  "lines": {
+   "covered": 1525,
+   "count": 27472,
+   "percent": 5.551
+  },
+  "functions": {
+   "covered": 107,
+   "count": 1794,
+   "percent": 5.964
+  },
+  "regions": {
+   "covered": 1719,
+   "count": 20408,
+   "percent": 8.423
+  },
+  "branches": {
+   "covered": 758,
+   "count": 8427,
+   "percent": 8.995
+  }
+ },
+ "timestamp": "2026-08-28T20:45:08Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

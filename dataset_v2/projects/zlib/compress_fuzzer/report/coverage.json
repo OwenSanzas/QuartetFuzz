@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1975,
+  "count": 3480,
+  "percent": 56.753
+ },
+ "functions": {
+  "covered": 59,
+  "count": 108,
+  "percent": 54.63
+ },
+ "regions": {
+  "covered": 2234,
+  "count": 3952,
+  "percent": 56.528
+ },
+ "branches": {
+  "covered": 1026,
+  "count": 2151,
+  "percent": 47.699
+ },
+ "scope": "/src/zlib/",
+ "files_in_scope": 15,
+ "files_total": 16,
+ "all_linked": {
+  "lines": {
+   "covered": 2023,
+   "count": 3530,
+   "percent": 57.309
+  },
+  "functions": {
+   "covered": 63,
+   "count": 112,
+   "percent": 56.25
+  },
+  "regions": {
+   "covered": 2266,
+   "count": 3998,
+   "percent": 56.678
+  },
+  "branches": {
+   "covered": 1037,
+   "count": 2169,
+   "percent": 47.81
+  }
+ },
+ "timestamp": "2026-08-28T20:49:50Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_interp_fuzzer/public.zip",
+ "qualified_name": "wabt_wasm_interp_fuzzer",
+ "seeds": 11114,
+ "unpacked_bytes": 13015171,
+ "zip_bytes": 2269673,
+ "zip_sha256": "8e06a78672aaf762bcac6f7c24e264be212dc5b8efe1fdcd26ae33fe7e7af213"
+}

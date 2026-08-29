@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/leptonica-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/leptonica_graphics_fuzzer/public.zip",
+ "qualified_name": "leptonica_graphics_fuzzer",
+ "seeds": 1395,
+ "unpacked_bytes": 33350301,
+ "zip_bytes": 2734990,
+ "zip_sha256": "e8b2a8560bfaf294e2c8567bd6cc20f01129a85cba2d85c838802e6c81bb6eac"
+}

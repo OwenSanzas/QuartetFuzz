@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_reformatter_alt_fuzzer/public.zip",
+ "qualified_name": "libyaml_reformatter_alt_fuzzer",
+ "seeds": 11104,
+ "unpacked_bytes": 188125680,
+ "zip_bytes": 3919207,
+ "zip_sha256": "7360d798248b01e5400e65adfc41415f75e2121f4689525a48fd470e3337906f"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_jpegsave_file_fuzzer/public.zip",
+ "qualified_name": "libvips_jpegsave_file_fuzzer",
+ "seeds": 31483,
+ "unpacked_bytes": 144027701,
+ "zip_bytes": 60662499,
+ "zip_sha256": "f7609aa7ca57920243692b2fa7cbd190e01955318e5d57de2110c09af7e354a6"
+}

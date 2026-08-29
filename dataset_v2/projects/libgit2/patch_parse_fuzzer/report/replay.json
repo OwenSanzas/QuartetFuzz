@@ -1,0 +1,21 @@
+{
+ "seeds_in_corpus": 2735,
+ "phase1_full_replay": {
+  "flags": "-runs=0 -detect_leaks=0",
+  "exit_code": 0,
+  "executed_units": 2736,
+  "edges_covered": 439,
+  "complete": true
+ },
+ "phase2_poc_collection": {
+  "flags": "-runs=0 (leak detection on), iterative",
+  "rounds": 1,
+  "artifacts": 0,
+  "distinct_faults": 0,
+  "capped": false
+ },
+ "deterministic": true,
+ "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+ "timestamp": "2026-08-22T10:35:55Z",
+ "wall_seconds": 5.6
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_scanner_fuzzer/public.zip",
+ "qualified_name": "libyaml_scanner_fuzzer",
+ "seeds": 7104,
+ "unpacked_bytes": 132123122,
+ "zip_bytes": 3973233,
+ "zip_sha256": "57c7734ea638959055fd80c545454e6986b081a87716e79c9b227b356ed2357d"
+}

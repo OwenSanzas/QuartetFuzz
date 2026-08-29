@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_unicode_string_codepage_create_fuzzer/public.zip",
+ "qualified_name": "icu_unicode_string_codepage_create_fuzzer",
+ "seeds": 2671,
+ "unpacked_bytes": 134661516,
+ "zip_bytes": 29660086,
+ "zip_sha256": "7ccf9d625bd1598c2fbcb67fb04e242bdc7bb2289b55da8deb2486350c003c77"
+}

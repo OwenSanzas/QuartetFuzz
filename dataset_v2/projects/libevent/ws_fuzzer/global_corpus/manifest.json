@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_ws_fuzzer/public.zip",
+ "qualified_name": "libevent_ws_fuzzer",
+ "seeds": 976,
+ "unpacked_bytes": 97936392,
+ "zip_bytes": 13659793,
+ "zip_sha256": "4d82d58b4e37091abbbc6137ea841d0e6af9b4496680761672721ddd3fab583a"
+}

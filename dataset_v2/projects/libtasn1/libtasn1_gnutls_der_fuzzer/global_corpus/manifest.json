@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_gnutls_der_fuzzer/public.zip",
+ "qualified_name": "libtasn1_gnutls_der_fuzzer",
+ "seeds": 1424,
+ "unpacked_bytes": 1550298,
+ "zip_bytes": 327642,
+ "zip_sha256": "b11f802cad04692dc7372a45873d985a3fffa478287011094bdd29d5de36e2f3"
+}

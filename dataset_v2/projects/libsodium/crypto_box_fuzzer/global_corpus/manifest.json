@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_crypto_box_fuzzer/public.zip",
+ "qualified_name": "libsodium_crypto_box_fuzzer",
+ "seeds": 390,
+ "unpacked_bytes": 24810461,
+ "zip_bytes": 495478,
+ "zip_sha256": "b3e7d3708a7e42e4742b4af45a20e55612fd34a80d385add22278e76ab13ee08"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_verifier_fuzzer/public.zip",
+ "qualified_name": "flatbuffers_verifier_fuzzer",
+ "seeds": 6379,
+ "unpacked_bytes": 330307271,
+ "zip_bytes": 83905475,
+ "zip_sha256": "2c79643aa728188b6adfafc995c61a80dab65f37ed6fe2b187bcdd860da12312"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_ripemd160_fuzzer/public.zip",
+ "qualified_name": "pycryptodome_ripemd160_fuzzer",
+ "seeds": 265,
+ "unpacked_bytes": 33652899,
+ "zip_bytes": 1760406,
+ "zip_sha256": "ab234f6e67c67d76f8c392cc9bb59e299e6945b7c7fcf68f1ca7e722eefb90cc"
+}

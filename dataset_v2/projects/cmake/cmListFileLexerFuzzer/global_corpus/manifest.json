@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmListFileLexerFuzzer/public.zip",
+ "qualified_name": "cmake_cmListFileLexerFuzzer",
+ "seeds": 1342,
+ "unpacked_bytes": 14218154,
+ "zip_bytes": 692645,
+ "zip_sha256": "3d6d42e9273d9f0a0b2c7afd0492088ea9d686bbecb7099c3cd1b190eecb5de6"
+}

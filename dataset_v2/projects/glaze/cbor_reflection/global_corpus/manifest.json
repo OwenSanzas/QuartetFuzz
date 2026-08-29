@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_cbor_reflection/public.zip",
+ "qualified_name": "glaze_cbor_reflection",
+ "seeds": 7793,
+ "unpacked_bytes": 134554551,
+ "zip_bytes": 4307265,
+ "zip_sha256": "e22091e8e653a9dccb9eed7db97efbca6273aa06f72cfcecda20764074df50b7"
+}

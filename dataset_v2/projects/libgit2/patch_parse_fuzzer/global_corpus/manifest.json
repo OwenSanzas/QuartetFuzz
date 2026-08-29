@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_patch_parse_fuzzer/public.zip",
+ "qualified_name": "libgit2_patch_parse_fuzzer",
+ "seeds": 2735,
+ "unpacked_bytes": 91993652,
+ "zip_bytes": 6877093,
+ "zip_sha256": "41c1adb0eee8d5ed373e18241f5f4cb9b8b5744a52cc17b57bdccf41e9491213"
+}

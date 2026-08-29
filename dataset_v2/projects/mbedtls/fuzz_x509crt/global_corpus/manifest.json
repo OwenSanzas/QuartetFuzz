@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_x509crt/public.zip",
+ "qualified_name": "mbedtls_fuzz_x509crt",
+ "seeds": 7215,
+ "unpacked_bytes": 21141260,
+ "zip_bytes": 3236963,
+ "zip_sha256": "8eeda2bb653b3256c17c77518655a200978d9997faf07b43bac5a4efc97780f8"
+}

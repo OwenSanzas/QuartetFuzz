@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1088,
+  "count": 18669,
+  "percent": 5.828
+ },
+ "functions": {
+  "covered": 69,
+  "count": 1120,
+  "percent": 6.161
+ },
+ "regions": {
+  "covered": 985,
+  "count": 19621,
+  "percent": 5.02
+ },
+ "branches": {
+  "covered": 560,
+  "count": 9582,
+  "percent": 5.844
+ },
+ "scope": "/src/lcms/",
+ "files_in_scope": 25,
+ "files_total": 26,
+ "all_linked": {
+  "lines": {
+   "covered": 1099,
+   "count": 18681,
+   "percent": 5.883
+  },
+  "functions": {
+   "covered": 70,
+   "count": 1121,
+   "percent": 6.244
+  },
+  "regions": {
+   "covered": 990,
+   "count": 19627,
+   "percent": 5.044
+  },
+  "branches": {
+   "covered": 563,
+   "count": 9586,
+   "percent": 5.873
+  }
+ },
+ "timestamp": "2026-08-28T20:34:56Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

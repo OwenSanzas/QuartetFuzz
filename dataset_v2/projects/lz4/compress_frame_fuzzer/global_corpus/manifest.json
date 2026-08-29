@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_compress_frame_fuzzer/public.zip",
+ "qualified_name": "lz4_compress_frame_fuzzer",
+ "seeds": 6725,
+ "unpacked_bytes": 92905251,
+ "zip_bytes": 16634729,
+ "zip_sha256": "ba18beb86e3ab91e96012fbae1a0e47daddb39bffc690ceb6caaf09208add469"
+}

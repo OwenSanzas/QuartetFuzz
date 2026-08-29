@@ -1,0 +1,22 @@
+{
+ "libvips/jpegsave_file_fuzzer": [
+  "asan:lib(1 files)",
+  "cov:lib(1 files)"
+ ],
+ "libvips/mosaic_fuzzer": [
+  "asan:lib(1 files)",
+  "cov:lib(1 files)"
+ ],
+ "libvips/smartcrop_fuzzer": [
+  "asan:lib(1 files)",
+  "cov:lib(1 files)"
+ ],
+ "libvips/thumbnail_fuzzer": [
+  "asan:lib(1 files)",
+  "cov:lib(1 files)"
+ ],
+ "libvips/vips_fuzzer": [
+  "asan:lib(1 files)",
+  "cov:lib(1 files)"
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/binutils-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/binutils_fuzz_disassemble/public.zip",
+ "qualified_name": "binutils_fuzz_disassemble",
+ "seeds": 49137,
+ "unpacked_bytes": 140972283,
+ "zip_bytes": 23420366,
+ "zip_sha256": "420f616ae74d045d53a341bbd0ba91bf31473f02cac286c497a2419fdc891eee"
+}

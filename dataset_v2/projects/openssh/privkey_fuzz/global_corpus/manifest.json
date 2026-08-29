@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_privkey_fuzz/public.zip",
+ "qualified_name": "openssh_privkey_fuzz",
+ "seeds": 3040,
+ "unpacked_bytes": 76149323,
+ "zip_bytes": 3750309,
+ "zip_sha256": "f5b0120e5fa78ef1dde1565c7b7cc7dadbb3d205bc2bd1e11c92cc82a4ffef8c"
+}

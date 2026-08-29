@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_pkcs7/public.zip",
+ "qualified_name": "mbedtls_fuzz_pkcs7",
+ "seeds": 1601,
+ "unpacked_bytes": 1298100,
+ "zip_bytes": 421619,
+ "zip_sha256": "ef38ff1e5a225b39198e373b34f8ba7c8f1997f3655cfbb6ab0c5baa02aecf0f"
+}

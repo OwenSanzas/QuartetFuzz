@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_locale_morph_fuzzer/public.zip",
+ "qualified_name": "icu_locale_morph_fuzzer",
+ "seeds": 7456,
+ "unpacked_bytes": 247489768,
+ "zip_bytes": 4347257,
+ "zip_sha256": "dc9e74118cab87e919acfe152af87f9a71bf793491a52e9fd56de75f04b4d26d"
+}

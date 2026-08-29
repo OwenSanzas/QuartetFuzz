@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 223,
+  "count": 109507,
+  "percent": 0.204
+ },
+ "functions": {
+  "covered": 31,
+  "count": 5014,
+  "percent": 0.618
+ },
+ "regions": {
+  "covered": 123,
+  "count": 118666,
+  "percent": 0.104
+ },
+ "branches": {
+  "covered": 62,
+  "count": 57413,
+  "percent": 0.108
+ },
+ "scope": "/src/CMake/",
+ "files_in_scope": 343,
+ "files_total": 343,
+ "all_linked": {
+  "lines": {
+   "covered": 223,
+   "count": 109507,
+   "percent": 0.204
+  },
+  "functions": {
+   "covered": 31,
+   "count": 5014,
+   "percent": 0.618
+  },
+  "regions": {
+   "covered": 123,
+   "count": 118666,
+   "percent": 0.104
+  },
+  "branches": {
+   "covered": 62,
+   "count": 57413,
+   "percent": 0.108
+  }
+ },
+ "timestamp": "2026-08-28T20:27:57Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

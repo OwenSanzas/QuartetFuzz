@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_objdump_fuzzer/public.zip",
+ "qualified_name": "wabt_wasm_objdump_fuzzer",
+ "seeds": 13176,
+ "unpacked_bytes": 24860100,
+ "zip_bytes": 3139878,
+ "zip_sha256": "f0566bcadb6ee28cbb112bfc00126fddb463c61f1d5501a09c49c9c84d93b6c8"
+}

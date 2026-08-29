@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_pkix_der_fuzzer/public.zip",
+ "qualified_name": "libtasn1_pkix_der_fuzzer",
+ "seeds": 4126,
+ "unpacked_bytes": 1640345,
+ "zip_bytes": 875767,
+ "zip_sha256": "ec8406dc0a7da86d8328a933bfea82291e423af37896d59bc13310fc91fe22b6"
+}

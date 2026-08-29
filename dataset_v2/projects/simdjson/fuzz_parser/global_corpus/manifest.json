@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/simdjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simdjson_fuzz_parser/public.zip",
+ "qualified_name": "simdjson_fuzz_parser",
+ "seeds": 9095,
+ "unpacked_bytes": 55126959,
+ "zip_bytes": 2174005,
+ "zip_sha256": "c3888a90d38779b621b78f0050616d9c1934d3972a7c1aba21a3c24b56f13361"
+}

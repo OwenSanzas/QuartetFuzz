@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 630,
+  "count": 10115,
+  "percent": 6.228
+ },
+ "functions": {
+  "covered": 51,
+  "count": 653,
+  "percent": 7.81
+ },
+ "regions": {
+  "covered": 766,
+  "count": 13886,
+  "percent": 5.516
+ },
+ "branches": {
+  "covered": 329,
+  "count": 6665,
+  "percent": 4.936
+ },
+ "scope": "/src/libevent/",
+ "files_in_scope": 38,
+ "files_total": 39,
+ "all_linked": {
+  "lines": {
+   "covered": 806,
+   "count": 10292,
+   "percent": 7.831
+  },
+  "functions": {
+   "covered": 52,
+   "count": 654,
+   "percent": 7.951
+  },
+  "regions": {
+   "covered": 872,
+   "count": 13993,
+   "percent": 6.232
+  },
+  "branches": {
+   "covered": 383,
+   "count": 6745,
+   "percent": 5.678
+  }
+ },
+ "timestamp": "2026-08-28T20:35:04Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

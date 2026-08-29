@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_uncompress2_fuzzer/public.zip",
+ "qualified_name": "zlib_uncompress2_fuzzer",
+ "seeds": 1553,
+ "unpacked_bytes": 35792190,
+ "zip_bytes": 1258782,
+ "zip_sha256": "df38f0cd0f2e5805c31f342c939e98ceefe5a58b4ae2dbf16b6db579101ee81f"
+}

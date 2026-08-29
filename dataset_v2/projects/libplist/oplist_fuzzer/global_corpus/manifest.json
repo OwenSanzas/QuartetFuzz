@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libplist-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libplist_oplist_fuzzer/public.zip",
+ "qualified_name": "libplist_oplist_fuzzer",
+ "seeds": 1608,
+ "unpacked_bytes": 544924,
+ "zip_bytes": 464792,
+ "zip_sha256": "1466756a918de639a00c92475197006ff345034f51881c6188f6567469a5e5b7"
+}

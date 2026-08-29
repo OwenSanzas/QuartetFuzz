@@ -1,0 +1,4914 @@
+{
+ "assimp/assimp_fuzzer_obj": {
+  "status": "ok",
+  "lines": {
+   "covered": 5534,
+   "count": 102512,
+   "percent": 5.398
+  },
+  "functions": {
+   "covered": 507,
+   "count": 7359,
+   "percent": 6.89
+  },
+  "regions": {
+   "covered": 3990,
+   "count": 76952,
+   "percent": 5.185
+  },
+  "branches": {
+   "covered": 2247,
+   "count": 46982,
+   "percent": 4.783
+  },
+  "scope": "/src/assimp/",
+  "files_in_scope": 410,
+  "files_total": 410,
+  "all_linked": {
+   "lines": {
+    "covered": 5534,
+    "count": 102512,
+    "percent": 5.398
+   },
+   "functions": {
+    "covered": 507,
+    "count": 7359,
+    "percent": 6.89
+   },
+   "regions": {
+    "covered": 3990,
+    "count": 76952,
+    "percent": 5.185
+   },
+   "branches": {
+    "covered": 2247,
+    "count": 46982,
+    "percent": 4.783
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 43.6
+ },
+ "astc-encoder/fuzz_astc_compress": {
+  "status": "ok",
+  "lines": {
+   "covered": 9025,
+   "count": 11361,
+   "percent": 79.438
+  },
+  "functions": {
+   "covered": 347,
+   "count": 409,
+   "percent": 84.841
+  },
+  "regions": {
+   "covered": 3859,
+   "count": 5585,
+   "percent": 69.096
+  },
+  "branches": {
+   "covered": 2350,
+   "count": 3354,
+   "percent": 70.066
+  },
+  "scope": "/src/astc-encoder/",
+  "files_in_scope": 26,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 9025,
+    "count": 11361,
+    "percent": 79.438
+   },
+   "functions": {
+    "covered": 347,
+    "count": 409,
+    "percent": 84.841
+   },
+   "regions": {
+    "covered": 3859,
+    "count": 5585,
+    "percent": 69.096
+   },
+   "branches": {
+    "covered": 2350,
+    "count": 3354,
+    "percent": 70.066
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 6.5
+ },
+ "astc-encoder/fuzz_astc_decompress": {
+  "status": "ok",
+  "lines": {
+   "covered": 3041,
+   "count": 11363,
+   "percent": 26.762
+  },
+  "functions": {
+   "covered": 178,
+   "count": 409,
+   "percent": 43.521
+  },
+  "regions": {
+   "covered": 1332,
+   "count": 5585,
+   "percent": 23.85
+  },
+  "branches": {
+   "covered": 841,
+   "count": 3354,
+   "percent": 25.075
+  },
+  "scope": "/src/astc-encoder/",
+  "files_in_scope": 26,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 3041,
+    "count": 11363,
+    "percent": 26.762
+   },
+   "functions": {
+    "covered": 178,
+    "count": 409,
+    "percent": 43.521
+   },
+   "regions": {
+    "covered": 1332,
+    "count": 5585,
+    "percent": 23.85
+   },
+   "branches": {
+    "covered": 841,
+    "count": 3354,
+    "percent": 25.075
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 5.9
+ },
+ "binutils/fuzz_disassemble": {
+  "status": "rc=0",
+  "wall_seconds": 87.1
+ },
+ "cmake/cmCMakePathFuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 143,
+   "count": 1253,
+   "percent": 11.413
+  },
+  "functions": {
+   "covered": 53,
+   "count": 318,
+   "percent": 16.667
+  },
+  "regions": {
+   "covered": 66,
+   "count": 536,
+   "percent": 12.313
+  },
+  "branches": {
+   "covered": 5,
+   "count": 176,
+   "percent": 2.841
+  },
+  "scope": "/src/CMake/",
+  "files_in_scope": 11,
+  "files_total": 11,
+  "all_linked": {
+   "lines": {
+    "covered": 143,
+    "count": 1253,
+    "percent": 11.413
+   },
+   "functions": {
+    "covered": 53,
+    "count": 318,
+    "percent": 16.667
+   },
+   "regions": {
+    "covered": 66,
+    "count": 536,
+    "percent": 12.313
+   },
+   "branches": {
+    "covered": 5,
+    "count": 176,
+    "percent": 2.841
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 0.8
+ },
+ "cmake/cmGeneratorExpressionFuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1683,
+   "count": 321722,
+   "percent": 0.523
+  },
+  "functions": {
+   "covered": 214,
+   "count": 17692,
+   "percent": 1.21
+  },
+  "regions": {
+   "covered": 948,
+   "count": 276541,
+   "percent": 0.343
+  },
+  "branches": {
+   "covered": 502,
+   "count": 161361,
+   "percent": 0.311
+  },
+  "scope": "/src/CMake/",
+  "files_in_scope": 1205,
+  "files_total": 1205,
+  "all_linked": {
+   "lines": {
+    "covered": 1683,
+    "count": 321722,
+    "percent": 0.523
+   },
+   "functions": {
+    "covered": 214,
+    "count": 17692,
+    "percent": 1.21
+   },
+   "regions": {
+    "covered": 948,
+    "count": 276541,
+    "percent": 0.343
+   },
+   "branches": {
+    "covered": 502,
+    "count": 161361,
+    "percent": 0.311
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 15.6
+ },
+ "cmake/cmJSONParserFuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1195,
+   "count": 4015,
+   "percent": 29.763
+  },
+  "functions": {
+   "covered": 118,
+   "count": 410,
+   "percent": 28.78
+  },
+  "regions": {
+   "covered": 766,
+   "count": 2843,
+   "percent": 26.943
+  },
+  "branches": {
+   "covered": 620,
+   "count": 2202,
+   "percent": 28.156
+  },
+  "scope": "/src/CMake/",
+  "files_in_scope": 11,
+  "files_total": 11,
+  "all_linked": {
+   "lines": {
+    "covered": 1195,
+    "count": 4015,
+    "percent": 29.763
+   },
+   "functions": {
+    "covered": 118,
+    "count": 410,
+    "percent": 28.78
+   },
+   "regions": {
+    "covered": 766,
+    "count": 2843,
+    "percent": 26.943
+   },
+   "branches": {
+    "covered": 620,
+    "count": 2202,
+    "percent": 28.156
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "cmake/cmListFileLexerFuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 792,
+   "count": 1154,
+   "percent": 68.631
+  },
+  "functions": {
+   "covered": 34,
+   "count": 54,
+   "percent": 62.963
+  },
+  "regions": {
+   "covered": 577,
+   "count": 928,
+   "percent": 62.177
+  },
+  "branches": {
+   "covered": 253,
+   "count": 432,
+   "percent": 58.565
+  },
+  "scope": "/src/CMake/",
+  "files_in_scope": 2,
+  "files_total": 2,
+  "all_linked": {
+   "lines": {
+    "covered": 792,
+    "count": 1154,
+    "percent": 68.631
+   },
+   "functions": {
+    "covered": 34,
+    "count": 54,
+    "percent": 62.963
+   },
+   "regions": {
+    "covered": 577,
+    "count": 928,
+    "percent": 62.177
+   },
+   "branches": {
+    "covered": 253,
+    "count": 432,
+    "percent": 58.565
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 9.9
+ },
+ "cmake/cmVersionFuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 223,
+   "count": 109507,
+   "percent": 0.204
+  },
+  "functions": {
+   "covered": 31,
+   "count": 5014,
+   "percent": 0.618
+  },
+  "regions": {
+   "covered": 123,
+   "count": 118666,
+   "percent": 0.104
+  },
+  "branches": {
+   "covered": 62,
+   "count": 57413,
+   "percent": 0.108
+  },
+  "scope": "/src/CMake/",
+  "files_in_scope": 343,
+  "files_total": 343,
+  "all_linked": {
+   "lines": {
+    "covered": 223,
+    "count": 109507,
+    "percent": 0.204
+   },
+   "functions": {
+    "covered": 31,
+    "count": 5014,
+    "percent": 0.618
+   },
+   "regions": {
+    "covered": 123,
+    "count": 118666,
+    "percent": 0.104
+   },
+   "branches": {
+    "covered": 62,
+    "count": 57413,
+    "percent": 0.108
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 8.4
+ },
+ "eigen/dense_solver_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 8483,
+   "count": 14332,
+   "percent": 59.189
+  },
+  "functions": {
+   "covered": 1335,
+   "count": 2112,
+   "percent": 63.21
+  },
+  "regions": {
+   "covered": 6448,
+   "count": 9227,
+   "percent": 69.882
+  },
+  "branches": {
+   "covered": 2335,
+   "count": 3675,
+   "percent": 63.537
+  },
+  "scope": "/src/eigen/",
+  "files_in_scope": 138,
+  "files_total": 139,
+  "all_linked": {
+   "lines": {
+    "covered": 8613,
+    "count": 14462,
+    "percent": 59.556
+   },
+   "functions": {
+    "covered": 1341,
+    "count": 2118,
+    "percent": 63.314
+   },
+   "regions": {
+    "covered": 6492,
+    "count": 9271,
+    "percent": 70.025
+   },
+   "branches": {
+    "covered": 2376,
+    "count": 3719,
+    "percent": 63.888
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 10.0
+ },
+ "eigen/geometry_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1678,
+   "count": 7085,
+   "percent": 23.684
+  },
+  "functions": {
+   "covered": 485,
+   "count": 1292,
+   "percent": 37.539
+  },
+  "regions": {
+   "covered": 1221,
+   "count": 2343,
+   "percent": 52.113
+  },
+  "branches": {
+   "covered": 192,
+   "count": 391,
+   "percent": 49.105
+  },
+  "scope": "/src/eigen/",
+  "files_in_scope": 90,
+  "files_total": 91,
+  "all_linked": {
+   "lines": {
+    "covered": 1731,
+    "count": 7138,
+    "percent": 24.25
+   },
+   "functions": {
+    "covered": 487,
+    "count": 1294,
+    "percent": 37.635
+   },
+   "regions": {
+    "covered": 1226,
+    "count": 2348,
+    "percent": 52.215
+   },
+   "branches": {
+    "covered": 194,
+    "count": 393,
+    "percent": 49.364
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.9
+ },
+ "eigen/sparse_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4807,
+   "count": 11143,
+   "percent": 43.139
+  },
+  "functions": {
+   "covered": 740,
+   "count": 1620,
+   "percent": 45.679
+  },
+  "regions": {
+   "covered": 3570,
+   "count": 5758,
+   "percent": 62.001
+  },
+  "branches": {
+   "covered": 1295,
+   "count": 2187,
+   "percent": 59.214
+  },
+  "scope": "/src/eigen/",
+  "files_in_scope": 130,
+  "files_total": 131,
+  "all_linked": {
+   "lines": {
+    "covered": 4855,
+    "count": 11191,
+    "percent": 43.383
+   },
+   "functions": {
+    "covered": 742,
+    "count": 1622,
+    "percent": 45.746
+   },
+   "regions": {
+    "covered": 3585,
+    "count": 5773,
+    "percent": 62.099
+   },
+   "branches": {
+    "covered": 1307,
+    "count": 2201,
+    "percent": 59.382
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.9
+ },
+ "eigen/tensor_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 140,
+   "count": 8119,
+   "percent": 1.724
+  },
+  "functions": {
+   "covered": 46,
+   "count": 1110,
+   "percent": 4.144
+  },
+  "regions": {
+   "covered": 122,
+   "count": 1217,
+   "percent": 10.025
+  },
+  "branches": {
+   "covered": 26,
+   "count": 46,
+   "percent": 56.522
+  },
+  "scope": "/src/eigen/",
+  "files_in_scope": 62,
+  "files_total": 63,
+  "all_linked": {
+   "lines": {
+    "covered": 184,
+    "count": 8163,
+    "percent": 2.254
+   },
+   "functions": {
+    "covered": 48,
+    "count": 1112,
+    "percent": 4.317
+   },
+   "regions": {
+    "covered": 139,
+    "count": 1234,
+    "percent": 11.264
+   },
+   "branches": {
+    "covered": 38,
+    "count": 60,
+    "percent": 63.333
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.1
+ },
+ "fast_float/from_chars": {
+  "status": "ok",
+  "lines": {
+   "covered": 1407,
+   "count": 1799,
+   "percent": 78.21
+  },
+  "functions": {
+   "covered": 143,
+   "count": 187,
+   "percent": 76.471
+  },
+  "regions": {
+   "covered": 818,
+   "count": 1003,
+   "percent": 81.555
+  },
+  "branches": {
+   "covered": 464,
+   "count": 606,
+   "percent": 76.568
+  },
+  "scope": "/src/fast_float/",
+  "files_in_scope": 8,
+  "files_total": 8,
+  "all_linked": {
+   "lines": {
+    "covered": 1407,
+    "count": 1799,
+    "percent": 78.21
+   },
+   "functions": {
+    "covered": 143,
+    "count": 187,
+    "percent": 76.471
+   },
+   "regions": {
+    "covered": 818,
+    "count": 1003,
+    "percent": 81.555
+   },
+   "branches": {
+    "covered": 464,
+    "count": 606,
+    "percent": 76.568
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.8
+ },
+ "flatbuffers/64bit_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 671,
+   "count": 3607,
+   "percent": 18.603
+  },
+  "functions": {
+   "covered": 123,
+   "count": 617,
+   "percent": 19.935
+  },
+  "regions": {
+   "covered": 500,
+   "count": 1437,
+   "percent": 34.795
+  },
+  "branches": {
+   "covered": 264,
+   "count": 723,
+   "percent": 36.515
+  },
+  "scope": "/src/flatbuffers/",
+  "files_in_scope": 24,
+  "files_total": 24,
+  "all_linked": {
+   "lines": {
+    "covered": 671,
+    "count": 3607,
+    "percent": 18.603
+   },
+   "functions": {
+    "covered": 123,
+    "count": 617,
+    "percent": 19.935
+   },
+   "regions": {
+    "covered": 500,
+    "count": 1437,
+    "percent": 34.795
+   },
+   "branches": {
+    "covered": 264,
+    "count": 723,
+    "percent": 36.515
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.9
+ },
+ "flatbuffers/scalar_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2165,
+   "count": 9194,
+   "percent": 23.548
+  },
+  "functions": {
+   "covered": 230,
+   "count": 1104,
+   "percent": 20.833
+  },
+  "regions": {
+   "covered": 2681,
+   "count": 9966,
+   "percent": 26.901
+  },
+  "branches": {
+   "covered": 1226,
+   "count": 5302,
+   "percent": 23.123
+  },
+  "scope": "/src/flatbuffers/",
+  "files_in_scope": 30,
+  "files_total": 30,
+  "all_linked": {
+   "lines": {
+    "covered": 2165,
+    "count": 9194,
+    "percent": 23.548
+   },
+   "functions": {
+    "covered": 230,
+    "count": 1104,
+    "percent": 20.833
+   },
+   "regions": {
+    "covered": 2681,
+    "count": 9966,
+    "percent": 26.901
+   },
+   "branches": {
+    "covered": 1226,
+    "count": 5302,
+    "percent": 23.123
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.1
+ },
+ "flatbuffers/verifier_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 734,
+   "count": 5513,
+   "percent": 13.314
+  },
+  "functions": {
+   "covered": 123,
+   "count": 951,
+   "percent": 12.934
+  },
+  "regions": {
+   "covered": 676,
+   "count": 1546,
+   "percent": 43.726
+  },
+  "branches": {
+   "covered": 529,
+   "count": 570,
+   "percent": 92.807
+  },
+  "scope": "/src/flatbuffers/",
+  "files_in_scope": 19,
+  "files_total": 19,
+  "all_linked": {
+   "lines": {
+    "covered": 734,
+    "count": 5513,
+    "percent": 13.314
+   },
+   "functions": {
+    "covered": 123,
+    "count": 951,
+    "percent": 12.934
+   },
+   "regions": {
+    "covered": 676,
+    "count": 1546,
+    "percent": 43.726
+   },
+   "branches": {
+    "covered": 529,
+    "count": 570,
+    "percent": 92.807
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 5.3
+ },
+ "glaze/binary_reflection": {
+  "status": "ok",
+  "lines": {
+   "covered": 1932,
+   "count": 10191,
+   "percent": 18.958
+  },
+  "functions": {
+   "covered": 113,
+   "count": 504,
+   "percent": 22.421
+  },
+  "regions": {
+   "covered": 780,
+   "count": 1328,
+   "percent": 58.735
+  },
+  "branches": {
+   "covered": 483,
+   "count": 603,
+   "percent": 80.1
+  },
+  "scope": "/src/glaze/",
+  "files_in_scope": 53,
+  "files_total": 53,
+  "all_linked": {
+   "lines": {
+    "covered": 1932,
+    "count": 10191,
+    "percent": 18.958
+   },
+   "functions": {
+    "covered": 113,
+    "count": 504,
+    "percent": 22.421
+   },
+   "regions": {
+    "covered": 780,
+    "count": 1328,
+    "percent": 58.735
+   },
+   "branches": {
+    "covered": 483,
+    "count": 603,
+    "percent": 80.1
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 6.7
+ },
+ "glaze/cbor_reflection": {
+  "status": "ok",
+  "lines": {
+   "covered": 2162,
+   "count": 10241,
+   "percent": 21.111
+  },
+  "functions": {
+   "covered": 111,
+   "count": 501,
+   "percent": 22.156
+  },
+  "regions": {
+   "covered": 1028,
+   "count": 1489,
+   "percent": 69.04
+  },
+  "branches": {
+   "covered": 613,
+   "count": 662,
+   "percent": 92.598
+  },
+  "scope": "/src/glaze/",
+  "files_in_scope": 52,
+  "files_total": 52,
+  "all_linked": {
+   "lines": {
+    "covered": 2162,
+    "count": 10241,
+    "percent": 21.111
+   },
+   "functions": {
+    "covered": 111,
+    "count": 501,
+    "percent": 22.156
+   },
+   "regions": {
+    "covered": 1028,
+    "count": 1489,
+    "percent": 69.04
+   },
+   "branches": {
+    "covered": 613,
+    "count": 662,
+    "percent": 92.598
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.7
+ },
+ "glaze/json_jmespath": {
+  "status": "ok",
+  "lines": {
+   "covered": 1618,
+   "count": 9668,
+   "percent": 16.736
+  },
+  "functions": {
+   "covered": 60,
+   "count": 470,
+   "percent": 12.766
+  },
+  "regions": {
+   "covered": 933,
+   "count": 1383,
+   "percent": 67.462
+  },
+  "branches": {
+   "covered": 603,
+   "count": 657,
+   "percent": 91.781
+  },
+  "scope": "/src/glaze/",
+  "files_in_scope": 51,
+  "files_total": 51,
+  "all_linked": {
+   "lines": {
+    "covered": 1618,
+    "count": 9668,
+    "percent": 16.736
+   },
+   "functions": {
+    "covered": 60,
+    "count": 470,
+    "percent": 12.766
+   },
+   "regions": {
+    "covered": 933,
+    "count": 1383,
+    "percent": 67.462
+   },
+   "branches": {
+    "covered": 603,
+    "count": 657,
+    "percent": 91.781
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 3.3
+ },
+ "glaze/json_minify": {
+  "status": "ok",
+  "lines": {
+   "covered": 302,
+   "count": 7866,
+   "percent": 3.839
+  },
+  "functions": {
+   "covered": 18,
+   "count": 424,
+   "percent": 4.245
+  },
+  "regions": {
+   "covered": 97,
+   "count": 505,
+   "percent": 19.208
+  },
+  "branches": {
+   "covered": 65,
+   "count": 67,
+   "percent": 97.015
+  },
+  "scope": "/src/glaze/",
+  "files_in_scope": 48,
+  "files_total": 48,
+  "all_linked": {
+   "lines": {
+    "covered": 302,
+    "count": 7866,
+    "percent": 3.839
+   },
+   "functions": {
+    "covered": 18,
+    "count": 424,
+    "percent": 4.245
+   },
+   "regions": {
+    "covered": 97,
+    "count": 505,
+    "percent": 19.208
+   },
+   "branches": {
+    "covered": 65,
+    "count": 67,
+    "percent": 97.015
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.5
+ },
+ "glaze/json_prettify": {
+  "status": "ok",
+  "lines": {
+   "covered": 298,
+   "count": 7940,
+   "percent": 3.753
+  },
+  "functions": {
+   "covered": 17,
+   "count": 421,
+   "percent": 4.038
+  },
+  "regions": {
+   "covered": 128,
+   "count": 536,
+   "percent": 23.881
+  },
+  "branches": {
+   "covered": 89,
+   "count": 92,
+   "percent": 96.739
+  },
+  "scope": "/src/glaze/",
+  "files_in_scope": 48,
+  "files_total": 48,
+  "all_linked": {
+   "lines": {
+    "covered": 298,
+    "count": 7940,
+    "percent": 3.753
+   },
+   "functions": {
+    "covered": 17,
+    "count": 421,
+    "percent": 4.038
+   },
+   "regions": {
+    "covered": 128,
+    "count": 536,
+    "percent": 23.881
+   },
+   "branches": {
+    "covered": 89,
+    "count": 92,
+    "percent": 96.739
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 27.5
+ },
+ "gnutls/gnutls_server_rawpk_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 12601,
+   "count": 78282,
+   "percent": 16.097
+  },
+  "functions": {
+   "covered": 785,
+   "count": 3223,
+   "percent": 24.356
+  },
+  "regions": {
+   "covered": 12460,
+   "count": 107717,
+   "percent": 11.567
+  },
+  "branches": {
+   "covered": 5263,
+   "count": 50178,
+   "percent": 10.489
+  },
+  "scope": "/src/gnutls/",
+  "files_in_scope": 345,
+  "files_total": 975,
+  "all_linked": {
+   "lines": {
+    "covered": 19888,
+    "count": 112448,
+    "percent": 17.686
+   },
+   "functions": {
+    "covered": 1151,
+    "count": 4454,
+    "percent": 25.842
+   },
+   "regions": {
+    "covered": 24970,
+    "count": 170662,
+    "percent": 14.631
+   },
+   "branches": {
+    "covered": 8221,
+    "count": 73174,
+    "percent": 11.235
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 87.5
+ },
+ "hpn-ssh/sig_fuzz": {
+  "status": "ok",
+  "lines": {
+   "covered": 650,
+   "count": 11613,
+   "percent": 5.597
+  },
+  "functions": {
+   "covered": 45,
+   "count": 580,
+   "percent": 7.759
+  },
+  "regions": {
+   "covered": 782,
+   "count": 13460,
+   "percent": 5.81
+  },
+  "branches": {
+   "covered": 295,
+   "count": 6360,
+   "percent": 4.638
+  },
+  "scope": "/src/hpn-ssh/",
+  "files_in_scope": 71,
+  "files_total": 71,
+  "all_linked": {
+   "lines": {
+    "covered": 650,
+    "count": 11613,
+    "percent": 5.597
+   },
+   "functions": {
+    "covered": 45,
+    "count": 580,
+    "percent": 7.759
+   },
+   "regions": {
+    "covered": 782,
+    "count": 13460,
+    "percent": 5.81
+   },
+   "branches": {
+    "covered": 295,
+    "count": 6360,
+    "percent": 4.638
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.5
+ },
+ "hunspell/morphfuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 7948,
+   "count": 10754,
+   "percent": 73.907
+  },
+  "functions": {
+   "covered": 322,
+   "count": 481,
+   "percent": 66.944
+  },
+  "regions": {
+   "covered": 7254,
+   "count": 9711,
+   "percent": 74.699
+  },
+  "branches": {
+   "covered": 5304,
+   "count": 7419,
+   "percent": 71.492
+  },
+  "scope": "/src/hunspell/",
+  "files_in_scope": 27,
+  "files_total": 27,
+  "all_linked": {
+   "lines": {
+    "covered": 7948,
+    "count": 10754,
+    "percent": 73.907
+   },
+   "functions": {
+    "covered": 322,
+    "count": 481,
+    "percent": 66.944
+   },
+   "regions": {
+    "covered": 7254,
+    "count": 9711,
+    "percent": 74.699
+   },
+   "branches": {
+    "covered": 5304,
+    "count": 7419,
+    "percent": 71.492
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 387.6
+ },
+ "hwloc/hwloc_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 126,
+   "count": 904,
+   "percent": 13.938
+  },
+  "functions": {
+   "covered": 2,
+   "count": 74,
+   "percent": 2.703
+  },
+  "regions": {
+   "covered": 100,
+   "count": 180,
+   "percent": 55.556
+  },
+  "branches": {
+   "covered": 70,
+   "count": 86,
+   "percent": 81.395
+  },
+  "scope": "/src/hwloc/",
+  "files_in_scope": 7,
+  "files_total": 8,
+  "all_linked": {
+   "lines": {
+    "covered": 139,
+    "count": 919,
+    "percent": 15.125
+   },
+   "functions": {
+    "covered": 3,
+    "count": 75,
+    "percent": 4.0
+   },
+   "regions": {
+    "covered": 104,
+    "count": 185,
+    "percent": 56.216
+   },
+   "branches": {
+    "covered": 71,
+    "count": 88,
+    "percent": 80.682
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 0.7
+ },
+ "icu/date_time_pattern_generator_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 12662,
+   "count": 84048,
+   "percent": 15.065
+  },
+  "functions": {
+   "covered": 1134,
+   "count": 6030,
+   "percent": 18.806
+  },
+  "regions": {
+   "covered": 13857,
+   "count": 83532,
+   "percent": 16.589
+  },
+  "branches": {
+   "covered": 5103,
+   "count": 41838,
+   "percent": 12.197
+  },
+  "scope": "/src/icu/",
+  "files_in_scope": 345,
+  "files_total": 345,
+  "all_linked": {
+   "lines": {
+    "covered": 12662,
+    "count": 84048,
+    "percent": 15.065
+   },
+   "functions": {
+    "covered": 1134,
+    "count": 6030,
+    "percent": 18.806
+   },
+   "regions": {
+    "covered": 13857,
+    "count": 83532,
+    "percent": 16.589
+   },
+   "branches": {
+    "covered": 5103,
+    "count": 41838,
+    "percent": 12.197
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 15.0
+ },
+ "icu/list_format_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4333,
+   "count": 41370,
+   "percent": 10.474
+  },
+  "functions": {
+   "covered": 517,
+   "count": 3135,
+   "percent": 16.491
+  },
+  "regions": {
+   "covered": 4560,
+   "count": 41807,
+   "percent": 10.907
+  },
+  "branches": {
+   "covered": 1572,
+   "count": 21776,
+   "percent": 7.219
+  },
+  "scope": "/src/icu/",
+  "files_in_scope": 210,
+  "files_total": 210,
+  "all_linked": {
+   "lines": {
+    "covered": 4333,
+    "count": 41370,
+    "percent": 10.474
+   },
+   "functions": {
+    "covered": 517,
+    "count": 3135,
+    "percent": 16.491
+   },
+   "regions": {
+    "covered": 4560,
+    "count": 41807,
+    "percent": 10.907
+   },
+   "branches": {
+    "covered": 1572,
+    "count": 21776,
+    "percent": 7.219
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 7.2
+ },
+ "icu/locale_morph_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 8349,
+   "count": 22703,
+   "percent": 36.775
+  },
+  "functions": {
+   "covered": 736,
+   "count": 1729,
+   "percent": 42.568
+  },
+  "regions": {
+   "covered": 8946,
+   "count": 23027,
+   "percent": 38.85
+  },
+  "branches": {
+   "covered": 3532,
+   "count": 11399,
+   "percent": 30.985
+  },
+  "scope": "/src/icu/",
+  "files_in_scope": 112,
+  "files_total": 112,
+  "all_linked": {
+   "lines": {
+    "covered": 8349,
+    "count": 22703,
+    "percent": 36.775
+   },
+   "functions": {
+    "covered": 736,
+    "count": 1729,
+    "percent": 42.568
+   },
+   "regions": {
+    "covered": 8946,
+    "count": 23027,
+    "percent": 38.85
+   },
+   "branches": {
+    "covered": 3532,
+    "count": 11399,
+    "percent": 30.985
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 9.9
+ },
+ "icu/normalizer2_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2394,
+   "count": 18428,
+   "percent": 12.991
+  },
+  "functions": {
+   "covered": 254,
+   "count": 1449,
+   "percent": 17.529
+  },
+  "regions": {
+   "covered": 2406,
+   "count": 17705,
+   "percent": 13.589
+  },
+  "branches": {
+   "covered": 1132,
+   "count": 10023,
+   "percent": 11.294
+  },
+  "scope": "/src/icu/",
+  "files_in_scope": 95,
+  "files_total": 95,
+  "all_linked": {
+   "lines": {
+    "covered": 2394,
+    "count": 18428,
+    "percent": 12.991
+   },
+   "functions": {
+    "covered": 254,
+    "count": 1449,
+    "percent": 17.529
+   },
+   "regions": {
+    "covered": 2406,
+    "count": 17705,
+    "percent": 13.589
+   },
+   "branches": {
+    "covered": 1132,
+    "count": 10023,
+    "percent": 11.294
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.1
+ },
+ "icu/unicode_string_codepage_create_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 3684,
+   "count": 40782,
+   "percent": 9.033
+  },
+  "functions": {
+   "covered": 191,
+   "count": 2181,
+   "percent": 8.757
+  },
+  "regions": {
+   "covered": 3249,
+   "count": 39909,
+   "percent": 8.141
+  },
+  "branches": {
+   "covered": 1379,
+   "count": 20818,
+   "percent": 6.624
+  },
+  "scope": "/src/icu/",
+  "files_in_scope": 155,
+  "files_total": 155,
+  "all_linked": {
+   "lines": {
+    "covered": 3684,
+    "count": 40782,
+    "percent": 9.033
+   },
+   "functions": {
+    "covered": 191,
+    "count": 2181,
+    "percent": 8.757
+   },
+   "regions": {
+    "covered": 3249,
+    "count": 39909,
+    "percent": 8.141
+   },
+   "branches": {
+    "covered": 1379,
+    "count": 20818,
+    "percent": 6.624
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.1
+ },
+ "iperf/auth_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 30,
+   "count": 340,
+   "percent": 8.824
+  },
+  "functions": {
+   "covered": 2,
+   "count": 16,
+   "percent": 12.5
+  },
+  "regions": {
+   "covered": 21,
+   "count": 266,
+   "percent": 7.895
+  },
+  "branches": {
+   "covered": 14,
+   "count": 102,
+   "percent": 13.725
+  },
+  "scope": "/src/iperf/",
+  "files_in_scope": 1,
+  "files_total": 2,
+  "all_linked": {
+   "lines": {
+    "covered": 44,
+    "count": 356,
+    "percent": 12.36
+   },
+   "functions": {
+    "covered": 3,
+    "count": 17,
+    "percent": 17.647
+   },
+   "regions": {
+    "covered": 27,
+    "count": 273,
+    "percent": 9.89
+   },
+   "branches": {
+    "covered": 16,
+    "count": 106,
+    "percent": 15.094
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 0.7
+ },
+ "lcms/cmsIT8_load_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1088,
+   "count": 18669,
+   "percent": 5.828
+  },
+  "functions": {
+   "covered": 69,
+   "count": 1120,
+   "percent": 6.161
+  },
+  "regions": {
+   "covered": 985,
+   "count": 19621,
+   "percent": 5.02
+  },
+  "branches": {
+   "covered": 560,
+   "count": 9582,
+   "percent": 5.844
+  },
+  "scope": "/src/lcms/",
+  "files_in_scope": 25,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 1099,
+    "count": 18681,
+    "percent": 5.883
+   },
+   "functions": {
+    "covered": 70,
+    "count": 1121,
+    "percent": 6.244
+   },
+   "regions": {
+    "covered": 990,
+    "count": 19627,
+    "percent": 5.044
+   },
+   "branches": {
+    "covered": 563,
+    "count": 9586,
+    "percent": 5.873
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "lcms/cms_md5_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 871,
+   "count": 17056,
+   "percent": 5.107
+  },
+  "functions": {
+   "covered": 69,
+   "count": 1026,
+   "percent": 6.725
+  },
+  "regions": {
+   "covered": 769,
+   "count": 17938,
+   "percent": 4.287
+  },
+  "branches": {
+   "covered": 256,
+   "count": 8543,
+   "percent": 2.997
+  },
+  "scope": "/src/lcms/",
+  "files_in_scope": 25,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 880,
+    "count": 17065,
+    "percent": 5.157
+   },
+   "functions": {
+    "covered": 70,
+    "count": 1027,
+    "percent": 6.816
+   },
+   "regions": {
+    "covered": 773,
+    "count": 17942,
+    "percent": 4.308
+   },
+   "branches": {
+    "covered": 258,
+    "count": 8545,
+    "percent": 3.019
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.0
+ },
+ "leptonica/boxfunc_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 54,
+   "count": 93502,
+   "percent": 0.058
+  },
+  "functions": {
+   "covered": 9,
+   "count": 2917,
+   "percent": 0.309
+  },
+  "regions": {
+   "covered": 52,
+   "count": 149860,
+   "percent": 0.035
+  },
+  "branches": {
+   "covered": 16,
+   "count": 74868,
+   "percent": 0.021
+  },
+  "scope": "/src/leptonica/",
+  "files_in_scope": 125,
+  "files_total": 450,
+  "all_linked": {
+   "lines": {
+    "covered": 54,
+    "count": 181907,
+    "percent": 0.03
+   },
+   "functions": {
+    "covered": 9,
+    "count": 6342,
+    "percent": 0.142
+   },
+   "regions": {
+    "covered": 52,
+    "count": 238659,
+    "percent": 0.022
+   },
+   "branches": {
+    "covered": 16,
+    "count": 119881,
+    "percent": 0.013
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 13.0
+ },
+ "leptonica/graphics_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 3005,
+   "count": 92526,
+   "percent": 3.248
+  },
+  "functions": {
+   "covered": 195,
+   "count": 2902,
+   "percent": 6.72
+  },
+  "regions": {
+   "covered": 2900,
+   "count": 148172,
+   "percent": 1.957
+  },
+  "branches": {
+   "covered": 1422,
+   "count": 74007,
+   "percent": 1.921
+  },
+  "scope": "/src/leptonica/",
+  "files_in_scope": 124,
+  "files_total": 449,
+  "all_linked": {
+   "lines": {
+    "covered": 3005,
+    "count": 180931,
+    "percent": 1.661
+   },
+   "functions": {
+    "covered": 195,
+    "count": 6327,
+    "percent": 3.082
+   },
+   "regions": {
+    "covered": 2900,
+    "count": 236971,
+    "percent": 1.224
+   },
+   "branches": {
+    "covered": 1422,
+    "count": 119020,
+    "percent": 1.195
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 16.2
+ },
+ "libevent/evtag_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 630,
+   "count": 10115,
+   "percent": 6.228
+  },
+  "functions": {
+   "covered": 51,
+   "count": 653,
+   "percent": 7.81
+  },
+  "regions": {
+   "covered": 766,
+   "count": 13886,
+   "percent": 5.516
+  },
+  "branches": {
+   "covered": 329,
+   "count": 6665,
+   "percent": 4.936
+  },
+  "scope": "/src/libevent/",
+  "files_in_scope": 38,
+  "files_total": 39,
+  "all_linked": {
+   "lines": {
+    "covered": 806,
+    "count": 10292,
+    "percent": 7.831
+   },
+   "functions": {
+    "covered": 52,
+    "count": 654,
+    "percent": 7.951
+   },
+   "regions": {
+    "covered": 872,
+    "count": 13993,
+    "percent": 6.232
+   },
+   "branches": {
+    "covered": 383,
+    "count": 6745,
+    "percent": 5.678
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.4
+ },
+ "libevent/http_message_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1748,
+   "count": 14953,
+   "percent": 11.69
+  },
+  "functions": {
+   "covered": 106,
+   "count": 940,
+   "percent": 11.277
+  },
+  "regions": {
+   "covered": 2092,
+   "count": 19519,
+   "percent": 10.718
+  },
+  "branches": {
+   "covered": 1096,
+   "count": 9414,
+   "percent": 11.642
+  },
+  "scope": "/src/libevent/",
+  "files_in_scope": 48,
+  "files_total": 49,
+  "all_linked": {
+   "lines": {
+    "covered": 1993,
+    "count": 15199,
+    "percent": 13.113
+   },
+   "functions": {
+    "covered": 107,
+    "count": 941,
+    "percent": 11.371
+   },
+   "regions": {
+    "covered": 2220,
+    "count": 19648,
+    "percent": 11.299
+   },
+   "branches": {
+    "covered": 1181,
+    "count": 9522,
+    "percent": 12.403
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.3
+ },
+ "libevent/utils_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 576,
+   "count": 6380,
+   "percent": 9.028
+  },
+  "functions": {
+   "covered": 25,
+   "count": 424,
+   "percent": 5.896
+  },
+  "regions": {
+   "covered": 557,
+   "count": 8034,
+   "percent": 6.933
+  },
+  "branches": {
+   "covered": 278,
+   "count": 3881,
+   "percent": 7.163
+  },
+  "scope": "/src/libevent/",
+  "files_in_scope": 30,
+  "files_total": 31,
+  "all_linked": {
+   "lines": {
+    "covered": 615,
+    "count": 6419,
+    "percent": 9.581
+   },
+   "functions": {
+    "covered": 26,
+    "count": 425,
+    "percent": 6.118
+   },
+   "regions": {
+    "covered": 578,
+    "count": 8055,
+    "percent": 7.176
+   },
+   "branches": {
+    "covered": 286,
+    "count": 3889,
+    "percent": 7.354
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 26.3
+ },
+ "libevent/ws_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2430,
+   "count": 14953,
+   "percent": 16.251
+  },
+  "functions": {
+   "covered": 204,
+   "count": 940,
+   "percent": 21.702
+  },
+  "regions": {
+   "covered": 3196,
+   "count": 19519,
+   "percent": 16.374
+  },
+  "branches": {
+   "covered": 1015,
+   "count": 9414,
+   "percent": 10.782
+  },
+  "scope": "/src/libevent/",
+  "files_in_scope": 48,
+  "files_total": 49,
+  "all_linked": {
+   "lines": {
+    "covered": 2462,
+    "count": 14994,
+    "percent": 16.42
+   },
+   "functions": {
+    "covered": 206,
+    "count": 942,
+    "percent": 21.868
+   },
+   "regions": {
+    "covered": 3219,
+    "count": 19545,
+    "percent": 16.47
+   },
+   "branches": {
+    "covered": 1021,
+    "count": 9424,
+    "percent": 10.834
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.2
+ },
+ "libgit2/config_file_fuzzer": {
+  "status": "rc=0",
+  "wall_seconds": 27.1
+ },
+ "libgit2/midx_fuzzer": {
+  "status": "rc=0",
+  "wall_seconds": 147.2
+ },
+ "libgit2/patch_parse_fuzzer": {
+  "status": "rc=0",
+  "wall_seconds": 156.6
+ },
+ "libidn2/libidn2_to_ascii_8z_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4363,
+   "count": 6396,
+   "percent": 68.215
+  },
+  "functions": {
+   "covered": 88,
+   "count": 132,
+   "percent": 66.667
+  },
+  "regions": {
+   "covered": 1872,
+   "count": 4698,
+   "percent": 39.847
+  },
+  "branches": {
+   "covered": 1076,
+   "count": 3354,
+   "percent": 32.081
+  },
+  "scope": "/src/libidn2/",
+  "files_in_scope": 66,
+  "files_total": 66,
+  "all_linked": {
+   "lines": {
+    "covered": 4363,
+    "count": 6396,
+    "percent": 68.215
+   },
+   "functions": {
+    "covered": 88,
+    "count": 132,
+    "percent": 66.667
+   },
+   "regions": {
+    "covered": 1872,
+    "count": 4698,
+    "percent": 39.847
+   },
+   "branches": {
+    "covered": 1076,
+    "count": 3354,
+    "percent": 32.081
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "libplist/bplist_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 853,
+   "count": 8297,
+   "percent": 10.281
+  },
+  "functions": {
+   "covered": 47,
+   "count": 290,
+   "percent": 16.207
+  },
+  "regions": {
+   "covered": 842,
+   "count": 8707,
+   "percent": 9.67
+  },
+  "branches": {
+   "covered": 458,
+   "count": 5391,
+   "percent": 8.496
+  },
+  "scope": "/src/libplist/",
+  "files_in_scope": 26,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 853,
+    "count": 8297,
+    "percent": 10.281
+   },
+   "functions": {
+    "covered": 47,
+    "count": 290,
+    "percent": 16.207
+   },
+   "regions": {
+    "covered": 842,
+    "count": 8707,
+    "percent": 9.67
+   },
+   "branches": {
+    "covered": 458,
+    "count": 5391,
+    "percent": 8.496
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.8
+ },
+ "libplist/jplist_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1145,
+   "count": 8297,
+   "percent": 13.8
+  },
+  "functions": {
+   "covered": 64,
+   "count": 290,
+   "percent": 22.069
+  },
+  "regions": {
+   "covered": 1058,
+   "count": 8707,
+   "percent": 12.151
+  },
+  "branches": {
+   "covered": 626,
+   "count": 5391,
+   "percent": 11.612
+  },
+  "scope": "/src/libplist/",
+  "files_in_scope": 26,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 1145,
+    "count": 8297,
+    "percent": 13.8
+   },
+   "functions": {
+    "covered": 64,
+    "count": 290,
+    "percent": 22.069
+   },
+   "regions": {
+    "covered": 1058,
+    "count": 8707,
+    "percent": 12.151
+   },
+   "branches": {
+    "covered": 626,
+    "count": 5391,
+    "percent": 11.612
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.9
+ },
+ "libplist/oplist_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 988,
+   "count": 8297,
+   "percent": 11.908
+  },
+  "functions": {
+   "covered": 55,
+   "count": 290,
+   "percent": 18.966
+  },
+  "regions": {
+   "covered": 885,
+   "count": 8707,
+   "percent": 10.164
+  },
+  "branches": {
+   "covered": 489,
+   "count": 5391,
+   "percent": 9.071
+  },
+  "scope": "/src/libplist/",
+  "files_in_scope": 26,
+  "files_total": 26,
+  "all_linked": {
+   "lines": {
+    "covered": 988,
+    "count": 8297,
+    "percent": 11.908
+   },
+   "functions": {
+    "covered": 55,
+    "count": 290,
+    "percent": 18.966
+   },
+   "regions": {
+    "covered": 885,
+    "count": 8707,
+    "percent": 10.164
+   },
+   "branches": {
+    "covered": 489,
+    "count": 5391,
+    "percent": 9.071
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.6
+ },
+ "libsodium/crypto_box_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2213,
+   "count": 8829,
+   "percent": 25.065
+  },
+  "functions": {
+   "covered": 133,
+   "count": 487,
+   "percent": 27.31
+  },
+  "regions": {
+   "covered": 1895,
+   "count": 16157,
+   "percent": 11.729
+  },
+  "branches": {
+   "covered": 250,
+   "count": 3801,
+   "percent": 6.577
+  },
+  "scope": "/src/libsodium/",
+  "files_in_scope": 97,
+  "files_total": 99,
+  "all_linked": {
+   "lines": {
+    "covered": 2259,
+    "count": 8875,
+    "percent": 25.454
+   },
+   "functions": {
+    "covered": 137,
+    "count": 491,
+    "percent": 27.902
+   },
+   "regions": {
+    "covered": 1939,
+    "count": 16236,
+    "percent": 11.943
+   },
+   "branches": {
+    "covered": 259,
+    "count": 3817,
+    "percent": 6.785
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.6
+ },
+ "libtasn1/asn1_decode_simple_ber_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 343,
+   "count": 5211,
+   "percent": 6.582
+  },
+  "functions": {
+   "covered": 9,
+   "count": 119,
+   "percent": 7.563
+  },
+  "regions": {
+   "covered": 603,
+   "count": 7865,
+   "percent": 7.667
+  },
+  "branches": {
+   "covered": 223,
+   "count": 4727,
+   "percent": 4.718
+  },
+  "scope": "/src/libtasn1/",
+  "files_in_scope": 15,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 343,
+    "count": 5211,
+    "percent": 6.582
+   },
+   "functions": {
+    "covered": 9,
+    "count": 119,
+    "percent": 7.563
+   },
+   "regions": {
+    "covered": 603,
+    "count": 7865,
+    "percent": 7.667
+   },
+   "branches": {
+    "covered": 223,
+    "count": 4727,
+    "percent": 4.718
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.0
+ },
+ "libtasn1/asn1_decode_simple_der_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 140,
+   "count": 5209,
+   "percent": 2.688
+  },
+  "functions": {
+   "covered": 5,
+   "count": 119,
+   "percent": 4.202
+  },
+  "regions": {
+   "covered": 351,
+   "count": 7863,
+   "percent": 4.464
+  },
+  "branches": {
+   "covered": 119,
+   "count": 4727,
+   "percent": 2.517
+  },
+  "scope": "/src/libtasn1/",
+  "files_in_scope": 15,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 140,
+    "count": 5209,
+    "percent": 2.688
+   },
+   "functions": {
+    "covered": 5,
+    "count": 119,
+    "percent": 4.202
+   },
+   "regions": {
+    "covered": 351,
+    "count": 7863,
+    "percent": 4.464
+   },
+   "branches": {
+    "covered": 119,
+    "count": 4727,
+    "percent": 2.517
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 8.0
+ },
+ "libtasn1/asn1_get_object_id_der_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 166,
+   "count": 5195,
+   "percent": 3.195
+  },
+  "functions": {
+   "covered": 6,
+   "count": 119,
+   "percent": 5.042
+  },
+  "regions": {
+   "covered": 222,
+   "count": 7837,
+   "percent": 2.833
+  },
+  "branches": {
+   "covered": 90,
+   "count": 4719,
+   "percent": 1.907
+  },
+  "scope": "/src/libtasn1/",
+  "files_in_scope": 15,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 166,
+    "count": 5195,
+    "percent": 3.195
+   },
+   "functions": {
+    "covered": 6,
+    "count": 119,
+    "percent": 5.042
+   },
+   "regions": {
+    "covered": 222,
+    "count": 7837,
+    "percent": 2.833
+   },
+   "branches": {
+    "covered": 90,
+    "count": 4719,
+    "percent": 1.907
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "libtasn1/libtasn1_gnutls_der_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1452,
+   "count": 5234,
+   "percent": 27.742
+  },
+  "functions": {
+   "covered": 47,
+   "count": 119,
+   "percent": 39.496
+  },
+  "regions": {
+   "covered": 1562,
+   "count": 7881,
+   "percent": 19.82
+  },
+  "branches": {
+   "covered": 778,
+   "count": 4735,
+   "percent": 16.431
+  },
+  "scope": "/src/libtasn1/",
+  "files_in_scope": 15,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 1452,
+    "count": 5234,
+    "percent": 27.742
+   },
+   "functions": {
+    "covered": 47,
+    "count": 119,
+    "percent": 39.496
+   },
+   "regions": {
+    "covered": 1562,
+    "count": 7881,
+    "percent": 19.82
+   },
+   "branches": {
+    "covered": 778,
+    "count": 4735,
+    "percent": 16.431
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.3
+ },
+ "libtasn1/libtasn1_pkix_der_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1997,
+   "count": 5224,
+   "percent": 38.227
+  },
+  "functions": {
+   "covered": 54,
+   "count": 119,
+   "percent": 45.378
+  },
+  "regions": {
+   "covered": 2262,
+   "count": 7866,
+   "percent": 28.757
+  },
+  "branches": {
+   "covered": 1028,
+   "count": 4731,
+   "percent": 21.729
+  },
+  "scope": "/src/libtasn1/",
+  "files_in_scope": 15,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 1997,
+    "count": 5224,
+    "percent": 38.227
+   },
+   "functions": {
+    "covered": 54,
+    "count": 119,
+    "percent": 45.378
+   },
+   "regions": {
+    "covered": 2262,
+    "count": 7866,
+    "percent": 28.757
+   },
+   "branches": {
+    "covered": 1028,
+    "count": 4731,
+    "percent": 21.729
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.8
+ },
+ "libvips/jpegsave_file_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 28118,
+   "count": 72851,
+   "percent": 38.597
+  },
+  "functions": {
+   "covered": 2060,
+   "count": 4542,
+   "percent": 45.354
+  },
+  "regions": {
+   "covered": 42442,
+   "count": 118623,
+   "percent": 35.779
+  },
+  "branches": {
+   "covered": 8316,
+   "count": 42769,
+   "percent": 19.444
+  },
+  "scope": "/src/libvips/",
+  "files_in_scope": 396,
+  "files_total": 1632,
+  "all_linked": {
+   "lines": {
+    "covered": 119537,
+    "count": 415371,
+    "percent": 28.778
+   },
+   "functions": {
+    "covered": 7590,
+    "count": 22307,
+    "percent": 34.025
+   },
+   "regions": {
+    "covered": 115278,
+    "count": 400458,
+    "percent": 28.787
+   },
+   "branches": {
+    "covered": 45427,
+    "count": 196823,
+    "percent": 23.08
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 93.2
+ },
+ "libvips/mosaic_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 24247,
+   "count": 72847,
+   "percent": 33.285
+  },
+  "functions": {
+   "covered": 1790,
+   "count": 4541,
+   "percent": 39.419
+  },
+  "regions": {
+   "covered": 37839,
+   "count": 118620,
+   "percent": 31.899
+  },
+  "branches": {
+   "covered": 6283,
+   "count": 42767,
+   "percent": 14.691
+  },
+  "scope": "/src/libvips/",
+  "files_in_scope": 396,
+  "files_total": 1632,
+  "all_linked": {
+   "lines": {
+    "covered": 97886,
+    "count": 415367,
+    "percent": 23.566
+   },
+   "functions": {
+    "covered": 6430,
+    "count": 22306,
+    "percent": 28.826
+   },
+   "regions": {
+    "covered": 97230,
+    "count": 400455,
+    "percent": 24.28
+   },
+   "branches": {
+    "covered": 36167,
+    "count": 196821,
+    "percent": 18.376
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 97.0
+ },
+ "libvips/smartcrop_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 27684,
+   "count": 72835,
+   "percent": 38.009
+  },
+  "functions": {
+   "covered": 2015,
+   "count": 4541,
+   "percent": 44.373
+  },
+  "regions": {
+   "covered": 41671,
+   "count": 118614,
+   "percent": 35.132
+  },
+  "branches": {
+   "covered": 7912,
+   "count": 42763,
+   "percent": 18.502
+  },
+  "scope": "/src/libvips/",
+  "files_in_scope": 396,
+  "files_total": 1632,
+  "all_linked": {
+   "lines": {
+    "covered": 114556,
+    "count": 415355,
+    "percent": 27.58
+   },
+   "functions": {
+    "covered": 7438,
+    "count": 22306,
+    "percent": 33.345
+   },
+   "regions": {
+    "covered": 112033,
+    "count": 400449,
+    "percent": 27.977
+   },
+   "branches": {
+    "covered": 43265,
+    "count": 196817,
+    "percent": 21.982
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 150.1
+ },
+ "libvips/thumbnail_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 27953,
+   "count": 72835,
+   "percent": 38.379
+  },
+  "functions": {
+   "covered": 2019,
+   "count": 4541,
+   "percent": 44.462
+  },
+  "regions": {
+   "covered": 41757,
+   "count": 118614,
+   "percent": 35.204
+  },
+  "branches": {
+   "covered": 7889,
+   "count": 42763,
+   "percent": 18.448
+  },
+  "scope": "/src/libvips/",
+  "files_in_scope": 396,
+  "files_total": 1632,
+  "all_linked": {
+   "lines": {
+    "covered": 118035,
+    "count": 415355,
+    "percent": 28.418
+   },
+   "functions": {
+    "covered": 7571,
+    "count": 22306,
+    "percent": 33.942
+   },
+   "regions": {
+    "covered": 114295,
+    "count": 400449,
+    "percent": 28.542
+   },
+   "branches": {
+    "covered": 44657,
+    "count": 196817,
+    "percent": 22.69
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 100.5
+ },
+ "libvips/vips_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 50173,
+   "count": 73117,
+   "percent": 68.62
+  },
+  "functions": {
+   "covered": 3427,
+   "count": 4546,
+   "percent": 75.385
+  },
+  "regions": {
+   "covered": 70435,
+   "count": 118935,
+   "percent": 59.221
+  },
+  "branches": {
+   "covered": 20125,
+   "count": 42961,
+   "percent": 46.845
+  },
+  "scope": "/src/libvips/",
+  "files_in_scope": 396,
+  "files_total": 1632,
+  "all_linked": {
+   "lines": {
+    "covered": 178084,
+    "count": 415751,
+    "percent": 42.834
+   },
+   "functions": {
+    "covered": 11138,
+    "count": 22313,
+    "percent": 49.917
+   },
+   "regions": {
+    "covered": 167295,
+    "count": 400903,
+    "percent": 41.73
+   },
+   "branches": {
+    "covered": 66829,
+    "count": 197096,
+    "percent": 33.907
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 160.1
+ },
+ "libyaml/libyaml_emitter_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4257,
+   "count": 4959,
+   "percent": 85.844
+  },
+  "functions": {
+   "covered": 145,
+   "count": 171,
+   "percent": 84.795
+  },
+  "regions": {
+   "covered": 8618,
+   "count": 11137,
+   "percent": 77.382
+  },
+  "branches": {
+   "covered": 4890,
+   "count": 6739,
+   "percent": 72.563
+  },
+  "scope": "/src/libyaml/",
+  "files_in_scope": 9,
+  "files_total": 11,
+  "all_linked": {
+   "lines": {
+    "covered": 4488,
+    "count": 5204,
+    "percent": 86.241
+   },
+   "functions": {
+    "covered": 149,
+    "count": 175,
+    "percent": 85.143
+   },
+   "regions": {
+    "covered": 8829,
+    "count": 11361,
+    "percent": 77.713
+   },
+   "branches": {
+    "covered": 5055,
+    "count": 6939,
+    "percent": 72.849
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 12.2
+ },
+ "libyaml/libyaml_loader_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2862,
+   "count": 3658,
+   "percent": 78.239
+  },
+  "functions": {
+   "covered": 95,
+   "count": 136,
+   "percent": 69.853
+  },
+  "regions": {
+   "covered": 5747,
+   "count": 8172,
+   "percent": 70.326
+  },
+  "branches": {
+   "covered": 3103,
+   "count": 4589,
+   "percent": 67.618
+  },
+  "scope": "/src/libyaml/",
+  "files_in_scope": 8,
+  "files_total": 9,
+  "all_linked": {
+   "lines": {
+    "covered": 2879,
+    "count": 3676,
+    "percent": 78.319
+   },
+   "functions": {
+    "covered": 96,
+    "count": 137,
+    "percent": 70.073
+   },
+   "regions": {
+    "covered": 5757,
+    "count": 8183,
+    "percent": 70.353
+   },
+   "branches": {
+    "covered": 3108,
+    "count": 4595,
+    "percent": 67.639
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 7.6
+ },
+ "libyaml/libyaml_parser_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2605,
+   "count": 3371,
+   "percent": 77.277
+  },
+  "functions": {
+   "covered": 80,
+   "count": 122,
+   "percent": 65.574
+  },
+  "regions": {
+   "covered": 5407,
+   "count": 7721,
+   "percent": 70.03
+  },
+  "branches": {
+   "covered": 2941,
+   "count": 4357,
+   "percent": 67.501
+  },
+  "scope": "/src/libyaml/",
+  "files_in_scope": 7,
+  "files_total": 8,
+  "all_linked": {
+   "lines": {
+    "covered": 2620,
+    "count": 3387,
+    "percent": 77.355
+   },
+   "functions": {
+    "covered": 81,
+    "count": 123,
+    "percent": 65.854
+   },
+   "regions": {
+    "covered": 5417,
+    "count": 7732,
+    "percent": 70.059
+   },
+   "branches": {
+    "covered": 2946,
+    "count": 4363,
+    "percent": 67.522
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 6.0
+ },
+ "libyaml/libyaml_reformatter_alt_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4475,
+   "count": 5443,
+   "percent": 82.216
+  },
+  "functions": {
+   "covered": 160,
+   "count": 196,
+   "percent": 81.633
+  },
+  "regions": {
+   "covered": 8825,
+   "count": 11833,
+   "percent": 74.58
+  },
+  "branches": {
+   "covered": 4994,
+   "count": 7083,
+   "percent": 70.507
+  },
+  "scope": "/src/libyaml/",
+  "files_in_scope": 11,
+  "files_total": 13,
+  "all_linked": {
+   "lines": {
+    "covered": 4525,
+    "count": 5495,
+    "percent": 82.348
+   },
+   "functions": {
+    "covered": 162,
+    "count": 198,
+    "percent": 81.818
+   },
+   "regions": {
+    "covered": 8854,
+    "count": 11864,
+    "percent": 74.629
+   },
+   "branches": {
+    "covered": 5010,
+    "count": 7101,
+    "percent": 70.553
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 13.7
+ },
+ "libyaml/libyaml_scanner_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1795,
+   "count": 3371,
+   "percent": 53.248
+  },
+  "functions": {
+   "covered": 57,
+   "count": 122,
+   "percent": 46.721
+  },
+  "regions": {
+   "covered": 4504,
+   "count": 7721,
+   "percent": 58.334
+  },
+  "branches": {
+   "covered": 2418,
+   "count": 4357,
+   "percent": 55.497
+  },
+  "scope": "/src/libyaml/",
+  "files_in_scope": 7,
+  "files_total": 8,
+  "all_linked": {
+   "lines": {
+    "covered": 1812,
+    "count": 3389,
+    "percent": 53.467
+   },
+   "functions": {
+    "covered": 58,
+    "count": 123,
+    "percent": 47.154
+   },
+   "regions": {
+    "covered": 4514,
+    "count": 7732,
+    "percent": 58.381
+   },
+   "branches": {
+    "covered": 2423,
+    "count": 4363,
+    "percent": 55.535
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 5.5
+ },
+ "lz4/decompress_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 491,
+   "count": 4822,
+   "percent": 10.182
+  },
+  "functions": {
+   "covered": 22,
+   "count": 278,
+   "percent": 7.914
+  },
+  "regions": {
+   "covered": 581,
+   "count": 6555,
+   "percent": 8.863
+  },
+  "branches": {
+   "covered": 236,
+   "count": 2791,
+   "percent": 8.456
+  },
+  "scope": "/src/lz4/",
+  "files_in_scope": 12,
+  "files_total": 12,
+  "all_linked": {
+   "lines": {
+    "covered": 491,
+    "count": 4822,
+    "percent": 10.182
+   },
+   "functions": {
+    "covered": 22,
+    "count": 278,
+    "percent": 7.914
+   },
+   "regions": {
+    "covered": 581,
+    "count": 6555,
+    "percent": 8.863
+   },
+   "branches": {
+    "covered": 236,
+    "count": 2791,
+    "percent": 8.456
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.8
+ },
+ "mbedtls/fuzz_pkcs7": {
+  "status": "ok",
+  "lines": {
+   "covered": 1124,
+   "count": 38465,
+   "percent": 2.922
+  },
+  "functions": {
+   "covered": 55,
+   "count": 1803,
+   "percent": 3.05
+  },
+  "regions": {
+   "covered": 1177,
+   "count": 46579,
+   "percent": 2.527
+  },
+  "branches": {
+   "covered": 504,
+   "count": 19999,
+   "percent": 2.52
+  },
+  "scope": "/src/mbedtls/",
+  "files_in_scope": 151,
+  "files_total": 151,
+  "all_linked": {
+   "lines": {
+    "covered": 1124,
+    "count": 38465,
+    "percent": 2.922
+   },
+   "functions": {
+    "covered": 55,
+    "count": 1803,
+    "percent": 3.05
+   },
+   "regions": {
+    "covered": 1177,
+    "count": 46579,
+    "percent": 2.527
+   },
+   "branches": {
+    "covered": 504,
+    "count": 19999,
+    "percent": 2.52
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.1
+ },
+ "mbedtls/fuzz_x509crl": {
+  "status": "ok",
+  "lines": {
+   "covered": 1466,
+   "count": 36415,
+   "percent": 4.026
+  },
+  "functions": {
+   "covered": 61,
+   "count": 1728,
+   "percent": 3.53
+  },
+  "regions": {
+   "covered": 1653,
+   "count": 44472,
+   "percent": 3.717
+  },
+  "branches": {
+   "covered": 800,
+   "count": 18952,
+   "percent": 4.221
+  },
+  "scope": "/src/mbedtls/",
+  "files_in_scope": 148,
+  "files_total": 148,
+  "all_linked": {
+   "lines": {
+    "covered": 1466,
+    "count": 36415,
+    "percent": 4.026
+   },
+   "functions": {
+    "covered": 61,
+    "count": 1728,
+    "percent": 3.53
+   },
+   "regions": {
+    "covered": 1653,
+    "count": 44472,
+    "percent": 3.717
+   },
+   "branches": {
+    "covered": 800,
+    "count": 18952,
+    "percent": 4.221
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.4
+ },
+ "mbedtls/fuzz_x509crt": {
+  "status": "ok",
+  "lines": {
+   "covered": 4343,
+   "count": 37595,
+   "percent": 11.552
+  },
+  "functions": {
+   "covered": 252,
+   "count": 1776,
+   "percent": 14.189
+  },
+  "regions": {
+   "covered": 6318,
+   "count": 45684,
+   "percent": 13.83
+  },
+  "branches": {
+   "covered": 2456,
+   "count": 19591,
+   "percent": 12.536
+  },
+  "scope": "/src/mbedtls/",
+  "files_in_scope": 148,
+  "files_total": 148,
+  "all_linked": {
+   "lines": {
+    "covered": 4343,
+    "count": 37595,
+    "percent": 11.552
+   },
+   "functions": {
+    "covered": 252,
+    "count": 1776,
+    "percent": 14.189
+   },
+   "regions": {
+    "covered": 6318,
+    "count": 45684,
+    "percent": 13.83
+   },
+   "branches": {
+    "covered": 2456,
+    "count": 19591,
+    "percent": 12.536
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 7.0
+ },
+ "mbedtls/fuzz_x509csr": {
+  "status": "ok",
+  "lines": {
+   "covered": 3236,
+   "count": 36372,
+   "percent": 8.897
+  },
+  "functions": {
+   "covered": 209,
+   "count": 1729,
+   "percent": 12.088
+  },
+  "regions": {
+   "covered": 4617,
+   "count": 44431,
+   "percent": 10.391
+  },
+  "branches": {
+   "covered": 1793,
+   "count": 18922,
+   "percent": 9.476
+  },
+  "scope": "/src/mbedtls/",
+  "files_in_scope": 148,
+  "files_total": 148,
+  "all_linked": {
+   "lines": {
+    "covered": 3236,
+    "count": 36372,
+    "percent": 8.897
+   },
+   "functions": {
+    "covered": 209,
+    "count": 1729,
+    "percent": 12.088
+   },
+   "regions": {
+    "covered": 4617,
+    "count": 44431,
+    "percent": 10.391
+   },
+   "branches": {
+    "covered": 1793,
+    "count": 18922,
+    "percent": 9.476
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 4.7
+ },
+ "mbedtls/usepsa-fuzz_x509csr": {
+  "status": "ok",
+  "lines": {
+   "covered": 890,
+   "count": 38254,
+   "percent": 2.327
+  },
+  "functions": {
+   "covered": 76,
+   "count": 1816,
+   "percent": 4.185
+  },
+  "regions": {
+   "covered": 595,
+   "count": 45927,
+   "percent": 1.296
+  },
+  "branches": {
+   "covered": 335,
+   "count": 19472,
+   "percent": 1.72
+  },
+  "scope": "/src/mbedtls/",
+  "files_in_scope": 156,
+  "files_total": 156,
+  "all_linked": {
+   "lines": {
+    "covered": 890,
+    "count": 38254,
+    "percent": 2.327
+   },
+   "functions": {
+    "covered": 76,
+    "count": 1816,
+    "percent": 4.185
+   },
+   "regions": {
+    "covered": 595,
+    "count": 45927,
+    "percent": 1.296
+   },
+   "branches": {
+    "covered": 335,
+    "count": 19472,
+    "percent": 1.72
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 3.3
+ },
+ "openssh/privkey_fuzz": {
+  "status": "ok",
+  "lines": {
+   "covered": 1710,
+   "count": 24711,
+   "percent": 6.92
+  },
+  "functions": {
+   "covered": 108,
+   "count": 1691,
+   "percent": 6.387
+  },
+  "regions": {
+   "covered": 1972,
+   "count": 15963,
+   "percent": 12.354
+  },
+  "branches": {
+   "covered": 813,
+   "count": 6929,
+   "percent": 11.733
+  },
+  "scope": "/src/openssh/",
+  "files_in_scope": 70,
+  "files_total": 70,
+  "all_linked": {
+   "lines": {
+    "covered": 1710,
+    "count": 24711,
+    "percent": 6.92
+   },
+   "functions": {
+    "covered": 108,
+    "count": 1691,
+    "percent": 6.387
+   },
+   "regions": {
+    "covered": 1972,
+    "count": 15963,
+    "percent": 12.354
+   },
+   "branches": {
+    "covered": 813,
+    "count": 6929,
+    "percent": 11.733
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "openssh/pubkey_fuzz": {
+  "status": "ok",
+  "lines": {
+   "covered": 1473,
+   "count": 24709,
+   "percent": 5.961
+  },
+  "functions": {
+   "covered": 97,
+   "count": 1691,
+   "percent": 5.736
+  },
+  "regions": {
+   "covered": 1691,
+   "count": 15963,
+   "percent": 10.593
+  },
+  "branches": {
+   "covered": 692,
+   "count": 6929,
+   "percent": 9.987
+  },
+  "scope": "/src/openssh/",
+  "files_in_scope": 70,
+  "files_total": 70,
+  "all_linked": {
+   "lines": {
+    "covered": 1473,
+    "count": 24709,
+    "percent": 5.961
+   },
+   "functions": {
+    "covered": 97,
+    "count": 1691,
+    "percent": 5.736
+   },
+   "regions": {
+    "covered": 1691,
+    "count": 15963,
+    "percent": 10.593
+   },
+   "branches": {
+    "covered": 692,
+    "count": 6929,
+    "percent": 9.987
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.7
+ },
+ "openssh/sig_fuzz": {
+  "status": "ok",
+  "lines": {
+   "covered": 651,
+   "count": 24741,
+   "percent": 2.631
+  },
+  "functions": {
+   "covered": 45,
+   "count": 1692,
+   "percent": 2.66
+  },
+  "regions": {
+   "covered": 788,
+   "count": 15975,
+   "percent": 4.933
+  },
+  "branches": {
+   "covered": 298,
+   "count": 6929,
+   "percent": 4.301
+  },
+  "scope": "/src/openssh/",
+  "files_in_scope": 70,
+  "files_total": 70,
+  "all_linked": {
+   "lines": {
+    "covered": 651,
+    "count": 24741,
+    "percent": 2.631
+   },
+   "functions": {
+    "covered": 45,
+    "count": 1692,
+    "percent": 2.66
+   },
+   "regions": {
+    "covered": 788,
+    "count": 15975,
+    "percent": 4.933
+   },
+   "branches": {
+    "covered": 298,
+    "count": 6929,
+    "percent": 4.301
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.8
+ },
+ "openssh/sshsig_fuzz": {
+  "status": "ok",
+  "lines": {
+   "covered": 1525,
+   "count": 27472,
+   "percent": 5.551
+  },
+  "functions": {
+   "covered": 107,
+   "count": 1794,
+   "percent": 5.964
+  },
+  "regions": {
+   "covered": 1719,
+   "count": 20408,
+   "percent": 8.423
+  },
+  "branches": {
+   "covered": 758,
+   "count": 8427,
+   "percent": 8.995
+  },
+  "scope": "/src/openssh/",
+  "files_in_scope": 79,
+  "files_total": 79,
+  "all_linked": {
+   "lines": {
+    "covered": 1525,
+    "count": 27472,
+    "percent": 5.551
+   },
+   "functions": {
+    "covered": 107,
+    "count": 1794,
+    "percent": 5.964
+   },
+   "regions": {
+    "covered": 1719,
+    "count": 20408,
+    "percent": 8.423
+   },
+   "branches": {
+    "covered": 758,
+    "count": 8427,
+    "percent": 8.995
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.4
+ },
+ "pugixml/fuzz_parse": {
+  "status": "ok",
+  "lines": {
+   "covered": 1181,
+   "count": 7734,
+   "percent": 15.27
+  },
+  "functions": {
+   "covered": 74,
+   "count": 720,
+   "percent": 10.278
+  },
+  "regions": {
+   "covered": 1608,
+   "count": 8525,
+   "percent": 18.862
+  },
+  "branches": {
+   "covered": 945,
+   "count": 5122,
+   "percent": 18.45
+  },
+  "scope": "/src/pugixml/",
+  "files_in_scope": 3,
+  "files_total": 3,
+  "all_linked": {
+   "lines": {
+    "covered": 1181,
+    "count": 7734,
+    "percent": 15.27
+   },
+   "functions": {
+    "covered": 74,
+    "count": 720,
+    "percent": 10.278
+   },
+   "regions": {
+    "covered": 1608,
+    "count": 8525,
+    "percent": 18.862
+   },
+   "branches": {
+    "covered": 945,
+    "count": 5122,
+    "percent": 18.45
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 2.6
+ },
+ "pugixml/fuzz_xpath": {
+  "status": "ok",
+  "lines": {
+   "covered": 4218,
+   "count": 7761,
+   "percent": 54.349
+  },
+  "functions": {
+   "covered": 308,
+   "count": 720,
+   "percent": 42.778
+  },
+  "regions": {
+   "covered": 4202,
+   "count": 8531,
+   "percent": 49.256
+  },
+  "branches": {
+   "covered": 2668,
+   "count": 5124,
+   "percent": 52.069
+  },
+  "scope": "/src/pugixml/",
+  "files_in_scope": 3,
+  "files_total": 3,
+  "all_linked": {
+   "lines": {
+    "covered": 4218,
+    "count": 7761,
+    "percent": 54.349
+   },
+   "functions": {
+    "covered": 308,
+    "count": 720,
+    "percent": 42.778
+   },
+   "regions": {
+    "covered": 4202,
+    "count": 8531,
+    "percent": 49.256
+   },
+   "branches": {
+    "covered": 2668,
+    "count": 5124,
+    "percent": 52.069
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 13.4
+ },
+ "pycryptodome/md4_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 141,
+   "count": 343,
+   "percent": 41.108
+  },
+  "functions": {
+   "covered": 7,
+   "count": 22,
+   "percent": 31.818
+  },
+  "regions": {
+   "covered": 151,
+   "count": 185,
+   "percent": 81.622
+  },
+  "branches": {
+   "covered": 20,
+   "count": 30,
+   "percent": 66.667
+  },
+  "scope": "/src/pycryptodome/",
+  "files_in_scope": 4,
+  "files_total": 5,
+  "all_linked": {
+   "lines": {
+    "covered": 159,
+    "count": 363,
+    "percent": 43.802
+   },
+   "functions": {
+    "covered": 8,
+    "count": 23,
+    "percent": 34.783
+   },
+   "regions": {
+    "covered": 182,
+    "count": 218,
+    "percent": 83.486
+   },
+   "branches": {
+    "covered": 26,
+    "count": 38,
+    "percent": 68.421
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.0
+ },
+ "pycryptodome/ripemd160_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 148,
+   "count": 336,
+   "percent": 44.048
+  },
+  "functions": {
+   "covered": 9,
+   "count": 23,
+   "percent": 39.13
+  },
+  "regions": {
+   "covered": 106,
+   "count": 139,
+   "percent": 76.259
+  },
+  "branches": {
+   "covered": 38,
+   "count": 47,
+   "percent": 80.851
+  },
+  "scope": "/src/pycryptodome/",
+  "files_in_scope": 4,
+  "files_total": 5,
+  "all_linked": {
+   "lines": {
+    "covered": 166,
+    "count": 356,
+    "percent": 46.629
+   },
+   "functions": {
+    "covered": 10,
+    "count": 24,
+    "percent": 41.667
+   },
+   "regions": {
+    "covered": 137,
+    "count": 172,
+    "percent": 79.651
+   },
+   "branches": {
+    "covered": 44,
+    "count": 55,
+    "percent": 80.0
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 0.9
+ },
+ "pycryptodome/sha224_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 189,
+   "count": 435,
+   "percent": 43.448
+  },
+  "functions": {
+   "covered": 11,
+   "count": 27,
+   "percent": 40.741
+  },
+  "regions": {
+   "covered": 802,
+   "count": 888,
+   "percent": 90.315
+  },
+  "branches": {
+   "covered": 30,
+   "count": 64,
+   "percent": 46.875
+  },
+  "scope": "/src/pycryptodome/",
+  "files_in_scope": 5,
+  "files_total": 6,
+  "all_linked": {
+   "lines": {
+    "covered": 207,
+    "count": 455,
+    "percent": 45.495
+   },
+   "functions": {
+    "covered": 12,
+    "count": 28,
+    "percent": 42.857
+   },
+   "regions": {
+    "covered": 834,
+    "count": 922,
+    "percent": 90.456
+   },
+   "branches": {
+    "covered": 36,
+    "count": 72,
+    "percent": 50.0
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.0
+ },
+ "pycryptodome/sha256_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 189,
+   "count": 435,
+   "percent": 43.448
+  },
+  "functions": {
+   "covered": 11,
+   "count": 27,
+   "percent": 40.741
+  },
+  "regions": {
+   "covered": 802,
+   "count": 888,
+   "percent": 90.315
+  },
+  "branches": {
+   "covered": 30,
+   "count": 64,
+   "percent": 46.875
+  },
+  "scope": "/src/pycryptodome/",
+  "files_in_scope": 5,
+  "files_total": 6,
+  "all_linked": {
+   "lines": {
+    "covered": 207,
+    "count": 455,
+    "percent": 45.495
+   },
+   "functions": {
+    "covered": 12,
+    "count": 28,
+    "percent": 42.857
+   },
+   "regions": {
+    "covered": 834,
+    "count": 922,
+    "percent": 90.456
+   },
+   "branches": {
+    "covered": 36,
+    "count": 72,
+    "percent": 50.0
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.1
+ },
+ "pycryptodome/sha384_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 218,
+   "count": 453,
+   "percent": 48.124
+  },
+  "functions": {
+   "covered": 11,
+   "count": 27,
+   "percent": 40.741
+  },
+  "regions": {
+   "covered": 978,
+   "count": 1064,
+   "percent": 91.917
+  },
+  "branches": {
+   "covered": 30,
+   "count": 64,
+   "percent": 46.875
+  },
+  "scope": "/src/pycryptodome/",
+  "files_in_scope": 5,
+  "files_total": 6,
+  "all_linked": {
+   "lines": {
+    "covered": 236,
+    "count": 473,
+    "percent": 49.894
+   },
+   "functions": {
+    "covered": 12,
+    "count": 28,
+    "percent": 42.857
+   },
+   "regions": {
+    "covered": 1010,
+    "count": 1098,
+    "percent": 91.985
+   },
+   "branches": {
+    "covered": 36,
+    "count": 72,
+    "percent": 50.0
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.4
+ },
+ "simd/simd_load_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 4815,
+   "count": 184989,
+   "percent": 2.603
+  },
+  "functions": {
+   "covered": 384,
+   "count": 11014,
+   "percent": 3.486
+  },
+  "regions": {
+   "covered": 4057,
+   "count": 122947,
+   "percent": 3.3
+  },
+  "branches": {
+   "covered": 2406,
+   "count": 71791,
+   "percent": 3.351
+  },
+  "scope": "/src/Simd/",
+  "files_in_scope": 770,
+  "files_total": 771,
+  "all_linked": {
+   "lines": {
+    "covered": 4829,
+    "count": 185003,
+    "percent": 2.61
+   },
+   "functions": {
+    "covered": 385,
+    "count": 11015,
+    "percent": 3.495
+   },
+   "regions": {
+    "covered": 4064,
+    "count": 122954,
+    "percent": 3.305
+   },
+   "branches": {
+    "covered": 2410,
+    "count": 71795,
+    "percent": 3.357
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 37.7
+ },
+ "simdjson/fuzz_minify": {
+  "status": "ok",
+  "lines": {
+   "covered": 3226,
+   "count": 14739,
+   "percent": 21.888
+  },
+  "functions": {
+   "covered": 442,
+   "count": 2061,
+   "percent": 21.446
+  },
+  "regions": {
+   "covered": 1949,
+   "count": 5144,
+   "percent": 37.889
+  },
+  "branches": {
+   "covered": 986,
+   "count": 2262,
+   "percent": 43.59
+  },
+  "scope": "/src/simdjson/",
+  "files_in_scope": 99,
+  "files_total": 99,
+  "all_linked": {
+   "lines": {
+    "covered": 3226,
+    "count": 14739,
+    "percent": 21.888
+   },
+   "functions": {
+    "covered": 442,
+    "count": 2061,
+    "percent": 21.446
+   },
+   "regions": {
+    "covered": 1949,
+    "count": 5144,
+    "percent": 37.889
+   },
+   "branches": {
+    "covered": 986,
+    "count": 2262,
+    "percent": 43.59
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 8.0
+ },
+ "simdjson/fuzz_parser": {
+  "status": "ok",
+  "lines": {
+   "covered": 2533,
+   "count": 14746,
+   "percent": 17.178
+  },
+  "functions": {
+   "covered": 353,
+   "count": 2047,
+   "percent": 17.245
+  },
+  "regions": {
+   "covered": 1641,
+   "count": 5059,
+   "percent": 32.437
+  },
+  "branches": {
+   "covered": 804,
+   "count": 2195,
+   "percent": 36.629
+  },
+  "scope": "/src/simdjson/",
+  "files_in_scope": 98,
+  "files_total": 98,
+  "all_linked": {
+   "lines": {
+    "covered": 2533,
+    "count": 14746,
+    "percent": 17.178
+   },
+   "functions": {
+    "covered": 353,
+    "count": 2047,
+    "percent": 17.245
+   },
+   "regions": {
+    "covered": 1641,
+    "count": 5059,
+    "percent": 32.437
+   },
+   "branches": {
+    "covered": 804,
+    "count": 2195,
+    "percent": 36.629
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 5.0
+ },
+ "unicorn/fuzz_emu_s390x_be": {
+  "status": "ok",
+  "lines": {
+   "covered": 27054,
+   "count": 213603,
+   "percent": 12.666
+  },
+  "functions": {
+   "covered": 2613,
+   "count": 14980,
+   "percent": 17.443
+  },
+  "regions": {
+   "covered": 38495,
+   "count": 309904,
+   "percent": 12.422
+  },
+  "branches": {
+   "covered": 11398,
+   "count": 100383,
+   "percent": 11.355
+  },
+  "scope": "/src/unicorn/",
+  "files_in_scope": 366,
+  "files_total": 366,
+  "all_linked": {
+   "lines": {
+    "covered": 27054,
+    "count": 213603,
+    "percent": 12.666
+   },
+   "functions": {
+    "covered": 2613,
+    "count": 14980,
+    "percent": 17.443
+   },
+   "regions": {
+    "covered": 38495,
+    "count": 309904,
+    "percent": 12.422
+   },
+   "branches": {
+    "covered": 11398,
+    "count": 100383,
+    "percent": 11.355
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 94.0
+ },
+ "wabt/read_binary_ir_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 9331,
+   "count": 14751,
+   "percent": 63.257
+  },
+  "functions": {
+   "covered": 1065,
+   "count": 1837,
+   "percent": 57.975
+  },
+  "regions": {
+   "covered": 10236,
+   "count": 15919,
+   "percent": 64.301
+  },
+  "branches": {
+   "covered": 5949,
+   "count": 8945,
+   "percent": 66.506
+  },
+  "scope": "/src/wabt/",
+  "files_in_scope": 47,
+  "files_total": 48,
+  "all_linked": {
+   "lines": {
+    "covered": 9357,
+    "count": 14777,
+    "percent": 63.321
+   },
+   "functions": {
+    "covered": 1066,
+    "count": 1838,
+    "percent": 57.998
+   },
+   "regions": {
+    "covered": 10326,
+    "count": 16009,
+    "percent": 64.501
+   },
+   "branches": {
+    "covered": 5995,
+    "count": 8991,
+    "percent": 66.678
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 12.7
+ },
+ "wabt/wasm2wat_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 3954,
+   "count": 7275,
+   "percent": 54.351
+  },
+  "functions": {
+   "covered": 439,
+   "count": 1040,
+   "percent": 42.212
+  },
+  "regions": {
+   "covered": 6098,
+   "count": 11064,
+   "percent": 55.116
+  },
+  "branches": {
+   "covered": 3679,
+   "count": 5918,
+   "percent": 62.166
+  },
+  "scope": "/src/wabt/",
+  "files_in_scope": 28,
+  "files_total": 29,
+  "all_linked": {
+   "lines": {
+    "covered": 3961,
+    "count": 7282,
+    "percent": 54.394
+   },
+   "functions": {
+    "covered": 440,
+    "count": 1041,
+    "percent": 42.267
+   },
+   "regions": {
+    "covered": 6099,
+    "count": 11065,
+    "percent": 55.12
+   },
+   "branches": {
+    "covered": 3679,
+    "count": 5918,
+    "percent": 62.166
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 10.3
+ },
+ "wabt/wasm_interp_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 6475,
+   "count": 13599,
+   "percent": 47.614
+  },
+  "functions": {
+   "covered": 767,
+   "count": 1766,
+   "percent": 43.431
+  },
+  "regions": {
+   "covered": 8309,
+   "count": 15997,
+   "percent": 51.941
+  },
+  "branches": {
+   "covered": 5283,
+   "count": 10132,
+   "percent": 52.142
+  },
+  "scope": "/src/wabt/",
+  "files_in_scope": 42,
+  "files_total": 43,
+  "all_linked": {
+   "lines": {
+    "covered": 6533,
+    "count": 13657,
+    "percent": 47.836
+   },
+   "functions": {
+    "covered": 769,
+    "count": 1768,
+    "percent": 43.495
+   },
+   "regions": {
+    "covered": 8372,
+    "count": 16060,
+    "percent": 52.13
+   },
+   "branches": {
+    "covered": 5301,
+    "count": 10150,
+    "percent": 52.227
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 9.0
+ },
+ "wabt/wasm_objdump_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 5548,
+   "count": 7662,
+   "percent": 72.409
+  },
+  "functions": {
+   "covered": 558,
+   "count": 838,
+   "percent": 66.587
+  },
+  "regions": {
+   "covered": 8179,
+   "count": 11428,
+   "percent": 71.57
+  },
+  "branches": {
+   "covered": 4809,
+   "count": 6394,
+   "percent": 75.211
+  },
+  "scope": "/src/wabt/",
+  "files_in_scope": 29,
+  "files_total": 30,
+  "all_linked": {
+   "lines": {
+    "covered": 5566,
+    "count": 7680,
+    "percent": 72.474
+   },
+   "functions": {
+    "covered": 559,
+    "count": 839,
+    "percent": 66.627
+   },
+   "regions": {
+    "covered": 8180,
+    "count": 11429,
+    "percent": 71.572
+   },
+   "branches": {
+    "covered": 4809,
+    "count": 6394,
+    "percent": 75.211
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 18.5
+ },
+ "woff2/convert_woff2ttf_fuzzer_new_entry": {
+  "status": "ok",
+  "lines": {
+   "covered": 3477,
+   "count": 3982,
+   "percent": 87.318
+  },
+  "functions": {
+   "covered": 146,
+   "count": 184,
+   "percent": 79.348
+  },
+  "regions": {
+   "covered": 2356,
+   "count": 2913,
+   "percent": 80.879
+  },
+  "branches": {
+   "covered": 1398,
+   "count": 1695,
+   "percent": 82.478
+  },
+  "scope": "/src/woff2/",
+  "files_in_scope": 28,
+  "files_total": 28,
+  "all_linked": {
+   "lines": {
+    "covered": 3477,
+    "count": 3982,
+    "percent": 87.318
+   },
+   "functions": {
+    "covered": 146,
+    "count": 184,
+    "percent": 79.348
+   },
+   "regions": {
+    "covered": 2356,
+    "count": 2913,
+    "percent": 80.879
+   },
+   "branches": {
+    "covered": 1398,
+    "count": 1695,
+    "percent": 82.478
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 47.2
+ },
+ "yara/dex_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 3373,
+   "count": 30074,
+   "percent": 11.216
+  },
+  "functions": {
+   "covered": 149,
+   "count": 818,
+   "percent": 18.215
+  },
+  "regions": {
+   "covered": 3873,
+   "count": 44942,
+   "percent": 8.618
+  },
+  "branches": {
+   "covered": 1557,
+   "count": 18762,
+   "percent": 8.299
+  },
+  "scope": "/src/yara/",
+  "files_in_scope": 85,
+  "files_total": 85,
+  "all_linked": {
+   "lines": {
+    "covered": 3373,
+    "count": 30074,
+    "percent": 11.216
+   },
+   "functions": {
+    "covered": 149,
+    "count": 818,
+    "percent": 18.215
+   },
+   "regions": {
+    "covered": 3873,
+    "count": 44942,
+    "percent": 8.618
+   },
+   "branches": {
+    "covered": 1557,
+    "count": 18762,
+    "percent": 8.299
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 40.8
+ },
+ "yara/dotnet_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 5432,
+   "count": 30074,
+   "percent": 18.062
+  },
+  "functions": {
+   "covered": 202,
+   "count": 818,
+   "percent": 24.694
+  },
+  "regions": {
+   "covered": 5426,
+   "count": 44942,
+   "percent": 12.073
+  },
+  "branches": {
+   "covered": 2553,
+   "count": 18762,
+   "percent": 13.607
+  },
+  "scope": "/src/yara/",
+  "files_in_scope": 85,
+  "files_total": 85,
+  "all_linked": {
+   "lines": {
+    "covered": 5432,
+    "count": 30074,
+    "percent": 18.062
+   },
+   "functions": {
+    "covered": 202,
+    "count": 818,
+    "percent": 24.694
+   },
+   "regions": {
+    "covered": 5426,
+    "count": 44942,
+    "percent": 12.073
+   },
+   "branches": {
+    "covered": 2553,
+    "count": 18762,
+    "percent": 13.607
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 36.5
+ },
+ "yara/elf_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2767,
+   "count": 30074,
+   "percent": 9.201
+  },
+  "functions": {
+   "covered": 150,
+   "count": 818,
+   "percent": 18.337
+  },
+  "regions": {
+   "covered": 5134,
+   "count": 44942,
+   "percent": 11.424
+  },
+  "branches": {
+   "covered": 1803,
+   "count": 18762,
+   "percent": 9.61
+  },
+  "scope": "/src/yara/",
+  "files_in_scope": 85,
+  "files_total": 85,
+  "all_linked": {
+   "lines": {
+    "covered": 2767,
+    "count": 30074,
+    "percent": 9.201
+   },
+   "functions": {
+    "covered": 150,
+    "count": 818,
+    "percent": 18.337
+   },
+   "regions": {
+    "covered": 5134,
+    "count": 44942,
+    "percent": 11.424
+   },
+   "branches": {
+    "covered": 1803,
+    "count": 18762,
+    "percent": 9.61
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 41.3
+ },
+ "yara/macho_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 3993,
+   "count": 30074,
+   "percent": 13.277
+  },
+  "functions": {
+   "covered": 178,
+   "count": 818,
+   "percent": 21.76
+  },
+  "regions": {
+   "covered": 5055,
+   "count": 44942,
+   "percent": 11.248
+  },
+  "branches": {
+   "covered": 1810,
+   "count": 18762,
+   "percent": 9.647
+  },
+  "scope": "/src/yara/",
+  "files_in_scope": 85,
+  "files_total": 85,
+  "all_linked": {
+   "lines": {
+    "covered": 3993,
+    "count": 30074,
+    "percent": 13.277
+   },
+   "functions": {
+    "covered": 178,
+    "count": 818,
+    "percent": 21.76
+   },
+   "regions": {
+    "covered": 5055,
+    "count": 44942,
+    "percent": 11.248
+   },
+   "branches": {
+    "covered": 1810,
+    "count": 18762,
+    "percent": 9.647
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 40.3
+ },
+ "yara/pe_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 7034,
+   "count": 30074,
+   "percent": 23.389
+  },
+  "functions": {
+   "covered": 192,
+   "count": 818,
+   "percent": 23.472
+  },
+  "regions": {
+   "covered": 7546,
+   "count": 44942,
+   "percent": 16.791
+  },
+  "branches": {
+   "covered": 3615,
+   "count": 18762,
+   "percent": 19.268
+  },
+  "scope": "/src/yara/",
+  "files_in_scope": 85,
+  "files_total": 85,
+  "all_linked": {
+   "lines": {
+    "covered": 7034,
+    "count": 30074,
+    "percent": 23.389
+   },
+   "functions": {
+    "covered": 192,
+    "count": 818,
+    "percent": 23.472
+   },
+   "regions": {
+    "covered": 7546,
+    "count": 44942,
+    "percent": 16.791
+   },
+   "branches": {
+    "covered": 3615,
+    "count": 18762,
+    "percent": 19.268
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 53.4
+ },
+ "zlib/compress_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1975,
+   "count": 3480,
+   "percent": 56.753
+  },
+  "functions": {
+   "covered": 59,
+   "count": 108,
+   "percent": 54.63
+  },
+  "regions": {
+   "covered": 2234,
+   "count": 3952,
+   "percent": 56.528
+  },
+  "branches": {
+   "covered": 1026,
+   "count": 2151,
+   "percent": 47.699
+  },
+  "scope": "/src/zlib/",
+  "files_in_scope": 15,
+  "files_total": 16,
+  "all_linked": {
+   "lines": {
+    "covered": 2023,
+    "count": 3530,
+    "percent": 57.309
+   },
+   "functions": {
+    "covered": 63,
+    "count": 112,
+    "percent": 56.25
+   },
+   "regions": {
+    "covered": 2266,
+    "count": 3998,
+    "percent": 56.678
+   },
+   "branches": {
+    "covered": 1037,
+    "count": 2169,
+    "percent": 47.81
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 8.6
+ },
+ "zlib/example_small_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1479,
+   "count": 3422,
+   "percent": 43.22
+  },
+  "functions": {
+   "covered": 51,
+   "count": 104,
+   "percent": 49.038
+  },
+  "regions": {
+   "covered": 1826,
+   "count": 3888,
+   "percent": 46.965
+  },
+  "branches": {
+   "covered": 851,
+   "count": 2115,
+   "percent": 40.236
+  },
+  "scope": "/src/zlib/",
+  "files_in_scope": 14,
+  "files_total": 15,
+  "all_linked": {
+   "lines": {
+    "covered": 1544,
+    "count": 3492,
+    "percent": 44.215
+   },
+   "functions": {
+    "covered": 54,
+    "count": 107,
+    "percent": 50.467
+   },
+   "regions": {
+    "covered": 1896,
+    "count": 3976,
+    "percent": 47.686
+   },
+   "branches": {
+    "covered": 870,
+    "count": 2147,
+    "percent": 40.522
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 13.3
+ },
+ "zlib/gzio_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 2271,
+   "count": 4540,
+   "percent": 50.022
+  },
+  "functions": {
+   "covered": 96,
+   "count": 146,
+   "percent": 65.753
+  },
+  "regions": {
+   "covered": 2736,
+   "count": 5239,
+   "percent": 52.224
+  },
+  "branches": {
+   "covered": 1248,
+   "count": 2860,
+   "percent": 43.636
+  },
+  "scope": "/src/zlib/",
+  "files_in_scope": 18,
+  "files_total": 19,
+  "all_linked": {
+   "lines": {
+    "covered": 2462,
+    "count": 4738,
+    "percent": 51.963
+   },
+   "functions": {
+    "covered": 97,
+    "count": 147,
+    "percent": 65.986
+   },
+   "regions": {
+    "covered": 2895,
+    "count": 5401,
+    "percent": 53.601
+   },
+   "branches": {
+    "covered": 1392,
+    "count": 3008,
+    "percent": 46.277
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 3.2
+ },
+ "zlib/zlib_uncompress2_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1008,
+   "count": 1819,
+   "percent": 55.415
+  },
+  "functions": {
+   "covered": 18,
+   "count": 51,
+   "percent": 35.294
+  },
+  "regions": {
+   "covered": 1003,
+   "count": 1703,
+   "percent": 58.896
+  },
+  "branches": {
+   "covered": 537,
+   "count": 1016,
+   "percent": 52.854
+  },
+  "scope": "/src/zlib/",
+  "files_in_scope": 11,
+  "files_total": 12,
+  "all_linked": {
+   "lines": {
+    "covered": 1014,
+    "count": 1825,
+    "percent": 55.562
+   },
+   "functions": {
+    "covered": 19,
+    "count": 52,
+    "percent": 36.538
+   },
+   "regions": {
+    "covered": 1004,
+    "count": 1704,
+    "percent": 58.92
+   },
+   "branches": {
+    "covered": 537,
+    "count": 1016,
+    "percent": 52.854
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.8
+ },
+ "zlib/zlib_uncompress_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 1012,
+   "count": 1819,
+   "percent": 55.635
+  },
+  "functions": {
+   "covered": 19,
+   "count": 51,
+   "percent": 37.255
+  },
+  "regions": {
+   "covered": 1004,
+   "count": 1703,
+   "percent": 58.955
+  },
+  "branches": {
+   "covered": 537,
+   "count": 1016,
+   "percent": 52.854
+  },
+  "scope": "/src/zlib/",
+  "files_in_scope": 11,
+  "files_total": 12,
+  "all_linked": {
+   "lines": {
+    "covered": 1020,
+    "count": 1827,
+    "percent": 55.829
+   },
+   "functions": {
+    "covered": 20,
+    "count": 52,
+    "percent": 38.462
+   },
+   "regions": {
+    "covered": 1009,
+    "count": 1708,
+    "percent": 59.075
+   },
+   "branches": {
+    "covered": 539,
+    "count": 1018,
+    "percent": 52.947
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 1.8
+ },
+ "znc/msg_parse_fuzzer": {
+  "status": "ok",
+  "lines": {
+   "covered": 271,
+   "count": 22565,
+   "percent": 1.201
+  },
+  "functions": {
+   "covered": 32,
+   "count": 2400,
+   "percent": 1.333
+  },
+  "regions": {
+   "covered": 187,
+   "count": 19866,
+   "percent": 0.941
+  },
+  "branches": {
+   "covered": 127,
+   "count": 13153,
+   "percent": 0.966
+  },
+  "scope": "/src/znc/",
+  "files_in_scope": 74,
+  "files_total": 75,
+  "all_linked": {
+   "lines": {
+    "covered": 279,
+    "count": 22573,
+    "percent": 1.236
+   },
+   "functions": {
+    "covered": 33,
+    "count": 2401,
+    "percent": 1.374
+   },
+   "regions": {
+    "covered": 188,
+    "count": 19867,
+    "percent": 0.946
+   },
+   "branches": {
+    "covered": 127,
+    "count": 13153,
+    "percent": 0.966
+   }
+  },
+  "deterministic": true,
+  "method": "-merge=1, scoped to the project's own sources (OSS-Fuzz procedure)",
+  "wall_seconds": 3.1
+ }
+}

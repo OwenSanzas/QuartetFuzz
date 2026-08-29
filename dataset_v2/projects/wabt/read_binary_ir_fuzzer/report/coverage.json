@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 9331,
+  "count": 14751,
+  "percent": 63.257
+ },
+ "functions": {
+  "covered": 1065,
+  "count": 1837,
+  "percent": 57.975
+ },
+ "regions": {
+  "covered": 10236,
+  "count": 15919,
+  "percent": 64.301
+ },
+ "branches": {
+  "covered": 5949,
+  "count": 8945,
+  "percent": 66.506
+ },
+ "scope": "/src/wabt/",
+ "files_in_scope": 47,
+ "files_total": 48,
+ "all_linked": {
+  "lines": {
+   "covered": 9357,
+   "count": 14777,
+   "percent": 63.321
+  },
+  "functions": {
+   "covered": 1066,
+   "count": 1838,
+   "percent": 57.998
+  },
+  "regions": {
+   "covered": 10326,
+   "count": 16009,
+   "percent": 64.501
+  },
+  "branches": {
+   "covered": 5995,
+   "count": 8991,
+   "percent": 66.678
+  }
+ },
+ "timestamp": "2026-08-28T20:47:06Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

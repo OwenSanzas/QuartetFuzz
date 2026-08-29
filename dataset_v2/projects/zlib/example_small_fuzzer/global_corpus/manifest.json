@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_example_small_fuzzer/public.zip",
+ "qualified_name": "zlib_example_small_fuzzer",
+ "seeds": 2487,
+ "unpacked_bytes": 148293025,
+ "zip_bytes": 88379270,
+ "zip_sha256": "2a11c39d6ccddacb106f5e3011d33d8ee517778c001e60854cddcc63dd99aafa"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/pugixml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pugixml_fuzz_parse/public.zip",
+ "qualified_name": "pugixml_fuzz_parse",
+ "seeds": 3745,
+ "unpacked_bytes": 59750597,
+ "zip_bytes": 2473877,
+ "zip_sha256": "86db43ca5ab5cb11d374111f3e8ec67f9bd482911d75e1d1994acbfb6d3ab1c1"
+}

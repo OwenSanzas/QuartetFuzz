@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 7946,
+  "count": 10754,
+  "percent": 73.889
+ },
+ "functions": {
+  "covered": 322,
+  "count": 481,
+  "percent": 66.944
+ },
+ "regions": {
+  "covered": 7252,
+  "count": 9711,
+  "percent": 74.678
+ },
+ "branches": {
+  "covered": 5302,
+  "count": 7419,
+  "percent": 71.465
+ },
+ "scope": "/src/hunspell/",
+ "files_in_scope": 27,
+ "files_total": 27,
+ "all_linked": {
+  "lines": {
+   "covered": 7946,
+   "count": 10754,
+   "percent": 73.889
+  },
+  "functions": {
+   "covered": 322,
+   "count": 481,
+   "percent": 66.944
+  },
+  "regions": {
+   "covered": 7252,
+   "count": 9711,
+   "percent": 74.678
+  },
+  "branches": {
+   "covered": 5302,
+   "count": 7419,
+   "percent": 71.465
+  }
+ },
+ "timestamp": "2026-08-28T20:34:20Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,902 @@
+{
+ "assimp/assimp_fuzzer_obj": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/assimp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/assimp_fuzzer_obj/public.zip",
+  "qualified_name": "assimp_fuzzer_obj",
+  "seeds": 10594,
+  "unpacked_bytes": 158593563,
+  "zip_bytes": 9278721,
+  "zip_sha256": "eecf31d56f5912da193e5488f5eba7fa8436b276d9b0df256ff7f59d76e8be69"
+ },
+ "astc-encoder/fuzz_astc_compress": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/astc-encoder-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/astc-encoder_fuzz_astc_compress/public.zip",
+  "qualified_name": "astc-encoder_fuzz_astc_compress",
+  "seeds": 2420,
+  "unpacked_bytes": 10154583,
+  "zip_bytes": 1019318,
+  "zip_sha256": "3371be403a2089c212898c6c646919ced4980169cd510384bebad047dbf38b1e"
+ },
+ "astc-encoder/fuzz_astc_decompress": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/astc-encoder-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/astc-encoder_fuzz_astc_decompress/public.zip",
+  "qualified_name": "astc-encoder_fuzz_astc_decompress",
+  "seeds": 1195,
+  "unpacked_bytes": 53858859,
+  "zip_bytes": 2163588,
+  "zip_sha256": "5dd8c16a7b82309898ce972a253992ec525c9901f7c1216e829923feaabb2155"
+ },
+ "binutils/fuzz_disassemble": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/binutils-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/binutils_fuzz_disassemble/public.zip",
+  "qualified_name": "binutils_fuzz_disassemble",
+  "seeds": 49137,
+  "unpacked_bytes": 140972283,
+  "zip_bytes": 23420366,
+  "zip_sha256": "420f616ae74d045d53a341bbd0ba91bf31473f02cac286c497a2419fdc891eee"
+ },
+ "cmake/cmCMakePathFuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmCMakePathFuzzer/public.zip",
+  "qualified_name": "cmake_cmCMakePathFuzzer",
+  "seeds": 389,
+  "unpacked_bytes": 14838554,
+  "zip_bytes": 191925,
+  "zip_sha256": "b08ca6a9cfda7eb6b75ed2059434e2eeb248cf560c54df927278dfe8cae0f16a"
+ },
+ "cmake/cmGeneratorExpressionFuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmGeneratorExpressionFuzzer/public.zip",
+  "qualified_name": "cmake_cmGeneratorExpressionFuzzer",
+  "seeds": 2507,
+  "unpacked_bytes": 11479841,
+  "zip_bytes": 1052256,
+  "zip_sha256": "1ba4b9c6f62928146229596c925c2b19755d79fdf717bea9c647d3b7f137ddc5"
+ },
+ "cmake/cmJSONParserFuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmJSONParserFuzzer/public.zip",
+  "qualified_name": "cmake_cmJSONParserFuzzer",
+  "seeds": 3341,
+  "unpacked_bytes": 26350208,
+  "zip_bytes": 4737486,
+  "zip_sha256": "7dc22c3ff348aedbdb1efee1802014fadab2aa3603ae6ef78df98c32d48d3425"
+ },
+ "cmake/cmListFileLexerFuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmListFileLexerFuzzer/public.zip",
+  "qualified_name": "cmake_cmListFileLexerFuzzer",
+  "seeds": 1342,
+  "unpacked_bytes": 14218154,
+  "zip_bytes": 692645,
+  "zip_sha256": "3d6d42e9273d9f0a0b2c7afd0492088ea9d686bbecb7099c3cd1b190eecb5de6"
+ },
+ "cmake/cmVersionFuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmVersionFuzzer/public.zip",
+  "qualified_name": "cmake_cmVersionFuzzer",
+  "seeds": 364,
+  "unpacked_bytes": 14702134,
+  "zip_bytes": 2287533,
+  "zip_sha256": "0820d326e6a645f27d5b16f6a9f3cc3805536a10066d1b0d68f1023170b8a859"
+ },
+ "eigen/dense_solver_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_dense_solver_fuzzer/public.zip",
+  "qualified_name": "eigen_dense_solver_fuzzer",
+  "seeds": 4335,
+  "unpacked_bytes": 44961978,
+  "zip_bytes": 2169115,
+  "zip_sha256": "a8938fb8ad26b28498d7f9a11804990c1fd4d851d2111b4b19e6c3b845426766"
+ },
+ "eigen/geometry_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_geometry_fuzzer/public.zip",
+  "qualified_name": "eigen_geometry_fuzzer",
+  "seeds": 1000,
+  "unpacked_bytes": 83982423,
+  "zip_bytes": 35804850,
+  "zip_sha256": "46034acedabb8b03c0fbf99a08cd314a1c2ea4ce29f4c93c7f862e566f72be7d"
+ },
+ "eigen/sparse_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_sparse_fuzzer/public.zip",
+  "qualified_name": "eigen_sparse_fuzzer",
+  "seeds": 2705,
+  "unpacked_bytes": 21131534,
+  "zip_bytes": 942149,
+  "zip_sha256": "7b2581593087c875f64a620a9b38497cb04437e6900e57391ae72f73aa443276"
+ },
+ "eigen/tensor_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_tensor_fuzzer/public.zip",
+  "qualified_name": "eigen_tensor_fuzzer",
+  "seeds": 344,
+  "unpacked_bytes": 83892681,
+  "zip_bytes": 5731823,
+  "zip_sha256": "156f760797325dec6001b8489cad7de35d8bb942ea45bc32e9938790cc6e46c1"
+ },
+ "fast_float/from_chars": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/fast_float-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/fast_float_from_chars/public.zip",
+  "qualified_name": "fast_float_from_chars",
+  "seeds": 5462,
+  "unpacked_bytes": 8298020,
+  "zip_bytes": 1081673,
+  "zip_sha256": "b62f8080e260433719d4e1f17acb62beab6353fdc0b72a98d7e05872a1f9da23"
+ },
+ "flatbuffers/64bit_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_64bit_fuzzer/public.zip",
+  "qualified_name": "flatbuffers_64bit_fuzzer",
+  "seeds": 3827,
+  "unpacked_bytes": 108795333,
+  "zip_bytes": 10264239,
+  "zip_sha256": "ed50a2b00de8355b2cbaea004927385704634ffb7599bd2548cbe6268dd793dc"
+ },
+ "flatbuffers/scalar_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_scalar_fuzzer/public.zip",
+  "qualified_name": "flatbuffers_scalar_fuzzer",
+  "seeds": 5157,
+  "unpacked_bytes": 39687600,
+  "zip_bytes": 3111934,
+  "zip_sha256": "302f18e04b4f5d2afe06c57a139f69fd27b4193fd7e3a65c5acb262bf6c5971d"
+ },
+ "flatbuffers/verifier_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_verifier_fuzzer/public.zip",
+  "qualified_name": "flatbuffers_verifier_fuzzer",
+  "seeds": 6379,
+  "unpacked_bytes": 330307271,
+  "zip_bytes": 83905475,
+  "zip_sha256": "2c79643aa728188b6adfafc995c61a80dab65f37ed6fe2b187bcdd860da12312"
+ },
+ "glaze/binary_reflection": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_binary_reflection/public.zip",
+  "qualified_name": "glaze_binary_reflection",
+  "seeds": 8857,
+  "unpacked_bytes": 121314961,
+  "zip_bytes": 6119063,
+  "zip_sha256": "58cf36dd9662d734226b241174cda89e93ebfb015f1486d0d36e11e70e0ea951"
+ },
+ "glaze/cbor_reflection": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_cbor_reflection/public.zip",
+  "qualified_name": "glaze_cbor_reflection",
+  "seeds": 7793,
+  "unpacked_bytes": 134554551,
+  "zip_bytes": 4307265,
+  "zip_sha256": "e22091e8e653a9dccb9eed7db97efbca6273aa06f72cfcecda20764074df50b7"
+ },
+ "glaze/json_jmespath": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_json_jmespath/public.zip",
+  "qualified_name": "glaze_json_jmespath",
+  "seeds": 5674,
+  "unpacked_bytes": 48467275,
+  "zip_bytes": 1548727,
+  "zip_sha256": "cb37e755b5dcba4dc689a60b26f76c648488ff7c7e159fc74876f086942efa70"
+ },
+ "glaze/json_minify": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_json_minify/public.zip",
+  "qualified_name": "glaze_json_minify",
+  "seeds": 1421,
+  "unpacked_bytes": 72735869,
+  "zip_bytes": 2034246,
+  "zip_sha256": "465f005e1d1cdcd4eb8ce77445db2da0a16c10658cafce1380322c86778b6d73"
+ },
+ "glaze/json_prettify": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/glaze-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/glaze_json_prettify/public.zip",
+  "qualified_name": "glaze_json_prettify",
+  "seeds": 1325,
+  "unpacked_bytes": 99197789,
+  "zip_bytes": 3172761,
+  "zip_sha256": "b6af75f14f788b5c0b66331ed5be81075a0a2ec3138df205d3a19a98bf7a3c77"
+ },
+ "gnutls/gnutls_server_rawpk_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/gnutls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/gnutls_server_rawpk_fuzzer/public.zip",
+  "qualified_name": "gnutls_server_rawpk_fuzzer",
+  "seeds": 3504,
+  "unpacked_bytes": 15851324,
+  "zip_bytes": 1605845,
+  "zip_sha256": "52106d91c9716651c316cc3478deec972c95c395b17717057475b1559ae0190a"
+ },
+ "hpn-ssh/sig_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/hpn-ssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hpn-ssh_sig_fuzz/public.zip",
+  "qualified_name": "hpn-ssh_sig_fuzz",
+  "seeds": 1216,
+  "unpacked_bytes": 63285259,
+  "zip_bytes": 1257208,
+  "zip_sha256": "71d8590ca0d0f65b9d89eed0fcebf1ca3b4771f504c71c2234c85d96ad0a9c21"
+ },
+ "hunspell/morphfuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/hunspell-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hunspell_morphfuzzer/public.zip",
+  "qualified_name": "hunspell_morphfuzzer",
+  "seeds": 19219,
+  "unpacked_bytes": 156617168,
+  "zip_bytes": 26071743,
+  "zip_sha256": "b995f88f598c583abd52717b1fe9fd74809937b8e31b69445afa8eeea6f3be0c"
+ },
+ "hwloc/hwloc_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/hwloc-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hwloc_fuzzer/public.zip",
+  "qualified_name": "hwloc_fuzzer",
+  "seeds": 159,
+  "unpacked_bytes": 10489864,
+  "zip_bytes": 732560,
+  "zip_sha256": "67b0cec618a25998c30e26dcc91d7f20efc096e9e62dbadf4e54121781679833"
+ },
+ "icu/date_time_pattern_generator_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_date_time_pattern_generator_fuzzer/public.zip",
+  "qualified_name": "icu_date_time_pattern_generator_fuzzer",
+  "seeds": 7389,
+  "unpacked_bytes": 287713498,
+  "zip_bytes": 9513455,
+  "zip_sha256": "94f06331454ec2506265840bb6437330b0b2f493bd093483349de6684c4d8850"
+ },
+ "icu/list_format_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_list_format_fuzzer/public.zip",
+  "qualified_name": "icu_list_format_fuzzer",
+  "seeds": 1099,
+  "unpacked_bytes": 203256619,
+  "zip_bytes": 27362036,
+  "zip_sha256": "50a93dd7bb43e348846e709c0d6a570aae6a97dccfb9b0e535ef6759d67135a6"
+ },
+ "icu/locale_morph_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_locale_morph_fuzzer/public.zip",
+  "qualified_name": "icu_locale_morph_fuzzer",
+  "seeds": 7456,
+  "unpacked_bytes": 247489768,
+  "zip_bytes": 4347257,
+  "zip_sha256": "dc9e74118cab87e919acfe152af87f9a71bf793491a52e9fd56de75f04b4d26d"
+ },
+ "icu/normalizer2_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_normalizer2_fuzzer/public.zip",
+  "qualified_name": "icu_normalizer2_fuzzer",
+  "seeds": 3179,
+  "unpacked_bytes": 3815231,
+  "zip_bytes": 899460,
+  "zip_sha256": "482d1fabc2534d624c78d0bc49b7388a57d051609a14636f45aee4836d64a73e"
+ },
+ "icu/unicode_string_codepage_create_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_unicode_string_codepage_create_fuzzer/public.zip",
+  "qualified_name": "icu_unicode_string_codepage_create_fuzzer",
+  "seeds": 2671,
+  "unpacked_bytes": 134661516,
+  "zip_bytes": 29660086,
+  "zip_sha256": "7ccf9d625bd1598c2fbcb67fb04e242bdc7bb2289b55da8deb2486350c003c77"
+ },
+ "iperf/auth_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/iperf-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/iperf_auth_fuzzer/public.zip",
+  "qualified_name": "iperf_auth_fuzzer",
+  "seeds": 98,
+  "unpacked_bytes": 9786651,
+  "zip_bytes": 86173,
+  "zip_sha256": "f8def8f97e4db7cfdfd44eca20a6c640efb9cbcdb70db272646c5555168c38ef"
+ },
+ "lcms/cmsIT8_load_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lcms-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lcms_cmsIT8_load_fuzzer/public.zip",
+  "qualified_name": "lcms_cmsIT8_load_fuzzer",
+  "seeds": 2550,
+  "unpacked_bytes": 53245767,
+  "zip_bytes": 984449,
+  "zip_sha256": "c80bce0b2e30ac7182fc84ad98be5c59c4e4074976e64b421e6ad84e111fd486"
+ },
+ "lcms/cms_md5_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lcms-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lcms_cms_md5_fuzzer/public.zip",
+  "qualified_name": "lcms_cms_md5_fuzzer",
+  "seeds": 1416,
+  "unpacked_bytes": 23865072,
+  "zip_bytes": 4938561,
+  "zip_sha256": "0ba41e0508e6cb9a7415ded44da38e2f4209771e4d8d7e62a3cd034c40f58328"
+ },
+ "leptonica/boxfunc_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/leptonica-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/leptonica_boxfunc_fuzzer/public.zip",
+  "qualified_name": "leptonica_boxfunc_fuzzer",
+  "seeds": 25,
+  "unpacked_bytes": 8388534,
+  "zip_bytes": 336540,
+  "zip_sha256": "6a2d1aa3e3e9796087b66b8c9c3ff37d24d0b219b30444038f6be21a88326135"
+ },
+ "leptonica/graphics_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/leptonica-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/leptonica_graphics_fuzzer/public.zip",
+  "qualified_name": "leptonica_graphics_fuzzer",
+  "seeds": 1395,
+  "unpacked_bytes": 33350301,
+  "zip_bytes": 2734990,
+  "zip_sha256": "e8b2a8560bfaf294e2c8567bd6cc20f01129a85cba2d85c838802e6c81bb6eac"
+ },
+ "libevent/evtag_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_evtag_fuzzer/public.zip",
+  "qualified_name": "libevent_evtag_fuzzer",
+  "seeds": 1247,
+  "unpacked_bytes": 175401999,
+  "zip_bytes": 15157668,
+  "zip_sha256": "c035edfa83e04d00cc51411909eb367b184e4e1c510dd4e44159d9c2d13fe577"
+ },
+ "libevent/http_message_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_http_message_fuzzer/public.zip",
+  "qualified_name": "libevent_http_message_fuzzer",
+  "seeds": 3141,
+  "unpacked_bytes": 80949805,
+  "zip_bytes": 1765259,
+  "zip_sha256": "fdfe46f634ee4a40fb1036ff3e890b778c089ebabd2328c6c4f3dec3bb7c0094"
+ },
+ "libevent/utils_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_utils_fuzzer/public.zip",
+  "qualified_name": "libevent_utils_fuzzer",
+  "seeds": 1448,
+  "unpacked_bytes": 59468062,
+  "zip_bytes": 638126,
+  "zip_sha256": "37aa40cc617642adfe466b5a15abbc2f5d0be8825172cf59b3d550f85f725dba"
+ },
+ "libevent/ws_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_ws_fuzzer/public.zip",
+  "qualified_name": "libevent_ws_fuzzer",
+  "seeds": 976,
+  "unpacked_bytes": 97936392,
+  "zip_bytes": 13659793,
+  "zip_sha256": "4d82d58b4e37091abbbc6137ea841d0e6af9b4496680761672721ddd3fab583a"
+ },
+ "libgit2/config_file_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_config_file_fuzzer/public.zip",
+  "qualified_name": "libgit2_config_file_fuzzer",
+  "seeds": 1512,
+  "unpacked_bytes": 77908153,
+  "zip_bytes": 1740030,
+  "zip_sha256": "f9ce4873aa629360af876ac7efdf4100ad68e5c035ca9715c6a643acedc7f962"
+ },
+ "libgit2/midx_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_midx_fuzzer/public.zip",
+  "qualified_name": "libgit2_midx_fuzzer",
+  "seeds": 2066,
+  "unpacked_bytes": 84350124,
+  "zip_bytes": 2926875,
+  "zip_sha256": "21e7588a603c15a88e08f3316819b327f206cbdee8b0613b735e169f8227de84"
+ },
+ "libgit2/patch_parse_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_patch_parse_fuzzer/public.zip",
+  "qualified_name": "libgit2_patch_parse_fuzzer",
+  "seeds": 2735,
+  "unpacked_bytes": 91993652,
+  "zip_bytes": 6877093,
+  "zip_sha256": "41c1adb0eee8d5ed373e18241f5f4cb9b8b5744a52cc17b57bdccf41e9491213"
+ },
+ "libidn2/libidn2_to_ascii_8z_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libidn2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libidn2_to_ascii_8z_fuzzer/public.zip",
+  "qualified_name": "libidn2_to_ascii_8z_fuzzer",
+  "seeds": 2904,
+  "unpacked_bytes": 11588438,
+  "zip_bytes": 815191,
+  "zip_sha256": "a707adcd8ffd0ed95285e6daaa52673f8a796eba11fef325577ab58acb79e4f4"
+ },
+ "libplist/bplist_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libplist-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libplist_bplist_fuzzer/public.zip",
+  "qualified_name": "libplist_bplist_fuzzer",
+  "seeds": 2389,
+  "unpacked_bytes": 200426,
+  "zip_bytes": 487845,
+  "zip_sha256": "9d851f68af7e6409a8fd8585ccf74b6944372be91eefda839a628404336fe388"
+ },
+ "libplist/jplist_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libplist-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libplist_jplist_fuzzer/public.zip",
+  "qualified_name": "libplist_jplist_fuzzer",
+  "seeds": 2338,
+  "unpacked_bytes": 780743,
+  "zip_bytes": 568972,
+  "zip_sha256": "034e795e98ad830fde35a39537ed405c254e5c44cda4016ee72fa7f1b9ab03aa"
+ },
+ "libplist/oplist_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libplist-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libplist_oplist_fuzzer/public.zip",
+  "qualified_name": "libplist_oplist_fuzzer",
+  "seeds": 1608,
+  "unpacked_bytes": 544924,
+  "zip_bytes": 464792,
+  "zip_sha256": "1466756a918de639a00c92475197006ff345034f51881c6188f6567469a5e5b7"
+ },
+ "libsodium/crypto_box_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_crypto_box_fuzzer/public.zip",
+  "qualified_name": "libsodium_crypto_box_fuzzer",
+  "seeds": 390,
+  "unpacked_bytes": 24810461,
+  "zip_bytes": 495478,
+  "zip_sha256": "b3e7d3708a7e42e4742b4af45a20e55612fd34a80d385add22278e76ab13ee08"
+ },
+ "libtasn1/asn1_decode_simple_ber_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_decode_simple_ber_fuzzer/public.zip",
+  "qualified_name": "libtasn1_asn1_decode_simple_ber_fuzzer",
+  "seeds": 1001,
+  "unpacked_bytes": 55341537,
+  "zip_bytes": 12430022,
+  "zip_sha256": "2d103cdc7b86db2a7cd14ee3fd5b5360756abe48e7a5dee5089793299f02d5b1"
+ },
+ "libtasn1/asn1_decode_simple_der_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_decode_simple_der_fuzzer/public.zip",
+  "qualified_name": "libtasn1_asn1_decode_simple_der_fuzzer",
+  "seeds": 429,
+  "unpacked_bytes": 37580631,
+  "zip_bytes": 4576210,
+  "zip_sha256": "8fd8e067fc395605fea6b9eb468dc51293680ea920fbfd7336d089786f33d59a"
+ },
+ "libtasn1/asn1_get_object_id_der_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_get_object_id_der_fuzzer/public.zip",
+  "qualified_name": "libtasn1_asn1_get_object_id_der_fuzzer",
+  "seeds": 731,
+  "unpacked_bytes": 17816317,
+  "zip_bytes": 358383,
+  "zip_sha256": "d7a013541b4892709223f93362fd0fbcf83ff3cafbda1ba000b06c37579c8adb"
+ },
+ "libtasn1/libtasn1_gnutls_der_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_gnutls_der_fuzzer/public.zip",
+  "qualified_name": "libtasn1_gnutls_der_fuzzer",
+  "seeds": 1424,
+  "unpacked_bytes": 1550298,
+  "zip_bytes": 327642,
+  "zip_sha256": "b11f802cad04692dc7372a45873d985a3fffa478287011094bdd29d5de36e2f3"
+ },
+ "libtasn1/libtasn1_pkix_der_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_pkix_der_fuzzer/public.zip",
+  "qualified_name": "libtasn1_pkix_der_fuzzer",
+  "seeds": 4126,
+  "unpacked_bytes": 1640345,
+  "zip_bytes": 875767,
+  "zip_sha256": "ec8406dc0a7da86d8328a933bfea82291e423af37896d59bc13310fc91fe22b6"
+ },
+ "libvips/jpegsave_file_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_jpegsave_file_fuzzer/public.zip",
+  "qualified_name": "libvips_jpegsave_file_fuzzer",
+  "seeds": 31483,
+  "unpacked_bytes": 144027701,
+  "zip_bytes": 60662499,
+  "zip_sha256": "f7609aa7ca57920243692b2fa7cbd190e01955318e5d57de2110c09af7e354a6"
+ },
+ "libvips/mosaic_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_mosaic_fuzzer/public.zip",
+  "qualified_name": "libvips_mosaic_fuzzer",
+  "seeds": 27889,
+  "unpacked_bytes": 139472930,
+  "zip_bytes": 36847372,
+  "zip_sha256": "fdd8308930e209f516cb7de3ac2fe261409cf69d9a709015bbfbb848fff578ba"
+ },
+ "libvips/smartcrop_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_smartcrop_fuzzer/public.zip",
+  "qualified_name": "libvips_smartcrop_fuzzer",
+  "seeds": 29509,
+  "unpacked_bytes": 206274224,
+  "zip_bytes": 43424465,
+  "zip_sha256": "d475e2b7b822aa70a2dbe5c80303140cdcf1f8ef374ec7c09265faaacd1ba145"
+ },
+ "libvips/thumbnail_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_thumbnail_fuzzer/public.zip",
+  "qualified_name": "libvips_thumbnail_fuzzer",
+  "seeds": 33568,
+  "unpacked_bytes": 155658270,
+  "zip_bytes": 57526440,
+  "zip_sha256": "efde25b140f4a0242ee64a066aac76dd94bfca4de3c1a3bf68fcb17a0009eb0b"
+ },
+ "libvips/vips_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_vips_fuzzer/public.zip",
+  "qualified_name": "libvips_vips_fuzzer",
+  "seeds": 34737,
+  "unpacked_bytes": 69674414,
+  "zip_bytes": 15122598,
+  "zip_sha256": "36e17d3bf54bb0e865e5373f788ce603f19c38c07ce0446da2f618b979103d25"
+ },
+ "libyaml/libyaml_emitter_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_emitter_fuzzer/public.zip",
+  "qualified_name": "libyaml_emitter_fuzzer",
+  "seeds": 9882,
+  "unpacked_bytes": 158873111,
+  "zip_bytes": 2848002,
+  "zip_sha256": "c80c4929edf28fe8e22cb61ec9e0b59236cf30b681f463a53e673f5b33a2de38"
+ },
+ "libyaml/libyaml_loader_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_loader_fuzzer/public.zip",
+  "qualified_name": "libyaml_loader_fuzzer",
+  "seeds": 8284,
+  "unpacked_bytes": 144454467,
+  "zip_bytes": 3065385,
+  "zip_sha256": "f9f9c7e47fc907823b3b7c0e632324fbe0263e147e4c58fa80efefe19b4cab35"
+ },
+ "libyaml/libyaml_parser_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_parser_fuzzer/public.zip",
+  "qualified_name": "libyaml_parser_fuzzer",
+  "seeds": 8104,
+  "unpacked_bytes": 128109347,
+  "zip_bytes": 2214765,
+  "zip_sha256": "2f63c67d63007cd9724e9eab5195125e27b937c1012c7b0c8de654ea50c2602f"
+ },
+ "libyaml/libyaml_reformatter_alt_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_reformatter_alt_fuzzer/public.zip",
+  "qualified_name": "libyaml_reformatter_alt_fuzzer",
+  "seeds": 11104,
+  "unpacked_bytes": 188125680,
+  "zip_bytes": 3919207,
+  "zip_sha256": "7360d798248b01e5400e65adfc41415f75e2121f4689525a48fd470e3337906f"
+ },
+ "libyaml/libyaml_scanner_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_scanner_fuzzer/public.zip",
+  "qualified_name": "libyaml_scanner_fuzzer",
+  "seeds": 7104,
+  "unpacked_bytes": 132123122,
+  "zip_bytes": 3973233,
+  "zip_sha256": "57c7734ea638959055fd80c545454e6986b081a87716e79c9b227b356ed2357d"
+ },
+ "lz4/decompress_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_decompress_fuzzer/public.zip",
+  "qualified_name": "lz4_decompress_fuzzer",
+  "seeds": 1008,
+  "unpacked_bytes": 60185036,
+  "zip_bytes": 18001549,
+  "zip_sha256": "96e41ef2a11e35a3d3de8a9a6252eabf2b40b401652a073e19855fdb5dfcbdd5"
+ },
+ "mbedtls/fuzz_pkcs7": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_pkcs7/public.zip",
+  "qualified_name": "mbedtls_fuzz_pkcs7",
+  "seeds": 1601,
+  "unpacked_bytes": 1298100,
+  "zip_bytes": 421619,
+  "zip_sha256": "ef38ff1e5a225b39198e373b34f8ba7c8f1997f3655cfbb6ab0c5baa02aecf0f"
+ },
+ "mbedtls/fuzz_x509crl": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_x509crl/public.zip",
+  "qualified_name": "mbedtls_fuzz_x509crl",
+  "seeds": 2992,
+  "unpacked_bytes": 4831833,
+  "zip_bytes": 1070561,
+  "zip_sha256": "12261436ae15e4e7e8405cc050aa582aaa38f5520c08172de8d5b385aafa6bf1"
+ },
+ "mbedtls/fuzz_x509crt": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_x509crt/public.zip",
+  "qualified_name": "mbedtls_fuzz_x509crt",
+  "seeds": 7215,
+  "unpacked_bytes": 21141260,
+  "zip_bytes": 3236963,
+  "zip_sha256": "8eeda2bb653b3256c17c77518655a200978d9997faf07b43bac5a4efc97780f8"
+ },
+ "mbedtls/fuzz_x509csr": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_fuzz_x509csr/public.zip",
+  "qualified_name": "mbedtls_fuzz_x509csr",
+  "seeds": 3585,
+  "unpacked_bytes": 2584026,
+  "zip_bytes": 1242548,
+  "zip_sha256": "c3c0774b5d5631f7dfc171f1f5b0e24378c3d490a4287819189eb589eb490b98"
+ },
+ "mbedtls/usepsa-fuzz_x509csr": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_usepsa-fuzz_x509csr/public.zip",
+  "qualified_name": "mbedtls_usepsa-fuzz_x509csr",
+  "seeds": 2,
+  "unpacked_bytes": 2,
+  "zip_bytes": 340,
+  "zip_sha256": "1ccd9fe8715a3cbb6695b17e9f497b9457a11e4086087828aa165c8e9fdfd312"
+ },
+ "openssh/privkey_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_privkey_fuzz/public.zip",
+  "qualified_name": "openssh_privkey_fuzz",
+  "seeds": 3040,
+  "unpacked_bytes": 76149323,
+  "zip_bytes": 3750309,
+  "zip_sha256": "f5b0120e5fa78ef1dde1565c7b7cc7dadbb3d205bc2bd1e11c92cc82a4ffef8c"
+ },
+ "openssh/pubkey_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_pubkey_fuzz/public.zip",
+  "qualified_name": "openssh_pubkey_fuzz",
+  "seeds": 2796,
+  "unpacked_bytes": 80479619,
+  "zip_bytes": 5861857,
+  "zip_sha256": "87610711274d14b9e6e819091d8ceeef25eae1213359dc1299ea9780049a9eae"
+ },
+ "openssh/sig_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_sig_fuzz/public.zip",
+  "qualified_name": "openssh_sig_fuzz",
+  "seeds": 1179,
+  "unpacked_bytes": 78670730,
+  "zip_bytes": 1592949,
+  "zip_sha256": "d2f97a4244d0aa33b92b435b0bf8810d3a4c367a1b00753c0d5a0da28ea9724a"
+ },
+ "openssh/sshsig_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_sshsig_fuzz/public.zip",
+  "qualified_name": "openssh_sshsig_fuzz",
+  "seeds": 2136,
+  "unpacked_bytes": 66415386,
+  "zip_bytes": 3678585,
+  "zip_sha256": "a0603936ee84e5d3d45cc153466da4c29e67c6b14ed4d9a3826822c3f5cc0808"
+ },
+ "pugixml/fuzz_parse": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pugixml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pugixml_fuzz_parse/public.zip",
+  "qualified_name": "pugixml_fuzz_parse",
+  "seeds": 3745,
+  "unpacked_bytes": 59750597,
+  "zip_bytes": 2473877,
+  "zip_sha256": "86db43ca5ab5cb11d374111f3e8ec67f9bd482911d75e1d1994acbfb6d3ab1c1"
+ },
+ "pugixml/fuzz_xpath": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pugixml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pugixml_fuzz_xpath/public.zip",
+  "qualified_name": "pugixml_fuzz_xpath",
+  "seeds": 11032,
+  "unpacked_bytes": 20541848,
+  "zip_bytes": 2631256,
+  "zip_sha256": "812a01a2dd8f3400bd62f2cf6ba164b499f9e98a4bfbff59efe9190fe9cb0406"
+ },
+ "pycryptodome/md4_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_md4_fuzzer/public.zip",
+  "qualified_name": "pycryptodome_md4_fuzzer",
+  "seeds": 262,
+  "unpacked_bytes": 33004858,
+  "zip_bytes": 5598821,
+  "zip_sha256": "f6db8cbdca02119ab28e16826af3f03c64c27625dc6c4344a244e17e3f8f16f9"
+ },
+ "pycryptodome/ripemd160_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_ripemd160_fuzzer/public.zip",
+  "qualified_name": "pycryptodome_ripemd160_fuzzer",
+  "seeds": 265,
+  "unpacked_bytes": 33652899,
+  "zip_bytes": 1760406,
+  "zip_sha256": "ab234f6e67c67d76f8c392cc9bb59e299e6945b7c7fcf68f1ca7e722eefb90cc"
+ },
+ "pycryptodome/sha224_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha224_fuzzer/public.zip",
+  "qualified_name": "pycryptodome_sha224_fuzzer",
+  "seeds": 298,
+  "unpacked_bytes": 45234316,
+  "zip_bytes": 6996513,
+  "zip_sha256": "ad23022014f8de15ce838d1a29130fc185319b75a003cf72e26d230413989998"
+ },
+ "pycryptodome/sha256_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha256_fuzzer/public.zip",
+  "qualified_name": "pycryptodome_sha256_fuzzer",
+  "seeds": 299,
+  "unpacked_bytes": 45522189,
+  "zip_bytes": 7486436,
+  "zip_sha256": "5343434a1aff42d7696cd1d9bbbe4bf1288fd9920c6ed6fc6f61716c6b22e5a0"
+ },
+ "pycryptodome/sha384_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha384_fuzzer/public.zip",
+  "qualified_name": "pycryptodome_sha384_fuzzer",
+  "seeds": 304,
+  "unpacked_bytes": 50284603,
+  "zip_bytes": 10995701,
+  "zip_sha256": "f04393dea83912325f318dfb21335a12c28426a3c527e8fcae14ae8514e6d928"
+ },
+ "simd/simd_load_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/simd-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simd_load_fuzzer/public.zip",
+  "qualified_name": "simd_load_fuzzer",
+  "seeds": 7398,
+  "unpacked_bytes": 82285346,
+  "zip_bytes": 13794841,
+  "zip_sha256": "f6fbe9e9f2b9a520b7fff90c319748177e56262ccf57195197cbd262d4e38a19"
+ },
+ "simdjson/fuzz_minify": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/simdjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simdjson_fuzz_minify/public.zip",
+  "qualified_name": "simdjson_fuzz_minify",
+  "seeds": 12133,
+  "unpacked_bytes": 215154983,
+  "zip_bytes": 5701679,
+  "zip_sha256": "07304b7b12f187429d2a2023eaff53f429bf6abb094ee87d2d350414b1d8073e"
+ },
+ "simdjson/fuzz_parser": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/simdjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simdjson_fuzz_parser/public.zip",
+  "qualified_name": "simdjson_fuzz_parser",
+  "seeds": 9095,
+  "unpacked_bytes": 55126959,
+  "zip_bytes": 2174005,
+  "zip_sha256": "c3888a90d38779b621b78f0050616d9c1934d3972a7c1aba21a3c24b56f13361"
+ },
+ "unicorn/fuzz_emu_s390x_be": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/unicorn-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/unicorn_fuzz_emu_s390x_be/public.zip",
+  "qualified_name": "unicorn_fuzz_emu_s390x_be",
+  "seeds": 28224,
+  "unpacked_bytes": 2136015,
+  "zip_bytes": 5947411,
+  "zip_sha256": "faa72b23f4269c938222ce48a16cdfe650d6ac64685f8b1e96cb33b133c63ca1"
+ },
+ "wabt/read_binary_ir_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_read_binary_ir_fuzzer/public.zip",
+  "qualified_name": "wabt_read_binary_ir_fuzzer",
+  "seeds": 20639,
+  "unpacked_bytes": 115979418,
+  "zip_bytes": 11251958,
+  "zip_sha256": "0320865f9cae9a453769a8a62c8b6ef25c530debe626c51411cfcaee20aacf2d"
+ },
+ "wabt/wasm2wat_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm2wat_fuzzer/public.zip",
+  "qualified_name": "wabt_wasm2wat_fuzzer",
+  "seeds": 11858,
+  "unpacked_bytes": 66910099,
+  "zip_bytes": 3948636,
+  "zip_sha256": "522b32caf9baa171d0bc7513f4183fb14a3128be22fa4bf31618eeed5ae390f6"
+ },
+ "wabt/wasm_interp_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_interp_fuzzer/public.zip",
+  "qualified_name": "wabt_wasm_interp_fuzzer",
+  "seeds": 11114,
+  "unpacked_bytes": 13015171,
+  "zip_bytes": 2269673,
+  "zip_sha256": "8e06a78672aaf762bcac6f7c24e264be212dc5b8efe1fdcd26ae33fe7e7af213"
+ },
+ "wabt/wasm_objdump_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_objdump_fuzzer/public.zip",
+  "qualified_name": "wabt_wasm_objdump_fuzzer",
+  "seeds": 13176,
+  "unpacked_bytes": 24860100,
+  "zip_bytes": 3139878,
+  "zip_sha256": "f0566bcadb6ee28cbb112bfc00126fddb463c61f1d5501a09c49c9c84d93b6c8"
+ },
+ "woff2/convert_woff2ttf_fuzzer_new_entry": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/woff2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/woff2_convert_woff2ttf_fuzzer_new_entry/public.zip",
+  "qualified_name": "woff2_convert_woff2ttf_fuzzer_new_entry",
+  "seeds": 8059,
+  "unpacked_bytes": 69317887,
+  "zip_bytes": 11022164,
+  "zip_sha256": "056bbdb1a9d70d65de6b3376fba76280e74bad19fdfd2670b84888b6fe87aead"
+ },
+ "yara/dex_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_dex_fuzzer/public.zip",
+  "qualified_name": "yara_dex_fuzzer",
+  "seeds": 3778,
+  "unpacked_bytes": 50986697,
+  "zip_bytes": 5994704,
+  "zip_sha256": "dd4a252a185926257f86e13ce7df91f12222760af2a546e41bebd2c1c2e44af0"
+ },
+ "yara/dotnet_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_dotnet_fuzzer/public.zip",
+  "qualified_name": "yara_dotnet_fuzzer",
+  "seeds": 7559,
+  "unpacked_bytes": 160719909,
+  "zip_bytes": 31406221,
+  "zip_sha256": "c3c8f5f07ce6b2a7ff23bd5dfcc14c65f697c37cf68c29a8efc4857b126697f0"
+ },
+ "yara/elf_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_elf_fuzzer/public.zip",
+  "qualified_name": "yara_elf_fuzzer",
+  "seeds": 7777,
+  "unpacked_bytes": 156605239,
+  "zip_bytes": 29092306,
+  "zip_sha256": "c0a7ffb88231bc2dd6c517f85dd66218be8d569d84dfccae1a75c3f7b6c2048d"
+ },
+ "yara/macho_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_macho_fuzzer/public.zip",
+  "qualified_name": "yara_macho_fuzzer",
+  "seeds": 4045,
+  "unpacked_bytes": 61613499,
+  "zip_bytes": 3299396,
+  "zip_sha256": "a5c0d108376e3269309ec30044e9115245f08afe4be8023a77a3c62f34c88b5a"
+ },
+ "yara/pe_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_pe_fuzzer/public.zip",
+  "qualified_name": "yara_pe_fuzzer",
+  "seeds": 7940,
+  "unpacked_bytes": 141882921,
+  "zip_bytes": 32939276,
+  "zip_sha256": "a3fbfdf7bf8c5460dc110ce8667c017d93f172dcef69cdde650c163894ca82df"
+ },
+ "zlib/compress_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_compress_fuzzer/public.zip",
+  "qualified_name": "zlib_compress_fuzzer",
+  "seeds": 3760,
+  "unpacked_bytes": 242348861,
+  "zip_bytes": 100975372,
+  "zip_sha256": "eec10c63088949a19eba33dfad6cd7e1c4b66ef738117bc55442b5509444a553"
+ },
+ "zlib/example_small_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_example_small_fuzzer/public.zip",
+  "qualified_name": "zlib_example_small_fuzzer",
+  "seeds": 2487,
+  "unpacked_bytes": 148293025,
+  "zip_bytes": 88379270,
+  "zip_sha256": "2a11c39d6ccddacb106f5e3011d33d8ee517778c001e60854cddcc63dd99aafa"
+ },
+ "zlib/gzio_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_gzio_fuzzer/public.zip",
+  "qualified_name": "zlib_gzio_fuzzer",
+  "seeds": 2408,
+  "unpacked_bytes": 147837469,
+  "zip_bytes": 24994193,
+  "zip_sha256": "6f1370cc69478feeb1f6c1fa64c98c7920c2e223898c87d5594417ee251a86aa"
+ },
+ "zlib/zlib_uncompress2_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_uncompress2_fuzzer/public.zip",
+  "qualified_name": "zlib_uncompress2_fuzzer",
+  "seeds": 1553,
+  "unpacked_bytes": 35792190,
+  "zip_bytes": 1258782,
+  "zip_sha256": "df38f0cd0f2e5805c31f342c939e98ceefe5a58b4ae2dbf16b6db579101ee81f"
+ },
+ "zlib/zlib_uncompress_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/zlib-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/zlib_uncompress_fuzzer/public.zip",
+  "qualified_name": "zlib_uncompress_fuzzer",
+  "seeds": 1577,
+  "unpacked_bytes": 37857961,
+  "zip_bytes": 3386622,
+  "zip_sha256": "53bdf2edf6ef761ee78ec3c8be5b2f401e56d37871e1ca53066a4ce00cf0fc49"
+ },
+ "znc/msg_parse_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/znc-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/znc_msg_parse_fuzzer/public.zip",
+  "qualified_name": "znc_msg_parse_fuzzer",
+  "seeds": 2142,
+  "unpacked_bytes": 245926171,
+  "zip_bytes": 4207252,
+  "zip_sha256": "aa9e7ab0d01f90233b4290a2af8067250fb822964bc9f4a9db83a584e395eed2"
+ }
+}

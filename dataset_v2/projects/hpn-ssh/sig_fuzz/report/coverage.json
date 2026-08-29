@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 650,
+  "count": 11613,
+  "percent": 5.597
+ },
+ "functions": {
+  "covered": 45,
+  "count": 580,
+  "percent": 7.759
+ },
+ "regions": {
+  "covered": 782,
+  "count": 13460,
+  "percent": 5.81
+ },
+ "branches": {
+  "covered": 295,
+  "count": 6360,
+  "percent": 4.638
+ },
+ "scope": "/src/hpn-ssh/",
+ "files_in_scope": 71,
+ "files_total": 71,
+ "all_linked": {
+  "lines": {
+   "covered": 650,
+   "count": 11613,
+   "percent": 5.597
+  },
+  "functions": {
+   "covered": 45,
+   "count": 580,
+   "percent": 7.759
+  },
+  "regions": {
+   "covered": 782,
+   "count": 13460,
+   "percent": 5.81
+  },
+  "branches": {
+   "covered": 295,
+   "count": 6360,
+   "percent": 4.638
+  }
+ },
+ "timestamp": "2026-08-28T20:30:07Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

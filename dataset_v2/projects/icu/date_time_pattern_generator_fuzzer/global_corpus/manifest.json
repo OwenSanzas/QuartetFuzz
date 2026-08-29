@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/icu-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/icu_date_time_pattern_generator_fuzzer/public.zip",
+ "qualified_name": "icu_date_time_pattern_generator_fuzzer",
+ "seeds": 7389,
+ "unpacked_bytes": 287713498,
+ "zip_bytes": 9513455,
+ "zip_sha256": "94f06331454ec2506265840bb6437330b0b2f493bd093483349de6684c4d8850"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_get_object_id_der_fuzzer/public.zip",
+ "qualified_name": "libtasn1_asn1_get_object_id_der_fuzzer",
+ "seeds": 731,
+ "unpacked_bytes": 17816317,
+ "zip_bytes": 358383,
+ "zip_sha256": "d7a013541b4892709223f93362fd0fbcf83ff3cafbda1ba000b06c37579c8adb"
+}

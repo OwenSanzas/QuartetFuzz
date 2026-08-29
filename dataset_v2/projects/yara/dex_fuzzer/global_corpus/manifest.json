@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/yara-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/yara_dex_fuzzer/public.zip",
+ "qualified_name": "yara_dex_fuzzer",
+ "seeds": 3778,
+ "unpacked_bytes": 50986697,
+ "zip_bytes": 5994704,
+ "zip_sha256": "dd4a252a185926257f86e13ce7df91f12222760af2a546e41bebd2c1c2e44af0"
+}

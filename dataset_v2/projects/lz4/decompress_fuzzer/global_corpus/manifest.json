@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_decompress_fuzzer/public.zip",
+ "qualified_name": "lz4_decompress_fuzzer",
+ "seeds": 1008,
+ "unpacked_bytes": 60185036,
+ "zip_bytes": 18001549,
+ "zip_sha256": "96e41ef2a11e35a3d3de8a9a6252eabf2b40b401652a073e19855fdb5dfcbdd5"
+}

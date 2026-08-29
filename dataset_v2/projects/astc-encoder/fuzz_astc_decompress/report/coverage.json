@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 3041,
+  "count": 11363,
+  "percent": 26.762
+ },
+ "functions": {
+  "covered": 178,
+  "count": 409,
+  "percent": 43.521
+ },
+ "regions": {
+  "covered": 1332,
+  "count": 5585,
+  "percent": 23.85
+ },
+ "branches": {
+  "covered": 841,
+  "count": 3354,
+  "percent": 25.075
+ },
+ "scope": "/src/astc-encoder/",
+ "files_in_scope": 26,
+ "files_total": 26,
+ "all_linked": {
+  "lines": {
+   "covered": 3041,
+   "count": 11363,
+   "percent": 26.762
+  },
+  "functions": {
+   "covered": 178,
+   "count": 409,
+   "percent": 43.521
+  },
+  "regions": {
+   "covered": 1332,
+   "count": 5585,
+   "percent": 23.85
+  },
+  "branches": {
+   "covered": 841,
+   "count": 3354,
+   "percent": 25.075
+  }
+ },
+ "timestamp": "2026-08-28T20:27:02Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

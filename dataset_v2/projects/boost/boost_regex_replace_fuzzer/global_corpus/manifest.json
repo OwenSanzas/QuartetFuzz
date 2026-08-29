@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_regex_replace_fuzzer/public.zip",
+ "qualified_name": "boost_regex_replace_fuzzer",
+ "seeds": 1742,
+ "unpacked_bytes": 58457783,
+ "zip_bytes": 1734525,
+ "zip_sha256": "73843dd0556c7b6c0bf58481712445113fb7436b55f2afbdd62b6cc1cdedc28d"
+}

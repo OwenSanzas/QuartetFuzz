@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1145,
+  "count": 8297,
+  "percent": 13.8
+ },
+ "functions": {
+  "covered": 64,
+  "count": 290,
+  "percent": 22.069
+ },
+ "regions": {
+  "covered": 1058,
+  "count": 8707,
+  "percent": 12.151
+ },
+ "branches": {
+  "covered": 626,
+  "count": 5391,
+  "percent": 11.612
+ },
+ "scope": "/src/libplist/",
+ "files_in_scope": 26,
+ "files_total": 26,
+ "all_linked": {
+  "lines": {
+   "covered": 1145,
+   "count": 8297,
+   "percent": 13.8
+  },
+  "functions": {
+   "covered": 64,
+   "count": 290,
+   "percent": 22.069
+  },
+  "regions": {
+   "covered": 1058,
+   "count": 8707,
+   "percent": 12.151
+  },
+  "branches": {
+   "covered": 626,
+   "count": 5391,
+   "percent": 11.612
+  }
+ },
+ "timestamp": "2026-08-28T20:35:47Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

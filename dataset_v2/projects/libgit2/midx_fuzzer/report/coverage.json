@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1627,
+  "count": 97039,
+  "percent": 1.677
+ },
+ "functions": {
+  "covered": 124,
+  "count": 4322,
+  "percent": 2.869
+ },
+ "regions": {
+  "covered": 2224,
+  "count": 115765,
+  "percent": 1.921
+ },
+ "branches": {
+  "covered": 811,
+  "count": 62332,
+  "percent": 1.301
+ },
+ "scope": "/src/libgit2/",
+ "files_in_scope": 325,
+ "files_total": 325,
+ "all_linked": {
+  "lines": {
+   "covered": 1627,
+   "count": 97039,
+   "percent": 1.677
+  },
+  "functions": {
+   "covered": 124,
+   "count": 4322,
+   "percent": 2.869
+  },
+  "regions": {
+   "covered": 2224,
+   "count": 115765,
+   "percent": 1.921
+  },
+  "branches": {
+   "covered": 811,
+   "count": 62332,
+   "percent": 1.301
+  }
+ },
+ "timestamp": "2026-08-28T20:35:40Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

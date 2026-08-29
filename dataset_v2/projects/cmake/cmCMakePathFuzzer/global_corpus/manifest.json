@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmCMakePathFuzzer/public.zip",
+ "qualified_name": "cmake_cmCMakePathFuzzer",
+ "seeds": 389,
+ "unpacked_bytes": 14838554,
+ "zip_bytes": 191925,
+ "zip_sha256": "b08ca6a9cfda7eb6b75ed2059434e2eeb248cf560c54df927278dfe8cae0f16a"
+}
