@@ -11,7 +11,6 @@ AddressSanitizer, and line coverage measured over that same corpus.
     benchmark_100.jsonl              the 100 cases
     COVERAGE_REPORT.md               coverage per case, and how it was measured
     CRASH_REPORT.md                  replay results per case, and how they were collected
-    SHA256SUMS                       digests of everything committed here
     projects/<project>/<fuzzer>/
         run_asan.sh                  replay the corpus under ASan (two phases)
         run_cov.sh                   replay it against the coverage build
@@ -38,7 +37,6 @@ the same execution count every time.
 
 ## Verifying the set
 
-    sha256sum -c SHA256SUMS
     python3 tools/validate.py
 
 ## What the numbers say
