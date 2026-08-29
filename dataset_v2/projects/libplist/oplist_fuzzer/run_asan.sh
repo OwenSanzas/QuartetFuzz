@@ -5,9 +5,8 @@
 # with no mutation. This is deterministic: the same corpus against the same binary
 # gives the same execution count and coverage every time (verified on
 # zlib/compress_fuzzer — two consecutive runs, 3761 runs, cov 721, ft 3804 both
-# times). Leak detection is off here because a leaking seed aborts the process and
-# there would be no complete replay at all: quickjs/fuzz_regexp leaks on so many
-# seeds that 40 successive passes never reached the end of its 7173-seed corpus.
+# times). Leak detection is off in this phase because a leaking seed aborts the
+# process, and the phase exists to establish that every seed was executed.
 #
 # Phase 2 — PoC collection. Leak detection back on, replaying iteratively: each
 # artifact is kept, the seed that produced it is removed from a scratch copy, and

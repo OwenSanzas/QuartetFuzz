@@ -15,10 +15,8 @@ mkdir -p report
 SEEDS=$(find global_corpus/seeds -type f | wc -l)
 echo "measuring coverage over $SEEDS seeds with $BIN (scope: $SRC_SCOPE)"
 
-# The scoping step lives in its own file rather than inside `python3 -c "..."`:
-# nesting quoted Python in a quoted `bash -c` inside a shell heredoc silently
-# ate the escapes once already, and the syntax error looked like a coverage
-# failure rather than a script bug.
+# The scoping step lives in its own file: nesting quoted Python inside a quoted
+# `bash -c` inside a shell heredoc loses the escapes.
 cat > report/_scope.py <<'PYEOF'
 import json, os, sys
 scope = os.environ["SRC_SCOPE"]
@@ -57,9 +55,8 @@ docker run --rm \
     /out/$BIN -merge=1 -timeout=100 /tmp/empty /corpus > /report/cov_run.log 2>&1
     echo "target exit: $?" >> /report/cov_run.log
     llvm-profdata merge -sparse /tmp/dumps/*.profraw -o /tmp/cov.profdata 2>&1 | tail -2
-    # -summary-only omits the per-line segment arrays, which are what made the
-    # full export ~1GB on the larger targets. The per-file summaries it keeps
-    # are exactly what scoping to the project sources needs.
+    # -summary-only omits the per-line segment arrays, which reach ~1 GB on the
+    # larger targets. The per-file summaries it keeps are what scoping needs.
     llvm-cov export -summary-only -instr-profile=/tmp/cov.profdata /out/$BIN \
       > /report/coverage_export.json 2>/report/llvmcov_err.log
     echo "export exit: $? size: $(stat -c %s /report/coverage_export.json)"

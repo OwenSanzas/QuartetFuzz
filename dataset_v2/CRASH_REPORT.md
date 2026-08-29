@@ -7,16 +7,14 @@ Generated 2026-08-29.
 Every case replays its full global corpus under ASan in two phases.
 
 **Phase 1 — completeness.** `-runs=0 -detect_leaks=0` replays every seed exactly
-once with no mutation. Leak detection is off here because a leaking seed aborts
-the process, and there would then be no complete replay at all: quickjs/fuzz_regexp
-leaks on so many seeds that 40 successive passes never reached the end of its
-7,173-seed corpus.
+once with no mutation. Leak detection is off in this phase because a leaking seed
+aborts the process, and the phase exists to establish that every seed was executed.
 
 **Phase 2 — PoC collection.** Leak detection back on, replaying iteratively: each
 artifact is kept, the seed that produced it is removed from a scratch copy, and the
 replay resumes (up to 40 rounds). Artifacts are grouped by libFuzzer's `DEDUP_TOKEN`,
 so what is reported is the number of **distinct faults**, not the number of inputs
-that trigger them — quickjs once produced 41 artifacts for 4 distinct faults.
+that trigger them; one fault can produce dozens of artifacts.
 
 **Attribution.** Whose file appears in the crash or allocation stack decides
 library bug vs harness defect. This is the executable form of P1.
