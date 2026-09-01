@@ -35,9 +35,9 @@ fork mode reinterprets `-runs=0` as a short fuzzing session.
 | | |
 |---|---|
 | Cases | 100 |
-| Seeds replayed | 764,396 |
-| Line coverage, median | 23.59% |
-| Line coverage, min / max | 1.20% / 87.32% |
+| Seeds replayed | 785,729 |
+| Line coverage, median | 24.23% |
+| Line coverage, min / max | 1.20% / 97.43% |
 
 ### Reading the low end
 
@@ -54,6 +54,7 @@ identical on both sides and cancels.
 
 | Case | Lines | Covered / Total | Funcs | Files in scope | Seeds | Edges |
 |---|---:|---:|---:|---:|---:|---:|
+| `md4c/fuzz-mdhtml` | 97.43% | 4,771 / 4,897 | 100.00% | 6/6 | 21,522 | 3,206 |
 | `woff2/convert_woff2ttf_fuzzer_new_entry` | 87.32% | 3,477 / 3,982 | 79.35% | 28/28 | 8,057 | 1,856 |
 | `capstone/fuzz_disasmnext` | 87.05% | 248,394 / 285,341 | 71.94% | 194/194 | 59,623 | 22,517 |
 | `libyaml/libyaml_emitter_fuzzer` | 85.84% | 4,257 / 4,959 | 84.80% | 9/11 | 9,882 | 3,171 |
@@ -75,6 +76,7 @@ identical on both sides and cancels.
 | `zlib/compress_fuzzer` | 56.75% | 1,975 / 3,480 | 54.63% | 15/16 | 3,760 | 721 |
 | `zlib/zlib_uncompress_fuzzer` | 55.63% | 1,012 / 1,819 | 37.26% | 11/12 | 1,577 | 308 |
 | `zlib/zlib_uncompress2_fuzzer` | 55.41% | 1,008 / 1,819 | 35.29% | 11/12 | 1,553 | 308 |
+| `double-conversion/string_to_double_fuzzer` | 54.74% | 1,068 / 1,951 | 46.89% | 11/12 | 2,860 | 531 |
 | `wabt/wasm2wat_fuzzer` | 54.35% | 3,954 / 7,275 | 42.21% | 28/29 | 11,848 | 3,783 |
 | `pugixml/fuzz_xpath` | 54.35% | 4,218 / 7,761 | 42.78% | 3/3 | 11,030 | 3,311 |
 | `libyaml/libyaml_scanner_fuzzer` | 53.25% | 1,795 / 3,371 | 46.72% | 7/8 | 7,104 | 1,563 |
@@ -86,7 +88,6 @@ identical on both sides and cancels.
 | `wabt/wasm_interp_fuzzer` | 47.13% | 6,409 / 13,599 | 43.09% | 42/43 | 11,114 | 6,351 |
 | `cjson/cjson_read_fuzzer` | 44.03% | 1,022 / 2,321 | 28.07% | 3/3 | 2,092 | 330 |
 | `zlib/example_small_fuzzer` | 43.22% | 1,479 / 3,422 | 49.04% | 14/15 | 2,487 | 594 |
-| `eigen/sparse_fuzzer` | 43.14% | 4,807 / 11,143 | 45.68% | 130/131 | 2,705 | 3,315 |
 | `jq/jq_fuzz_fixed` | 42.53% | 17,237 / 40,528 | 51.41% | 52/52 | 8,319 | 4,441 |
 | `libvips/jpegsave_file_fuzzer` | 38.60% | 28,118 / 72,851 | 45.35% | 396/1632 | 31,468 | 48,778 |
 | `libvips/thumbnail_fuzzer` | 38.38% | 27,953 / 72,835 | 44.46% | 396/1632 | 33,553 | 47,197 |
@@ -152,5 +153,4 @@ identical on both sides and cancels.
 | `libtasn1/asn1_decode_simple_der_fuzzer` | 2.69% | 140 / 5,209 | 4.20% | 15/15 | 429 | 41 |
 | `simd/simd_load_fuzzer` | 2.60% | 4,815 / 184,989 | 3.49% | 770/771 | 7,397 | 2,385 |
 | `libgit2/config_file_fuzzer` | 1.73% | 1,687 / 97,322 | 3.75% | 326/326 | 1,512 | 363 |
-| `eigen/tensor_fuzzer` | 1.72% | 140 / 8,119 | 4.14% | 62/63 | 344 | 68 |
 | `znc/msg_parse_fuzzer` | 1.20% | 271 / 22,565 | 1.33% | 74/75 | 2,142 | 601 |

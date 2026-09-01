@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/md4c-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/md4c_fuzz-mdhtml/public.zip",
+ "qualified_name": "md4c_fuzz-mdhtml",
+ "seeds": 21524,
+ "unpacked_bytes": 685586339,
+ "zip_bytes": 93552306,
+ "zip_sha256": "729d61d2f939a74f02cdd0008ee73127b49696dc155d8e0eff816d8a7d7f56dc"
+}

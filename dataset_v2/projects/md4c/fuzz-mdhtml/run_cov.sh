@@ -5,9 +5,9 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
-BIN=sparse_fuzzer_cov
+BIN=fuzz-mdhtml_cov
 IMG=gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04
-SRC_SCOPE=/src/eigen/
+SRC_SCOPE=/src/md4c/
 mkdir -p report
 
 [ -f "cov_build/$BIN" ]    || { echo "no coverage build at cov_build/$BIN" >&2; exit 2; }

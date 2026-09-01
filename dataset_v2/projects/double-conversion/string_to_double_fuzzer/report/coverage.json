@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1068,
+  "count": 1951,
+  "percent": 54.741
+ },
+ "functions": {
+  "covered": 83,
+  "count": 177,
+  "percent": 46.893
+ },
+ "regions": {
+  "covered": 1129,
+  "count": 2325,
+  "percent": 48.559
+ },
+ "branches": {
+  "covered": 603,
+  "count": 1085,
+  "percent": 55.576
+ },
+ "scope": "/src/double-conversion/",
+ "files_in_scope": 11,
+ "files_total": 12,
+ "all_linked": {
+  "lines": {
+   "covered": 1085,
+   "count": 1968,
+   "percent": 55.132
+  },
+  "functions": {
+   "covered": 84,
+   "count": 178,
+   "percent": 47.191
+  },
+  "regions": {
+   "covered": 1130,
+   "count": 2326,
+   "percent": 48.581
+  },
+  "branches": {
+   "covered": 603,
+   "count": 1085,
+   "percent": 55.576
+  }
+ },
+ "timestamp": "2026-09-01T05:46:56Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

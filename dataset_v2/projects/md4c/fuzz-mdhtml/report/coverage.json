@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4771,
+  "count": 4897,
+  "percent": 97.427
+ },
+ "functions": {
+  "covered": 167,
+  "count": 167,
+  "percent": 100.0
+ },
+ "regions": {
+  "covered": 8030,
+  "count": 8813,
+  "percent": 91.115
+ },
+ "branches": {
+  "covered": 4200,
+  "count": 4804,
+  "percent": 87.427
+ },
+ "scope": "/src/md4c/",
+ "files_in_scope": 6,
+ "files_total": 6,
+ "all_linked": {
+  "lines": {
+   "covered": 4771,
+   "count": 4897,
+   "percent": 97.427
+  },
+  "functions": {
+   "covered": 167,
+   "count": 167,
+   "percent": 100.0
+  },
+  "regions": {
+   "covered": 8030,
+   "count": 8813,
+   "percent": 91.115
+  },
+  "branches": {
+   "covered": 4200,
+   "count": 4804,
+   "percent": 87.427
+  }
+ },
+ "timestamp": "2026-09-01T06:15:17Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

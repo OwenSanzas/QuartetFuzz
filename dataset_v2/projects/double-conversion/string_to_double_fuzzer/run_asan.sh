@@ -20,7 +20,7 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
-BIN=sparse_fuzzer_asan
+BIN=string_to_double_fuzzer_asan
 IMG=gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04
 MAX_ROUNDS=${MAX_ROUNDS:-40}
 mkdir -p report/crashes

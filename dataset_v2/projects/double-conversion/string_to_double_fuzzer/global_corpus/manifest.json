@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/double-conversion-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/double-conversion_string_to_double_fuzzer/public.zip",
+ "qualified_name": "double-conversion_string_to_double_fuzzer",
+ "seeds": 2860,
+ "unpacked_bytes": 13752947,
+ "zip_bytes": 799824,
+ "zip_sha256": "1d60ed720b99b65f62cf31d070ddd9fb33a01e56755360d22fefae77b5418254"
+}

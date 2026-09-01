@@ -5,9 +5,9 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
-BIN=tensor_fuzzer_cov
+BIN=string_to_double_fuzzer_cov
 IMG=gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04
-SRC_SCOPE=/src/eigen/
+SRC_SCOPE=/src/double-conversion/
 mkdir -p report
 
 [ -f "cov_build/$BIN" ]    || { echo "no coverage build at cov_build/$BIN" >&2; exit 2; }
