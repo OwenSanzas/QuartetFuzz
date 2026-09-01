@@ -5,5 +5,7 @@
  "seeds": 20639,
  "unpacked_bytes": 115979418,
  "zip_bytes": 11251958,
- "zip_sha256": "0320865f9cae9a453769a8a62c8b6ef25c530debe626c51411cfcaee20aacf2d"
+ "zip_sha256": "0320865f9cae9a453769a8a62c8b6ef25c530debe626c51411cfcaee20aacf2d",
+ "content_digest_sha256": "a5c2d412fe4a9746d15a5ac63f7f4236f4c1904adaef994a800bd59543c66db5",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
 }

@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_midx_fuzzer/public.zip",
- "qualified_name": "libgit2_midx_fuzzer",
- "seeds": 2066,
- "unpacked_bytes": 84350124,
- "zip_bytes": 2926875,
- "zip_sha256": "21e7588a603c15a88e08f3316819b327f206cbdee8b0613b735e169f8227de84"
-}

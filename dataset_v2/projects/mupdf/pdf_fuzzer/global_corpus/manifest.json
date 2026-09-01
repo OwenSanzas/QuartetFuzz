@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/mupdf-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mupdf_pdf_fuzzer/public.zip",
+ "qualified_name": "mupdf_pdf_fuzzer",
+ "seeds": 15718,
+ "unpacked_bytes": 280947694,
+ "zip_bytes": 197340041,
+ "zip_sha256": "34d3b9bf5f6a37a5fa8f2635e4548c77ecc6c4a2e8b5bcbb874bce920098e090"
+}

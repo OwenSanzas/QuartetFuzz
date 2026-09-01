@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/sql-parser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sql-parser_fuzz_sql_parse/public.zip",
+ "qualified_name": "sql-parser_fuzz_sql_parse",
+ "seeds": 5915,
+ "unpacked_bytes": 43932343,
+ "zip_bytes": 2141833,
+ "zip_sha256": "774ca6f2e40eefd172e7d7feb9942fe5fc971516cbe69f3cb8fbc1beeb8fe158"
+}

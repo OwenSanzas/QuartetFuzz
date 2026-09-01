@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_graph_graphml_fuzzer/public.zip",
+ "qualified_name": "boost_graph_graphml_fuzzer",
+ "seeds": 7336,
+ "unpacked_bytes": 159492154,
+ "zip_bytes": 5213732,
+ "zip_sha256": "8c0308cb8d48fd909b17e352f4ebbc218f496267776da6819d8dbd49f9fef43e",
+ "content_digest_sha256": "6beaf39718acb07591e5a449bcb06fb47645ae4bb969175625cc28e48e09da88",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

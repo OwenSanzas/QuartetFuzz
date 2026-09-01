@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 2189,
+  "count": 38577,
+  "percent": 5.674
+ },
+ "functions": {
+  "covered": 386,
+  "count": 5525,
+  "percent": 6.986
+ },
+ "regions": {
+  "covered": 1809,
+  "count": 44544,
+  "percent": 4.061
+ },
+ "branches": {
+  "covered": 701,
+  "count": 19755,
+  "percent": 3.548
+ },
+ "scope": "/src/wxwidgets/",
+ "files_in_scope": 209,
+ "files_total": 209,
+ "all_linked": {
+  "lines": {
+   "covered": 2189,
+   "count": 38577,
+   "percent": 5.674
+  },
+  "functions": {
+   "covered": 386,
+   "count": 5525,
+   "percent": 6.986
+  },
+  "regions": {
+   "covered": 1809,
+   "count": 44544,
+   "percent": 4.061
+  },
+  "branches": {
+   "covered": 701,
+   "count": 19755,
+   "percent": 3.548
+  }
+ },
+ "timestamp": "2026-08-31T20:33:53Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

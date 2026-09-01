@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/simdjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simdjson_fuzz_dump_raw_tape/public.zip",
+ "qualified_name": "simdjson_fuzz_dump_raw_tape",
+ "seeds": 8998,
+ "unpacked_bytes": 72402148,
+ "zip_bytes": 2564170,
+ "zip_sha256": "1a32113feafe791a93e05fe2719e68e655ba80bee000779d5bd1ec8a96acbc8f",
+ "content_digest_sha256": "5a96807c2e365f76f12ade7c9071f07653de64b52ea74a7af580b566dda17d18",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

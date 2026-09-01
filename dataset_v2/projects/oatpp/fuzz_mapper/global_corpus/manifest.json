@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/oatpp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/oatpp_fuzz_mapper/public.zip",
+ "qualified_name": "oatpp_fuzz_mapper",
+ "seeds": 5657,
+ "unpacked_bytes": 82534649,
+ "zip_bytes": 5477050,
+ "zip_sha256": "9412d6dc04d5c04d207f0582854ee500433f3492b19f3e93a3992273f6a5031e"
+}

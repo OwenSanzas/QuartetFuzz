@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_programoptions_fuzzer/public.zip",
+ "qualified_name": "boost_programoptions_fuzzer",
+ "seeds": 2325,
+ "unpacked_bytes": 140694185,
+ "zip_bytes": 2135434,
+ "zip_sha256": "a7cfc5d37ba24f122de13e97f885b7bfc3ff27521da513789941bf51a6ed5dc2",
+ "content_digest_sha256": "3b0969c35b137623ff54e248a018957f42fc20725c6321a3992abec69bcc479e",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

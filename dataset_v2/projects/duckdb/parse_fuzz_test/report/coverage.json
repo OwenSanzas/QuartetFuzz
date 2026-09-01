@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 98992,
+  "count": 530986,
+  "percent": 18.643
+ },
+ "functions": {
+  "covered": 12190,
+  "count": 48786,
+  "percent": 24.987
+ },
+ "regions": {
+  "covered": 63776,
+  "count": 381747,
+  "percent": 16.706
+ },
+ "branches": {
+  "covered": 30928,
+  "count": 209386,
+  "percent": 14.771
+ },
+ "scope": "/src/duckdb/",
+ "files_in_scope": 3130,
+ "files_total": 3130,
+ "all_linked": {
+  "lines": {
+   "covered": 98992,
+   "count": 530986,
+   "percent": 18.643
+  },
+  "functions": {
+   "covered": 12190,
+   "count": 48786,
+   "percent": 24.987
+  },
+  "regions": {
+   "covered": 63776,
+   "count": 381747,
+   "percent": 16.706
+  },
+  "branches": {
+   "covered": 30928,
+   "count": 209386,
+   "percent": 14.771
+  }
+ },
+ "timestamp": "2026-09-01T02:57:04Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

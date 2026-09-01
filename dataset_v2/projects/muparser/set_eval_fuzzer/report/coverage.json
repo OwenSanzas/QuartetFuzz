@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1565,
+  "count": 3053,
+  "percent": 51.261
+ },
+ "functions": {
+  "covered": 160,
+  "count": 306,
+  "percent": 52.288
+ },
+ "regions": {
+  "covered": 1237,
+  "count": 2861,
+  "percent": 43.237
+ },
+ "branches": {
+  "covered": 806,
+  "count": 1404,
+  "percent": 57.407
+ },
+ "scope": "/src/muparser/",
+ "files_in_scope": 13,
+ "files_total": 14,
+ "all_linked": {
+  "lines": {
+   "covered": 1575,
+   "count": 3064,
+   "percent": 51.403
+  },
+  "functions": {
+   "covered": 161,
+   "count": 307,
+   "percent": 52.443
+  },
+  "regions": {
+   "covered": 1241,
+   "count": 2866,
+   "percent": 43.301
+  },
+  "branches": {
+   "covered": 806,
+   "count": 1404,
+   "percent": 57.407
+  }
+ },
+ "timestamp": "2026-08-31T19:40:35Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

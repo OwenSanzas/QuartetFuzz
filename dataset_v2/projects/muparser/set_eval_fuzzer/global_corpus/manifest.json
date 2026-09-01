@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/muparser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/muparser_set_eval_fuzzer/public.zip",
+ "qualified_name": "muparser_set_eval_fuzzer",
+ "seeds": 3796,
+ "unpacked_bytes": 36747506,
+ "zip_bytes": 2924171,
+ "zip_sha256": "c6b33621044d3c822d78817754dd1866933c68785bc48ec7847c42dbc7586a04",
+ "content_digest_sha256": "8d937e245174d6ddf52bef5f7d1f67139423f8b33d0ec54076f2b4ead91fd177",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

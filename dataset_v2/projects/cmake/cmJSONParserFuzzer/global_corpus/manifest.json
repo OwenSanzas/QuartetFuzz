@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmJSONParserFuzzer/public.zip",
- "qualified_name": "cmake_cmJSONParserFuzzer",
- "seeds": 3341,
- "unpacked_bytes": 26350208,
- "zip_bytes": 4737486,
- "zip_sha256": "7dc22c3ff348aedbdb1efee1802014fadab2aa3603ae6ef78df98c32d48d3425"
-}

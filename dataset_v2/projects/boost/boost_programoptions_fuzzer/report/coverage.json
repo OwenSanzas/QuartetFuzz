@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1023,
+  "count": 3390,
+  "percent": 30.177
+ },
+ "functions": {
+  "covered": 195,
+  "count": 507,
+  "percent": 38.462
+ },
+ "regions": {
+  "covered": 605,
+  "count": 1948,
+  "percent": 31.057
+ },
+ "branches": {
+  "covered": 251,
+  "count": 1021,
+  "percent": 24.584
+ },
+ "scope": "/src/boost/",
+ "files_in_scope": 71,
+ "files_total": 72,
+ "all_linked": {
+  "lines": {
+   "covered": 1075,
+   "count": 3442,
+   "percent": 31.232
+  },
+  "functions": {
+   "covered": 197,
+   "count": 509,
+   "percent": 38.703
+  },
+  "regions": {
+   "covered": 610,
+   "count": 1953,
+   "percent": 31.234
+  },
+  "branches": {
+   "covered": 251,
+   "count": 1021,
+   "percent": 24.584
+  }
+ },
+ "timestamp": "2026-08-31T12:27:16Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

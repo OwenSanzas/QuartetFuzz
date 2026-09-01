@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/nghttp2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/nghttp2_fuzzer_fdp/public.zip",
+ "qualified_name": "nghttp2_fuzzer_fdp",
+ "seeds": 12291,
+ "unpacked_bytes": 62570520,
+ "zip_bytes": 4095597,
+ "zip_sha256": "37643d3f4fb01939cf59c352dbac97be16cbbf554bd8d4c1244928a75dcbcaef",
+ "content_digest_sha256": "5e65ce726b3bc025438ad621c86dcd321b0e13b996fe851d7926a27804a171d9",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

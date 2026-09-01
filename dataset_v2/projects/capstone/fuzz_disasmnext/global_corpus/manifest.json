@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/capstone-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/capstone_fuzz_disasmnext/public.zip",
+ "qualified_name": "capstone_fuzz_disasmnext",
+ "seeds": 59629,
+ "unpacked_bytes": 13304750,
+ "zip_bytes": 11931752,
+ "zip_sha256": "96028642f720e74a81cfef57e969b49d8bb880caf4e88a597e34ab88010dffdc",
+ "content_digest_sha256": "e2b1da0fc034b5275f807682961d8b7a5ed14b38e35c67850cf92716ab549444",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

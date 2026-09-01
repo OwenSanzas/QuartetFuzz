@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4394,
+  "count": 5791,
+  "percent": 75.876
+ },
+ "functions": {
+  "covered": 124,
+  "count": 194,
+  "percent": 63.918
+ },
+ "regions": {
+  "covered": 4793,
+  "count": 6672,
+  "percent": 71.838
+ },
+ "branches": {
+  "covered": 2172,
+  "count": 2805,
+  "percent": 77.433
+ },
+ "scope": "/src/sql-parser/",
+ "files_in_scope": 13,
+ "files_total": 13,
+ "all_linked": {
+  "lines": {
+   "covered": 4394,
+   "count": 5791,
+   "percent": 75.876
+  },
+  "functions": {
+   "covered": 124,
+   "count": 194,
+   "percent": 63.918
+  },
+  "regions": {
+   "covered": 4793,
+   "count": 6672,
+   "percent": 71.838
+  },
+  "branches": {
+   "covered": 2172,
+   "count": 2805,
+   "percent": 77.433
+  }
+ },
+ "timestamp": "2026-08-31T20:31:32Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

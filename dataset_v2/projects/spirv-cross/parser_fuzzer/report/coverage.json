@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1902,
+  "count": 6107,
+  "percent": 31.145
+ },
+ "functions": {
+  "covered": 131,
+  "count": 346,
+  "percent": 37.861
+ },
+ "regions": {
+  "covered": 980,
+  "count": 1586,
+  "percent": 61.791
+ },
+ "branches": {
+  "covered": 826,
+  "count": 1237,
+  "percent": 66.774
+ },
+ "scope": "/src/spirv-cross/",
+ "files_in_scope": 8,
+ "files_total": 9,
+ "all_linked": {
+  "lines": {
+   "covered": 1919,
+   "count": 6124,
+   "percent": 31.336
+  },
+  "functions": {
+   "covered": 132,
+   "count": 347,
+   "percent": 38.04
+  },
+  "regions": {
+   "covered": 989,
+   "count": 1595,
+   "percent": 62.006
+  },
+  "branches": {
+   "covered": 829,
+   "count": 1241,
+   "percent": 66.801
+  }
+ },
+ "timestamp": "2026-08-31T20:57:30Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

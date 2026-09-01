@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 555,
+  "count": 4006,
+  "percent": 13.854
+ },
+ "functions": {
+  "covered": 38,
+  "count": 236,
+  "percent": 16.102
+ },
+ "regions": {
+  "covered": 361,
+  "count": 2398,
+  "percent": 15.054
+ },
+ "branches": {
+  "covered": 225,
+  "count": 1652,
+  "percent": 13.62
+ },
+ "scope": "/src/libiec61850/",
+ "files_in_scope": 15,
+ "files_total": 15,
+ "all_linked": {
+  "lines": {
+   "covered": 555,
+   "count": 4006,
+   "percent": 13.854
+  },
+  "functions": {
+   "covered": 38,
+   "count": 236,
+   "percent": 16.102
+  },
+  "regions": {
+   "covered": 361,
+   "count": 2398,
+   "percent": 15.054
+  },
+  "branches": {
+   "covered": 225,
+   "count": 1652,
+   "percent": 13.62
+  }
+ },
+ "timestamp": "2026-08-31T19:31:55Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

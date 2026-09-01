@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1762,
+  "count": 11445,
+  "percent": 15.395
+ },
+ "functions": {
+  "covered": 290,
+  "count": 1581,
+  "percent": 18.343
+ },
+ "regions": {
+  "covered": 1366,
+  "count": 7592,
+  "percent": 17.993
+ },
+ "branches": {
+  "covered": 445,
+  "count": 3432,
+  "percent": 12.966
+ },
+ "scope": "/src/alembic/",
+ "files_in_scope": 152,
+ "files_total": 155,
+ "all_linked": {
+  "lines": {
+   "covered": 1828,
+   "count": 11591,
+   "percent": 15.771
+  },
+  "functions": {
+   "covered": 300,
+   "count": 1596,
+   "percent": 18.797
+  },
+  "regions": {
+   "covered": 1405,
+   "count": 7666,
+   "percent": 18.328
+  },
+  "branches": {
+   "covered": 462,
+   "count": 3474,
+   "percent": 13.299
+  }
+ },
+ "timestamp": "2026-08-31T12:17:05Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/alembic-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/alembic_dump_info_fuzzer/public.zip",
+ "qualified_name": "alembic_dump_info_fuzzer",
+ "seeds": 2931,
+ "unpacked_bytes": 40085748,
+ "zip_bytes": 2909567,
+ "zip_sha256": "c9ee3922e0834cc7d039472d3760283d93eebe32edae4ed8a3215f0915a80994"
+}

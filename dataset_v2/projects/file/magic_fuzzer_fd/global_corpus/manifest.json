@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/file-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/file_magic_fuzzer_fd/public.zip",
+ "qualified_name": "file_magic_fuzzer_fd",
+ "seeds": 11023,
+ "unpacked_bytes": 90226305,
+ "zip_bytes": 13449810,
+ "zip_sha256": "a69ff0c850186b28b3c5b001da065189c28b6ec0c3ea8cec7f141448269f9721"
+}

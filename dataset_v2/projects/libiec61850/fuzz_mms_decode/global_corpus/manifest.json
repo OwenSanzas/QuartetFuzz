@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libiec61850-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libiec61850_fuzz_mms_decode/public.zip",
+ "qualified_name": "libiec61850_fuzz_mms_decode",
+ "seeds": 947,
+ "unpacked_bytes": 50007983,
+ "zip_bytes": 1833558,
+ "zip_sha256": "9357fcca1850635c2c7241cd68caae8a17216b22daf79fb48d31c87a608ccd49",
+ "content_digest_sha256": "e47feb1865b2f149c11ef01846cc2dad88df332c96db2aee482fefc50ae85bb8",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha256_fuzzer/public.zip",
- "qualified_name": "pycryptodome_sha256_fuzzer",
- "seeds": 299,
- "unpacked_bytes": 45522189,
- "zip_bytes": 7486436,
- "zip_sha256": "5343434a1aff42d7696cd1d9bbbe4bf1288fd9920c6ed6fc6f61716c6b22e5a0"
-}

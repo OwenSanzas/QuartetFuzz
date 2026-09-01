@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_uncompress_fuzzer/public.zip",
+ "qualified_name": "miniz_uncompress_fuzzer",
+ "seeds": 1193,
+ "unpacked_bytes": 33307967,
+ "zip_bytes": 1839741,
+ "zip_sha256": "e6019b8947e7927938c5f292d5e77067759408b2a817c8b02fd2b4099e54cb6b",
+ "content_digest_sha256": "62bb2bcdb76478bf6fac713ffbaa5b9c4af39d55476dca1c03df5891bcf16dc2",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

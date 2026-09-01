@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/avahi-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/avahi_fuzz-strlst/public.zip",
+ "qualified_name": "avahi_fuzz-strlst",
+ "seeds": 417,
+ "unpacked_bytes": 46860612,
+ "zip_bytes": 639940,
+ "zip_sha256": "3a7e32a8508853224d648b98c724912c34dc411a058ac1ff129d36cd57e47b02",
+ "content_digest_sha256": "6f8e61dff1d726c55f5b5abd64a289d7331c2ba93d8116ca5f87e0c24f81fb1b",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

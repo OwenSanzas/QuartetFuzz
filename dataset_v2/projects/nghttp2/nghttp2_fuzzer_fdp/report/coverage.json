@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 5610,
+  "count": 11618,
+  "percent": 48.287
+ },
+ "functions": {
+  "covered": 320,
+  "count": 621,
+  "percent": 51.53
+ },
+ "regions": {
+  "covered": 4137,
+  "count": 9142,
+  "percent": 45.253
+ },
+ "branches": {
+  "covered": 2526,
+  "count": 5463,
+  "percent": 46.238
+ },
+ "scope": "/src/nghttp2/",
+ "files_in_scope": 34,
+ "files_total": 34,
+ "all_linked": {
+  "lines": {
+   "covered": 5610,
+   "count": 11618,
+   "percent": 48.287
+  },
+  "functions": {
+   "covered": 320,
+   "count": 621,
+   "percent": 51.53
+  },
+  "regions": {
+   "covered": 4137,
+   "count": 9142,
+   "percent": 45.253
+  },
+  "branches": {
+   "covered": 2526,
+   "count": 5463,
+   "percent": 46.238
+  }
+ },
+ "timestamp": "2026-08-31T20:22:12Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

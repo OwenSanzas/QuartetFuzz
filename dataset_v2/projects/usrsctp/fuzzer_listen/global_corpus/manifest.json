@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/usrsctp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/usrsctp_fuzzer_listen/public.zip",
+ "qualified_name": "usrsctp_fuzzer_listen",
+ "seeds": 3217,
+ "unpacked_bytes": 20949045,
+ "zip_bytes": 2426719,
+ "zip_sha256": "e0affb2b4b7b865702059b389a2a1356b82a95ca89b3bbfcf4424398e08f974f",
+ "content_digest_sha256": "9713daad6320b4b1896a82df6f693fa58996b8a31dcd5b9ce2620a25080f7c0a",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

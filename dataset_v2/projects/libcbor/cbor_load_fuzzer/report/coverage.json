@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 2547,
+  "count": 3044,
+  "percent": 83.673
+ },
+ "functions": {
+  "covered": 207,
+  "count": 227,
+  "percent": 91.189
+ },
+ "regions": {
+  "covered": 2806,
+  "count": 4091,
+  "percent": 68.59
+ },
+ "branches": {
+  "covered": 1567,
+  "count": 2223,
+  "percent": 70.49
+ },
+ "scope": "/src/libcbor/",
+ "files_in_scope": 22,
+ "files_total": 23,
+ "all_linked": {
+  "lines": {
+   "covered": 2554,
+   "count": 3055,
+   "percent": 83.601
+  },
+  "functions": {
+   "covered": 208,
+   "count": 229,
+   "percent": 90.83
+  },
+  "regions": {
+   "covered": 2810,
+   "count": 4096,
+   "percent": 68.604
+  },
+  "branches": {
+   "covered": 1568,
+   "count": 2225,
+   "percent": 70.472
+  }
+ },
+ "timestamp": "2026-08-31T19:31:30Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

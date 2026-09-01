@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 134024,
+  "count": 352740,
+  "percent": 37.995
+ },
+ "functions": {
+  "covered": 6511,
+  "count": 17774,
+  "percent": 36.632
+ },
+ "regions": {
+  "covered": 126043,
+  "count": 332809,
+  "percent": 37.872
+ },
+ "branches": {
+  "covered": 58320,
+  "count": 173941,
+  "percent": 33.529
+ },
+ "scope": "/src/mupdf/",
+ "files_in_scope": 951,
+ "files_total": 952,
+ "all_linked": {
+  "lines": {
+   "covered": 134104,
+   "count": 352834,
+   "percent": 38.008
+  },
+  "functions": {
+   "covered": 6516,
+   "count": 17779,
+   "percent": 36.65
+  },
+  "regions": {
+   "covered": 126153,
+   "count": 332948,
+   "percent": 37.89
+  },
+  "branches": {
+   "covered": 58344,
+   "count": 173979,
+   "percent": 33.535
+  }
+ },
+ "timestamp": "2026-08-31T20:21:22Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

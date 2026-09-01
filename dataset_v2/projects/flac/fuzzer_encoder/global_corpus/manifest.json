@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/flac-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flac_fuzzer_encoder/public.zip",
+ "qualified_name": "flac_fuzzer_encoder",
+ "seeds": 11810,
+ "unpacked_bytes": 460933419,
+ "zip_bytes": 10210385,
+ "zip_sha256": "49b7c98e75277ba3653bab976b21bae61cc3b5afad5bee0273d78cd2b3d11c2c",
+ "content_digest_sha256": "fdf72b16a7f2be40b0ad808a3698e2f7249ba86587cc96fe8752688b8ca0e9c5",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 2670,
+  "count": 6395,
+  "percent": 41.751
+ },
+ "functions": {
+  "covered": 364,
+  "count": 857,
+  "percent": 42.474
+ },
+ "regions": {
+  "covered": 1445,
+  "count": 3317,
+  "percent": 43.563
+ },
+ "branches": {
+  "covered": 895,
+  "count": 2181,
+  "percent": 41.036
+ },
+ "scope": "/src/oatpp/",
+ "files_in_scope": 61,
+ "files_total": 61,
+ "all_linked": {
+  "lines": {
+   "covered": 2670,
+   "count": 6395,
+   "percent": 41.751
+  },
+  "functions": {
+   "covered": 364,
+   "count": 857,
+   "percent": 42.474
+  },
+  "regions": {
+   "covered": 1445,
+   "count": 3317,
+   "percent": 43.563
+  },
+  "branches": {
+   "covered": 895,
+   "count": 2181,
+   "percent": 41.036
+  }
+ },
+ "timestamp": "2026-08-31T20:51:12Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

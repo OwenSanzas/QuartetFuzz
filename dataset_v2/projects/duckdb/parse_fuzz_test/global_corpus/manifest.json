@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/duckdb-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/duckdb_parse_fuzz_test/public.zip",
+ "qualified_name": "duckdb_parse_fuzz_test",
+ "seeds": 4945,
+ "unpacked_bytes": 17527234,
+ "zip_bytes": 2367935,
+ "zip_sha256": "d6f7dd508e59cd83469b6a033910f488ebd1f6dd691b7699abe9581476f840c0"
+}

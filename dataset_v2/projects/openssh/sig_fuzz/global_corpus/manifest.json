@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_sig_fuzz/public.zip",
- "qualified_name": "openssh_sig_fuzz",
- "seeds": 1179,
- "unpacked_bytes": 78670730,
- "zip_bytes": 1592949,
- "zip_sha256": "d2f97a4244d0aa33b92b435b0bf8810d3a4c367a1b00753c0d5a0da28ea9724a"
-}

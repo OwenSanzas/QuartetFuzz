@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4522,
+  "count": 45206,
+  "percent": 10.003
+ },
+ "functions": {
+  "covered": 154,
+  "count": 818,
+  "percent": 18.826
+ },
+ "regions": {
+  "covered": 5098,
+  "count": 98618,
+  "percent": 5.169
+ },
+ "branches": {
+  "covered": 1719,
+  "count": 46311,
+  "percent": 3.712
+ },
+ "scope": "/src/usrsctp/",
+ "files_in_scope": 50,
+ "files_total": 50,
+ "all_linked": {
+  "lines": {
+   "covered": 4522,
+   "count": 45206,
+   "percent": 10.003
+  },
+  "functions": {
+   "covered": 154,
+   "count": 818,
+   "percent": 18.826
+  },
+  "regions": {
+   "covered": 5098,
+   "count": 98618,
+   "percent": 5.169
+  },
+  "branches": {
+   "covered": 1719,
+   "count": 46311,
+   "percent": 3.712
+  }
+ },
+ "timestamp": "2026-08-31T21:19:57Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

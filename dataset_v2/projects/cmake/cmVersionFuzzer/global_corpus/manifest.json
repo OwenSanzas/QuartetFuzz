@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmVersionFuzzer/public.zip",
- "qualified_name": "cmake_cmVersionFuzzer",
- "seeds": 364,
- "unpacked_bytes": 14702134,
- "zip_bytes": 2287533,
- "zip_sha256": "0820d326e6a645f27d5b16f6a9f3cc3805536a10066d1b0d68f1023170b8a859"
-}

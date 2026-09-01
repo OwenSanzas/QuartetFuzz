@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/hpn-ssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hpn-ssh_sig_fuzz/public.zip",
- "qualified_name": "hpn-ssh_sig_fuzz",
- "seeds": 1216,
- "unpacked_bytes": 63285259,
- "zip_bytes": 1257208,
- "zip_sha256": "71d8590ca0d0f65b9d89eed0fcebf1ca3b4771f504c71c2234c85d96ad0a9c21"
-}

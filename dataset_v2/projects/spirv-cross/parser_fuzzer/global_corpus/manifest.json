@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/spirv-cross-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/spirv-cross_parser_fuzzer/public.zip",
+ "qualified_name": "spirv-cross_parser_fuzzer",
+ "seeds": 3607,
+ "unpacked_bytes": 31269637,
+ "zip_bytes": 2325752,
+ "zip_sha256": "ed3b9c54b4bb5baf9873d104647fc5f9ec62ecd4420fcdc3c9bc4c8db3dc7eb9"
+}

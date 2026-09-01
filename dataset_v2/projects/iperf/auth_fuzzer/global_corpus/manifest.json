@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/iperf-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/iperf_auth_fuzzer/public.zip",
- "qualified_name": "iperf_auth_fuzzer",
- "seeds": 98,
- "unpacked_bytes": 9786651,
- "zip_bytes": 86173,
- "zip_sha256": "f8def8f97e4db7cfdfd44eca20a6c640efb9cbcdb70db272646c5555168c38ef"
-}

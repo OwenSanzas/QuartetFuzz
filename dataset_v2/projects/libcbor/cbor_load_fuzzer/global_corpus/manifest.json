@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libcbor-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libcbor_cbor_load_fuzzer/public.zip",
+ "qualified_name": "libcbor_cbor_load_fuzzer",
+ "seeds": 3743,
+ "unpacked_bytes": 81827437,
+ "zip_bytes": 7263613,
+ "zip_sha256": "848c7209752fd61b868f5c8761c2645b47fdc86fa1812c02fd054aa5c8e214a3",
+ "content_digest_sha256": "c6646dcefacb747e4b522213fae419413e321cce5c78ff8cdbd3a922ec306857",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

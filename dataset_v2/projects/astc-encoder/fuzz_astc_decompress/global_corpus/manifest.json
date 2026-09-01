@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/astc-encoder-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/astc-encoder_fuzz_astc_decompress/public.zip",
- "qualified_name": "astc-encoder_fuzz_astc_decompress",
- "seeds": 1195,
- "unpacked_bytes": 53858859,
- "zip_bytes": 2163588,
- "zip_sha256": "5dd8c16a7b82309898ce972a253992ec525c9901f7c1216e829923feaabb2155"
-}

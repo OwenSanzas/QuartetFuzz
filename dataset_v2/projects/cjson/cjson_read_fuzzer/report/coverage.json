@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1022,
+  "count": 2321,
+  "percent": 44.033
+ },
+ "functions": {
+  "covered": 32,
+  "count": 114,
+  "percent": 28.07
+ },
+ "regions": {
+  "covered": 964,
+  "count": 2075,
+  "percent": 46.458
+ },
+ "branches": {
+  "covered": 522,
+  "count": 1120,
+  "percent": 46.607
+ },
+ "scope": "/src/cjson/",
+ "files_in_scope": 3,
+ "files_total": 3,
+ "all_linked": {
+  "lines": {
+   "covered": 1022,
+   "count": 2321,
+   "percent": 44.033
+  },
+  "functions": {
+   "covered": 32,
+   "count": 114,
+   "percent": 28.07
+  },
+  "regions": {
+   "covered": 964,
+   "count": 2075,
+   "percent": 46.458
+  },
+  "branches": {
+   "covered": 522,
+   "count": 1120,
+   "percent": 46.607
+  }
+ },
+ "timestamp": "2026-08-31T19:20:33Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

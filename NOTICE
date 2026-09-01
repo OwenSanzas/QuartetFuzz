@@ -1,0 +1,37 @@
+# What this repository contains, and what it does not
+
+The benchmark refers to a hundred fuzz harnesses belonging to 47 upstream
+projects. Being clear about which bytes are ours matters, because those projects
+are under at least Apache-2.0, LGPL, GPL-3.0, BSD-3-Clause, MIT and zlib terms,
+and they are not compatible with one another.
+
+## Ours, and covered by LICENSE
+
+- the selection protocol and every criterion in it
+- `benchmark_100.jsonl` — the case list, with the target function, the evidence
+  that it is public API, and the upstream revision each case was measured against
+- the measurements: coverage and corpus-replay results per case
+- `run_asan.sh`, `run_cov.sh` and the tooling that produced everything above
+
+## Not ours, and not redistributed here
+
+- **Harness source.** Not in this repository. Each case records the path inside
+  the OSS-Fuzz container and the upstream revision, which together identify the
+  file; fetch it from the project or from OSS-Fuzz under that project's own
+  terms. Where a record quotes a line or two as evidence for a target function,
+  that is a citation, not redistribution.
+- **Corpora.** Not in this repository. Each case's `global_corpus/manifest.json`
+  records the URL OSS-Fuzz published it at, the seed count, and the SHA-256 of
+  the archive we measured against. Note that OSS-Fuzz overwrites these archives
+  daily, so the recorded digest identifies what we used but cannot be re-verified
+  from the live URL; the archive is available from us on request.
+- **The libraries themselves.** Built from upstream at the pinned revisions
+  recorded per case, under their own licences.
+
+## Reproducing without redistribution
+
+Everything needed to rebuild a case is recorded rather than copied: the OSS-Fuzz
+revision (one commit for the whole benchmark), the upstream revision per project,
+and the official image the measurement ran in. `run_asan.sh` and `run_cov.sh`
+drive `gcr.io/oss-fuzz-base/base-runner` directly, so no part of the pipeline
+depends on a file this repository ships that the upstream projects own.

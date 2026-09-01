@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libarchive-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libarchive_fuzzer/public.zip",
+ "qualified_name": "libarchive_fuzzer",
+ "seeds": 23108,
+ "unpacked_bytes": 192946868,
+ "zip_bytes": 16638505,
+ "zip_sha256": "b1d2b9af5b3d64c67a5b57d9d4cb25ad19c80516f19670ee05b5be7ee4eca7bd"
+}

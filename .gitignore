@@ -40,3 +40,6 @@ dataset_v2/build_frame/
 
 # selection material and full-fidelity copies stay local
 dataset_v2/_private/
+
+# internal assessment, not for the public artifact before publication
+benchmark_gaps.html

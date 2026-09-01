@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/wxwidgets-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wxwidgets_zip/public.zip",
+ "qualified_name": "wxwidgets_zip",
+ "seeds": 2897,
+ "unpacked_bytes": 84659098,
+ "zip_bytes": 20818806,
+ "zip_sha256": "62510849fd19af0981b842a646eba5bf47e3ac2454753c170da93f0dec602d14",
+ "content_digest_sha256": "5f5a61ca3b8aa25c501f23d079b44d0c0ed3a52cbf3d2a040b0c1a82198001d3",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

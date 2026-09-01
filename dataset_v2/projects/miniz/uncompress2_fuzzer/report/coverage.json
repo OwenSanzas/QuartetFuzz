@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 541,
+  "count": 5238,
+  "percent": 10.328
+ },
+ "functions": {
+  "covered": 11,
+  "count": 196,
+  "percent": 5.612
+ },
+ "regions": {
+  "covered": 794,
+  "count": 5681,
+  "percent": 13.976
+ },
+ "branches": {
+  "covered": 394,
+  "count": 3312,
+  "percent": 11.896
+ },
+ "scope": "/src/miniz/",
+ "files_in_scope": 3,
+ "files_total": 3,
+ "all_linked": {
+  "lines": {
+   "covered": 541,
+   "count": 5238,
+   "percent": 10.328
+  },
+  "functions": {
+   "covered": 11,
+   "count": 196,
+   "percent": 5.612
+  },
+  "regions": {
+   "covered": 794,
+   "count": 5681,
+   "percent": 13.976
+  },
+  "branches": {
+   "covered": 394,
+   "count": 3312,
+   "percent": 11.896
+  }
+ },
+ "timestamp": "2026-08-31T20:49:46Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

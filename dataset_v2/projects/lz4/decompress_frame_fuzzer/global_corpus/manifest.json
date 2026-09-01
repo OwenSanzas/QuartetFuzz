@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_decompress_frame_fuzzer/public.zip",
+ "qualified_name": "lz4_decompress_frame_fuzzer",
+ "seeds": 2628,
+ "unpacked_bytes": 78112851,
+ "zip_bytes": 8261259,
+ "zip_sha256": "11f29f11b35899a6a66f1bec2ed4acde162668deb37738f9c8b7b15c574f7d44",
+ "content_digest_sha256": "0bf698f9baf6f64e24b30491fba7bedc7e6c0ea2f2d7d5673a6e4fc6980f7a2c",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

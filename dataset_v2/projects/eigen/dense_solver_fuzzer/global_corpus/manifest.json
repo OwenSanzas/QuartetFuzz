@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_dense_solver_fuzzer/public.zip",
- "qualified_name": "eigen_dense_solver_fuzzer",
- "seeds": 4335,
- "unpacked_bytes": 44961978,
- "zip_bytes": 2169115,
- "zip_sha256": "a8938fb8ad26b28498d7f9a11804990c1fd4d851d2111b4b19e6c3b845426766"
-}

@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/hwloc-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hwloc_fuzzer/public.zip",
- "qualified_name": "hwloc_fuzzer",
- "seeds": 159,
- "unpacked_bytes": 10489864,
- "zip_bytes": 732560,
- "zip_sha256": "67b0cec618a25998c30e26dcc91d7f20efc096e9e62dbadf4e54121781679833"
-}

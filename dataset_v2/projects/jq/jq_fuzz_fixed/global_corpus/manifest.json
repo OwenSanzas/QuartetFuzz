@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/jq-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/jq_fuzz_fixed/public.zip",
+ "qualified_name": "jq_fuzz_fixed",
+ "seeds": 8322,
+ "unpacked_bytes": 152057185,
+ "zip_bytes": 6719962,
+ "zip_sha256": "9e5fae5c771c50b92bfed6b722334cf092a18f5550a65463af0910a04b456ccd",
+ "content_digest_sha256": "aa693315f69aa5613a67ac2117a451bbf2d8f1e2c216b4b898061ad08fe67eb6",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

@@ -1,9 +1,0 @@
-{
- "ok": true,
- "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmGeneratorExpressionFuzzer/public.zip",
- "qualified_name": "cmake_cmGeneratorExpressionFuzzer",
- "seeds": 2507,
- "unpacked_bytes": 11479841,
- "zip_bytes": 1052256,
- "zip_sha256": "1ba4b9c6f62928146229596c925c2b19755d79fdf717bea9c647d3b7f137ddc5"
-}

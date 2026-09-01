@@ -4,7 +4,10 @@ A fixed set of 100 human-written fuzz harnesses from OSS-Fuzz, each paired with 
 evidence that it runs: a complete replay of its official global corpus under
 AddressSanitizer, and line coverage measured over that same corpus.
 
-`benchmark_100.jsonl` is the authoritative list — one JSON record per case.
+`benchmark_100.jsonl` is the authoritative list — one JSON record per case, each
+carrying the library function the harness exists to exercise, the install rule and
+header line establishing that function is public API, and the exact upstream
+revision the measurements were taken against.
 
 ## Layout
 
@@ -38,6 +41,15 @@ the same execution count every time.
 ## Verifying the set
 
     python3 tools/validate.py
+
+## Pinned versions
+
+OSS-Fuzz project images clone upstream at HEAD, so a rebuild picks up whatever
+upstream looks like that day. Every case therefore records both halves of the pin
+in `version_pins`: one OSS-Fuzz commit for the whole set, and the upstream
+revision per project, taken from OSS-Fuzz's own published `srcmap` for the day the
+coverage data comes from. Mount the pinned source with
+`helper.py build_fuzzers <project> <path>` to rebuild what was measured.
 
 ## What the numbers say
 

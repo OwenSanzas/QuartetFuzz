@@ -1,6 +1,6 @@
 # Crash / PoC report — dataset_v2
 
-Generated 2026-08-29.
+Generated 2026-09-01.
 
 ## Method
 
@@ -24,12 +24,12 @@ library bug vs harness defect. This is the executable form of P1.
 | | |
 |---|---|
 | Cases | 100 |
-| Seeds replayed | 625,891 |
-| Units executed | 625,991 |
+| Seeds replayed | 764,396 |
+| Units executed | 764,496 |
 | Phase 1 complete, exit 0 | 100/100 |
 | **Distinct faults** | **0** |
 | Fault artifacts (crash/leak/oom/timeout) | 0 |
-| `slow-unit-` artifacts (not faults) | 2 |
+| `slow-unit-` artifacts (not faults) | 3 |
 
 Every case in the benchmark replays its entire official corpus without a single
 distinct fault. That is the property the benchmark is selected to have: these are
@@ -42,7 +42,8 @@ libFuzzer writes these when one input exceeds its time threshold. They record pe
 
 | Case | Artifact | Bytes |
 |---|---|---:|
-| `cmake/cmListFileLexerFuzzer` | `slow-unit-d9538a0d8c720c30fad096bbabd1a81d61ad10ed` | 65,536 |
+| `flac/fuzzer_encoder_v2` | `slow-unit-f012486f534da906b56700b518a2f8900f1bf8c7` | 121,802 |
+| `flac/fuzzer_encoder_v2` | `slow-unit-2a9d35737bd65f32b7dd92d998d3b80a47c0da4d` | 117,052 |
 | `boost/boost_regex_replace_fuzzer` | `slow-unit-a01e1bd3b6f8a345a75932932a92211e580cc481` | 692,866 |
 
 ## Scope
