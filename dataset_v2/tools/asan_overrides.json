@@ -1,0 +1,5 @@
+{
+  "_note": "ASan options the project's own build.sh writes into <fuzzer>.options. Applied identically to every system for that case, as ClusterFuzz does. Source: oss-fuzz@955c6866 projects/<p>/build.sh.",
+  "binutils/fuzz_disassemble": "detect_leaks=0",
+  "libiec61850/fuzz_mms_decode": "detect_leaks=0"
+}

@@ -6,7 +6,7 @@ set -uo pipefail
 cd "$(dirname "$0")"
 
 BIN=dex_fuzzer_cov
-IMG=gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04
+IMG=gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b  # tag ubuntu-24-04, pinned 2026-10-07
 SRC_SCOPE=/src/yara/
 mkdir -p report
 

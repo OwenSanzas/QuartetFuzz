@@ -55,7 +55,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 _USER = _getpass.getuser()
-_DEFAULT_PINNED_OSS_FUZZ = Path(f"/tmp/agf-{_USER}/oss-fuzz-pinned")
+_DEFAULT_PINNED_OSS_FUZZ = Path(os.environ.get("AGF_OSS_FUZZ_DIR", f"/tmp/agf-{_USER}/oss-fuzz-pinned"))
 _DEFAULT_RUNS_ROOT = Path(f"/tmp/agf-{_USER}/system-check-runs")
 
 
