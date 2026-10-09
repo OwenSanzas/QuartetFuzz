@@ -43,6 +43,8 @@ target。一个 target 进入抽样框需满足：(i) Google 对其项目的最�
 种子数的 0.9 到 1.6 倍、去重后故障数为零、且在项目自身源码范围内产生非零覆盖，即为合格。语料由 ClusterFuzz 维护：fuzzing 引擎只把执行成功且带来新覆盖的输入写入语料，语料裁剪任务会把崩溃、超时、内存超限的输入移入隔离区并定期重测。因此主语料在 ClusterFuzz 自己的构建下不含已知的确定性崩溃输入。我们在固定的上游修订版和官方 runner 镜像中回放它，出现故障意味着**我们的构建无法执行 ClusterFuzz 当前认为正常的输入**：harness 自身的缺陷、语料上次裁剪之后上游引入的回归、或运行环境不兼容。这样的 harness 不能作为参照点，因为它的覆盖率测量会在故障处截断。这条门检验的是测量装置的可靠性；它**不能**说明 harness 可达的代码中没有未修复的 bug，因为触发这些 bug 的输入正是 ClusterFuzz 从语料中隔离掉的那些。这是唯一一条需要执行 harness 才能判定的条件。它在任何系统运行之前对每个 case
 同样适用，且不涉及覆盖率。有 23 个候选因此被替换。
 
+*健康门。* 通过回放门的 harness 还须在与主实验完全相同的条件下（同一镜像、`-rss_limit_mb=2560 -timeout=25`、镜像默认 `ASAN_OPTIONS`、空语料、单核）连续 fuzzing 24 小时而不产生任何 `crash-` 或 `leak-` artifact；`oom-` 与 `timeout-` 是资源事件，不算故障。回放门证明参照 harness 能在我们的测量装置中执行，健康门证明它在固定修订版下处于可用状态：ClusterFuzz 会把触发崩溃的输入隔离在语料之外，因此一个带有已知未修复崩溃的 harness 可以回放干净却在空语料下几秒内崩溃。两道门都只看 gold、在任何系统生成 harness 之前执行、对每个 case 同样适用，且都使基线更强。未通过者从同一抽样框按同一种子替换，并作为次级集合一并报告。
+
 *从不用于选择的条件。* 覆盖率高低、harness 在 fuzzing 中是否崩溃、以及按我们的检查器判断是否
 满足 P1 到 P4。覆盖率是因变量，对其设阈值会使结论按构造成立。让我们的检查器为基线背书则是
 循环论证。集合中最低的行覆盖率为 1.20%，11 个 case 低于 5%，全部保留并如实报告。
@@ -104,6 +106,17 @@ deterministically (`-runs=0`). It qualifies if the replay completes at exit 0, e
 the seed count, reports zero distinct faults, and yields non-zero coverage within the project's
 own sources. The corpus is maintained by ClusterFuzz: the fuzzing engine writes an input to the corpus only after it has executed and added coverage, and the pruning task moves inputs that crash, time out or exceed the memory limit into a quarantine corpus that is re-tested periodically. The main corpus therefore holds no known deterministically crashing input under ClusterFuzz's own build. We replay it at the pinned upstream revision in the official runner image, so a fault on replay means that *our* build cannot execute inputs ClusterFuzz currently considers good: a defect in the harness, an upstream regression since the corpus was last pruned, or an environment incompatibility. Such a harness cannot serve as a reference point, because its coverage measurement would be truncated at the fault. This criterion establishes the soundness of the measurement setup; it does *not* establish the absence of unfixed bugs reachable from the harness, since the inputs that trigger those are exactly what ClusterFuzz keeps out of the corpus. This is the only criterion decided by executing the harness. It is applied identically to every case before any system runs and does not involve
 coverage. Twenty-three candidates were replaced on this ground.
+
+*Health gate.* A harness that passes replay must also fuzz for 24 hours under exactly the main
+experiment's conditions (same image, `-rss_limit_mb=2560 -timeout=25`, the image's default
+`ASAN_OPTIONS`, empty corpus, one core) without producing any `crash-` or `leak-` artifact;
+`oom-` and `timeout-` are resource events, not faults. The replay gate shows that the reference
+can execute in our measurement setup; the health gate shows that it is in a usable state at the
+pinned revision. ClusterFuzz quarantines crash-triggering inputs out of the corpus, so a harness
+with a known, unfixed crash can replay cleanly and still crash within seconds from an empty
+corpus. Both gates look only at the gold harness, run before any system generates a harness,
+apply identically to every case, and make the baseline stronger. Cases that fail are replaced
+from the same frame under the same seed and are retained as a reported secondary set.
 
 *Never used for selection.* Coverage level, whether the harness crashes under fuzzing, and
 whether it satisfies P1–P4 as judged by our checker. Coverage is the dependent variable; a
@@ -180,4 +193,5 @@ gold harness were discarded.
 | 日期 | 变更 |
 |---|---|
 | 2026-10-07 | 初稿。从数据文件重算全部数字；确定资格门的论文表述；列出待核实项与文档修订清单。 |
+| 2026-10-09 | 新增健康门（24 小时空语料运行无 crash/leak）作为第二道执行侧准入条件，与协议 🔒1.11 对应；在第二批 pilot 结束前、任何系统生成之前写入。 |
 | 2026-10-09 | 修正资格门的依据：依据 ClusterFuzz 源码（corpus_pruning_task 的隔离机制），回放故障说明的是我们的构建无法执行 ClusterFuzz 认为正常的输入，而非"已暴露未修复的 bug"；明确该门不能检测可达的未修复 bug，并以 wabt 的 pilot 结果为证。案例列表与选择记录未变。 |
