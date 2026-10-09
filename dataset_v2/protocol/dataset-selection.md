@@ -105,11 +105,7 @@ unrelated to harness quality, they were replaced from the same frame under the s
 AddressSanitizer and under coverage instrumentation, then replays its entire official corpus
 deterministically (`-runs=0`). It qualifies if the replay completes at exit 0, executes 0.9–1.6×
 the seed count, reports zero distinct faults, and yields non-zero coverage within the project's
-own sources. The corpus is accumulated by ClusterFuzz and by construction contains no crashing
-input, so a fault on replay indicates either a defect in the harness itself or a library bug
-that ClusterFuzz has already surfaced and the project has not fixed; in neither state is the
-harness a maintained reference point. This is the only criterion decided by executing the
-harness. It is applied identically to every case before any system runs and does not involve
+own sources. The corpus is maintained by ClusterFuzz: the fuzzing engine writes an input to the corpus only after it has executed and added coverage, and the pruning task moves inputs that crash, time out or exceed the memory limit into a quarantine corpus that is re-tested periodically. The main corpus therefore holds no known deterministically crashing input under ClusterFuzz's own build. We replay it at the pinned upstream revision in the official runner image, so a fault on replay means that *our* build cannot execute inputs ClusterFuzz currently considers good: a defect in the harness, an upstream regression since the corpus was last pruned, or an environment incompatibility. Such a harness cannot serve as a reference point, because its coverage measurement would be truncated at the fault. This criterion establishes the soundness of the measurement setup; it does *not* establish the absence of unfixed bugs reachable from the harness, since the inputs that trigger those are exactly what ClusterFuzz keeps out of the corpus. This is the only criterion decided by executing the harness. It is applied identically to every case before any system runs and does not involve
 coverage. Twenty-three candidates were replaced on this ground.
 
 *Never used for selection.* Coverage level, whether the harness crashes under fuzzing, and
@@ -157,14 +153,14 @@ gold harness were discarded.
 
 ## 4. 定稿前必须核实
 
-1. **"ClusterFuzz 已经暴露"这句话需要证据。** 在 OSS-Fuzz 的 issue tracker 上为 draco
-   （4 个）和 quickjs（2 个）各找一条对应的未关闭 crash 报告。找到即保留原文；找不到，改为
-   "库中存在在项目已 fuzz 过的输入上触发的 bug"（英文：*a library bug present on inputs the
-   project has already fuzzed*）。
-2. **资格门替换数的口径。** 23 = 已选 case 中被删的 12 + 第 10 轮候选中被拒的 11。若将第 9 轮
+1. **资格门替换数的口径。** 23 = 已选 case 中被删的 12 + 第 10 轮候选中被拒的 11。若将第 9 轮
    的 unicorn 与自查的 libucl 也计入，则为 25。论文与 `replacements.json` 必须用同一口径。
-
----
+2. **资格门的局限要在论文中写明，并用 pilot 的数据佐证。** 2026-10-09 的 24 小时空语料 pilot
+   中，wabt/wasm_interp_fuzzer 与 wabt/wasm_objdump_fuzzer 两个 gold 在 14 小时内分别重启 3,606
+   与 3,190 次，每次都是同一个断言（`type-checker.cc:624`，对应 wabt issue #2675，2025-12 公开；
+   `binary-reader-objdump.cc` OnSectionSymbol）。两者的语料回放均为零故障，因为 ClusterFuzz 把触发
+   输入隔离在语料之外。结论：资格门证明的是"固定修订版下能完整执行语料"，不是"没有可达的未修复
+   bug"。处理方式是报告每个试验的重启次数并标注被单一已知断言主导的 case，而不是增加筛选规则。
 
 ## 5. 需要同步修订的文档
 
@@ -187,3 +183,4 @@ gold harness were discarded.
 | 日期 | 变更 |
 |---|---|
 | 2026-10-07 | 初稿。从数据文件重算全部数字；确定资格门的论文表述；列出待核实项与文档修订清单。 |
+| 2026-10-09 | 修正资格门的依据：依据 ClusterFuzz 源码（corpus_pruning_task 的隔离机制），回放故障说明的是我们的构建无法执行 ClusterFuzz 认为正常的输入，而非"已暴露未修复的 bug"；明确该门不能检测可达的未修复 bug，并以 wabt 的 pilot 结果为证。案例列表与选择记录未变。 |
