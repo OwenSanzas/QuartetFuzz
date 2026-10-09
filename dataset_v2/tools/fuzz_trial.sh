@@ -48,8 +48,18 @@ while :; do
       [ -n "$EXTRA_ASAN" ] && export ASAN_OPTIONS="$ASAN_OPTIONS:$EXTRA_ASAN"
       exec /out/$BIN -rss_limit_mb=2560 -timeout=25 -max_total_time=$REMAIN -seed=$RSEED \
            -artifact_prefix=/work/artifacts/ -print_final_stats=1 /work/corpus < /dev/null' \
-    2>&1 | python3 -u -c 'import sys,time
-for l in sys.stdin: sys.stdout.write("%d %s" % (time.time(), l))' > "$TRIAL/log/fuzz.$(printf %03d $run).log"
+    2>&1 | python3 -u -c 'import sys,time,re,collections
+# keep every libFuzzer line; harness stdout/stderr chatter only as a 200-line tail before an error block
+LF=re.compile(r"^(#\d+\s|INFO:|==\d+==|SUMMARY:|MS: |artifact_prefix|\s+#\d+ 0x|NEW_FUNC|\s*To change|.*Test unit written|.*: Assertion |.*ERROR: libFuzzer|.*libFuzzer: |stat::|.*deadly signal|.*out-of-memory|.*timeout after)")
+tail=collections.deque(maxlen=200); out=sys.stdout
+for l in sys.stdin:
+    if LF.match(l):
+        if tail and ("==ERROR" in l or "Assertion" in l or "ERROR: libFuzzer" in l or "deadly signal" in l):
+            for t in tail: out.write(t)
+            tail.clear()
+        out.write("%d %s" % (time.time(), l))
+    else: tail.append("%d %s" % (time.time(), l))
+for t in tail: out.write(t)' > "$TRIAL/log/fuzz.$(printf %03d $run).log"
   rc=${PIPESTATUS[0]}
   art=$(ls -t "$TRIAL/artifacts" 2>/dev/null | head -1)
   echo "$(date +%s) run $run exit rc=$rc artifact=${art:-none}" >> "$TRIAL/log/events.log"

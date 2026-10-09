@@ -1,0 +1,18 @@
+[
+ "yara/macho_fuzzer",
+ "pugixml/fuzz_parse",
+ "zlib/zlib_uncompress2_fuzzer",
+ "icu/unicode_string_codepage_create_fuzzer",
+ "libvips/thumbnail_fuzzer",
+ "double-conversion/string_to_double_fuzzer",
+ "jq/jq_fuzz_parse_stream",
+ "libtasn1/libtasn1_pkix_der_fuzzer",
+ "wabt/wasm_interp_fuzzer",
+ "yara/dex_fuzzer",
+ "zlib/zlib_uncompress_fuzzer",
+ "libplist/bplist_fuzzer",
+ "glaze/binary_reflection",
+ "muparser/set_eval_fuzzer",
+ "mbedtls/fuzz_x509crt",
+ "lz4/decompress_frame_fuzzer"
+]

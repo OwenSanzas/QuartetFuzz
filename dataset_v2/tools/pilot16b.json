@@ -1,0 +1,18 @@
+[
+ "miniz/uncompress2_fuzzer",
+ "md4c/fuzz-mdhtml",
+ "assimp/assimp_fuzzer_obj",
+ "uriparser/uri_dissect_query_malloc_fuzzer",
+ "uriparser/uri_free_fuzzer",
+ "libevent/utils_fuzzer",
+ "icu/locale_morph_fuzzer",
+ "libyaml/libyaml_emitter_fuzzer",
+ "libtasn1/asn1_decode_simple_ber_fuzzer",
+ "wabt/wasm_objdump_fuzzer",
+ "libplist/oplist_fuzzer",
+ "glaze/json_jmespath",
+ "fast_float/from_chars",
+ "mbedtls/fuzz_x509csr",
+ "binutils/fuzz_disassemble",
+ "woff2/convert_woff2ttf_fuzzer_new_entry"
+]
