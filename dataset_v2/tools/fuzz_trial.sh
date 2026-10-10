@@ -11,8 +11,8 @@ IMG=gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b
 FUZZER=$(basename "$CASE_DIR"); BIN="${FUZZER}_asan"
 [ -x "$CASE_DIR/asan_build/$BIN" ] || { echo "no binary $CASE_DIR/asan_build/$BIN" >&2; exit 2; }
 BUDGET=$(python3 -c "print(int(float('$HOURS')*3600))")
-SNAP_HOURS=$(python3 -c "print(' '.join(str(h) for h in (1,2,4,8,12,24) if h<=float('$HOURS')))")
-LAST_SNAP=$(python3 -c "h=float('$HOURS'); print('%02dh'%h if h==int(h) else '%gh'%h)")
+SNAP_MIN=$(python3 -c "print(' '.join(str(m) for m in (5,10,20,30,60,120,240,480,720,1440) if m<=float('$HOURS')*60))")
+LAST_SNAP=$(python3 -c "print('%05dm'%round(float('$HOURS')*60))")
 mkdir -p "$TRIAL"/{corpus,artifacts,snaps,log}
 START=$(date +%s)
 NAME="qf-$(echo "$TRIAL" | md5sum | cut -c1-10)"
@@ -26,11 +26,11 @@ cat > "$TRIAL/meta.json" <<JSON
 JSON
 
 # ---- snapshot loop (host side; corpus dir is a bind mount) --------------------
-( for h in $SNAP_HOURS; do
-    t=$(( START + h*3600 ))
-    while [ $(date +%s) -lt $t ]; do sleep 20; done
-    cp -r "$TRIAL/corpus" "$TRIAL/snaps/snap_$(printf %02d $h)h" 2>/dev/null
-    echo "$(date +%s) snapshot ${h}h files=$(ls "$TRIAL/corpus" | wc -l)" >> "$TRIAL/log/events.log"
+( for m in $SNAP_MIN; do
+    t=$(( START + m*60 ))
+    while [ $(date +%s) -lt $t ]; do sleep 10; done
+    cp -r "$TRIAL/corpus" "$TRIAL/snaps/snap_$(printf %05d $m)m" 2>/dev/null
+    echo "$(date +%s) snapshot ${m}m files=$(ls "$TRIAL/corpus" | wc -l)" >> "$TRIAL/log/events.log"
   done ) &
 SNAP_PID=$!
 

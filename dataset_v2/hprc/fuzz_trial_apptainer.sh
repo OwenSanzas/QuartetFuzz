@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # One fuzzing trial of one gold case under Apptainer (HPRC). Mirrors tools/fuzz_trial.sh:
 # empty corpus, -rss_limit_mb=2560 -timeout=25, image ASAN_OPTIONS (leak detection on),
-# restart on process exit, snapshots at 1,2,4,8,12,24 h.
+# restart on process exit, corpus snapshots at 5,10,20,30,60,120,240,480,720,1440 min.
 # MODE=gate  : stop at the first crash-/leak- artifact (door two); oom-/timeout- restart.
 # MODE=full  : always restart until the budget is spent (main experiment).
 # usage: fuzz_trial_apptainer.sh <sif> <bin_dir> <fuzzer> <trial_dir> <hours> <seed> [extra_asan_options]
@@ -10,7 +10,7 @@ SIF=$1; BINDIR=$(readlink -f "$2"); FUZZER=$3; TRIAL=$(readlink -f -m "$4"); HOU
 MODE=${MODE:-gate}
 BIN="${FUZZER}_asan"; [ -x "$BINDIR/$BIN" ] || { echo "no binary $BINDIR/$BIN" >&2; exit 2; }
 BUDGET=$(python3 -c "print(int(float('$HOURS')*3600))")
-SNAP_HOURS=$(python3 -c "print(' '.join(str(h) for h in (1,2,4,8,12,24) if h<=float('$HOURS')))")
+SNAP_MIN=$(python3 -c "print(' '.join(str(m) for m in (5,10,20,30,60,120,240,480,720,1440) if m<=float('$HOURS')*60))")
 # corpus on node-local disk, everything else on the shared trial dir
 LOCAL=${TMPDIR:-/tmp}/qf-$$; mkdir -p "$LOCAL/corpus" "$TRIAL"/{artifacts,snaps,log}
 START=$(date +%s)
@@ -20,9 +20,9 @@ cat > "$TRIAL/meta.json" <<JSON
  "start_unix":$START,"start":"$(date -u +%FT%TZ)","host":"$(hostname)","slurm_job":"${SLURM_JOB_ID:-}",
  "flags":"-rss_limit_mb=2560 -timeout=25 -detect_leaks=1 (image default) -print_final_stats=1","corpus":"empty","dictionary":"none"}
 JSON
-( for h in $SNAP_HOURS; do t=$(( START + h*3600 )); while [ $(date +%s) -lt $t ]; do sleep 20; done
-    cp -r "$LOCAL/corpus" "$TRIAL/snaps/snap_$(printf %02d $h)h" 2>/dev/null
-    echo "$(date +%s) snapshot ${h}h files=$(ls "$LOCAL/corpus" | wc -l)" >> "$TRIAL/log/events.log"; done ) &
+( for m in $SNAP_MIN; do t=$(( START + m*60 )); while [ $(date +%s) -lt $t ]; do sleep 10; done
+    cp -r "$LOCAL/corpus" "$TRIAL/snaps/snap_$(printf %05d $m)m" 2>/dev/null
+    echo "$(date +%s) snapshot ${m}m files=$(ls "$LOCAL/corpus" | wc -l)" >> "$TRIAL/log/events.log"; done ) &
 SNAP_PID=$!
 run=0; stop_reason="budget"
 while :; do
