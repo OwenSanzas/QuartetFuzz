@@ -9,7 +9,7 @@
 #SBATCH --account=CHANGE_ME
 set -uo pipefail
 module load Apptainer 2>/dev/null || module load apptainer 2>/dev/null || true
-cd "$(dirname "$0")"
+cd "${SLURM_SUBMIT_DIR:-$(dirname "$0")}"   # sbatch copies the script to the spool dir; $0 is not the bundle
 CASE=$(sed -n "$(( SLURM_ARRAY_TASK_ID + 1 ))p" cases.txt)          # project/fuzzer
 PROJ=${CASE%/*}; FZ=${CASE#*/}
 EXTRA=$(python3 -c "import json,sys;print(json.load(open('asan_overrides.json')).get('$CASE',''))")
