@@ -36,16 +36,25 @@ while :; do
       [ -n "$EXTRA_ASAN" ] && export ASAN_OPTIONS="$ASAN_OPTIONS:$EXTRA_ASAN"
       exec /out/$BIN -rss_limit_mb=2560 -timeout=25 -max_total_time=$REMAIN -seed=$RSEED \
            -artifact_prefix=/artifacts/ -print_final_stats=1 /corpus < /dev/null' \
-    2>&1 | python3 -u -c 'import sys,time,re,collections
+    2>&1 | PYTHONIOENCODING=utf-8:surrogateescape python3 -X utf8 -u -c 'import sys,time,re,collections
+# Reads BYTES and never dies on content: a harness that prints raw input bytes must not be able to
+# kill the filter (a dead filter gives the fuzzer SIGPIPE, exit 141, and a restart storm).
 LF=re.compile(r"^(#\d+\s|INFO:|==\d+==|SUMMARY:|MS: |artifact_prefix|\s+#\d+ 0x|NEW_FUNC|\s*To change|.*Test unit written|.*: Assertion |.*ERROR: libFuzzer|.*libFuzzer: |stat::|.*deadly signal|.*out-of-memory|.*timeout after)")
 tail=collections.deque(maxlen=200); out=sys.stdout
-for l in sys.stdin:
-    if LF.match(l):
-        if tail and ("==ERROR" in l or "Assertion" in l or "ERROR: libFuzzer" in l or "deadly signal" in l):
-            for t in tail: out.write(t)
-            tail.clear()
-        out.write("%d %s" % (time.time(), l))
-    else: tail.append("%d %s" % (time.time(), l))
+try:
+    for raw in sys.stdin.buffer:
+        try: l=raw.decode("utf-8","replace")
+        except Exception: l=repr(raw)+"\n"
+        if len(l)>4000: l=l[:4000]+"...\n"
+        try:
+            if LF.match(l):
+                if tail and ("==ERROR" in l or "Assertion" in l or "ERROR: libFuzzer" in l or "deadly signal" in l):
+                    for t in tail: out.write(t)
+                    tail.clear()
+                out.write("%d %s" % (time.time(), l))
+            else: tail.append("%d %s" % (time.time(), l))
+        except Exception as e: out.write("%d [filter error: %r]\n" % (time.time(), e))
+except Exception as e: out.write("%d [filter aborted: %r]\n" % (time.time(), e))
 for t in tail: out.write(t)' > "$TRIAL/log/fuzz.$(printf %03d $run).log"
   rc=${PIPESTATUS[0]}
   art=$(ls -t "$TRIAL/artifacts" 2>/dev/null | head -1)
