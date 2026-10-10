@@ -12,7 +12,9 @@ BIN="${FUZZER}_asan"; [ -x "$BINDIR/$BIN" ] || { echo "no binary $BINDIR/$BIN" >
 BUDGET=$(python3 -c "print(int(float('$HOURS')*3600))")
 SNAP_MIN=$(python3 -c "print(' '.join(str(m) for m in (5,10,20,30,60,120,240,480,720,1440) if m<=float('$HOURS')*60))")
 # corpus on node-local disk, everything else on the shared trial dir
-LOCAL=${TMPDIR:-/tmp}/qf-$$; mkdir -p "$LOCAL/corpus" "$TRIAL"/{artifacts,snaps,log}
+LOCAL=${TMPDIR:-/tmp}/qf-$$; mkdir -p "$LOCAL"/{corpus,artifacts,snaps,log} "$TRIAL/log"
+# Inode budget on shared scratch: this trial writes only meta.json, log/events.log and four tarballs there.
+# Corpus, snapshots, artifacts and per-run fuzz logs live on node-local disk and are archived at the end.
 START=$(date +%s)
 cat > "$TRIAL/meta.json" <<JSON
 {"fuzzer":"$FUZZER","binary":"$BIN","binary_sha256":"$(sha256sum "$BINDIR/$BIN" | cut -d' ' -f1)",
@@ -21,7 +23,7 @@ cat > "$TRIAL/meta.json" <<JSON
  "flags":"-rss_limit_mb=2560 -timeout=25 -detect_leaks=1 (image default) -print_final_stats=1","corpus":"empty","dictionary":"none"}
 JSON
 ( for m in $SNAP_MIN; do t=$(( START + m*60 )); while [ $(date +%s) -lt $t ]; do sleep 10; done
-    cp -r "$LOCAL/corpus" "$TRIAL/snaps/snap_$(printf %05d $m)m" 2>/dev/null
+    cp -r "$LOCAL/corpus" "$LOCAL/snaps/snap_$(printf %05d $m)m" 2>/dev/null
     echo "$(date +%s) snapshot ${m}m files=$(ls "$LOCAL/corpus" | wc -l)" >> "$TRIAL/log/events.log"; done ) &
 SNAP_PID=$!
 run=0; stop_reason="budget"
@@ -30,7 +32,7 @@ while :; do
   run=$((run+1)); rseed=$(( SEED + run ))
   echo "$now run $run start remain=${remain}s seed=$rseed" >> "$TRIAL/log/events.log"
   apptainer exec --cleanenv --containall \
-    --bind "$BINDIR:/out:ro" --bind "$LOCAL/corpus:/corpus" --bind "$TRIAL/artifacts:/artifacts" \
+    --bind "$BINDIR:/out:ro" --bind "$LOCAL/corpus:/corpus" --bind "$LOCAL/artifacts:/artifacts" \
     --env EXTRA_ASAN="$EXTRA_ASAN" --env BIN="$BIN" --env REMAIN="$remain" --env RSEED="$rseed" \
     "$SIF" /bin/bash -c '
       [ -n "$EXTRA_ASAN" ] && export ASAN_OPTIONS="$ASAN_OPTIONS:$EXTRA_ASAN"
@@ -55,31 +57,37 @@ try:
             else: tail.append("%d %s" % (time.time(), l))
         except Exception as e: out.write("%d [filter error: %r]\n" % (time.time(), e))
 except Exception as e: out.write("%d [filter aborted: %r]\n" % (time.time(), e))
-for t in tail: out.write(t)' > "$TRIAL/log/fuzz.$(printf %03d $run).log"
+for t in tail: out.write(t)' > "$LOCAL/log/fuzz.$(printf %05d $run).log"
   rc=${PIPESTATUS[0]}
-  art=$(ls -t "$TRIAL/artifacts" 2>/dev/null | head -1)
+  art=$(ls -t "$LOCAL/artifacts" 2>/dev/null | head -1)
   echo "$(date +%s) run $run exit rc=$rc artifact=${art:-none}" >> "$TRIAL/log/events.log"
   [ $rc -eq 0 ] && break
   if [ "$MODE" = gate ] && [[ "${art:-}" == crash-* || "${art:-}" == leak-* ]]; then stop_reason="fault:$art"; break; fi
   sleep 2
 done
 kill $SNAP_PID 2>/dev/null; wait $SNAP_PID 2>/dev/null
-cp -r "$LOCAL/corpus" "$TRIAL/corpus"; rm -rf "$LOCAL"
+# archive: one file per kind on scratch
+tar -C "$LOCAL" -czf "$TRIAL/corpus.tar.gz" corpus
+tar -C "$LOCAL" -czf "$TRIAL/snaps.tar.gz" snaps
+tar -C "$LOCAL" -czf "$TRIAL/artifacts.tar.gz" artifacts
+tar -C "$LOCAL" -czf "$TRIAL/fuzzlogs.tar.gz" log
+ls "$LOCAL/artifacts" > "$TRIAL/artifacts.txt"
 END=$(date +%s)
-python3 - "$TRIAL" "$END" "$run" "$stop_reason" <<'PY'
+python3 - "$TRIAL" "$END" "$run" "$stop_reason" "$LOCAL" <<'PY'
 import json,sys,os,glob,re,time
-t,end,runs,reason=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),sys.argv[4]
-m=json.load(open(f"{t}/meta.json")); arts=sorted(os.listdir(f"{t}/artifacts"))
+t,end,runs,reason,loc=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),sys.argv[4],sys.argv[5]
+m=json.load(open(f"{t}/meta.json")); arts=sorted(os.listdir(f"{loc}/artifacts"))
 kinds={}
 for a in arts: kinds[a.split('-')[0]]=kinds.get(a.split('-')[0],0)+1
 execs=0
-for f in sorted(glob.glob(f"{t}/log/fuzz.*.log")):
+for f in sorted(glob.glob(f"{loc}/log/fuzz.*.log")):
     for l in open(f,errors="replace"):
         mm=re.search(r"stat::number_of_executed_units:\s*(\d+)",l)
         if mm: execs+=int(mm.group(1))
 m.update(end_unix=end,end=time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime(end)),wall_seconds=end-m["start_unix"],
-         restarts=runs-1,stop_reason=reason,corpus_files=len(os.listdir(f"{t}/corpus")),artifact_kinds=kinds,artifacts=arts,
+         restarts=runs-1,stop_reason=reason,corpus_files=len(os.listdir(f"{loc}/corpus")),artifact_kinds=kinds,artifacts=arts,
          executed_units_total=execs,gate2_pass=(not any(k in kinds for k in ("crash","leak"))))
 json.dump(m,open(f"{t}/meta.json","w"),indent=1)
 print(f"done {t}: gate2_pass={m['gate2_pass']} wall={m['wall_seconds']}s restarts={m['restarts']} kinds={kinds} execs={execs}")
 PY
+rm -rf "$LOCAL"
