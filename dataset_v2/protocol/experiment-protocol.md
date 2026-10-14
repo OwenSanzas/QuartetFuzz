@@ -32,7 +32,7 @@ Two consequences drive this protocol:
 |---|---|---|
 | 🔒 1.1 | Primary corpus condition is **empty corpus** | Isolates harness quality, which is the paper's dependent variable. The official OSS-Fuzz corpus was accumulated by fuzzing *the gold harness*, so it is not a neutral condition — it is shaped by gold's input handling. |
 | 🔒 1.2 | Secondary condition is the **official global corpus** | Kept as a robustness check, and reframed: because the corpus favours gold, QF reaching parity *under gold's own seeds* is a stronger result than parity under empty corpus. |
-| 🔒 1.3 | **30 trials** per (case × system) on the primary condition | Matches Klees et al. (CCS'18), who ran 30 trials. The "five trials" figure cited by Reviewer A is community convention, not Klees's number. Compute is not a constraint (HPRC). |
+| 🔒 1.3 | **10 trials** per (case × system) on the primary condition | Klees et al. (CCS'18) recommend multiple trials with a statistical test, not a fixed number; their own 30 trials covered a handful of programs and two fuzzers. Here 4 systems × 100 cases × 10 trials × 24 h is 96,000 core-hours, against 288,000 for 30. The headline test is paired across 100 cases (§6.3), so the sample is the cases; 10 trials per case gives a stable per-case median and an IQR. Amended 2026-10-14 from 30, before any system generated a harness (see changelog). |
 | 🔒 1.4 | **24 h** per trial | Klees et al. recommend 24 h and show shorter budgets are misleading. |
 | 🔒 1.5 | Within-case aggregation across trials = **median** | Cross-trial coverage distributions are skewed; a single lucky breakthrough distorts the mean. Consistent with the rank-based statistics we report. |
 | 🔒 1.6 | Cross-case headline = **paired difference distribution**, not two means | Gold coverage on the current dataset is heavily right-skewed (p50 = 9.7%, mean = 17.7%; the top 10 cases hold 39% of total coverage mass), so a mean-vs-mean headline is decided by ~10 cases. |
@@ -55,7 +55,7 @@ Two consequences drive this protocol:
 | ✅ 2.5 | How many does "180-day unmodified" remove? | **dropped** | The rule protected a historical-coverage-stability criterion this protocol no longer uses. Removing it eliminates a free parameter. Target age is recorded and reported, never used as a filter. |
 | ❓ 2.6 | Does the effect size survive 24 h with real seeds? | **open** | **Pilot: 15 cases, full protocol, before committing the full sweep.** If it compresses, the headline moves to violation rate — which was the plan anyway. |
 | ❓ 2.7 | Can an OSS-Fuzz ASan binary run under Apptainer on HPRC? | **open** | Convert `gcr.io/oss-fuzz-base/base-runner` to `.sif`, run one binary. Single point of failure for the whole compute plan. |
-| ❓ 2.8 | Is the HPRC allocation large enough? | **open** | Check the SU balance. Reduce the secondary condition first; **the primary condition's trial count is not negotiable.** |
+| ❓ 2.8 | Is the HPRC allocation large enough? | **open** | Check the SU balance. Reduce the secondary condition first; the primary condition stays at 10 trials (🔒1.3). |
 
 ### Exclusions as actually applied
 
@@ -323,7 +323,7 @@ Two routes, to be decided before writing:
 
 | | Corpus | Trials | Duration | Systems | Cases | core-hours |
 |---|---|---|---|---|---|---|
-| **Primary** | empty | **30** | 24 h | Gold, QF, OFG, PromeFuzz | 100 | 288,000 |
+| **Primary** | empty | **10** | 24 h | Gold, QF, OFG, PromeFuzz | 100 | 96,000 |
 | **Secondary** | official global corpus | 10 ❓2.8 | 24 h | same | 100 | 96,000 |
 
 Sanitizer: ASan + LSan throughout (LSan linked at build time, runs at process exit).
@@ -334,7 +334,7 @@ Model: identical across all LLM-based systems.
 
 1. **Within case, across trials → median.** 🔒1.5
 2. **Also report cross-trial dispersion** (IQR or min–max per case). Klees et al. emphasize
-   reporting variance; with 30 trials there is no excuse not to.
+   reporting variance; with 10 trials per case there is no excuse not to.
 3. **Across cases → the paired difference distribution**, 🔒1.6 not two means:
    median Δ, IQR, count of cases within ±2 pp, Cliff's δ, TOST.
    Means may appear as secondary descriptive statistics **with the skew disclosed**.
@@ -354,9 +354,9 @@ Add this sentence to §5.1 of the paper to pre-empt the Klees objection on stati
 
 ### 6.4 Plots
 
-- **Coverage over time**, median curve with an **IQR ribbon** across the 30 trials, one band
+- **Coverage over time**, median curve with an **IQR ribbon** across the 10 trials, one band
   per system. Klees et al. explicitly recommend plotting performance over time; the prior
-  submission reports only endpoint values. The 24 h × 30 data produces these for free, and
+  submission reports only endpoint values. The 24 h × 10 data produces these for free, and
   they visualize harness quality directly — under an empty corpus, a better harness climbs
   faster.
 - **Paired scatter** (gold coverage on x, QF coverage on y, parity diagonal). 100 points show
@@ -436,4 +436,5 @@ whole pipeline.
 |---|---|
 | 2026-08-18 | Initial draft. Locked §1.1–1.10; opened blocking questions §2.1–2.8. |
 | 2026-10-09 | Added 🔒1.11 (two reference-health gates, G1 corpus replay and G2 24 h empty-corpus run); amended 🔒1.7 accordingly. Gate G2 scheduled on HPRC for all 100 cases; 32 cases also run locally as a cross-environment check. |
+| 2026-10-14 | 🔒1.3 amended: primary condition 30 → **10 trials** per (case × system), 24 h each. Reason: compute (288,000 → 96,000 core-hours for the primary condition within the submission window); the previous rationale misquoted Klees et al., who recommend repeated trials with statistical tests but no fixed count. Decided before any of the four systems generated a harness; no fuzzing result of any system existed. ❓2.8 no longer treats 30 as fixed. Dataset frozen the same day (commit 251d983). |
 | 2026-08-21 | Frame built and benchmark drawn → `QuartetFuzz/dataset_v2/`. Resolved ❓2.3, ❓2.4; dropped ❓2.5's rule. Added exclusion `E5` (build not swappable) and two stratification dimensions (project size, API arity). Per-project cap set to 5, retaining 85 of the previous 100 cases; 15 newly drawn cases still need labels. |
