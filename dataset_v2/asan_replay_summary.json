@@ -21,14 +21,13 @@
   "timestamp": "2026-08-22T10:18:15Z",
   "wall_seconds": 370.9
  },
- "astc-encoder/fuzz_astc_compress": {
-  "status": "cached",
-  "seeds_in_corpus": 2420,
+ "avahi/fuzz-strlst": {
+  "seeds_in_corpus": 417,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 2421,
-   "edges_covered": 3587,
+   "executed_units": 418,
+   "edges_covered": 119,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -40,30 +39,8 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T18:56:20Z",
-  "wall_seconds": 32.8
- },
- "astc-encoder/fuzz_astc_decompress": {
-  "status": "cached",
-  "seeds_in_corpus": 1195,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 1196,
-   "edges_covered": 876,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T18:56:19Z",
-  "wall_seconds": 31.7
+  "timestamp": "2026-08-31T12:18:05Z",
+  "status": "ok"
  },
  "binutils/fuzz_disassemble": {
   "status": "cached",
@@ -87,14 +64,13 @@
   "timestamp": "2026-08-22T10:22:35Z",
   "wall_seconds": 506.8
  },
- "cmake/cmCMakePathFuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 389,
+ "boost/boost_graph_graphml_fuzzer": {
+  "seeds_in_corpus": 7336,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 390,
-   "edges_covered": 196,
+   "executed_units": 7337,
+   "edges_covered": 2474,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -106,17 +82,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T18:56:20Z",
-  "wall_seconds": 1.4
+  "timestamp": "2026-08-31T12:23:53Z",
+  "status": "ok"
  },
- "cmake/cmGeneratorExpressionFuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 2507,
+ "boost/boost_programoptions_fuzzer": {
+  "seeds_in_corpus": 2325,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 2508,
-   "edges_covered": 754,
+   "executed_units": 2326,
+   "edges_covered": 1538,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -128,17 +103,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:14:38Z",
-  "wall_seconds": 4.0
+  "timestamp": "2026-08-31T12:27:14Z",
+  "status": "ok"
  },
- "cmake/cmJSONParserFuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 3341,
+ "boost/boost_regex_replace_fuzzer": {
+  "seeds_in_corpus": 1742,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 3342,
-   "edges_covered": 910,
+   "executed_units": 1743,
+   "edges_covered": 811,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -150,17 +124,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:14:44Z",
-  "wall_seconds": 6.4
+  "timestamp": "2026-08-28T21:59:05Z",
+  "status": "ok"
  },
- "cmake/cmListFileLexerFuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 1342,
+ "capstone/fuzz_disasmnext": {
+  "seeds_in_corpus": 59623,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 1343,
-   "edges_covered": 225,
+   "executed_units": 59624,
+   "edges_covered": 22517,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -172,17 +145,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:15:20Z",
-  "wall_seconds": 35.8
+  "timestamp": "2026-08-31T19:20:08Z",
+  "status": "ok"
  },
- "cmake/cmVersionFuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 364,
+ "capstone/fuzz_disasmv5": {
+  "seeds_in_corpus": 55197,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 365,
-   "edges_covered": 113,
+   "executed_units": 55198,
+   "edges_covered": 19343,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -193,18 +165,17 @@
    "capped": false
   },
   "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:16:16Z",
-  "wall_seconds": 1.4
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T04:28:17Z",
+  "status": "ok"
  },
- "eigen/dense_solver_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 4335,
+ "cjson/cjson_read_fuzzer": {
+  "seeds_in_corpus": 2092,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 4336,
-   "edges_covered": 11880,
+   "executed_units": 2093,
+   "edges_covered": 330,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -216,17 +187,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:22:41Z",
-  "wall_seconds": 5.1
+  "timestamp": "2026-08-31T19:20:32Z",
+  "status": "ok"
  },
- "eigen/geometry_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 1000,
+ "double-conversion/string_to_double_fuzzer": {
+  "seeds_in_corpus": 2860,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 1001,
-   "edges_covered": 322,
+   "executed_units": 2861,
+   "edges_covered": 531,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -238,52 +208,8 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:22:43Z",
-  "wall_seconds": 1.9
- },
- "eigen/sparse_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 2705,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 2706,
-   "edges_covered": 3315,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:22:46Z",
-  "wall_seconds": 2.8
- },
- "eigen/tensor_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 344,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 345,
-   "edges_covered": 68,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:22:48Z",
-  "wall_seconds": 2.2
+  "timestamp": "2026-09-01T05:46:55Z",
+  "status": "ok"
  },
  "fast_float/from_chars": {
   "status": "cached",
@@ -307,14 +233,13 @@
   "timestamp": "2026-08-23T03:07:14Z",
   "wall_seconds": 2.8
  },
- "flatbuffers/64bit_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 3827,
+ "flac/fuzzer_encoder": {
+  "seeds_in_corpus": 11810,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 3828,
-   "edges_covered": 382,
+   "executed_units": 11811,
+   "edges_covered": 3300,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -326,8 +251,50 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:22:50Z",
-  "wall_seconds": 2.1
+  "timestamp": "2026-08-31T21:03:29Z",
+  "status": "ok"
+ },
+ "flac/fuzzer_encoder_v2": {
+  "seeds_in_corpus": 12285,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 12286,
+   "edges_covered": 3985,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T21:11:51Z",
+  "status": "ok"
+ },
+ "flac/fuzzer_exo": {
+  "seeds_in_corpus": 6159,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 6160,
+   "edges_covered": 1247,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T04:07:28Z",
+  "status": "ok"
  },
  "flatbuffers/scalar_fuzzer": {
   "status": "cached",
@@ -350,28 +317,6 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T10:23:32Z",
   "wall_seconds": 15.0
- },
- "flatbuffers/verifier_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 6379,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 6380,
-   "edges_covered": 1806,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:23:36Z",
-  "wall_seconds": 4.6
  },
  "glaze/binary_reflection": {
   "status": "cached",
@@ -505,28 +450,6 @@
   "timestamp": "2026-08-22T19:10:16Z",
   "wall_seconds": 618.7
  },
- "hpn-ssh/sig_fuzz": {
-  "status": "cached",
-  "seeds_in_corpus": 1216,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 1217,
-   "edges_covered": 190,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T19:05:50Z",
-  "wall_seconds": 2.4
- },
  "hunspell/morphfuzzer": {
   "status": "cached",
   "seeds_in_corpus": 19217,
@@ -548,28 +471,6 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T19:19:10Z",
   "wall_seconds": 800.1
- },
- "hwloc/hwloc_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 159,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 160,
-   "edges_covered": 41,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:25:03Z",
-  "wall_seconds": 1.2
  },
  "icu/date_time_pattern_generator_fuzzer": {
   "status": "cached",
@@ -681,14 +582,13 @@
   "timestamp": "2026-08-22T10:27:29Z",
   "wall_seconds": 3.1
  },
- "iperf/auth_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 97,
+ "janet/fuzz_dostring": {
+  "seeds_in_corpus": 6257,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 98,
-   "edges_covered": 13,
+   "executed_units": 6258,
+   "edges_covered": 869,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -700,17 +600,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T19:10:17Z",
-  "wall_seconds": 1.4
+  "timestamp": "2026-08-31T19:21:40Z",
+  "status": "ok"
  },
- "lcms/cmsIT8_load_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 2550,
+ "jq/jq_fuzz_fixed": {
+  "seeds_in_corpus": 8319,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 2551,
-   "edges_covered": 556,
+   "executed_units": 8320,
+   "edges_covered": 4441,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -722,52 +621,8 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T19:19:14Z",
-  "wall_seconds": 3.8
- },
- "lcms/cms_md5_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 1416,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 127,
-   "executed_units": 0,
-   "edges_covered": 0,
-   "complete": false
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T20:53:39Z",
-  "wall_seconds": 3.1
- },
- "leptonica/boxfunc_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 25,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 127,
-   "executed_units": 0,
-   "edges_covered": 0,
-   "complete": false
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-23T03:07:13Z",
-  "wall_seconds": 2.3
+  "timestamp": "2026-08-31T21:19:09Z",
+  "status": "ok"
  },
  "leptonica/graphics_fuzzer": {
   "status": "cached",
@@ -812,28 +667,6 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T10:27:32Z",
   "wall_seconds": 3.0
- },
- "libevent/http_message_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 3141,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 3142,
-   "edges_covered": 728,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:27:46Z",
-  "wall_seconds": 13.7
  },
  "libevent/utils_fuzzer": {
   "status": "cached",
@@ -901,50 +734,6 @@
   "timestamp": "2026-08-22T10:31:53Z",
   "wall_seconds": 18.4
  },
- "libgit2/midx_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 2066,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 2067,
-   "edges_covered": 335,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:35:12Z",
-  "wall_seconds": 2.6
- },
- "libgit2/patch_parse_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 2735,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 2736,
-   "edges_covered": 439,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:35:55Z",
-  "wall_seconds": 5.6
- },
  "libidn2/libidn2_to_ascii_8z_fuzzer": {
   "status": "cached",
   "seeds_in_corpus": 2904,
@@ -966,6 +755,48 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T19:19:37Z",
   "wall_seconds": 2.2
+ },
+ "libidn2/libidn2_to_unicode_8z8z_fuzzer": {
+  "seeds_in_corpus": 969,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 970,
+   "edges_covered": 242,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-11T21:19:10Z",
+  "status": "ok"
+ },
+ "libiec61850/fuzz_mms_decode": {
+  "seeds_in_corpus": 945,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 946,
+   "edges_covered": 181,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:31:54Z",
+  "status": "ok"
  },
  "libplist/bplist_fuzzer": {
   "status": "cached",
@@ -1054,6 +885,69 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T19:19:39Z",
   "wall_seconds": 1.5
+ },
+ "libsodium/crypto_sign_fuzzer": {
+  "seeds_in_corpus": 243,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 244,
+   "edges_covered": 163,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-12T01:18:24Z",
+  "status": "ok"
+ },
+ "libsodium/secret_key_auth_fuzzer": {
+  "seeds_in_corpus": 154,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 155,
+   "edges_covered": 73,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-12T06:13:07Z",
+  "status": "ok"
+ },
+ "libsodium/secretbox_easy_fuzzer": {
+  "seeds_in_corpus": 358,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 359,
+   "edges_covered": 148,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-12T06:13:03Z",
+  "status": "ok"
  },
  "libtasn1/asn1_decode_simple_ber_fuzzer": {
   "status": "cached",
@@ -1187,28 +1081,6 @@
   "timestamp": "2026-08-22T10:47:34Z",
   "wall_seconds": 633.7
  },
- "libvips/mosaic_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 27883,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 27884,
-   "edges_covered": 38150,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T10:56:31Z",
-  "wall_seconds": 642.4
- },
  "libvips/smartcrop_fuzzer": {
   "status": "cached",
   "seeds_in_corpus": 29503,
@@ -1230,72 +1102,6 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T11:09:54Z",
   "wall_seconds": 1339.5
- },
- "libvips/thumbnail_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 33553,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 33554,
-   "edges_covered": 47197,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:07:16Z",
-  "wall_seconds": 645.1
- },
- "libvips/vips_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 34723,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 34724,
-   "edges_covered": 65211,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:17:34Z",
-  "wall_seconds": 1042.8
- },
- "libyaml/libyaml_emitter_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 9882,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 9883,
-   "edges_covered": 3171,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:18:50Z",
-  "wall_seconds": 75.0
  },
  "libyaml/libyaml_loader_fuzzer": {
   "status": "cached",
@@ -1385,6 +1191,69 @@
   "timestamp": "2026-08-22T11:21:59Z",
   "wall_seconds": 23.9
  },
+ "llhttp/fuzz_parser": {
+  "seeds_in_corpus": 4591,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 4592,
+   "edges_covered": 1118,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:32:28Z",
+  "status": "ok"
+ },
+ "lz4/compress_frame_fuzzer": {
+  "seeds_in_corpus": 6725,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 6726,
+   "edges_covered": 1243,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-28T23:06:25Z",
+  "status": "ok"
+ },
+ "lz4/decompress_frame_fuzzer": {
+  "seeds_in_corpus": 2628,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 2629,
+   "edges_covered": 514,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:32:48Z",
+  "status": "ok"
+ },
  "lz4/decompress_fuzzer": {
   "status": "cached",
   "seeds_in_corpus": 1008,
@@ -1406,6 +1275,27 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T20:53:39Z",
   "wall_seconds": 3.2
+ },
+ "lz4/round_trip_hc_fuzzer": {
+  "seeds_in_corpus": 9543,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 9544,
+   "edges_covered": 986,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:34:02Z",
+  "status": "ok"
  },
  "mbedtls/fuzz_pkcs7": {
   "status": "cached",
@@ -1495,14 +1385,13 @@
   "timestamp": "2026-08-22T11:22:10Z",
   "wall_seconds": 1.9
  },
- "mbedtls/usepsa-fuzz_x509csr": {
-  "status": "cached",
-  "seeds_in_corpus": 2,
+ "md4c/fuzz-mdhtml": {
+  "seeds_in_corpus": 21522,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 3,
-   "edges_covered": 156,
+   "executed_units": 21523,
+   "edges_covered": 3206,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1514,17 +1403,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:22:12Z",
-  "wall_seconds": 1.2
+  "timestamp": "2026-09-01T06:15:07Z",
+  "status": "ok"
  },
- "openssh/privkey_fuzz": {
-  "status": "cached",
-  "seeds_in_corpus": 3040,
+ "miniz/compress_fuzzer": {
+  "seeds_in_corpus": 3064,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 3041,
-   "edges_covered": 604,
+   "executed_units": 3065,
+   "edges_covered": 676,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1536,17 +1424,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:22:14Z",
-  "wall_seconds": 2.3
+  "timestamp": "2026-08-31T19:37:02Z",
+  "status": "ok"
  },
- "openssh/pubkey_fuzz": {
-  "status": "cached",
-  "seeds_in_corpus": 2796,
+ "miniz/small_fuzzer": {
+  "seeds_in_corpus": 2381,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 2797,
-   "edges_covered": 505,
+   "executed_units": 2382,
+   "edges_covered": 652,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1558,17 +1445,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:22:16Z",
-  "wall_seconds": 2.3
+  "timestamp": "2026-08-31T20:48:44Z",
+  "status": "ok"
  },
- "openssh/sig_fuzz": {
-  "status": "cached",
-  "seeds_in_corpus": 1179,
+ "miniz/uncompress2_fuzzer": {
+  "seeds_in_corpus": 1217,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 1180,
-   "edges_covered": 190,
+   "executed_units": 1218,
+   "edges_covered": 233,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1580,17 +1466,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:22:18Z",
-  "wall_seconds": 1.8
+  "timestamp": "2026-08-31T20:49:45Z",
+  "status": "ok"
  },
- "openssh/sshsig_fuzz": {
-  "status": "cached",
-  "seeds_in_corpus": 2136,
+ "miniz/uncompress_fuzzer": {
+  "seeds_in_corpus": 1193,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 2137,
-   "edges_covered": 556,
+   "executed_units": 1194,
+   "edges_covered": 237,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1602,8 +1487,92 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:22:20Z",
-  "wall_seconds": 2.2
+  "timestamp": "2026-08-31T19:38:08Z",
+  "status": "ok"
+ },
+ "miniz/zip_fuzzer": {
+  "seeds_in_corpus": 5133,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 5134,
+   "edges_covered": 549,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T04:29:08Z",
+  "status": "ok"
+ },
+ "msgpack-c/unpack_pack_fuzzer": {
+  "seeds_in_corpus": 2183,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 2184,
+   "edges_covered": 504,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:39:52Z",
+  "status": "ok"
+ },
+ "muparser/set_eval_fuzzer": {
+  "seeds_in_corpus": 3796,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 3797,
+   "edges_covered": 1789,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T19:40:33Z",
+  "status": "ok"
+ },
+ "nghttp2/nghttp2_fuzzer_fdp": {
+  "seeds_in_corpus": 12290,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 12291,
+   "edges_covered": 1590,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T20:22:11Z",
+  "status": "ok"
  },
  "pugixml/fuzz_parse": {
   "status": "cached",
@@ -1649,14 +1618,13 @@
   "timestamp": "2026-08-22T11:23:15Z",
   "wall_seconds": 51.5
  },
- "pycryptodome/md4_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 262,
+ "sentencepiece/model_load_fuzzer": {
+  "seeds_in_corpus": 9469,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 263,
-   "edges_covered": 38,
+   "executed_units": 9470,
+   "edges_covered": 4923,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1667,18 +1635,17 @@
    "capped": false
   },
   "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:23:17Z",
-  "wall_seconds": 1.4
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T04:44:42Z",
+  "status": "ok"
  },
- "pycryptodome/ripemd160_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 265,
+ "sentencepiece/processor_text_fuzzer": {
+  "seeds_in_corpus": 1988,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 266,
-   "edges_covered": 48,
+   "executed_units": 1989,
+   "edges_covered": 1933,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1689,18 +1656,17 @@
    "capped": false
   },
   "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:23:18Z",
-  "wall_seconds": 1.5
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T17:59:44Z",
+  "status": "ok"
  },
- "pycryptodome/sha224_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 298,
+ "sentencepiece/trainer_fuzzer": {
+  "seeds_in_corpus": 9159,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 299,
-   "edges_covered": 45,
+   "executed_units": 9160,
+   "edges_covered": 12292,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1711,18 +1677,17 @@
    "capped": false
   },
   "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:23:20Z",
-  "wall_seconds": 1.5
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T23:31:57Z",
+  "status": "ok"
  },
- "pycryptodome/sha256_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 299,
+ "simdjson/fuzz_dump_raw_tape": {
+  "seeds_in_corpus": 8998,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 300,
-   "edges_covered": 45,
+   "executed_units": 8999,
+   "edges_covered": 1114,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1734,52 +1699,8 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:23:21Z",
-  "wall_seconds": 1.7
- },
- "pycryptodome/sha384_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 304,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 305,
-   "edges_covered": 45,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:23:23Z",
-  "wall_seconds": 1.6
- },
- "simd/simd_load_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 7397,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 7398,
-   "edges_covered": 2385,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T19:21:51Z",
-  "wall_seconds": 132.1
+  "timestamp": "2026-08-31T20:28:03Z",
+  "status": "ok"
  },
  "simdjson/fuzz_minify": {
   "status": "cached",
@@ -1825,14 +1746,13 @@
   "timestamp": "2026-08-22T19:21:58Z",
   "wall_seconds": 7.4
  },
- "unicorn/fuzz_emu_s390x_be": {
-  "status": "cached",
-  "seeds_in_corpus": 28223,
+ "uriparser/uri_dissect_query_malloc_fuzzer": {
+  "seeds_in_corpus": 1547,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 28224,
-   "edges_covered": 11329,
+   "executed_units": 1548,
+   "edges_covered": 242,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1844,17 +1764,16 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-23T03:10:59Z",
-  "wall_seconds": 228.0
+  "timestamp": "2026-08-31T20:31:58Z",
+  "status": "ok"
  },
- "wabt/read_binary_ir_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 20638,
+ "uriparser/uri_free_fuzzer": {
+  "seeds_in_corpus": 6929,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 20639,
-   "edges_covered": 8408,
+   "executed_units": 6930,
+   "edges_covered": 1704,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1866,8 +1785,50 @@
   },
   "deterministic": true,
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:53:25Z",
-  "wall_seconds": 17.6
+  "timestamp": "2026-08-31T20:32:15Z",
+  "status": "ok"
+ },
+ "usrsctp/fuzzer_listen": {
+  "seeds_in_corpus": 3217,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 3218,
+   "edges_covered": 659,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T21:19:55Z",
+  "status": "ok"
+ },
+ "util-linux/test_fdisk_script_fuzz": {
+  "seeds_in_corpus": 3765,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 3766,
+   "edges_covered": 727,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-12T12:19:18Z",
+  "status": "ok"
  },
  "wabt/wasm2wat_fuzzer": {
   "status": "cached",
@@ -1891,14 +1852,13 @@
   "timestamp": "2026-08-22T11:53:52Z",
   "wall_seconds": 33.6
  },
- "wabt/wasm_interp_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 11114,
+ "woff2/convert_woff2ttf_fuzzer": {
+  "seeds_in_corpus": 8614,
   "phase1_full_replay": {
    "flags": "-runs=0 -detect_leaks=0",
    "exit_code": 0,
-   "executed_units": 11115,
-   "edges_covered": 6351,
+   "executed_units": 8615,
+   "edges_covered": 1849,
    "complete": true
   },
   "phase2_poc_collection": {
@@ -1909,31 +1869,9 @@
    "capped": false
   },
   "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:53:39Z",
-  "wall_seconds": 13.9
- },
- "wabt/wasm_objdump_fuzzer": {
-  "status": "cached",
-  "seeds_in_corpus": 13172,
-  "phase1_full_replay": {
-   "flags": "-runs=0 -detect_leaks=0",
-   "exit_code": 0,
-   "executed_units": 0,
-   "edges_covered": 0,
-   "complete": true
-  },
-  "phase2_poc_collection": {
-   "flags": "-runs=0 (leak detection on), iterative",
-   "rounds": 1,
-   "artifacts": 0,
-   "distinct_faults": 0,
-   "capped": false
-  },
-  "deterministic": true,
-  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
-  "timestamp": "2026-08-22T11:54:38Z",
-  "wall_seconds": 59.4
+  "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+  "timestamp": "2026-10-10T04:11:20Z",
+  "status": "ok"
  },
  "woff2/convert_woff2ttf_fuzzer_new_entry": {
   "status": "cached",
@@ -1956,6 +1894,27 @@
   "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
   "timestamp": "2026-08-22T20:59:39Z",
   "wall_seconds": 359.7
+ },
+ "wxwidgets/zip": {
+  "seeds_in_corpus": 2897,
+  "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 2898,
+   "edges_covered": 677,
+   "complete": true
+  },
+  "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+  },
+  "deterministic": true,
+  "image": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+  "timestamp": "2026-08-31T20:33:52Z",
+  "status": "ok"
  },
  "yara/dex_fuzzer": {
   "status": "cached",

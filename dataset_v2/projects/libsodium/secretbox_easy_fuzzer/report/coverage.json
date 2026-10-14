@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1325,
+  "count": 8536,
+  "percent": 15.522
+ },
+ "functions": {
+  "covered": 76,
+  "count": 448,
+  "percent": 16.964
+ },
+ "regions": {
+  "covered": 1186,
+  "count": 15505,
+  "percent": 7.649
+ },
+ "branches": {
+  "covered": 198,
+  "count": 3750,
+  "percent": 5.28
+ },
+ "scope": "/src/libsodium/",
+ "files_in_scope": 92,
+ "files_total": 94,
+ "all_linked": {
+  "lines": {
+   "covered": 1361,
+   "count": 8572,
+   "percent": 15.877
+  },
+  "functions": {
+   "covered": 80,
+   "count": 452,
+   "percent": 17.699
+  },
+  "regions": {
+   "covered": 1212,
+   "count": 15556,
+   "percent": 7.791
+  },
+  "branches": {
+   "covered": 203,
+   "count": 3760,
+   "percent": 5.399
+  }
+ },
+ "timestamp": "2026-10-12T06:13:04Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

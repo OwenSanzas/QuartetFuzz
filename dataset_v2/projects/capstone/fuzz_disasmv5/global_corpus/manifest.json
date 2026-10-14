@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/capstone-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/capstone_fuzz_disasmv5/public.zip",
+ "qualified_name": "capstone_fuzz_disasmv5",
+ "seeds": 55197,
+ "unpacked_bytes": 11560210,
+ "zip_bytes": 10660586,
+ "zip_sha256": "0a0a3d3a88b89de9cbfbcbd39703d3140f1b5638e1c8fb789e30b79563c520e9"
+}

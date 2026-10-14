@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_secretbox_easy_fuzzer/public.zip",
+ "qualified_name": "libsodium_secretbox_easy_fuzzer",
+ "seeds": 358,
+ "unpacked_bytes": 74441149,
+ "zip_bytes": 13971792,
+ "zip_sha256": "33f5e99e018c6165efed11bea9f684f03028ee5bd931629919589aa0f08bd019"
+}

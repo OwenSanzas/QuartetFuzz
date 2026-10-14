@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_zip_fuzzer/public.zip",
+ "qualified_name": "miniz_zip_fuzzer",
+ "seeds": 5134,
+ "unpacked_bytes": 12848727,
+ "zip_bytes": 3362355,
+ "zip_sha256": "87775ee86f43e93c2df7e25ac226c49ad50330eb321ff3b94856c4e6538505a8"
+}

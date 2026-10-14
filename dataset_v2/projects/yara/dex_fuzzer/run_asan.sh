@@ -43,8 +43,8 @@ run_replay() {   # $1 = corpus dir on host, $2... = extra libFuzzer flags
 echo "phase 1: full replay, leak detection off"
 run_replay "$PWD/global_corpus/seeds" -detect_leaks=0 > report/run_asan_phase1.log 2>&1
 p1rc=$?
-execs=$(grep -oE 'stat::number_of_executed_units:[[:space:]]*[0-9]+' report/run_asan_phase1.log | tail -1 | grep -oE '[0-9]+$')
-cov=$(grep -oE 'DONE[[:space:]]+cov:[[:space:]]*[0-9]+' report/run_asan_phase1.log | tail -1 | grep -oE '[0-9]+$')
+execs=$(grep -aoE 'stat::number_of_executed_units:[[:space:]]*[0-9]+' report/run_asan_phase1.log | tail -1 | grep -oE '[0-9]+$')
+cov=$(grep -aoE 'DONE[[:space:]]+cov:[[:space:]]*[0-9]+' report/run_asan_phase1.log | tail -1 | grep -oE '[0-9]+$')
 echo "  rc=$p1rc executed=${execs:-?} cov=${cov:-?}"
 
 # ---- phase 2: iterative PoC collection ------------------------------------
@@ -59,12 +59,12 @@ while :; do
   rc=$?
   [ $rc -eq 0 ] && break
   [ $round -ge $MAX_ROUNDS ] && { echo "reached MAX_ROUNDS=$MAX_ROUNDS" >> report/run_asan.log; break; }
-  bad=$(grep -oE 'Test unit written to \./?crashes/[a-z]+-[0-9a-f]{40}' report/run_asan.log | tail -1 | sed 's|.*/||')
+  bad=$(grep -aoE 'Test unit written to \./?crashes/[a-z]+-[0-9a-f]{40}' report/run_asan.log | tail -1 | sed 's|.*/||')
   [ -n "$bad" ] || bad=$(ls -t report/crashes 2>/dev/null | grep -E '^(crash|leak|timeout|oom)-[0-9a-f]{40}$' | head -1)
   [ -n "$bad" ] || { echo "no artifact named (rc=$rc), stopping" >> report/run_asan.log; break; }
   # record which fault this artifact represents, so identical bugs collapse
-  grep -oE 'DEDUP_TOKEN:.*' report/run_asan.log | tail -1 > "report/crashes/$bad.dedup" 2>/dev/null
-  grep -B2 -A25 'ERROR: (Address|Leak)Sanitizer' report/run_asan.log 2>/dev/null | tail -40 > "report/crashes/$bad.trace" || true
+  grep -aoE 'DEDUP_TOKEN:.*' report/run_asan.log | tail -1 > "report/crashes/$bad.dedup" 2>/dev/null
+  grep -a -B2 -A25 'ERROR: (Address|Leak)Sanitizer' report/run_asan.log 2>/dev/null | tail -40 > "report/crashes/$bad.trace" || true
   sha=${bad##*-}
   found=$(find "$WORK/corpus" -type f | while read -r f; do
             [ "$(sha1sum "$f" | cut -c1-40)" = "$sha" ] && { echo "$f"; break; }; done)

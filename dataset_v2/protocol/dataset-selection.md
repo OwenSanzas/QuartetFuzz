@@ -109,30 +109,38 @@ coverage. Twenty-three candidates were replaced on this ground.
 
 *Health gate.* A harness that passes replay must also fuzz for 24 hours under exactly the main
 experiment's conditions (same image, `-rss_limit_mb=2560 -timeout=25`, the image's default
-`ASAN_OPTIONS`, empty corpus, one core) without producing any `crash-` or `leak-` artifact;
-`oom-` and `timeout-` are resource events, not faults. The replay gate shows that the reference
+`ASAN_OPTIONS`, empty corpus, one core) without producing any `crash-` or `leak-` artifact, and with fewer than 24 `oom-` artifacts
+(on average under one per hour); isolated `oom-` and `timeout-` artifacts are resource events,
+not faults, but a harness that exhausts memory every hour spends its budget restarting. The replay gate shows that the reference
 can execute in our measurement setup; the health gate shows that it is in a usable state at the
 pinned revision. ClusterFuzz quarantines crash-triggering inputs out of the corpus, so a harness
 with a known, unfixed crash can replay cleanly and still crash within seconds from an empty
 corpus. Both gates look only at the gold harness, run before any system generates a harness,
 apply identically to every case, and make the baseline stronger. Cases that fail are replaced
-from the same frame under the same seed and are retained as a reported secondary set.
+from the same frame under the same seed and are retained as a reported secondary set. Twelve
+cases were replaced on this ground. One run was disrupted by our own tooling: the log pipe of
+`util-linux/test_fdisk_script_fuzz` broke after 77,064 s and the container ran on detached and
+unlogged, leaving a `crash-` artifact that has no report and does not reproduce on the pinned
+build in 5,000 executions; the run's first 77,064 s were kept and the remaining 9,336 s were
+fuzzed on its corpus, without a fault, and a separate uninterrupted 24-hour rerun is recorded.
 
 *Never used for selection.* Coverage level, whether the harness crashes under fuzzing, and
 whether it satisfies P1–P4 as judged by our checker. Coverage is the dependent variable; a
 threshold on it would make the result true by construction. Letting our checker certify the
-baseline would be circular. The lowest line coverage in the set is 1.20% and eleven cases lie
+baseline would be circular. The lowest line coverage in the set is 1.20% and nine cases lie
 below 5%; all are kept and reported.
 
 *Versions.* All cases are pinned to one OSS-Fuzz commit and, per project, to the upstream
 revision OSS-Fuzz built on 2026-08-21, taken from its published `srcmap`.
 
-*Composition.* 100 harnesses, 48 projects, 94 distinct target functions (five yara harnesses
-share `yr_rules_scan_mem`). Arity strata: 54 stateful, 27 composite, 19 single-call. Nine
-targets entered OSS-Fuzz after the generator model's training cutoff and form a contamination
-lower-bound check. Eighteen cases survive from our earlier 100-case set; results are reported
-separately for retained and newly drawn cases. Line coverage of the gold harnesses on their own
-corpora ranges from 1.20% to 97.43% (median 23.91%); the 785,729 seeds replay with zero faults.
+*Composition.* 100 harnesses, 46 projects, 93 distinct target functions (five yara harnesses
+share `yr_rules_scan_mem`). Arity strata: 56 stateful, 27 composite, 17 single-call; the
+single-call reserve was exhausted, so two single-call slots were filled from the overall reserve
+order. Eleven targets entered OSS-Fuzz after the generator model's training cutoff and form a
+contamination lower-bound check. Eighteen cases survive from our earlier 100-case set; results are
+reported separately for retained and newly drawn cases. Line coverage of the gold harnesses on
+their own corpora ranges from 1.20% to 97.43% (median 23.57%); the 688,672 seeds replay with zero
+faults.
 
 *Disclosure.* The maintenance, corpus-size, and public-API conditions were formulated after the
 first draw and applied to cases already held; each is measured on the input side and none
@@ -154,9 +162,9 @@ gold harness were discarded.
 | 抽样种子 20260829 | `tools_all/draw_final.json`（首次抽样种子 20260821 见 `selection_report.json`） |
 | E14 24 个 | `replacements.json` 第 10 轮 |
 | 资格门替换 23 个 | `draw_final.json` 的 `skipped_known_fail` 12 个 + `replacements.json` 第 10 轮 `rejected_by_the_qualification_gate` 11 个 |
-| 100 / 48 / 94 / 54·27·19 / 9 / 18 | `benchmark_100_full.jsonl` 的 `project`、`target_function`、`stratum_arity`、`is_contamination_control`、`origin` |
-| 覆盖率 1.20–97.43%，中位 23.91%，11 个 < 5% | 各 case `report/coverage.json` 的 `lines.percent` |
-| 785,729 种子，100 个 exit 0，0 故障 | 各 case `report/replay.json` |
+| 100 / 46 / 93 / 56·27·17 / 11 / 18 | `benchmark_100_full.jsonl` 的 `project`、`target_function`、`stratum_arity`、`is_contamination_control`、`origin` |
+| 覆盖率 1.20–97.43%，中位 23.57%，9 个 < 5% | 各 case `report/coverage.json` 的 `lines.percent` |
+| 688,672 种子，100 个 exit 0，0 故障 | 各 case `report/replay.json` |
 | OSS-Fuzz pin 955c6866 | `benchmark_100.jsonl` 的 `version_pins.oss_fuzz_revision` |
 
 ---
@@ -195,3 +203,4 @@ gold harness were discarded.
 | 2026-10-07 | 初稿。从数据文件重算全部数字；确定资格门的论文表述；列出待核实项与文档修订清单。 |
 | 2026-10-09 | 新增健康门（24 小时空语料运行无 crash/leak）作为第二道执行侧准入条件，与协议 🔒1.11 对应；在第二批 pilot 结束前、任何系统生成之前写入。 |
 | 2026-10-09 | 修正资格门的依据：依据 ClusterFuzz 源码（corpus_pruning_task 的隔离机制），回放故障说明的是我们的构建无法执行 ClusterFuzz 认为正常的输入，而非"已暴露未修复的 bug"；明确该门不能检测可达的未修复 bug，并以 wabt 的 pilot 结果为证。案例列表与选择记录未变。 |
+| 2026-10-14 | 第 14 轮（健康门）结束：12 个 case 因健康门被替换，数字按最终 100 个重算（46 项目、93 个目标函数、分层 56·27·17、污染对照 11、种子 688,672、覆盖率中位 23.57%、9 个 < 5%）。健康门加入 oom 频率条件（24 小时内 ≥24 个 oom- 判失败，2026-10-12 定）。记录 util-linux 运行中断及补跑。Declared-in 修正 20 个 prompt（`_private/review/declared_in_fix_20261014.json`）；覆盖率重放改为分块（`_private/review/coverage_replay_fix_20261014.json`）。 |

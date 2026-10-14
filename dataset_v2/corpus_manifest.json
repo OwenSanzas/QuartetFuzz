@@ -8,23 +8,16 @@
   "zip_bytes": 9278721,
   "zip_sha256": "eecf31d56f5912da193e5488f5eba7fa8436b276d9b0df256ff7f59d76e8be69"
  },
- "astc-encoder/fuzz_astc_compress": {
+ "avahi/fuzz-strlst": {
   "ok": true,
-  "url": "https://storage.googleapis.com/astc-encoder-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/astc-encoder_fuzz_astc_compress/public.zip",
-  "qualified_name": "astc-encoder_fuzz_astc_compress",
-  "seeds": 2420,
-  "unpacked_bytes": 10154583,
-  "zip_bytes": 1019318,
-  "zip_sha256": "3371be403a2089c212898c6c646919ced4980169cd510384bebad047dbf38b1e"
- },
- "astc-encoder/fuzz_astc_decompress": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/astc-encoder-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/astc-encoder_fuzz_astc_decompress/public.zip",
-  "qualified_name": "astc-encoder_fuzz_astc_decompress",
-  "seeds": 1195,
-  "unpacked_bytes": 53858859,
-  "zip_bytes": 2163588,
-  "zip_sha256": "5dd8c16a7b82309898ce972a253992ec525c9901f7c1216e829923feaabb2155"
+  "url": "https://storage.googleapis.com/avahi-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/avahi_fuzz-strlst/public.zip",
+  "qualified_name": "avahi_fuzz-strlst",
+  "seeds": 417,
+  "unpacked_bytes": 46860612,
+  "zip_bytes": 639940,
+  "zip_sha256": "3a7e32a8508853224d648b98c724912c34dc411a058ac1ff129d36cd57e47b02",
+  "content_digest_sha256": "6f8e61dff1d726c55f5b5abd64a289d7331c2ba93d8116ca5f87e0c24f81fb1b",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "binutils/fuzz_disassemble": {
   "ok": true,
@@ -35,86 +28,78 @@
   "zip_bytes": 23420366,
   "zip_sha256": "420f616ae74d045d53a341bbd0ba91bf31473f02cac286c497a2419fdc891eee"
  },
- "cmake/cmCMakePathFuzzer": {
+ "boost/boost_graph_graphml_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmCMakePathFuzzer/public.zip",
-  "qualified_name": "cmake_cmCMakePathFuzzer",
-  "seeds": 389,
-  "unpacked_bytes": 14838554,
-  "zip_bytes": 191925,
-  "zip_sha256": "b08ca6a9cfda7eb6b75ed2059434e2eeb248cf560c54df927278dfe8cae0f16a"
+  "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_graph_graphml_fuzzer/public.zip",
+  "qualified_name": "boost_graph_graphml_fuzzer",
+  "seeds": 7336,
+  "unpacked_bytes": 159492154,
+  "zip_bytes": 5213732,
+  "zip_sha256": "8c0308cb8d48fd909b17e352f4ebbc218f496267776da6819d8dbd49f9fef43e",
+  "content_digest_sha256": "6beaf39718acb07591e5a449bcb06fb47645ae4bb969175625cc28e48e09da88",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "cmake/cmGeneratorExpressionFuzzer": {
+ "boost/boost_programoptions_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmGeneratorExpressionFuzzer/public.zip",
-  "qualified_name": "cmake_cmGeneratorExpressionFuzzer",
-  "seeds": 2507,
-  "unpacked_bytes": 11479841,
-  "zip_bytes": 1052256,
-  "zip_sha256": "1ba4b9c6f62928146229596c925c2b19755d79fdf717bea9c647d3b7f137ddc5"
+  "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_programoptions_fuzzer/public.zip",
+  "qualified_name": "boost_programoptions_fuzzer",
+  "seeds": 2325,
+  "unpacked_bytes": 140694185,
+  "zip_bytes": 2135434,
+  "zip_sha256": "a7cfc5d37ba24f122de13e97f885b7bfc3ff27521da513789941bf51a6ed5dc2",
+  "content_digest_sha256": "3b0969c35b137623ff54e248a018957f42fc20725c6321a3992abec69bcc479e",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "cmake/cmJSONParserFuzzer": {
+ "boost/boost_regex_replace_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmJSONParserFuzzer/public.zip",
-  "qualified_name": "cmake_cmJSONParserFuzzer",
-  "seeds": 3341,
-  "unpacked_bytes": 26350208,
-  "zip_bytes": 4737486,
-  "zip_sha256": "7dc22c3ff348aedbdb1efee1802014fadab2aa3603ae6ef78df98c32d48d3425"
+  "url": "https://storage.googleapis.com/boost-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/boost_regex_replace_fuzzer/public.zip",
+  "qualified_name": "boost_regex_replace_fuzzer",
+  "seeds": 1742,
+  "unpacked_bytes": 58457783,
+  "zip_bytes": 1734525,
+  "zip_sha256": "73843dd0556c7b6c0bf58481712445113fb7436b55f2afbdd62b6cc1cdedc28d",
+  "content_digest_sha256": "05ab424bf54fd01c39dcbdb2cb8ea4ff825898edf72b98d8133aa9e92daf4305",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "cmake/cmListFileLexerFuzzer": {
+ "capstone/fuzz_disasmnext": {
   "ok": true,
-  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmListFileLexerFuzzer/public.zip",
-  "qualified_name": "cmake_cmListFileLexerFuzzer",
-  "seeds": 1342,
-  "unpacked_bytes": 14218154,
-  "zip_bytes": 692645,
-  "zip_sha256": "3d6d42e9273d9f0a0b2c7afd0492088ea9d686bbecb7099c3cd1b190eecb5de6"
+  "url": "https://storage.googleapis.com/capstone-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/capstone_fuzz_disasmnext/public.zip",
+  "qualified_name": "capstone_fuzz_disasmnext",
+  "seeds": 59629,
+  "unpacked_bytes": 13304750,
+  "zip_bytes": 11931752,
+  "zip_sha256": "96028642f720e74a81cfef57e969b49d8bb880caf4e88a597e34ab88010dffdc",
+  "content_digest_sha256": "e2b1da0fc034b5275f807682961d8b7a5ed14b38e35c67850cf92716ab549444",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "cmake/cmVersionFuzzer": {
+ "capstone/fuzz_disasmv5": {
   "ok": true,
-  "url": "https://storage.googleapis.com/cmake-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cmake_cmVersionFuzzer/public.zip",
-  "qualified_name": "cmake_cmVersionFuzzer",
-  "seeds": 364,
-  "unpacked_bytes": 14702134,
-  "zip_bytes": 2287533,
-  "zip_sha256": "0820d326e6a645f27d5b16f6a9f3cc3805536a10066d1b0d68f1023170b8a859"
+  "url": "https://storage.googleapis.com/capstone-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/capstone_fuzz_disasmv5/public.zip",
+  "qualified_name": "capstone_fuzz_disasmv5",
+  "seeds": 55197,
+  "unpacked_bytes": 11560210,
+  "zip_bytes": 10660586,
+  "zip_sha256": "0a0a3d3a88b89de9cbfbcbd39703d3140f1b5638e1c8fb789e30b79563c520e9"
  },
- "eigen/dense_solver_fuzzer": {
+ "cjson/cjson_read_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_dense_solver_fuzzer/public.zip",
-  "qualified_name": "eigen_dense_solver_fuzzer",
-  "seeds": 4335,
-  "unpacked_bytes": 44961978,
-  "zip_bytes": 2169115,
-  "zip_sha256": "a8938fb8ad26b28498d7f9a11804990c1fd4d851d2111b4b19e6c3b845426766"
+  "url": "https://storage.googleapis.com/cjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cjson_read_fuzzer/public.zip",
+  "qualified_name": "cjson_read_fuzzer",
+  "seeds": 2092,
+  "unpacked_bytes": 41022445,
+  "zip_bytes": 1571599,
+  "zip_sha256": "a74b4bc99adb733ad639f33e6f0cd60569a1f02d0efb3f78dfe95d7ccc9ade7a",
+  "content_digest_sha256": "cfb9c7c533517c103cf14f2dcdc4f2374620dcb39704aee383178f9d81025fb6",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "eigen/geometry_fuzzer": {
+ "double-conversion/string_to_double_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_geometry_fuzzer/public.zip",
-  "qualified_name": "eigen_geometry_fuzzer",
-  "seeds": 1000,
-  "unpacked_bytes": 83982423,
-  "zip_bytes": 35804850,
-  "zip_sha256": "46034acedabb8b03c0fbf99a08cd314a1c2ea4ce29f4c93c7f862e566f72be7d"
- },
- "eigen/sparse_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_sparse_fuzzer/public.zip",
-  "qualified_name": "eigen_sparse_fuzzer",
-  "seeds": 2705,
-  "unpacked_bytes": 21131534,
-  "zip_bytes": 942149,
-  "zip_sha256": "7b2581593087c875f64a620a9b38497cb04437e6900e57391ae72f73aa443276"
- },
- "eigen/tensor_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/eigen-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/eigen_tensor_fuzzer/public.zip",
-  "qualified_name": "eigen_tensor_fuzzer",
-  "seeds": 344,
-  "unpacked_bytes": 83892681,
-  "zip_bytes": 5731823,
-  "zip_sha256": "156f760797325dec6001b8489cad7de35d8bb942ea45bc32e9938790cc6e46c1"
+  "url": "https://storage.googleapis.com/double-conversion-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/double-conversion_string_to_double_fuzzer/public.zip",
+  "qualified_name": "double-conversion_string_to_double_fuzzer",
+  "seeds": 2860,
+  "unpacked_bytes": 13752947,
+  "zip_bytes": 799824,
+  "zip_sha256": "1d60ed720b99b65f62cf31d070ddd9fb33a01e56755360d22fefae77b5418254"
  },
  "fast_float/from_chars": {
   "ok": true,
@@ -125,14 +110,36 @@
   "zip_bytes": 1081673,
   "zip_sha256": "b62f8080e260433719d4e1f17acb62beab6353fdc0b72a98d7e05872a1f9da23"
  },
- "flatbuffers/64bit_fuzzer": {
+ "flac/fuzzer_encoder": {
   "ok": true,
-  "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_64bit_fuzzer/public.zip",
-  "qualified_name": "flatbuffers_64bit_fuzzer",
-  "seeds": 3827,
-  "unpacked_bytes": 108795333,
-  "zip_bytes": 10264239,
-  "zip_sha256": "ed50a2b00de8355b2cbaea004927385704634ffb7599bd2548cbe6268dd793dc"
+  "url": "https://storage.googleapis.com/flac-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flac_fuzzer_encoder/public.zip",
+  "qualified_name": "flac_fuzzer_encoder",
+  "seeds": 11810,
+  "unpacked_bytes": 460933419,
+  "zip_bytes": 10210385,
+  "zip_sha256": "49b7c98e75277ba3653bab976b21bae61cc3b5afad5bee0273d78cd2b3d11c2c",
+  "content_digest_sha256": "fdf72b16a7f2be40b0ad808a3698e2f7249ba86587cc96fe8752688b8ca0e9c5",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "flac/fuzzer_encoder_v2": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/flac-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flac_fuzzer_encoder_v2/public.zip",
+  "qualified_name": "flac_fuzzer_encoder_v2",
+  "seeds": 12287,
+  "unpacked_bytes": 165814835,
+  "zip_bytes": 6028754,
+  "zip_sha256": "9b439bba74e689ea89a96cee1bb570e06bf91d02d7fd37a6ba47a5c424da75d3",
+  "content_digest_sha256": "931886952e9d07e105410e8400cbff7a4da46c26d175e0a12367e6748dfb21b2",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "flac/fuzzer_exo": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/flac-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flac_fuzzer_exo/public.zip",
+  "qualified_name": "flac_fuzzer_exo",
+  "seeds": 6159,
+  "unpacked_bytes": 38624070,
+  "zip_bytes": 2440293,
+  "zip_sha256": "1c8b9684a460777ec6d64ce5ab25d590e7dd9e491f8e13381691bb1f940368de"
  },
  "flatbuffers/scalar_fuzzer": {
   "ok": true,
@@ -142,15 +149,6 @@
   "unpacked_bytes": 39687600,
   "zip_bytes": 3111934,
   "zip_sha256": "302f18e04b4f5d2afe06c57a139f69fd27b4193fd7e3a65c5acb262bf6c5971d"
- },
- "flatbuffers/verifier_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/flatbuffers-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flatbuffers_verifier_fuzzer/public.zip",
-  "qualified_name": "flatbuffers_verifier_fuzzer",
-  "seeds": 6379,
-  "unpacked_bytes": 330307271,
-  "zip_bytes": 83905475,
-  "zip_sha256": "2c79643aa728188b6adfafc995c61a80dab65f37ed6fe2b187bcdd860da12312"
  },
  "glaze/binary_reflection": {
   "ok": true,
@@ -206,15 +204,6 @@
   "zip_bytes": 1605845,
   "zip_sha256": "52106d91c9716651c316cc3478deec972c95c395b17717057475b1559ae0190a"
  },
- "hpn-ssh/sig_fuzz": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/hpn-ssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hpn-ssh_sig_fuzz/public.zip",
-  "qualified_name": "hpn-ssh_sig_fuzz",
-  "seeds": 1216,
-  "unpacked_bytes": 63285259,
-  "zip_bytes": 1257208,
-  "zip_sha256": "71d8590ca0d0f65b9d89eed0fcebf1ca3b4771f504c71c2234c85d96ad0a9c21"
- },
  "hunspell/morphfuzzer": {
   "ok": true,
   "url": "https://storage.googleapis.com/hunspell-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hunspell_morphfuzzer/public.zip",
@@ -223,15 +212,6 @@
   "unpacked_bytes": 156617168,
   "zip_bytes": 26071743,
   "zip_sha256": "b995f88f598c583abd52717b1fe9fd74809937b8e31b69445afa8eeea6f3be0c"
- },
- "hwloc/hwloc_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/hwloc-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/hwloc_fuzzer/public.zip",
-  "qualified_name": "hwloc_fuzzer",
-  "seeds": 159,
-  "unpacked_bytes": 10489864,
-  "zip_bytes": 732560,
-  "zip_sha256": "67b0cec618a25998c30e26dcc91d7f20efc096e9e62dbadf4e54121781679833"
  },
  "icu/date_time_pattern_generator_fuzzer": {
   "ok": true,
@@ -278,41 +258,27 @@
   "zip_bytes": 29660086,
   "zip_sha256": "7ccf9d625bd1598c2fbcb67fb04e242bdc7bb2289b55da8deb2486350c003c77"
  },
- "iperf/auth_fuzzer": {
+ "janet/fuzz_dostring": {
   "ok": true,
-  "url": "https://storage.googleapis.com/iperf-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/iperf_auth_fuzzer/public.zip",
-  "qualified_name": "iperf_auth_fuzzer",
-  "seeds": 98,
-  "unpacked_bytes": 9786651,
-  "zip_bytes": 86173,
-  "zip_sha256": "f8def8f97e4db7cfdfd44eca20a6c640efb9cbcdb70db272646c5555168c38ef"
+  "url": "https://storage.googleapis.com/janet-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/janet_fuzz_dostring/public.zip",
+  "qualified_name": "janet_fuzz_dostring",
+  "seeds": 6257,
+  "unpacked_bytes": 77526701,
+  "zip_bytes": 2453068,
+  "zip_sha256": "228cec19d97b7dacb97486692b5243aa05e9d7b14a415815fc7809b189c43243",
+  "content_digest_sha256": "87be9862730276902adab57e56869e7731ab57a568203ca2f8faadb40843d502",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "lcms/cmsIT8_load_fuzzer": {
+ "jq/jq_fuzz_fixed": {
   "ok": true,
-  "url": "https://storage.googleapis.com/lcms-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lcms_cmsIT8_load_fuzzer/public.zip",
-  "qualified_name": "lcms_cmsIT8_load_fuzzer",
-  "seeds": 2550,
-  "unpacked_bytes": 53245767,
-  "zip_bytes": 984449,
-  "zip_sha256": "c80bce0b2e30ac7182fc84ad98be5c59c4e4074976e64b421e6ad84e111fd486"
- },
- "lcms/cms_md5_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/lcms-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lcms_cms_md5_fuzzer/public.zip",
-  "qualified_name": "lcms_cms_md5_fuzzer",
-  "seeds": 1416,
-  "unpacked_bytes": 23865072,
-  "zip_bytes": 4938561,
-  "zip_sha256": "0ba41e0508e6cb9a7415ded44da38e2f4209771e4d8d7e62a3cd034c40f58328"
- },
- "leptonica/boxfunc_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/leptonica-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/leptonica_boxfunc_fuzzer/public.zip",
-  "qualified_name": "leptonica_boxfunc_fuzzer",
-  "seeds": 25,
-  "unpacked_bytes": 8388534,
-  "zip_bytes": 336540,
-  "zip_sha256": "6a2d1aa3e3e9796087b66b8c9c3ff37d24d0b219b30444038f6be21a88326135"
+  "url": "https://storage.googleapis.com/jq-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/jq_fuzz_fixed/public.zip",
+  "qualified_name": "jq_fuzz_fixed",
+  "seeds": 8322,
+  "unpacked_bytes": 152057185,
+  "zip_bytes": 6719962,
+  "zip_sha256": "9e5fae5c771c50b92bfed6b722334cf092a18f5550a65463af0910a04b456ccd",
+  "content_digest_sha256": "aa693315f69aa5613a67ac2117a451bbf2d8f1e2c216b4b898061ad08fe67eb6",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "leptonica/graphics_fuzzer": {
   "ok": true,
@@ -331,15 +297,6 @@
   "unpacked_bytes": 175401999,
   "zip_bytes": 15157668,
   "zip_sha256": "c035edfa83e04d00cc51411909eb367b184e4e1c510dd4e44159d9c2d13fe577"
- },
- "libevent/http_message_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libevent-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libevent_http_message_fuzzer/public.zip",
-  "qualified_name": "libevent_http_message_fuzzer",
-  "seeds": 3141,
-  "unpacked_bytes": 80949805,
-  "zip_bytes": 1765259,
-  "zip_sha256": "fdfe46f634ee4a40fb1036ff3e890b778c089ebabd2328c6c4f3dec3bb7c0094"
  },
  "libevent/utils_fuzzer": {
   "ok": true,
@@ -368,24 +325,6 @@
   "zip_bytes": 1740030,
   "zip_sha256": "f9ce4873aa629360af876ac7efdf4100ad68e5c035ca9715c6a643acedc7f962"
  },
- "libgit2/midx_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_midx_fuzzer/public.zip",
-  "qualified_name": "libgit2_midx_fuzzer",
-  "seeds": 2066,
-  "unpacked_bytes": 84350124,
-  "zip_bytes": 2926875,
-  "zip_sha256": "21e7588a603c15a88e08f3316819b327f206cbdee8b0613b735e169f8227de84"
- },
- "libgit2/patch_parse_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libgit2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libgit2_patch_parse_fuzzer/public.zip",
-  "qualified_name": "libgit2_patch_parse_fuzzer",
-  "seeds": 2735,
-  "unpacked_bytes": 91993652,
-  "zip_bytes": 6877093,
-  "zip_sha256": "41c1adb0eee8d5ed373e18241f5f4cb9b8b5744a52cc17b57bdccf41e9491213"
- },
  "libidn2/libidn2_to_ascii_8z_fuzzer": {
   "ok": true,
   "url": "https://storage.googleapis.com/libidn2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libidn2_to_ascii_8z_fuzzer/public.zip",
@@ -394,6 +333,26 @@
   "unpacked_bytes": 11588438,
   "zip_bytes": 815191,
   "zip_sha256": "a707adcd8ffd0ed95285e6daaa52673f8a796eba11fef325577ab58acb79e4f4"
+ },
+ "libidn2/libidn2_to_unicode_8z8z_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libidn2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libidn2_to_unicode_8z8z_fuzzer/public.zip",
+  "qualified_name": "libidn2_to_unicode_8z8z_fuzzer",
+  "seeds": 969,
+  "unpacked_bytes": 9485017,
+  "zip_bytes": 541278,
+  "zip_sha256": "40ffcb0903fc3d69cac597c6a862fb765a6ab59f210eef1f41fc2ec3ee3db60c"
+ },
+ "libiec61850/fuzz_mms_decode": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libiec61850-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libiec61850_fuzz_mms_decode/public.zip",
+  "qualified_name": "libiec61850_fuzz_mms_decode",
+  "seeds": 947,
+  "unpacked_bytes": 50007983,
+  "zip_bytes": 1833558,
+  "zip_sha256": "9357fcca1850635c2c7241cd68caae8a17216b22daf79fb48d31c87a608ccd49",
+  "content_digest_sha256": "e47feb1865b2f149c11ef01846cc2dad88df332c96db2aee482fefc50ae85bb8",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "libplist/bplist_fuzzer": {
   "ok": true,
@@ -430,6 +389,33 @@
   "unpacked_bytes": 24810461,
   "zip_bytes": 495478,
   "zip_sha256": "b3e7d3708a7e42e4742b4af45a20e55612fd34a80d385add22278e76ab13ee08"
+ },
+ "libsodium/crypto_sign_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_crypto_sign_fuzzer/public.zip",
+  "qualified_name": "libsodium_crypto_sign_fuzzer",
+  "seeds": 243,
+  "unpacked_bytes": 39779550,
+  "zip_bytes": 6735061,
+  "zip_sha256": "22691406876fbc2266d382e0251d6f1e3c4abc216b1d314508dc6814cfff88fd"
+ },
+ "libsodium/secret_key_auth_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_secret_key_auth_fuzzer/public.zip",
+  "qualified_name": "libsodium_secret_key_auth_fuzzer",
+  "seeds": 154,
+  "unpacked_bytes": 52532345,
+  "zip_bytes": 1502884,
+  "zip_sha256": "0dde4605db52295ecce90f02a890b60004535b2ab7a8d230647601748fb39526"
+ },
+ "libsodium/secretbox_easy_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_secretbox_easy_fuzzer/public.zip",
+  "qualified_name": "libsodium_secretbox_easy_fuzzer",
+  "seeds": 358,
+  "unpacked_bytes": 74441149,
+  "zip_bytes": 13971792,
+  "zip_sha256": "33f5e99e018c6165efed11bea9f684f03028ee5bd931629919589aa0f08bd019"
  },
  "libtasn1/asn1_decode_simple_ber_fuzzer": {
   "ok": true,
@@ -485,15 +471,6 @@
   "zip_bytes": 60662499,
   "zip_sha256": "f7609aa7ca57920243692b2fa7cbd190e01955318e5d57de2110c09af7e354a6"
  },
- "libvips/mosaic_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_mosaic_fuzzer/public.zip",
-  "qualified_name": "libvips_mosaic_fuzzer",
-  "seeds": 27889,
-  "unpacked_bytes": 139472930,
-  "zip_bytes": 36847372,
-  "zip_sha256": "fdd8308930e209f516cb7de3ac2fe261409cf69d9a709015bbfbb848fff578ba"
- },
  "libvips/smartcrop_fuzzer": {
   "ok": true,
   "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_smartcrop_fuzzer/public.zip",
@@ -502,33 +479,6 @@
   "unpacked_bytes": 206274224,
   "zip_bytes": 43424465,
   "zip_sha256": "d475e2b7b822aa70a2dbe5c80303140cdcf1f8ef374ec7c09265faaacd1ba145"
- },
- "libvips/thumbnail_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_thumbnail_fuzzer/public.zip",
-  "qualified_name": "libvips_thumbnail_fuzzer",
-  "seeds": 33568,
-  "unpacked_bytes": 155658270,
-  "zip_bytes": 57526440,
-  "zip_sha256": "efde25b140f4a0242ee64a066aac76dd94bfca4de3c1a3bf68fcb17a0009eb0b"
- },
- "libvips/vips_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libvips-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libvips_vips_fuzzer/public.zip",
-  "qualified_name": "libvips_vips_fuzzer",
-  "seeds": 34737,
-  "unpacked_bytes": 69674414,
-  "zip_bytes": 15122598,
-  "zip_sha256": "36e17d3bf54bb0e865e5373f788ce603f19c38c07ce0446da2f618b979103d25"
- },
- "libyaml/libyaml_emitter_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/libyaml-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libyaml_emitter_fuzzer/public.zip",
-  "qualified_name": "libyaml_emitter_fuzzer",
-  "seeds": 9882,
-  "unpacked_bytes": 158873111,
-  "zip_bytes": 2848002,
-  "zip_sha256": "c80c4929edf28fe8e22cb61ec9e0b59236cf30b681f463a53e673f5b33a2de38"
  },
  "libyaml/libyaml_loader_fuzzer": {
   "ok": true,
@@ -566,6 +516,39 @@
   "zip_bytes": 3973233,
   "zip_sha256": "57c7734ea638959055fd80c545454e6986b081a87716e79c9b227b356ed2357d"
  },
+ "llhttp/fuzz_parser": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/llhttp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/llhttp_fuzz_parser/public.zip",
+  "qualified_name": "llhttp_fuzz_parser",
+  "seeds": 4591,
+  "unpacked_bytes": 10414087,
+  "zip_bytes": 1203779,
+  "zip_sha256": "e39e2067d7d6fd02aa2ddb128fa524745f90e287cb9033d3bb9e3a3defefe501",
+  "content_digest_sha256": "fd18e9d993ef0678e34c25b5120261a1a4bd175a14bbfa7da5798ff328acc052",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "lz4/compress_frame_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_compress_frame_fuzzer/public.zip",
+  "qualified_name": "lz4_compress_frame_fuzzer",
+  "seeds": 6725,
+  "unpacked_bytes": 92905251,
+  "zip_bytes": 16634729,
+  "zip_sha256": "ba18beb86e3ab91e96012fbae1a0e47daddb39bffc690ceb6caaf09208add469",
+  "content_digest_sha256": "e311a1f82a166ea02c65f98014a9fae525e22d5f97328ce308667f0ba8f9aa20",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "lz4/decompress_frame_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_decompress_frame_fuzzer/public.zip",
+  "qualified_name": "lz4_decompress_frame_fuzzer",
+  "seeds": 2628,
+  "unpacked_bytes": 78112851,
+  "zip_bytes": 8261259,
+  "zip_sha256": "11f29f11b35899a6a66f1bec2ed4acde162668deb37738f9c8b7b15c574f7d44",
+  "content_digest_sha256": "0bf698f9baf6f64e24b30491fba7bedc7e6c0ea2f2d7d5673a6e4fc6980f7a2c",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
  "lz4/decompress_fuzzer": {
   "ok": true,
   "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_decompress_fuzzer/public.zip",
@@ -574,6 +557,17 @@
   "unpacked_bytes": 60185036,
   "zip_bytes": 18001549,
   "zip_sha256": "96e41ef2a11e35a3d3de8a9a6252eabf2b40b401652a073e19855fdb5dfcbdd5"
+ },
+ "lz4/round_trip_hc_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_round_trip_hc_fuzzer/public.zip",
+  "qualified_name": "lz4_round_trip_hc_fuzzer",
+  "seeds": 9543,
+  "unpacked_bytes": 669824444,
+  "zip_bytes": 169563584,
+  "zip_sha256": "b3afed56786731c0b0eee62d57f560802b4b2725a6264d423bde508d78b9debc",
+  "content_digest_sha256": "d32f7f098dd5d1360387a18f93a8cbc24e2dedd1448cd8673214a11dd1bc99b2",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "mbedtls/fuzz_pkcs7": {
   "ok": true,
@@ -611,50 +605,100 @@
   "zip_bytes": 1242548,
   "zip_sha256": "c3c0774b5d5631f7dfc171f1f5b0e24378c3d490a4287819189eb589eb490b98"
  },
- "mbedtls/usepsa-fuzz_x509csr": {
+ "md4c/fuzz-mdhtml": {
   "ok": true,
-  "url": "https://storage.googleapis.com/mbedtls-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/mbedtls_usepsa-fuzz_x509csr/public.zip",
-  "qualified_name": "mbedtls_usepsa-fuzz_x509csr",
-  "seeds": 2,
-  "unpacked_bytes": 2,
-  "zip_bytes": 340,
-  "zip_sha256": "1ccd9fe8715a3cbb6695b17e9f497b9457a11e4086087828aa165c8e9fdfd312"
+  "url": "https://storage.googleapis.com/md4c-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/md4c_fuzz-mdhtml/public.zip",
+  "qualified_name": "md4c_fuzz-mdhtml",
+  "seeds": 21524,
+  "unpacked_bytes": 685586339,
+  "zip_bytes": 93552306,
+  "zip_sha256": "729d61d2f939a74f02cdd0008ee73127b49696dc155d8e0eff816d8a7d7f56dc"
  },
- "openssh/privkey_fuzz": {
+ "miniz/compress_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_privkey_fuzz/public.zip",
-  "qualified_name": "openssh_privkey_fuzz",
-  "seeds": 3040,
-  "unpacked_bytes": 76149323,
-  "zip_bytes": 3750309,
-  "zip_sha256": "f5b0120e5fa78ef1dde1565c7b7cc7dadbb3d205bc2bd1e11c92cc82a4ffef8c"
+  "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_compress_fuzzer/public.zip",
+  "qualified_name": "miniz_compress_fuzzer",
+  "seeds": 3064,
+  "unpacked_bytes": 190396063,
+  "zip_bytes": 135885284,
+  "zip_sha256": "d313b12a83102b93a1fa2655ef81965dd1221f5fbf312bb4418dd4b72b6a05d7",
+  "content_digest_sha256": "5fe2507a27a117abe011f4546b8157358bce826b813cb13509bd5365b3eef002",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "openssh/pubkey_fuzz": {
+ "miniz/small_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_pubkey_fuzz/public.zip",
-  "qualified_name": "openssh_pubkey_fuzz",
-  "seeds": 2796,
-  "unpacked_bytes": 80479619,
-  "zip_bytes": 5861857,
-  "zip_sha256": "87610711274d14b9e6e819091d8ceeef25eae1213359dc1299ea9780049a9eae"
+  "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_small_fuzzer/public.zip",
+  "qualified_name": "miniz_small_fuzzer",
+  "seeds": 2381,
+  "unpacked_bytes": 236163560,
+  "zip_bytes": 175185403,
+  "zip_sha256": "f3707743a4ad1be0767dc9e80b3f423fc306662924f31bceb0ffba03a674e1d7",
+  "content_digest_sha256": "a3572058974a346e23313a4c1e2d3cc54ab5568eaceb429da56271e22cb122b3",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "openssh/sig_fuzz": {
+ "miniz/uncompress2_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_sig_fuzz/public.zip",
-  "qualified_name": "openssh_sig_fuzz",
-  "seeds": 1179,
-  "unpacked_bytes": 78670730,
-  "zip_bytes": 1592949,
-  "zip_sha256": "d2f97a4244d0aa33b92b435b0bf8810d3a4c367a1b00753c0d5a0da28ea9724a"
+  "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_uncompress2_fuzzer/public.zip",
+  "qualified_name": "miniz_uncompress2_fuzzer",
+  "seeds": 1217,
+  "unpacked_bytes": 25378464,
+  "zip_bytes": 5595004,
+  "zip_sha256": "538409608466227eac9a6ecdc633997f5919971eea1fca97a7b5505ed9164c1d",
+  "content_digest_sha256": "e5955016faaa66c22b974663f2b3ff0765d547f35bb1a74f5e91fbb097832612",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "openssh/sshsig_fuzz": {
+ "miniz/uncompress_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/openssh-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/openssh_sshsig_fuzz/public.zip",
-  "qualified_name": "openssh_sshsig_fuzz",
-  "seeds": 2136,
-  "unpacked_bytes": 66415386,
-  "zip_bytes": 3678585,
-  "zip_sha256": "a0603936ee84e5d3d45cc153466da4c29e67c6b14ed4d9a3826822c3f5cc0808"
+  "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_uncompress_fuzzer/public.zip",
+  "qualified_name": "miniz_uncompress_fuzzer",
+  "seeds": 1193,
+  "unpacked_bytes": 33307967,
+  "zip_bytes": 1839741,
+  "zip_sha256": "e6019b8947e7927938c5f292d5e77067759408b2a817c8b02fd2b4099e54cb6b",
+  "content_digest_sha256": "62bb2bcdb76478bf6fac713ffbaa5b9c4af39d55476dca1c03df5891bcf16dc2",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "miniz/zip_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/miniz-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/miniz_zip_fuzzer/public.zip",
+  "qualified_name": "miniz_zip_fuzzer",
+  "seeds": 5134,
+  "unpacked_bytes": 12848727,
+  "zip_bytes": 3362355,
+  "zip_sha256": "87775ee86f43e93c2df7e25ac226c49ad50330eb321ff3b94856c4e6538505a8"
+ },
+ "msgpack-c/unpack_pack_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/msgpack-c-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/msgpack-c_unpack_pack_fuzzer/public.zip",
+  "qualified_name": "msgpack-c_unpack_pack_fuzzer",
+  "seeds": 2183,
+  "unpacked_bytes": 32813564,
+  "zip_bytes": 4561075,
+  "zip_sha256": "9fe5db9b65c7630ac953fa24472e1c8bbc5b14e0f8404f602acefc269036e589",
+  "content_digest_sha256": "277b56d0bae36dc7a9a88155d1cb61e5b47e96c6de2142158e44bcc07720644f",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "muparser/set_eval_fuzzer": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/muparser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/muparser_set_eval_fuzzer/public.zip",
+  "qualified_name": "muparser_set_eval_fuzzer",
+  "seeds": 3796,
+  "unpacked_bytes": 36747506,
+  "zip_bytes": 2924171,
+  "zip_sha256": "c6b33621044d3c822d78817754dd1866933c68785bc48ec7847c42dbc7586a04",
+  "content_digest_sha256": "8d937e245174d6ddf52bef5f7d1f67139423f8b33d0ec54076f2b4ead91fd177",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "nghttp2/nghttp2_fuzzer_fdp": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/nghttp2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/nghttp2_fuzzer_fdp/public.zip",
+  "qualified_name": "nghttp2_fuzzer_fdp",
+  "seeds": 12291,
+  "unpacked_bytes": 62570520,
+  "zip_bytes": 4095597,
+  "zip_sha256": "37643d3f4fb01939cf59c352dbac97be16cbbf554bd8d4c1244928a75dcbcaef",
+  "content_digest_sha256": "5e65ce726b3bc025438ad621c86dcd321b0e13b996fe851d7926a27804a171d9",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "pugixml/fuzz_parse": {
   "ok": true,
@@ -674,59 +718,43 @@
   "zip_bytes": 2631256,
   "zip_sha256": "812a01a2dd8f3400bd62f2cf6ba164b499f9e98a4bfbff59efe9190fe9cb0406"
  },
- "pycryptodome/md4_fuzzer": {
+ "sentencepiece/model_load_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_md4_fuzzer/public.zip",
-  "qualified_name": "pycryptodome_md4_fuzzer",
-  "seeds": 262,
-  "unpacked_bytes": 33004858,
-  "zip_bytes": 5598821,
-  "zip_sha256": "f6db8cbdca02119ab28e16826af3f03c64c27625dc6c4344a244e17e3f8f16f9"
+  "url": "https://storage.googleapis.com/sentencepiece-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sentencepiece_model_load_fuzzer/public.zip",
+  "qualified_name": "sentencepiece_model_load_fuzzer",
+  "seeds": 9471,
+  "unpacked_bytes": 64366093,
+  "zip_bytes": 5052942,
+  "zip_sha256": "77992a7b4b9a98ff6d676ad032557c81d343f36f7747d00ad9cc3f11bf50fa91"
  },
- "pycryptodome/ripemd160_fuzzer": {
+ "sentencepiece/processor_text_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_ripemd160_fuzzer/public.zip",
-  "qualified_name": "pycryptodome_ripemd160_fuzzer",
-  "seeds": 265,
-  "unpacked_bytes": 33652899,
-  "zip_bytes": 1760406,
-  "zip_sha256": "ab234f6e67c67d76f8c392cc9bb59e299e6945b7c7fcf68f1ca7e722eefb90cc"
+  "url": "https://storage.googleapis.com/sentencepiece-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sentencepiece_processor_text_fuzzer/public.zip",
+  "qualified_name": "sentencepiece_processor_text_fuzzer",
+  "seeds": 1988,
+  "unpacked_bytes": 12595407,
+  "zip_bytes": 1750189,
+  "zip_sha256": "1b6730ac341d683527e252323e8715e9b39659d2b4cd9b88fe92a49c3bc28bca"
  },
- "pycryptodome/sha224_fuzzer": {
+ "sentencepiece/trainer_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha224_fuzzer/public.zip",
-  "qualified_name": "pycryptodome_sha224_fuzzer",
-  "seeds": 298,
-  "unpacked_bytes": 45234316,
-  "zip_bytes": 6996513,
-  "zip_sha256": "ad23022014f8de15ce838d1a29130fc185319b75a003cf72e26d230413989998"
+  "url": "https://storage.googleapis.com/sentencepiece-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sentencepiece_trainer_fuzzer/public.zip",
+  "qualified_name": "sentencepiece_trainer_fuzzer",
+  "seeds": 9162,
+  "unpacked_bytes": 30095839,
+  "zip_bytes": 10878068,
+  "zip_sha256": "ed4d4d065595e685536874cb2846a9ac36c5c92ebdbdaa5fe21b87df36927958"
  },
- "pycryptodome/sha256_fuzzer": {
+ "simdjson/fuzz_dump_raw_tape": {
   "ok": true,
-  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha256_fuzzer/public.zip",
-  "qualified_name": "pycryptodome_sha256_fuzzer",
-  "seeds": 299,
-  "unpacked_bytes": 45522189,
-  "zip_bytes": 7486436,
-  "zip_sha256": "5343434a1aff42d7696cd1d9bbbe4bf1288fd9920c6ed6fc6f61716c6b22e5a0"
- },
- "pycryptodome/sha384_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/pycryptodome-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/pycryptodome_sha384_fuzzer/public.zip",
-  "qualified_name": "pycryptodome_sha384_fuzzer",
-  "seeds": 304,
-  "unpacked_bytes": 50284603,
-  "zip_bytes": 10995701,
-  "zip_sha256": "f04393dea83912325f318dfb21335a12c28426a3c527e8fcae14ae8514e6d928"
- },
- "simd/simd_load_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/simd-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simd_load_fuzzer/public.zip",
-  "qualified_name": "simd_load_fuzzer",
-  "seeds": 7398,
-  "unpacked_bytes": 82285346,
-  "zip_bytes": 13794841,
-  "zip_sha256": "f6fbe9e9f2b9a520b7fff90c319748177e56262ccf57195197cbd262d4e38a19"
+  "url": "https://storage.googleapis.com/simdjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/simdjson_fuzz_dump_raw_tape/public.zip",
+  "qualified_name": "simdjson_fuzz_dump_raw_tape",
+  "seeds": 8998,
+  "unpacked_bytes": 72402148,
+  "zip_bytes": 2564170,
+  "zip_sha256": "1a32113feafe791a93e05fe2719e68e655ba80bee000779d5bd1ec8a96acbc8f",
+  "content_digest_sha256": "5a96807c2e365f76f12ade7c9071f07653de64b52ea74a7af580b566dda17d18",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "simdjson/fuzz_minify": {
   "ok": true,
@@ -746,23 +774,47 @@
   "zip_bytes": 2174005,
   "zip_sha256": "c3888a90d38779b621b78f0050616d9c1934d3972a7c1aba21a3c24b56f13361"
  },
- "unicorn/fuzz_emu_s390x_be": {
+ "uriparser/uri_dissect_query_malloc_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/unicorn-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/unicorn_fuzz_emu_s390x_be/public.zip",
-  "qualified_name": "unicorn_fuzz_emu_s390x_be",
-  "seeds": 28224,
-  "unpacked_bytes": 2136015,
-  "zip_bytes": 5947411,
-  "zip_sha256": "faa72b23f4269c938222ce48a16cdfe650d6ac64685f8b1e96cb33b133c63ca1"
+  "url": "https://storage.googleapis.com/uriparser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/uriparser_uri_dissect_query_malloc_fuzzer/public.zip",
+  "qualified_name": "uriparser_uri_dissect_query_malloc_fuzzer",
+  "seeds": 1548,
+  "unpacked_bytes": 80529387,
+  "zip_bytes": 3989284,
+  "zip_sha256": "2f1dec9d7618e574ae3fd010f305326b9e1fccadfe69c4152ee600199875bd9c",
+  "content_digest_sha256": "f73998ab1032197ced1a91b3adc719dfd75256955309bc71173363e6076f6d31",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
- "wabt/read_binary_ir_fuzzer": {
+ "uriparser/uri_free_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_read_binary_ir_fuzzer/public.zip",
-  "qualified_name": "wabt_read_binary_ir_fuzzer",
-  "seeds": 20639,
-  "unpacked_bytes": 115979418,
-  "zip_bytes": 11251958,
-  "zip_sha256": "0320865f9cae9a453769a8a62c8b6ef25c530debe626c51411cfcaee20aacf2d"
+  "url": "https://storage.googleapis.com/uriparser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/uriparser_uri_free_fuzzer/public.zip",
+  "qualified_name": "uriparser_uri_free_fuzzer",
+  "seeds": 6929,
+  "unpacked_bytes": 22581273,
+  "zip_bytes": 2983527,
+  "zip_sha256": "971294d897e1eb8ffd58ed30437fbfff2ad2e31368bb943814233ab92c6a777f",
+  "content_digest_sha256": "e13e4dc28a626c50c1fb867f65296513012809810c61b2498a215fca5ef22ea1",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "usrsctp/fuzzer_listen": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/usrsctp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/usrsctp_fuzzer_listen/public.zip",
+  "qualified_name": "usrsctp_fuzzer_listen",
+  "seeds": 3217,
+  "unpacked_bytes": 20949045,
+  "zip_bytes": 2426719,
+  "zip_sha256": "e0affb2b4b7b865702059b389a2a1356b82a95ca89b3bbfcf4424398e08f974f",
+  "content_digest_sha256": "9713daad6320b4b1896a82df6f693fa58996b8a31dcd5b9ce2620a25080f7c0a",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+ },
+ "util-linux/test_fdisk_script_fuzz": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/util-linux-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/util-linux_test_fdisk_script_fuzz/public.zip",
+  "qualified_name": "util-linux_test_fdisk_script_fuzz",
+  "seeds": 3767,
+  "unpacked_bytes": 9300975,
+  "zip_bytes": 1116784,
+  "zip_sha256": "42a6bb5970accc72018e92491a5979218af0fa1e2d552498e64368308ced15b3"
  },
  "wabt/wasm2wat_fuzzer": {
   "ok": true,
@@ -773,23 +825,14 @@
   "zip_bytes": 3948636,
   "zip_sha256": "522b32caf9baa171d0bc7513f4183fb14a3128be22fa4bf31618eeed5ae390f6"
  },
- "wabt/wasm_interp_fuzzer": {
+ "woff2/convert_woff2ttf_fuzzer": {
   "ok": true,
-  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_interp_fuzzer/public.zip",
-  "qualified_name": "wabt_wasm_interp_fuzzer",
-  "seeds": 11114,
-  "unpacked_bytes": 13015171,
-  "zip_bytes": 2269673,
-  "zip_sha256": "8e06a78672aaf762bcac6f7c24e264be212dc5b8efe1fdcd26ae33fe7e7af213"
- },
- "wabt/wasm_objdump_fuzzer": {
-  "ok": true,
-  "url": "https://storage.googleapis.com/wabt-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wabt_wasm_objdump_fuzzer/public.zip",
-  "qualified_name": "wabt_wasm_objdump_fuzzer",
-  "seeds": 13176,
-  "unpacked_bytes": 24860100,
-  "zip_bytes": 3139878,
-  "zip_sha256": "f0566bcadb6ee28cbb112bfc00126fddb463c61f1d5501a09c49c9c84d93b6c8"
+  "url": "https://storage.googleapis.com/woff2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/woff2_convert_woff2ttf_fuzzer/public.zip",
+  "qualified_name": "woff2_convert_woff2ttf_fuzzer",
+  "seeds": 8614,
+  "unpacked_bytes": 88961712,
+  "zip_bytes": 13783056,
+  "zip_sha256": "f6253ebda87e381f1c42343815412054b1a151c6ec2d6716811afc2059ef7160"
  },
  "woff2/convert_woff2ttf_fuzzer_new_entry": {
   "ok": true,
@@ -799,6 +842,17 @@
   "unpacked_bytes": 69317887,
   "zip_bytes": 11022164,
   "zip_sha256": "056bbdb1a9d70d65de6b3376fba76280e74bad19fdfd2670b84888b6fe87aead"
+ },
+ "wxwidgets/zip": {
+  "ok": true,
+  "url": "https://storage.googleapis.com/wxwidgets-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/wxwidgets_zip/public.zip",
+  "qualified_name": "wxwidgets_zip",
+  "seeds": 2897,
+  "unpacked_bytes": 84659098,
+  "zip_bytes": 20818806,
+  "zip_sha256": "62510849fd19af0981b842a646eba5bf47e3ac2454753c170da93f0dec602d14",
+  "content_digest_sha256": "5f5a61ca3b8aa25c501f23d079b44d0c0ed3a52cbf3d2a040b0c1a82198001d3",
+  "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
  },
  "yara/dex_fuzzer": {
   "ok": true,

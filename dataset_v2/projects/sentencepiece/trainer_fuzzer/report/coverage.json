@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 18493,
+  "count": 72579,
+  "percent": 25.48
+ },
+ "functions": {
+  "covered": 2290,
+  "count": 8923,
+  "percent": 25.664
+ },
+ "regions": {
+  "covered": 15616,
+  "count": 62165,
+  "percent": 25.12
+ },
+ "branches": {
+  "covered": 6399,
+  "count": 29117,
+  "percent": 21.977
+ },
+ "scope": "/src/sentencepiece/",
+ "files_in_scope": 529,
+ "files_total": 530,
+ "all_linked": {
+  "lines": {
+   "covered": 18542,
+   "count": 72628,
+   "percent": 25.53
+  },
+  "functions": {
+   "covered": 2291,
+   "count": 8924,
+   "percent": 25.672
+  },
+  "regions": {
+   "covered": 15658,
+   "count": 62207,
+   "percent": 25.171
+  },
+  "branches": {
+   "covered": 6438,
+   "count": 29157,
+   "percent": 22.08
+  }
+ },
+ "timestamp": "2026-10-10T23:33:39Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

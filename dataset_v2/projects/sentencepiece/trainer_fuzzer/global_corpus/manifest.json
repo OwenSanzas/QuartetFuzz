@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/sentencepiece-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sentencepiece_trainer_fuzzer/public.zip",
+ "qualified_name": "sentencepiece_trainer_fuzzer",
+ "seeds": 9162,
+ "unpacked_bytes": 30095839,
+ "zip_bytes": 10878068,
+ "zip_sha256": "ed4d4d065595e685536874cb2846a9ac36c5c92ebdbdaa5fe21b87df36927958"
+}

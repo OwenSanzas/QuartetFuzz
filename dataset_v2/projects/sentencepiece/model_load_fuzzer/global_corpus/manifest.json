@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/sentencepiece-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/sentencepiece_model_load_fuzzer/public.zip",
+ "qualified_name": "sentencepiece_model_load_fuzzer",
+ "seeds": 9471,
+ "unpacked_bytes": 64366093,
+ "zip_bytes": 5052942,
+ "zip_sha256": "77992a7b4b9a98ff6d676ad032557c81d343f36f7747d00ad9cc3f11bf50fa91"
+}

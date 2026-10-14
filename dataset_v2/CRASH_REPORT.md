@@ -1,6 +1,6 @@
 # Crash / PoC report — dataset_v2
 
-Generated 2026-09-01.
+Generated 2026-10-14.
 
 ## Method
 
@@ -24,8 +24,8 @@ library bug vs harness defect. This is the executable form of P1.
 | | |
 |---|---|
 | Cases | 100 |
-| Seeds replayed | 785,729 |
-| Units executed | 785,829 |
+| Seeds replayed | 688,672 |
+| Units executed | 688,772 |
 | Phase 1 complete, exit 0 | 100/100 |
 | **Distinct faults** | **0** |
 | Fault artifacts (crash/leak/oom/timeout) | 0 |

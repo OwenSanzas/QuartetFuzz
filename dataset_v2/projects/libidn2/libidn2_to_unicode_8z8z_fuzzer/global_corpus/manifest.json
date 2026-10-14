@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libidn2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libidn2_to_unicode_8z8z_fuzzer/public.zip",
+ "qualified_name": "libidn2_to_unicode_8z8z_fuzzer",
+ "seeds": 969,
+ "unpacked_bytes": 9485017,
+ "zip_bytes": 541278,
+ "zip_sha256": "40ffcb0903fc3d69cac597c6a862fb765a6ab59f210eef1f41fc2ec3ee3db60c"
+}

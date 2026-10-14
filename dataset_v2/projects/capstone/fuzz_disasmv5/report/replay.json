@@ -1,0 +1,20 @@
+{
+ "seeds_in_corpus": 55197,
+ "phase1_full_replay": {
+   "flags": "-runs=0 -detect_leaks=0",
+   "exit_code": 0,
+   "executed_units": 55198,
+   "edges_covered": 19343,
+   "complete": true
+ },
+ "phase2_poc_collection": {
+   "flags": "-runs=0 (leak detection on), iterative",
+   "rounds": 1,
+   "artifacts": 0,
+   "distinct_faults": 0,
+   "capped": false
+ },
+ "deterministic": true,
+ "image": "gcr.io/oss-fuzz-base/base-runner@sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+ "timestamp": "2026-10-10T04:28:17Z"
+}

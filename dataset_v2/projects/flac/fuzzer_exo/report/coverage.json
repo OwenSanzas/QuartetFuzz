@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 3029,
+  "count": 6685,
+  "percent": 45.31
+ },
+ "functions": {
+  "covered": 107,
+  "count": 228,
+  "percent": 46.93
+ },
+ "regions": {
+  "covered": 2789,
+  "count": 6903,
+  "percent": 40.403
+ },
+ "branches": {
+  "covered": 1542,
+  "count": 4223,
+  "percent": 36.514
+ },
+ "scope": "/src/flac/",
+ "files_in_scope": 25,
+ "files_total": 31,
+ "all_linked": {
+  "lines": {
+   "covered": 3284,
+   "count": 8548,
+   "percent": 38.418
+  },
+  "functions": {
+   "covered": 136,
+   "count": 550,
+   "percent": 24.727
+  },
+  "regions": {
+   "covered": 2936,
+   "count": 7758,
+   "percent": 37.845
+  },
+  "branches": {
+   "covered": 1614,
+   "count": 4603,
+   "percent": 35.064
+  }
+ },
+ "timestamp": "2026-10-10T04:07:30Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

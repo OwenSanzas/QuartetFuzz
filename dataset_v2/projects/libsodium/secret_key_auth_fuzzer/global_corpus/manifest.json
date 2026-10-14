@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libsodium-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libsodium_secret_key_auth_fuzzer/public.zip",
+ "qualified_name": "libsodium_secret_key_auth_fuzzer",
+ "seeds": 154,
+ "unpacked_bytes": 52532345,
+ "zip_bytes": 1502884,
+ "zip_sha256": "0dde4605db52295ecce90f02a890b60004535b2ab7a8d230647601748fb39526"
+}

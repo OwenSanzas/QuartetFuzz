@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Covered-entity sets (lines / functions / branches) for one corpus directory, scoped to the
 # project's sources, via llvm-cov export -format=lcov. Writes <out>/covsets.json.gz.
+# Replay as in snap_cov.sh.
 # usage: cov_sets.sh <case_dir> <corpus_dir> <out_dir>
 set -uo pipefail
 CASE_DIR=$(readlink -f "$1"); CORPUS=$(readlink -f "$2"); OUT=$(readlink -f -m "$3")
@@ -10,7 +11,16 @@ SCOPE=$(python3 -c "import json;print(json.load(open('$CASE_DIR/report/coverage.
 mkdir -p "$OUT"
 docker run --rm -v "$CASE_DIR/cov_build:/out:ro" -v "$CORPUS:/corpus:ro" -v "$OUT:/report" -e BIN="$BIN" "$IMG" /bin/bash -c '
   set -u; mkdir -p /tmp/dumps /tmp/empty; export LLVM_PROFILE_FILE=/tmp/dumps/cov.%1m.profraw
-  /out/$BIN -merge=1 -timeout=100 /tmp/empty /corpus > /report/cov_run.log 2>&1
+    cd /corpus; find . -type f | sort > /tmp/list; split -l 500 /tmp/list /tmp/chunk.
+    : > /report/cov_run.log; killers=0
+    for c in /tmp/chunk.*; do
+      xargs -a "$c" -d "\\n" /out/$BIN -timeout=100 >> /report/cov_run.log 2>&1 && continue
+      echo "chunk $c died, replaying its inputs one by one" >> /report/cov_run.log
+      while IFS= read -r f; do
+        /out/$BIN -timeout=100 "$f" >> /report/cov_run.log 2>&1 || { killers=$((killers+1)); echo "input not counted: $f" >> /report/cov_run.log; }
+      done < "$c"
+    done
+    echo "target exit: 0; inputs not counted: $killers of $(wc -l < /tmp/list)" >> /report/cov_run.log
   llvm-profdata merge -sparse /tmp/dumps/*.profraw -o /tmp/cov.profdata 2>>/report/cov_run.log
   llvm-cov export -format=lcov -instr-profile=/tmp/cov.profdata /out/$BIN > /report/cov.lcov 2>/report/llvmcov_err.log' > "$OUT/run.log" 2>&1
 python3 - "$OUT" "$SCOPE" "$CORPUS" <<'PY'

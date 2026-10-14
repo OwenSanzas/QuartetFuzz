@@ -55,4 +55,4 @@ coverage data comes from. Mount the pinned source with
 
 All 100 cases replay their entire official corpus at exit 0 with zero distinct
 faults, and all 100 yield non-zero coverage within their project's own sources.
-617,000+ seeds in total.
+688,000+ seeds in total.
