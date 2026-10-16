@@ -151,12 +151,11 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
 
         _PATHS_FILE = (
             Path(__file__).resolve().parent.parent.parent.parent
-            / "benchmark" / "oss_fuzz_harness" / "coverage"
-            / "data" / "gold_source_paths_v2.json"
+            / "dataset_v2" / "gold_source_paths.json"
         )
         project = ctx.project
         if not _PATHS_FILE.exists():
-            return f"Error: gold_source_paths_v2.json not found at {_PATHS_FILE}"
+            return f"Error: gold_source_paths.json not found at {_PATHS_FILE}"
 
         all_paths = _json.loads(_PATHS_FILE.read_text())
         matches = {}

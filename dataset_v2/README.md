@@ -12,6 +12,8 @@ revision the measurements were taken against.
 ## Layout
 
     benchmark_100.jsonl              the 100 cases
+    gold_source_paths.json           case -> location of the gold harness in the build ($SRC/...),
+                                     read from the stubbed per-case images (binutils: $SRC/fuzz_disassemble.c)
     COVERAGE_REPORT.md               coverage per case, and how it was measured
     CRASH_REPORT.md                  replay results per case, and how they were collected
     projects/<project>/<fuzzer>/

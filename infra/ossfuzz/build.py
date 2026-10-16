@@ -17,7 +17,7 @@ _NON_FUZZER_EXTENSIONS = frozenset({".zip", ".dict", ".options", ".cfg", ".profr
 
 _GOLD_SOURCE_PATHS = (
     Path(__file__).resolve().parent.parent.parent
-    / "dataset"
+    / "dataset_v2"
     / "gold_source_paths.json"
 )
 
@@ -29,10 +29,9 @@ _GOLD_SOURCE_PATHS = (
 
 def load_gold_source_paths(path: Path | None = None) -> dict[str, str]:
     p = path or _GOLD_SOURCE_PATHS
-    if p.is_file():
-        with open(p) as f:
-            return json.load(f)
-    return {}
+    # A missing map would silently place every harness at $SRC/<name>; fail instead.
+    with open(p) as f:
+        return json.load(f)
 
 
 def swap_gold_source(

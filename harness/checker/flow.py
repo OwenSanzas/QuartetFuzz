@@ -91,9 +91,8 @@ def _render(template: str, **kwargs: Any) -> str:
 
 
 _GOLD_PATHS_V2 = (
-    Path(__file__).parent.parent.parent
-    / "benchmark" / "oss_fuzz_harness" / "coverage"
-    / "data" / "gold_source_paths_v2.json"
+    Path(__file__).resolve().parent.parent.parent
+    / "dataset_v2" / "gold_source_paths.json"
 )
 
 _MINIMAL_STUB = """\

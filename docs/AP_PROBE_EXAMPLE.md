@@ -7,7 +7,7 @@ branch coverage; the agent's adversarial blob passed the run check
 and its reach blob hit the target API.
 
 Source trajectory:
-`subset_25/precomputed/yajl-ruby__json_fuzzer/trajectory.jsonl`
+`legacy/subset_25_v1/precomputed/yajl-ruby__json_fuzzer/trajectory.jsonl`
 (single-shot probes; total wall-clock per probe ≤ 10 s).
 
 ---

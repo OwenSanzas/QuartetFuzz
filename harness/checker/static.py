@@ -40,14 +40,14 @@ logger = logging.getLogger(__name__)
 # Paths & config
 # ---------------------------------------------------------------------------
 
-# The static-analysis call graphs ship with the artifact at
-# ``dataset/static_analysis/`` (covering the 25-case subset). The
-# ``AGF_STATIC_ANALYSIS_DIR`` env var overrides this for users with
-# a fuller call graph elsewhere.
+# Call graphs for the final 100 cases are not shipped yet; the default
+# directory does not exist, so the static_analysis tools report
+# "unavailable".  The graphs under legacy/dataset_v1/ cover the old case set
+# and are not used.  ``AGF_STATIC_ANALYSIS_DIR`` overrides the default.
 _REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 _DEFAULT_STATIC_DIR = Path(os.environ.get(
     "AGF_STATIC_ANALYSIS_DIR",
-    str(_REPO_ROOT / "dataset" / "static_analysis"),
+    str(_REPO_ROOT / "dataset_v2" / "static_analysis"),
 ))
 
 # File-path prefixes used by is_public_api() heuristics.  Conservative:
