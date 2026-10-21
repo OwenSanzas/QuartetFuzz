@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 
 from rich.console import Console
@@ -63,6 +64,35 @@ def swap_gold_source(
     dockerfile.write_text("\n".join(lines) + "\n")
 
 
+_COMPILER_ERROR_RE = re.compile(r"(?m)(\berror: |\bundefined reference to |\bld(\.lld)?: error)")
+
+
+def _error_excerpt(log: str, limit: int = 6000) -> str:
+    """Compiler/linker error lines with a little context.
+
+    A project build can print thousands of lines after the first error
+    (other targets, make's own messages), so the log tail alone often
+    misses the error that matters.
+    """
+    lines = log.splitlines()
+    keep: list[int] = []
+    for i, line in enumerate(lines):
+        if _COMPILER_ERROR_RE.search(line):
+            keep.extend(range(max(0, i - 2), min(len(lines), i + 4)))
+    if not keep:
+        return ""
+    out, prev = [], -2
+    for i in sorted(set(keep)):
+        if i != prev + 1:
+            out.append("...")
+        out.append(lines[i])
+        prev = i
+    text = "\n".join(out)
+    if len(text) > limit:
+        text = text[:limit] + "\n[...more errors truncated...]"
+    return "=== compiler/linker errors ===\n" + text + "\n=== log tail ===\n"
+
+
 # ---------------------------------------------------------------------------
 # Build project via oss-fuzz infra/helper.py
 # ---------------------------------------------------------------------------
@@ -116,6 +146,9 @@ def build_project(
             continue
         if result.returncode == 0:
             break
+        if _COMPILER_ERROR_RE.search(result.combined_output):
+            # A compile/link error fails the same way again: don't rebuild.
+            break
         if attempt < max_retries:
             logger.warning(
                 "OSS-Fuzz build for %s failed on retry %d/%d within this build invocation; retrying...",
@@ -131,12 +164,13 @@ def build_project(
     combined_log = result.combined_output
 
     if result.returncode != 0:
-        log_tail = combined_log[-3000:]
+        log_tail = _error_excerpt(combined_log) + combined_log[-3000:]
         return BuildResult(
             output_dir=str(output_dir),
             fuzzers=fuzzers,
             error=f"Build failed (exit {result.returncode})",
             build_log=log_tail,
+            full_log=combined_log,
         )
 
     if not fuzzers and not output_dir.is_dir():
@@ -151,9 +185,13 @@ def build_project(
             fuzzers=[],
             error=f"Build output directory missing: {output_dir}",
             build_log=combined_log[-3000:],
+            full_log=combined_log,
         )
 
-    return BuildResult(success=True, output_dir=str(output_dir), fuzzers=fuzzers, build_log=combined_log[-1000:])
+    # build.sh can exit 0 with a fuzzer missing (its link failed inside a
+    # make loop): keep the error lines, not just the tail.
+    return BuildResult(success=True, output_dir=str(output_dir), fuzzers=fuzzers,
+                       build_log=_error_excerpt(combined_log) + combined_log[-3000:], full_log=combined_log)
 
 
 # ---------------------------------------------------------------------------

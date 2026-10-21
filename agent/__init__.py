@@ -2,7 +2,7 @@
 
 from .base import BaseAgent
 from .context import AgentContext
-from .llm_client import LLMClient, LLMResponse, estimate_cost, get_context_window
+from .llm_client import LLMClient, LLMResponse, estimate_cost, get_context_window, get_max_output_tokens
 from .result import AgentResult, ToolCallRecord, TrajectoryEvent
 
 __all__ = [
@@ -14,5 +14,6 @@ __all__ = [
     "ToolCallRecord",
     "TrajectoryEvent",
     "estimate_cost",
+    "get_max_output_tokens",
     "get_context_window",
 ]

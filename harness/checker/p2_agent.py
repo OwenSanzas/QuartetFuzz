@@ -17,6 +17,7 @@ not need to build or run the project.
 
 from __future__ import annotations
 
+import os
 import logging
 from pathlib import Path
 from typing import Any
@@ -27,11 +28,12 @@ from mcp.server.fastmcp import FastMCP
 from agent import BaseAgent
 from agent.llm_client import LLMResponse
 from harness.checker.tools import register_all
-from harness.checker.tools.context import CheckerContext
+from harness.checker.tools.context import DEFAULT_LLM_MODEL, CheckerContext
 
 logger = logging.getLogger(__name__)
 
-_PROMPTS_DIR = Path(__file__).parent / "prompts"
+# QF_PROMPTS_DIR selects a frozen prompt version (qf-prompts/<v>); default: the live prompts.
+_PROMPTS_DIR = Path(os.environ.get("QF_PROMPTS_DIR") or Path(__file__).parent / "prompts")
 _SUBMIT_TOOL = "submit_p2_report"
 
 
@@ -53,26 +55,33 @@ class P2Agent(BaseAgent):
     """BaseAgent that produces a P2 protocol report for given entry functions."""
 
     agent_type = "p2_research"
-    max_turns = 30  # paper Table 5 production cap
+    max_turns = 300  # high enough that the agent finishes; the paper's Table 5 cap (30) cut runs short
     temperature = 0.0
     max_tool_output_tokens = 16000
-    max_context_tokens = 500_000
     enable_compression = True
     artifact_tool_names = frozenset({"submit_p2_report"})
-    model = "claude-opus-4-6"
+    model = DEFAULT_LLM_MODEL
 
     def __init__(
         self,
         *,
         ctx: CheckerContext,
         entries: list[str],
+        target_declaration: str = "",
+        target_location: str = "",
         lg_description: str = "",
+        lg_entries: list[str] | None = None,
+        lg_core: list[str] | None = None,
     ) -> None:
         if not entries:
             raise ValueError("P2Agent needs at least one entry function")
         self._ctx = ctx
         self._entries = entries
+        self._target_declaration = target_declaration
+        self._target_location = target_location
         self._lg_description = lg_description
+        self._lg_entries = list(lg_entries or [])
+        self._lg_core = list(lg_core or [])
         self._submitted_report: str | None = None
         self._report_parts: list[str] = []
 
@@ -85,6 +94,7 @@ class P2Agent(BaseAgent):
         register_all(
             mcp, self._ctx,
             categories=("code_view", "static_analysis"),
+            code_view_profile="research",
         )
 
         @mcp.tool()
@@ -134,7 +144,7 @@ class P2Agent(BaseAgent):
             if not report or len(report.strip()) < 50:
                 return (
                     "ERROR: Report is too short.  Investigate the entry "
-                    "functions and produce a detailed P2.1-P2.8 report "
+                    "functions and produce a detailed P2.1-P2.11 report "
                     "before submitting."
                 )
             self._submitted_report = report.strip()
@@ -147,6 +157,7 @@ class P2Agent(BaseAgent):
             "p2_agent_system.md",
             project=self._ctx.project,
             project_path=str(self._ctx.project_path),
+            static_available=self._ctx.static_index is not None or self._ctx.callgraph is not None,
         )
 
     def get_initial_message(self, **kwargs: Any) -> str:
@@ -155,12 +166,17 @@ class P2Agent(BaseAgent):
             project=self._ctx.project,
             project_path=str(self._ctx.project_path),
             entries=self._entries,
+            target_declaration=self._target_declaration,
+            target_location=self._target_location,
             lg_description=self._lg_description,
+            lg_entries=self._lg_entries,
+            lg_core=self._lg_core,
             oss_fuzz_project_dir=(
                 str(self._ctx.oss_fuzz_project_dir)
                 if self._ctx.oss_fuzz_project_dir
                 else ""
             ),
+            static_available=self._ctx.static_index is not None or self._ctx.callgraph is not None,
         )
 
     def get_urgency_message(self) -> str | None:

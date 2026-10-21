@@ -49,7 +49,13 @@ class AgentContext:
         self._input_tokens += response.input_tokens
         self._output_tokens += response.output_tokens
         self._last_input_tokens = response.input_tokens
-        self._cost += estimate_cost(self.model, response.input_tokens, response.output_tokens)
+        self._cost += estimate_cost(
+            self.model,
+            response.input_tokens,
+            response.output_tokens,
+            response.cache_read_tokens,
+            response.cache_write_tokens,
+        )
 
     def increment_turn(self) -> int:
         self._turn += 1

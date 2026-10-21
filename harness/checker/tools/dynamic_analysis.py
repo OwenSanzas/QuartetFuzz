@@ -86,6 +86,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
         # blocked attempt does not consume Docker/build time.  The agent
         # is expected to submit best-effort after the cap is hit.
         _state["build_attempts"] += 1
+        runner.build_attempts = _state["build_attempts"]
         if _state["build_attempts"] > _MAX_BUILD_ATTEMPTS:
             return (
                 f"BUILD BUDGET EXHAUSTED: {_MAX_BUILD_ATTEMPTS} build attempts "
@@ -111,14 +112,26 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
                 f"probe, or get_coverage({result.binary_name!r}, "
                 f"duration=600) for a libFuzzer corpus + llvm-cov pass."
             )
-        tail = result.build_log_tail or ""
-        if len(tail) > _MAX_OUTPUT_CHARS:
-            tail = tail[-_MAX_OUTPUT_CHARS:]
-        return (
+        # The log starts with the compiler/linker error lines (see
+        # infra.ossfuzz.build._error_excerpt) and ends with the raw tail;
+        # keep both ends.
+        log_text = result.build_log_tail or ""
+        if len(log_text) > 8000:
+            log_text = log_text[:6000] + "\n[...]\n" + log_text[-2000:]
+        msg = (
             f"BUILD FAILED\n"
             f"Error: {result.build_error}\n\n"
-            f"Compiler output (tail):\n{tail}"
+            f"Compiler output:\n{log_text}"
         )
+        if result.build_log_path:
+            n = sum(1 for _ in open(result.build_log_path, errors="replace"))
+            msg += (
+                f"\n\nFull build log ({n} lines): {result.build_log_path}\n"
+                f"The output above is an excerpt (compiler/linker error lines, "
+                f"then the log tail).  If it does not show why the build "
+                f"failed, Grep or Read the full log."
+            )
+        return msg
 
     @mcp.tool()
     def AP_Run_check(generator_code: str, binary_name: str = ""):
@@ -160,6 +173,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
         if result.get("error") and not result.get("crashed"):
             return f"RUN ERROR: {result['error']}"
         verdict = "FAIL" if result.get("crashed") else "PASS"
+        runner.checks["run_done"] = True
         sanitizer = result.get("sanitizer") or "—"
         exit_code = result.get("exit_code", -1)
         lines = [
@@ -223,51 +237,88 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             return f"COVERAGE ERROR (infrastructure): {exc}"
         if metrics.error:
             return f"COVERAGE ERROR: {metrics.error}"
+        runner.checks["coverage_lines"] = metrics.lines_covered
+        fuzz = getattr(runner, "last_fuzz_run", None)
+        note = ""
+        if fuzz is not None and fuzz.crash:
+            note = (
+                f"\n\nWARNING: the fuzzer crashed and was restarted {fuzz.restarts} time(s) "
+                f"during the {duration} s (as in the evaluation, it continues on the kept corpus "
+                f"after a crash, leak, OOM or timeout, but every restart costs fuzzing time).\n"
+                f"Distinct crashes, with how often each occurred:\n{fuzz.crash}\n"
+                "A crash found this quickly is most likely a bug in your harness (P1): fix it "
+                "and rebuild. If you are confident it is a real library bug deep in the library "
+                "code, leave it: do not steer the harness around it or silence the sanitizer."
+            )
+        elif fuzz is not None and fuzz.elapsed_seconds < 0.9 * duration:
+            note = (
+                f"\n\nWARNING: the fuzzer stopped after {fuzz.elapsed_seconds:.0f} s of {duration} s: "
+                f"{fuzz.error or 'no crash report was printed'}"
+            )
+        speed = ""
+        if fuzz is not None and fuzz.total_executions:
+            speed = (f"  executions:  {fuzz.total_executions} in {fuzz.elapsed_seconds:.0f} s "
+                     f"({fuzz.total_executions / max(1.0, fuzz.elapsed_seconds):.0f}/s), "
+                     f"corpus {fuzz.corpus_size} inputs\n")
         return (
             f"COVERAGE OK  binary={binary_name}  fuzz_seconds={duration}\n"
-            f"  lines:     {metrics.lines_covered:>8}/{metrics.lines_total:<8}  ({metrics.lines_pct:5.2f}%)\n"
+            + speed
+            + f"  lines:     {metrics.lines_covered:>8}/{metrics.lines_total:<8}  ({metrics.lines_pct:5.2f}%)\n"
             f"  branches:  {metrics.branches_covered:>8}/{metrics.branches_total:<8}  ({metrics.branches_pct:5.2f}%)\n"
             f"  functions: {metrics.functions_covered:>8}/{metrics.functions_total:<8}  ({metrics.functions_pct:5.2f}%)\n"
             f"  regions:   {metrics.regions_covered:>8}/{metrics.regions_total:<8}  ({metrics.regions_pct:5.2f}%)"
+            + note
         )
 
     @mcp.tool()
-    def run_gdb(binary_name: str, crash_input_b64: str):
-        """Reproduce a crash under gdb and return the backtrace.
+    def run_gdb(generator_code: str, gdb_commands: str = "", binary_name: str = ""):
+        """Run the ASan fuzzer binary under gdb on a crafted input.
 
-        Decodes `crash_input_b64` (base64-encoded bytes) into a crash
-        input file, mounts the fuzzer binary in the project's Docker
-        image, and runs ``gdb --batch -ex run -ex 'bt full' -ex
-        'info locals' -ex 'info registers'``.  Output is truncated to
-        ~4KB.
+        Write a Python function ``generate() -> bytes`` in
+        *generator_code*; the system runs it in the project's runtime
+        container (no network) and writes the bytes to
+        ``/tmp/input.bin``.  The binary is ``/out/<binary_name>``.
 
-        Use this only after AP_Run_check reports a crash to decide
-        whether the crash is a P1 harness bug (backtrace lives in the
-        harness code or libFuzzer runtime) or a real library bug
-        (backtrace reaches library internals).
+        *gdb_commands* is a gdb script, one command per line, e.g.::
+
+            break png_read_info
+            run /tmp/input.bin
+            bt
+            info args
+            finish
+
+        Breakpoints, ``commands`` blocks, ``print``, ``x``, ``finish``
+        and ``info locals`` all work.  If the script has no ``run``
+        line, ``run /tmp/input.bin`` then ``bt`` are appended, so an
+        empty script reproduces a crash and prints its backtrace.
+        ASan aborts on the first error, so gdb stops at the faulting
+        frame; leak detection is off under gdb.  As in any gdb command
+        file, a command that fails (e.g. `break` on an unknown symbol)
+        stops the rest of the script.
+
+        Use it to tell a harness bug (P1: backtrace in harness code)
+        from a library bug, or to inspect the arguments the harness
+        actually passes to a library call.  Output is truncated to
+        ~8KB.
 
         Args:
-            binary_name: Name of the built fuzzer.
-            crash_input_b64: Base64-encoded crash input bytes (libFuzzer
-                writes these as 'crash-<hash>' files in the corpus_dir
-                after a crash).
+            generator_code: Python source defining generate() -> bytes.
+            gdb_commands: gdb script (may be empty).
+            binary_name: Fuzzer binary name (default: last built).
         """
         if runner is None:
             return unavailable
         try:
-            crash_bytes = base64.b64decode(crash_input_b64)
-        except (binascii.Error, ValueError) as exc:
-            return f"GDB ERROR: crash_input_b64 is not valid base64 ({exc})"
-        try:
             output = runner.gdb(
-                crash_bytes,
-                binary_name=binary_name,
+                generator_code,
+                gdb_commands,
+                binary_name=binary_name or None,
                 max_output_bytes=_MAX_OUTPUT_CHARS,
             )
         except Exception as exc:
             logger.exception("run_gdb failed unexpectedly")
             return f"GDB ERROR (infrastructure): {exc}"
-        return f"GDB OUTPUT  binary={binary_name}\n\n{output}"
+        return f"GDB OUTPUT  binary={binary_name or '(last built)'}\n\n{output}"
 
     @mcp.tool()
     def AP_Reach_check(
@@ -313,11 +364,15 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             logger.exception("AP_Reach_check failed unexpectedly")
             return f"CHECK ERROR (infrastructure): {exc}"
         if result.get("error"):
-            return f"CHECK ERROR: {result['error']}"
+            tail = result.get("gdb_output", "")[-1500:]
+            return f"CHECK ERROR: {result['error']}" + (f"\n\n{tail}" if tail else "")
         hit = result["hit"]
-        fns = result.get("functions_hit", [])
+        if hit:
+            runner.checks["reached"].add(target_function)
+        counts = result.get("hit_counts", {})
         status = "HIT" if hit else "MISS"
         return (
-            f"TARGET {status}: {target_function}\n"
-            f"Functions hit: {', '.join(fns) if fns else '(none)'}\n"
+            f"TARGET {status}: {target_function}"
+            + (f" (hit {counts.get(target_function, 0)} times)" if hit else "")
+            + "\n"
         )

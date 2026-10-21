@@ -62,12 +62,12 @@ A Logic Group has (in the order you should reason about them):
 
 You have tools in two categories:
 
-- **code_view** — `read_file`, `list_directory`, `search_files`,
-  `list_existing_fuzzers`
-  Explore the project source.  Start with `list_directory` on
-  `{{ project_path }}`, then read the public API header(s), then dig
-  into implementation files.  `list_existing_fuzzers` shows what is
-  already covered upstream so you can produce a *different* feature.
+- **code_view** — `Read`, `Glob`, `Grep`
+  Explore the project source.  `Glob("*")` lists the top of
+  `{{ project_path }}`; `Grep` finds which files mention a symbol, then
+  `Read` the lines you need.  Start with the public API header(s), then
+  dig into implementation files.  `Glob("**/*fuzz*")` finds the fuzzers
+  already upstream so you can produce a *different* feature.
 
 - **static_analysis** — `get_callers`, `get_callees`, `lookup_symbol`,
   `reachable_from`, `reverse_reachable_from`, `is_public_api`,
@@ -93,10 +93,10 @@ This matches paper §3.6 Step~3, which derives
 
 ### Step 1 — Read the constraints, pick a direction
 
-1. `list_existing_fuzzers` and `read_file` a few of them to understand
+1. `Glob("**/*fuzz*")` and `Read` a few of the fuzzers to understand
    what is already covered (G_exist).  The project will also list
    previously-generated LGs in this turn's prompt; do not duplicate.
-2. `list_directory` on `{{ project_path }}`; skim `include/`, `src/`,
+2. `Glob("*")` on `{{ project_path }}`; skim `include/`, `src/`,
    `examples/` to get your bearings.
 3. Decide on **one** feature to pursue that is *different* from
    G_exist and from previously-generated LGs.
@@ -108,7 +108,7 @@ functions that embody the feature's logic — the parser inner loop,
 the decoder state machine, the cipher core, etc.  These are the
 functions whose bugs you want a fuzzer to find.
 
-Tools to use here: `lookup_symbol`, `get_callees`, `read_file` on the
+Tools to use here: `lookup_symbol`, `get_callees`, `Read` on the
 implementation, `is_public_api` to confirm a candidate really is
 internal.
 
@@ -150,7 +150,7 @@ APIs come back classified as `unknown`.  Recover them yourself:
 2. From those, pick a few names that *look* like real public API
    based on the symbol name and context.  Skip entries you can tell
    are tests or internal helpers.
-3. For each candidate `a`: `lookup_symbol(a)` then `read_file` the
+3. For each candidate `a`: `lookup_symbol(a)` then `Read` the
    declaration in the header.  Judge from the source:
    declared in a `.h` under a public-looking path? no `static`
    modifier? `extern` / export macro? documented?
@@ -191,7 +191,7 @@ This is your terminating tool call.
 - Call `submit_logic_group` exactly once, as your final action.
 - The `entries` list must have at least 1 function; 1-3 is ideal.
 - Every entry must be a real function name verified via
-  `lookup_symbol` or `read_file` — no hallucinated names.
+  `lookup_symbol` or `Read` — no hallucinated names.
 - Prefer public API entries; internal entries are fine when justified
   by the Step 3/4 search returning no public ancestor.
 - Your `description` must be YOUR words, not the user's prompt quoted.

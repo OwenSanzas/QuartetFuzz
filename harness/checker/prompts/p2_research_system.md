@@ -44,7 +44,7 @@ Your job is to find this information from the actual source code
 
 ## Your tools
 
-- **code_view** — `read_file`, `list_directory`, `search_files`
+- **code_view** — `Read`, `Glob`, `Grep`
 - **static_analysis** — `get_callers`, `get_callees`,
   `lookup_symbol`, `reachable_from`, `is_public_api`
 
@@ -59,7 +59,7 @@ For EACH target function, investigate and report:
 
 ### 2. How real code calls this function
 - Call `get_callers(target)` to find production callers
-- Read 2-3 real caller bodies with `read_file`
+- Read 2-3 real caller bodies with `Read`
 - Document the pattern: what do they do BEFORE calling
   the target? What parameters do they pass? What do they
   do AFTER?
@@ -77,8 +77,8 @@ For EACH target function, investigate and report:
 
 ### 5. Test / example code
 - Search for test files or examples that use the target:
-  `search_files(project_path, target_name, "*.c")`
-  `search_files(project_path, target_name, "*.cpp")`
+  `Grep(target_name)` (searches C/C++ sources and headers by default),
+  then `Grep(target_name, path=..., output_mode="content")` on the hits
 - Read relevant ones for usage patterns
 
 ### 6. Error handling

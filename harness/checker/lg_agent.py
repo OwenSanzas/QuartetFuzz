@@ -21,6 +21,7 @@ P1-P4 (that's the downstream agent's job).
 
 from __future__ import annotations
 
+import os
 import json
 import logging
 from pathlib import Path
@@ -37,7 +38,8 @@ from harness.checker.tools.context import DEFAULT_LLM_MODEL, CheckerContext
 
 logger = logging.getLogger(__name__)
 
-_PROMPTS_DIR = Path(__file__).parent / "prompts"
+# QF_PROMPTS_DIR selects a frozen prompt version (qf-prompts/<v>); default: the live prompts.
+_PROMPTS_DIR = Path(os.environ.get("QF_PROMPTS_DIR") or Path(__file__).parent / "prompts")
 _SUBMIT_TOOL = "submit_logic_group"
 
 
@@ -59,24 +61,33 @@ class LogicGroupAgent(BaseAgent):
     """BaseAgent that produces a LogicGroup for a given project + prompt."""
 
     agent_type = "logic_group"
-    max_turns = 50  # paper Table 5 production cap
+    max_turns = 300  # high enough that the agent finishes; the paper's Table 5 cap (50) cut runs short
     temperature = 0.0
     max_tool_output_tokens = 8000
-    max_context_tokens = 500_000
     enable_compression = True
     artifact_tool_names = frozenset({"submit_logic_group"})
-    model = "claude-opus-4-6"
+    model = DEFAULT_LLM_MODEL
 
     def __init__(
         self,
         *,
         ctx: CheckerContext,
-        functionality_prompt: str,
+        functionality_prompt: str = "",
+        target_function: str = "",
+        target_declaration: str = "",
+        target_location: str = "",
+        fuzzer_name: str = "",
     ) -> None:
-        if not functionality_prompt:
-            raise ValueError("LogicGroupAgent needs a functionality_prompt")
+        # With a target function (the benchmark's Mode C) the LG is built
+        # around it (lg_target_*.md); otherwise it is discovered from the prompt.
+        if not (functionality_prompt or target_function):
+            raise ValueError("LogicGroupAgent needs a functionality_prompt or a target_function")
         self._ctx = ctx
         self._functionality_prompt = functionality_prompt
+        self._target_function = target_function
+        self._target_declaration = target_declaration
+        self._target_location = target_location
+        self._fuzzer_name = fuzzer_name
         self._submitted_lg: LogicGroup | None = None
         self._submit_error: str = ""
 
@@ -92,6 +103,7 @@ class LogicGroupAgent(BaseAgent):
         register_all(
             mcp, self._ctx,
             categories=("code_view", "static_analysis"),
+            code_view_profile="research",
         )
 
         @mcp.tool()
@@ -118,6 +130,9 @@ class LogicGroupAgent(BaseAgent):
                 core: Internal functions reachable from entries (optional but
                       recommended — used for P4 verification downstream).
             """
+            if self._target_function and (not entries or entries[0] != self._target_function):
+                return (f"ERROR: entries[0] must be the target function "
+                        f"'{self._target_function}'.  Fix and call submit_logic_group again.")
             try:
                 self._submitted_lg = LogicGroup(
                     name=name,
@@ -134,6 +149,14 @@ class LogicGroupAgent(BaseAgent):
         return mcp
 
     def get_system_prompt(self, **kwargs: Any) -> str:
+        if self._target_function:
+            return _render(
+                "lg_target_system.md",
+                project=self._ctx.project,
+                project_path=str(self._ctx.project_path),
+                oss_fuzz_project_dir=str(self._ctx.oss_fuzz_project_dir) if self._ctx.oss_fuzz_project_dir else "",
+                static_available=self._ctx.static_index is not None or self._ctx.callgraph is not None,
+            )
         return _render(
             "lg_system.md",
             project=self._ctx.project,
@@ -142,6 +165,17 @@ class LogicGroupAgent(BaseAgent):
         )
 
     def get_initial_message(self, **kwargs: Any) -> str:
+        if self._target_function:
+            return _render(
+                "lg_target_initial.md",
+                project=self._ctx.project,
+                project_path=str(self._ctx.project_path),
+                target_function=self._target_function,
+                target_declaration=self._target_declaration,
+                target_location=self._target_location,
+                fuzzer_name=self._fuzzer_name,
+                oss_fuzz_project_dir=str(self._ctx.oss_fuzz_project_dir) if self._ctx.oss_fuzz_project_dir else "",
+            )
         return _render(
             "lg_initial.md",
             project=self._ctx.project,

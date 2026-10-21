@@ -88,6 +88,7 @@ class DynamicRunResult:
     build_ok: bool = False
     build_error: str = ""
     build_log_tail: str = ""
+    build_log_path: str = ""  # full log of a failed build, readable by the agent
 
     ran: bool = False
     run: FuzzerRunResult | None = None
@@ -143,8 +144,17 @@ class DynamicRunner:
         sanitizer: str = "address",
         fuzzer_name: str | None = None,
         language: str = "c",
+        pinned_commit: str | None = None,
+        container_path: str | None = None,
+        runtime_image: str | None = None,
     ) -> None:
         self.project = project
+        # Where the harness goes in the build ($SRC/...), the oss-fuzz commit
+        # the worktree is reset to, and the image probes/gdb run in.  The
+        # runtime image must have gdb; OSS-Fuzz project images do not.
+        self.pinned_commit = pinned_commit
+        self.container_path = container_path
+        self.runtime_image = runtime_image or f"gcr.io/oss-fuzz/{project}"
         self.source_oss_fuzz_dir = (
             Path(source_oss_fuzz_dir) if source_oss_fuzz_dir else _DEFAULT_PINNED_OSS_FUZZ
         )
@@ -158,6 +168,12 @@ class DynamicRunner:
         self.fuzzer_name = fuzzer_name
         self.language = language
 
+        # Full logs of failed builds, one file per attempt; the agent's
+        # Read/Grep can open them (flow.py adds this dir to allowed_roots).
+        self.build_log_dir = self.worker_workspace.parent / "build_logs"
+        self.build_log_dir.mkdir(parents=True, exist_ok=True)
+        self._build_attempt = 0
+
         self._bv = _BuildValidatorKeepArtifacts(
             project=project,
             oss_fuzz_dir=self.source_oss_fuzz_dir,
@@ -166,6 +182,8 @@ class DynamicRunner:
             fuzzer_name=fuzzer_name,
             docker_lock=docker_lock,
             language=language,
+            pinned_commit=pinned_commit,
+            container_path=container_path,
         )
 
         # Populated after the first successful build.
@@ -179,6 +197,20 @@ class DynamicRunner:
         self._last_source_filename: str | None = None
         # Whether the current workspace has a coverage-sanitized build.
         self._coverage_built: bool = False
+        # The libFuzzer run of the last get_coverage on the current build;
+        # None until get_coverage has fuzzed the current build.
+        self.last_fuzz_run = None
+        # What the checks found on the current build (reset by build()):
+        # the submit gate reads it.
+        self.checks: dict = self._fresh_checks()
+        # Every successful build's harness code (stripped) -> the checks made
+        # on that build (the same dict as self.checks while it is current),
+        # so the agent may submit an earlier, better build.
+        self.build_history: dict[str, dict] = {}
+
+    @staticmethod
+    def _fresh_checks() -> dict:
+        return {"run_done": False, "reached": set(), "coverage_lines": 0}
 
     # ---- build -------------------------------------------------------------
 
@@ -189,12 +221,21 @@ class DynamicRunner:
         This is the address-sanitized build.  See :meth:`coverage` for the
         coverage rebuild path.
         """
+        self._build_attempt += 1
+        self._bv.last_full_log = ""
         result = self._bv.validate(harness_code, filename)
         if not result.success:
+            log_path = ""
+            full = self._bv.last_full_log or result.build_log or ""
+            if full:
+                f = self.build_log_dir / f"build_{self._build_attempt:02d}_{self.sanitizer}_failed.log"
+                f.write_text(full)
+                log_path = str(f)
             return DynamicRunResult(
                 build_ok=False,
                 build_error=result.error,
-                build_log_tail=result.build_log[-2000:] if result.build_log else "",
+                build_log_tail=result.build_log or "",  # error excerpt + tail, see infra.ossfuzz.build
+                build_log_path=log_path,
             )
 
         # Record the workspace & binary for subsequent calls.
@@ -211,8 +252,12 @@ class DynamicRunner:
         self._address_binary_snapshot = snapshot_dir / self._built_binary
         if built_binary_path.is_file():
             shutil.copy2(built_binary_path, self._address_binary_snapshot)
-        # A fresh address build invalidates any prior coverage build.
+        # A fresh address build invalidates any prior coverage build and
+        # every check made on the previous binary.
         self._coverage_built = False
+        self.last_fuzz_run = None
+        self.checks = self._fresh_checks()
+        self.build_history[harness_code.strip()] = self.checks
         return DynamicRunResult(
             build_ok=True,
             binary_name=self._built_binary,
@@ -297,6 +342,8 @@ class DynamicRunner:
             fuzzer_name=self.fuzzer_name,
             docker_lock=self.docker_lock,
             language=self.language,
+            pinned_commit=self.pinned_commit,
+            container_path=self.container_path,
         )
         validation = cov_bv.validate(self._last_harness_code, self._last_source_filename)
         if not validation.success:
@@ -341,16 +388,15 @@ class DynamicRunner:
         if not binary:
             raise RuntimeError("DynamicRunner.coverage() called without a built binary")
 
-        # 1. Run libFuzzer to populate the systemcheck corpus.  Skip if
-        #    the corpus already has files (a previous coverage() call or
-        #    test fixture pre-populated it) or if the caller explicitly
-        #    set fuzz_seconds=0.
-        paths = OssFuzzPaths(workspace)
-        sc_dir = paths.corpus_dir(self.project, f"{binary}_systemcheck")
-        already_populated = sc_dir.is_dir() and any(sc_dir.iterdir())
-        if fuzz_seconds > 0 and not already_populated and not self._coverage_built:
+        # 1. Run libFuzzer to populate the systemcheck corpus, once per
+        #    build: a new build() resets last_fuzz_run, so its coverage is
+        #    measured on its own fresh corpus, never on the corpus of an
+        #    earlier build (generate_corpus empties the dir first).
+        #    fuzz_seconds=0 skips it.
+        if fuzz_seconds > 0 and self.last_fuzz_run is None and not self._coverage_built:
             try:
                 run_result = self.run(duration=fuzz_seconds, binary_name=binary)
+                self.last_fuzz_run = run_result
             except Exception as exc:
                 return CoverageMetrics(
                     error=f"libFuzzer pre-run failed: {exc}"
@@ -420,72 +466,145 @@ class DynamicRunner:
             "seeded %d corpus files into %s for coverage run", count, dst_dir
         )
 
+    # ---- probes: generator + binary in the runtime container ---------------
+    #
+    # Every probe runs inside ``self.runtime_image`` (the case image plus
+    # gdb), with no network and the ASan binary mounted read-only.  The
+    # agent's ``generate()`` runs there too, never in this process: it is
+    # model-written code and must not see the host filesystem.
+
+    _GEN_RUNNER = (
+        "import runpy, sys, traceback\n"
+        "try:\n"
+        "    ns = runpy.run_path('/qfprobe/gen.py')\n"
+        "    g = ns.get('generate')\n"
+        "    if g is None:\n"
+        "        print('generator_code must define generate() -> bytes'); sys.exit(3)\n"
+        "    b = g()\n"
+        "    if not isinstance(b, (bytes, bytearray)):\n"
+        "        print('generate() returned %s, expected bytes' % type(b).__name__); sys.exit(3)\n"
+        "    open('/tmp/input.bin', 'wb').write(bytes(b))\n"
+        "except SystemExit:\n"
+        "    raise\n"
+        "except BaseException:\n"
+        "    traceback.print_exc(limit=5); sys.exit(3)\n"
+    )
+    _GEN_FAIL_MARK = "QF_GENERATOR_FAILED"
+
+    def _asan_binary_dir(self, binary: str) -> Path | None:
+        """Directory holding the ASan build of *binary* (snapshot first:
+        it survives the coverage rebuild)."""
+        if self._address_binary_snapshot and self._address_binary_snapshot.is_file():
+            d = self._address_binary_snapshot.parent
+        else:
+            d = OssFuzzPaths(self._require_workspace()).build_out(self.project)
+        return d if (d / binary).is_file() else None
+
+    def _run_probe(
+        self,
+        generator_code: str,
+        command: str,
+        *,
+        binary_dir: Path,
+        env: dict[str, str],
+        files: dict[str, str] | None = None,
+        timeout: int,
+        ptrace: bool = False,
+    ) -> tuple[str | None, str, int, bool]:
+        """Run ``generate()`` then *command* in the runtime container.
+
+        The blob is at ``/tmp/input.bin``, extra *files* under ``/qfprobe/``.
+        Returns ``(generator_error, output, exit_code, timed_out)``.
+        """
+        probe_dir = Path(tempfile.mkdtemp(prefix="probe-", dir=self.worker_workspace))
+        try:
+            (probe_dir / "gen.py").write_text(generator_code)
+            (probe_dir / "run_gen.py").write_text(self._GEN_RUNNER)
+            for name, text in (files or {}).items():
+                (probe_dir / name).write_text(text)
+            os.chmod(probe_dir, 0o755)
+            script = (
+                "cd /tmp && "
+                f"timeout 60 python3 /qfprobe/run_gen.py > /tmp/gen.log 2>&1 "
+                f"|| {{ echo {self._GEN_FAIL_MARK}; cat /tmp/gen.log; exit 0; }}; "
+                f"{command}"
+            )
+            cmd = ["docker", "run", "--rm", "--network", "none", "--memory", "4g"]
+            if ptrace:
+                cmd += ["--cap-add", "SYS_PTRACE", "--security-opt", "seccomp=unconfined"]
+            for k, v in env.items():
+                cmd += ["-e", f"{k}={v}"]
+            cmd += [
+                "-v", f"{binary_dir}:/out:ro",
+                "-v", f"{probe_dir}:/qfprobe:ro",
+                "--entrypoint", "bash",
+                self.runtime_image, "-c", script,
+            ]
+            try:
+                proc = subprocess.run(
+                    cmd, capture_output=True, text=True, timeout=timeout + 90, errors="replace",
+                )
+                output = (proc.stdout or "") + (proc.stderr or "")
+                exit_code, timed_out = proc.returncode, False
+            except subprocess.TimeoutExpired as exc:
+                output = (exc.stdout or b"") + (exc.stderr or b"")
+                if isinstance(output, bytes):
+                    output = output.decode("utf-8", errors="replace")
+                exit_code, timed_out = -9, True
+        finally:
+            shutil.rmtree(probe_dir, ignore_errors=True)
+        if self._GEN_FAIL_MARK in output:
+            detail = output.split(self._GEN_FAIL_MARK, 1)[1].strip()[-2000:]
+            return f"generator_code execution failed: {detail}", "", -1, False
+        return None, output, exit_code, timed_out
+
     # ---- gdb ---------------------------------------------------------------
 
     def gdb(
         self,
-        crash_input: bytes,
+        generator_code: str,
+        gdb_commands: str,
         *,
         binary_name: str | None = None,
-        max_output_bytes: int = 4096,
+        timeout: int = 120,
+        max_output_bytes: int = 8000,
     ) -> str:
-        """Reproduce a crash under gdb inside the project's Docker image.
+        """Run the ASan binary under gdb on the blob from ``generate()``.
 
-        Writes *crash_input* to a temp file, mounts both build/out and the
-        crash file into the container, runs ``gdb --batch -ex run -ex 'bt full'
-        -ex 'info locals'`` on the fuzzer binary.  Returns the first
-        ``max_output_bytes`` bytes of combined stdout+stderr.
+        *gdb_commands* is a gdb script (breakpoints, ``commands`` blocks,
+        ``bt``, ``print``, ...).  The input is ``/tmp/input.bin``; if the
+        script has no ``run`` line, ``run /tmp/input.bin`` and ``bt`` are
+        appended.  Leak detection is off (LSan does not work under ptrace)
+        and ASan aborts on error so gdb stops at the faulting frame.
         """
-        workspace = self._require_workspace()
         binary = binary_name or self._built_binary
-        if not binary:
-            raise RuntimeError("DynamicRunner.gdb() called without a built binary")
-
-        paths = OssFuzzPaths(workspace)
-        out_dir = paths.build_out(self.project)
-        if not (out_dir / binary).is_file():
-            return f"Error: binary {binary} not found at {out_dir}"
-
-        with tempfile.NamedTemporaryFile(
-            prefix="crash-", suffix=".bin", dir=self.worker_workspace, delete=False
-        ) as f:
-            f.write(crash_input)
-            crash_path = Path(f.name)
-
-        gdb_script = (
-            "set pagination off\n"
-            "set print pretty on\n"
-            "run /crash.bin\n"
-            "bt full\n"
-            "info locals\n"
-            "info registers\n"
-            "quit\n"
+        if not binary or not self._built_binary:
+            return "Error: no successful build_harness yet: build the harness first"
+        binary_dir = self._asan_binary_dir(binary)
+        if binary_dir is None:
+            return f"Error: binary {binary} not found"
+        lines = [ln.rstrip() for ln in gdb_commands.strip().splitlines()]
+        has_run = any(ln.strip().split(" ", 1)[0] in ("r", "run") for ln in lines)
+        script = "set pagination off\nset confirm off\nset breakpoint pending off\n" + "\n".join(lines) + "\n"
+        if not has_run:
+            script += "run /tmp/input.bin\nbt\n"
+        script += "quit\n"
+        err, output, _, timed_out = self._run_probe(
+            generator_code,
+            f"timeout {timeout} gdb --batch -nx --command=/qfprobe/cmds.gdb /out/{binary} 2>&1",
+            binary_dir=binary_dir,
+            env={"ASAN_OPTIONS": "detect_leaks=0:abort_on_error=1:symbolize=1"},
+            files={"cmds.gdb": script},
+            timeout=timeout,
+            ptrace=True,
         )
-        cmd = [
-            "docker", "run", "--rm",
-            "-v", f"{out_dir}:/out:ro",
-            "-v", f"{crash_path}:/crash.bin:ro",
-            f"gcr.io/oss-fuzz/{self.project}",
-            "bash", "-c",
-            f"echo '{gdb_script}' | gdb --batch --command=/dev/stdin /out/{binary}",
-        ]
-        try:
-            result = subprocess.run(
-                cmd, capture_output=True, text=True, timeout=120, errors="replace"
-            )
-            combined = (result.stdout or "") + "\n" + (result.stderr or "")
-        except subprocess.TimeoutExpired:
-            combined = "Error: gdb timed out after 120s"
-        except Exception as exc:
-            combined = f"Error: gdb failed: {exc}"
-        finally:
-            try:
-                crash_path.unlink()
-            except OSError:
-                pass
-        if len(combined) > max_output_bytes:
-            combined = combined[:max_output_bytes] + "\n[...gdb output truncated...]"
-        return combined
+        if err:
+            return f"Error: {err}"
+        if timed_out:
+            output += f"\n[gdb timed out after {timeout}s]"
+        if len(output) > max_output_bytes:
+            output = output[:max_output_bytes] + "\n[...gdb output truncated...]"
+        return output
 
     # ---- targeted reachability check ----------------------------------------
 
@@ -495,122 +614,91 @@ class DynamicRunner:
         target_function: str,
         *,
         binary_name: str | None = None,
-        timeout: int = 10,
+        extra_functions: list[str] | None = None,
+        timeout: int = 60,
     ) -> dict:
-        """Generate an input blob via Python code and check if *target_function*
-        is hit when the harness processes it.
+        """Run the blob from ``generate()`` under gdb with a breakpoint on
+        *target_function* (and on each of *extra_functions*), and report
+        which fired, in call order.
 
-        *generator_code* must define a ``generate() -> bytes`` function.  The
-        returned bytes are fed to the ASan binary under GDB with a breakpoint
-        on *target_function*.
-
-        Returns a dict with keys:
-            hit (bool): whether the breakpoint was reached
-            functions_hit (list[str]): all breakpointed functions that fired
-            gdb_output (str): raw GDB output (truncated)
-            error (str | None): if something went wrong
+        Returns ``hit``, ``functions_hit`` (first-hit order),
+        ``hit_counts``, ``gdb_output`` and ``error``.  A breakpoint gdb
+        cannot set (unknown or inlined-away symbol) is an error, not a miss.
         """
-        workspace = self._require_workspace()
         binary = binary_name or self._built_binary
-        if not binary:
-            raise RuntimeError("check_target_reached() called without a built binary")
-
-        # Prefer the ASan snapshot (survives coverage rebuild).
-        if self._address_binary_snapshot and self._address_binary_snapshot.is_file():
-            binary_dir = self._address_binary_snapshot.parent
-        else:
-            paths = OssFuzzPaths(workspace)
-            binary_dir = paths.build_out(self.project)
-        if not (binary_dir / binary).is_file():
-            return {"hit": False, "functions_hit": [], "gdb_output": "",
-                    "error": f"binary {binary} not found at {binary_dir}"}
-
-        # 1. Execute the generator code to produce a blob.
-        blob: bytes = b""
-        try:
-            ns: dict = {}
-            exec(generator_code, ns)  # noqa: S102
-            gen_fn = ns.get("generate")
-            if gen_fn is None:
-                return {"hit": False, "functions_hit": [], "gdb_output": "",
-                        "error": "generator_code must define generate() -> bytes"}
-            result_blob = gen_fn()
-            if isinstance(result_blob, (bytes, bytearray)):
-                blob = bytes(result_blob)
-            else:
-                return {"hit": False, "functions_hit": [], "gdb_output": "",
-                        "error": f"generate() returned {type(result_blob).__name__}, expected bytes"}
-        except Exception as exc:
-            return {"hit": False, "functions_hit": [], "gdb_output": "",
-                    "error": f"generator_code execution failed: {exc}"}
-
-        # 2. Write blob to temp file.
-        with tempfile.NamedTemporaryFile(
-            prefix="reach-", suffix=".bin", dir=self.worker_workspace, delete=False
-        ) as f:
-            f.write(blob)
-            input_path = Path(f.name)
-
-        # 3. Run under GDB with breakpoint on target_function inside the
-        # project's OSS-Fuzz Docker image.  The ASan binary was built
-        # against the container's glibc and won't load reliably on the
-        # host (host glibc is typically older), so we mount build/out
-        # read-only and the input blob read-only and run GDB inside.
-        gdb_script_path = self.worker_workspace / "gdb_reach.cmd"
-        gdb_script_path.write_text(
-            "set pagination off\n"
-            "set confirm off\n"
-            f"break {target_function}\n"
-            "commands\n"
-            f"  printf \"HIT_FUNCTION:{target_function}\\n\"\n"
-            "  continue\n"
+        if not binary or not self._built_binary:
+            return {"hit": False, "functions_hit": [], "hit_counts": {}, "gdb_output": "",
+                    "error": "no successful build_harness yet: build the harness first"}
+        binary_dir = self._asan_binary_dir(binary)
+        if binary_dir is None:
+            return {"hit": False, "functions_hit": [], "hit_counts": {}, "gdb_output": "",
+                    "error": f"binary {binary} not found"}
+        funcs = [target_function] + [f for f in (extra_functions or []) if f and f != target_function]
+        # Set breakpoints through gdb's Python API: in a plain command file
+        # one unknown symbol aborts the whole script, so a missing extra
+        # function would hide a reachable target.
+        script = (
+            "set pagination off\nset confirm off\nset breakpoint pending off\n"
+            "python\n"
+            "import gdb\n"
+            "class _QFBreak(gdb.Breakpoint):\n"
+            "    def stop(self):\n"
+            "        print('QF_HIT:' + self.qf_name)\n"
+            "        return False\n"
+            f"for _f in {funcs!r}:\n"
+            "    try:\n"
+            "        _b = _QFBreak(_f, internal=False)\n"
+            "        _b.qf_name = _f\n"
+            "        if _b.pending:\n"
+            "            _b.delete()\n"
+            "            print('QF_UNSET:' + _f)\n"
+            "    except gdb.error:\n"
+            "        print('QF_UNSET:' + _f)\n"
             "end\n"
-            "run /input.bin\n"
-            "quit\n"
+            "run /tmp/input.bin\nquit\n"
         )
-        cmd = [
-            "docker", "run", "--rm",
-            "-v", f"{binary_dir}:/out:ro",
-            "-v", f"{input_path}:/input.bin:ro",
-            "-v", f"{gdb_script_path}:/gdb.cmd:ro",
-            f"gcr.io/oss-fuzz/{self.project}",
-            "bash", "-c",
-            f"gdb --batch --command=/gdb.cmd /out/{binary}",
-        ]
-        try:
-            proc = subprocess.run(
-                cmd, capture_output=True, text=True,
-                timeout=timeout + 30, errors="replace",
-            )
-            combined = (proc.stdout or "") + "\n" + (proc.stderr or "")
-        except subprocess.TimeoutExpired:
-            combined = f"Error: docker gdb timed out after {timeout + 30}s"
-        except Exception as exc:
-            combined = f"Error: docker gdb failed: {exc}"
-        finally:
-            for p in (input_path, gdb_script_path):
-                try:
-                    p.unlink()
-                except OSError:
-                    pass
-
-        # 4. Parse output for HIT_FUNCTION markers.
-        functions_hit = []
-        for line in combined.splitlines():
-            if line.startswith("HIT_FUNCTION:"):
+        err, output, _, timed_out = self._run_probe(
+            generator_code,
+            f"timeout {timeout} gdb --batch -nx --command=/qfprobe/reach.gdb /out/{binary} 2>&1",
+            binary_dir=binary_dir,
+            env={"ASAN_OPTIONS": "detect_leaks=0:symbolize=0"},
+            files={"reach.gdb": script},
+            timeout=timeout,
+            ptrace=True,
+        )
+        if err:
+            return {"hit": False, "functions_hit": [], "hit_counts": {}, "gdb_output": "", "error": err}
+        unset = [ln.split(":", 1)[1].strip() for ln in output.splitlines() if ln.startswith("QF_UNSET:")]
+        if "gdb: command not found" in output or "Python scripting is not supported" in output:
+            return {"hit": False, "functions_hit": [], "hit_counts": {}, "gdb_output": output[:2000],
+                    "error": "gdb could not start in the runtime image"}
+        order: list[str] = []
+        counts: dict[str, int] = {}
+        for line in output.splitlines():
+            if line.startswith("QF_HIT:"):
                 fn = line.split(":", 1)[1].strip()
-                if fn and fn not in functions_hit:
-                    functions_hit.append(fn)
-
-        truncated = combined[:4096]
-        if len(combined) > 4096:
-            truncated += "\n[...output truncated...]"
-
+                counts[fn] = counts.get(fn, 0) + 1
+                if fn not in order:
+                    order.append(fn)
+        truncated = output[:4096] + ("\n[...output truncated...]" if len(output) > 4096 else "")
+        error = None
+        if target_function in unset:
+            error = (f'gdb could not set a breakpoint on "{target_function}" (not a symbol in the '
+                     "binary: check the exact name, a C++ name may need Class::method, or the "
+                     "function was inlined or not linked)")
+        elif timed_out:
+            error = f"timed out after {timeout}s"
+        elif not counts and "Running: /tmp/input.bin" not in output:
+            # The fuzzer never got to the input (loader error, crash in
+            # init): that says nothing about reachability.
+            error = "the binary did not run the input under gdb; see gdb_output"
         return {
-            "hit": target_function in functions_hit,
-            "functions_hit": functions_hit,
+            "hit": target_function in counts,
+            "functions_hit": order,
+            "hit_counts": counts,
+            "unset_breakpoints": unset,
             "gdb_output": truncated,
-            "error": None,
+            "error": error,
         }
 
     # ---- single-shot adversarial run --------------------------------------
@@ -620,144 +708,37 @@ class DynamicRunner:
         generator_code: str,
         *,
         binary_name: str | None = None,
-        timeout: int = 10,
+        timeout: int = 25,
     ) -> dict:
-        """Generate one input blob via Python and run it through the ASan
-        binary as a single-shot.  Returns whether a sanitizer fired.
+        """Run the blob from ``generate()`` through the ASan binary once.
 
-        *generator_code* must define ``generate() -> bytes``.  The blob is
-        written to a temp file and passed as ``argv[1]`` to the
-        address/leak-sanitized fuzzer binary; libFuzzer treats a positional
-        path as a single test input and exits after running it.
-
-        Returns a dict with keys:
-            crashed (bool): a sanitizer report (ASan/LSan/UBSan/MSan) or
-                signal-fatal exit was observed
-            sanitizer (str | None): sanitizer family if detected
-            output (str): captured stdout+stderr (truncated to 4096B)
-            exit_code (int): process exit code
-            error (str | None): infrastructure error if any
+        libFuzzer treats a positional path as a single test input.  Returns
+        ``crashed``, ``sanitizer``, ``output`` (4 KB), ``exit_code``,
+        ``error``.
         """
-        workspace = self._require_workspace()
         binary = binary_name or self._built_binary
-        if not binary:
-            raise RuntimeError("DynamicRunner.run_blob() called without a built binary")
-
-        # Locate the ASan binary (snapshot survives coverage rebuilds).
-        if self._address_binary_snapshot and self._address_binary_snapshot.is_file():
-            binary_dir = self._address_binary_snapshot.parent
-        else:
-            paths = OssFuzzPaths(workspace)
-            binary_dir = paths.build_out(self.project)
-        binary_path = binary_dir / binary
-        if not binary_path.is_file():
-            return {
-                "crashed": False,
-                "sanitizer": None,
-                "output": "",
-                "exit_code": -1,
-                "error": f"binary {binary} not found at {binary_dir}",
-            }
-
-        # 1. Execute the generator to materialise the blob.
-        try:
-            ns: dict = {}
-            exec(generator_code, ns)  # noqa: S102
-            gen_fn = ns.get("generate")
-            if gen_fn is None:
-                return {
-                    "crashed": False, "sanitizer": None, "output": "",
-                    "exit_code": -1,
-                    "error": "generator_code must define generate() -> bytes",
-                }
-            result_blob = gen_fn()
-            if not isinstance(result_blob, (bytes, bytearray)):
-                return {
-                    "crashed": False, "sanitizer": None, "output": "",
-                    "exit_code": -1,
-                    "error": (
-                        f"generate() returned {type(result_blob).__name__}, "
-                        "expected bytes"
-                    ),
-                }
-            blob = bytes(result_blob)
-        except Exception as exc:
-            return {
-                "crashed": False, "sanitizer": None, "output": "",
-                "exit_code": -1,
-                "error": f"generator_code execution failed: {exc}",
-            }
-
-        # 2. Persist blob to a temp file; libFuzzer expects a path.
-        with tempfile.NamedTemporaryFile(
-            prefix="run-", suffix=".bin", dir=self.worker_workspace, delete=False
-        ) as f:
-            f.write(blob)
-            input_path = Path(f.name)
-
-        # 3. Single-shot exec inside the project's OSS-Fuzz Docker image.
-        # The ASan binary was built against the container's glibc, so it
-        # cannot reliably run on the host (host glibc is often older than
-        # the OSS-Fuzz base image, e.g. 2.36 vs 2.38).  Mount build/out
-        # read-only and the input blob read-only, then invoke the binary
-        # under the container's runtime.
-        out_dir_for_mount = (
-            self._address_binary_snapshot.parent
-            if self._address_binary_snapshot and self._address_binary_snapshot.is_file()
-            else OssFuzzPaths(workspace).build_out(self.project)
+        if not binary or not self._built_binary:
+            return {"crashed": False, "sanitizer": None, "output": "", "exit_code": -1,
+                    "error": "no successful build_harness yet: build the harness first"}
+        binary_dir = self._asan_binary_dir(binary)
+        if binary_dir is None:
+            return {"crashed": False, "sanitizer": None, "output": "", "exit_code": -1,
+                    "error": f"binary {binary} not found"}
+        err, output, exit_code, timed_out = self._run_probe(
+            generator_code,
+            f"/out/{binary} -timeout={timeout} /tmp/input.bin",
+            binary_dir=binary_dir,
+            env={
+                "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=0:print_summary=1:symbolize=1",
+                "LSAN_OPTIONS": "exitcode=23:print_summary=1",
+                "UBSAN_OPTIONS": "print_stacktrace=1:halt_on_error=1",
+            },
+            timeout=timeout,
         )
-        asan_opts = (
-            "detect_leaks=1:halt_on_error=1:abort_on_error=0:"
-            "print_summary=1:symbolize=1"
-        )
-        lsan_opts = "exitcode=23:print_summary=1"
-        ubsan_opts = "print_stacktrace=1:halt_on_error=1"
-        cmd = [
-            "docker", "run", "--rm",
-            "-e", f"ASAN_OPTIONS={asan_opts}",
-            "-e", f"LSAN_OPTIONS={lsan_opts}",
-            "-e", f"UBSAN_OPTIONS={ubsan_opts}",
-            "-v", f"{out_dir_for_mount}:/out:ro",
-            "-v", f"{input_path}:/input.bin:ro",
-            f"gcr.io/oss-fuzz/{self.project}",
-            "bash", "-c",
-            f"/out/{binary} /input.bin",
-        ]
-        try:
-            proc = subprocess.run(
-                cmd, capture_output=True, text=True,
-                timeout=timeout + 30, errors="replace",
-            )
-            output = (proc.stdout or "") + (proc.stderr or "")
-            exit_code = proc.returncode
-            timed_out = False
-        except subprocess.TimeoutExpired as exc:
-            output = (exc.stdout or b"") + (exc.stderr or b"")
-            if isinstance(output, bytes):
-                output = output.decode("utf-8", errors="replace")
-            exit_code = -9
-            timed_out = True
-        except Exception as exc:
-            try:
-                input_path.unlink()
-            except OSError:
-                pass
-            return {
-                "crashed": False, "sanitizer": None, "output": "",
-                "exit_code": -1,
-                "error": f"docker exec failed: {exc}",
-            }
-        finally:
-            try:
-                input_path.unlink()
-            except OSError:
-                pass
-
-        # 4. Detect sanitizer reports.  Order matters: LeakSanitizer
-        #    output also contains a final "AddressSanitizer: detected
-        #    memory leaks" summary line because LSan is integrated into
-        #    the ASan runtime — check LSan-specific markers first so we
-        #    don't misclassify a leak as ASan.
+        if err:
+            return {"crashed": False, "sanitizer": None, "output": "", "exit_code": -1, "error": err}
+        # LSan output also ends with an "AddressSanitizer: detected memory
+        # leaks" line, so check LSan first.
         sanitizer: str | None = None
         for needle, name in (
             ("LeakSanitizer:", "LeakSanitizer"),
@@ -769,16 +750,8 @@ class DynamicRunner:
             if needle in output:
                 sanitizer = name
                 break
-        crashed = (
-            sanitizer is not None
-            or timed_out
-            or (exit_code != 0 and exit_code != 77)  # 77 = libFuzzer "test passed"
-        )
-
-        truncated = output[:4096]
-        if len(output) > 4096:
-            truncated += "\n[...output truncated...]"
-
+        crashed = sanitizer is not None or timed_out or exit_code not in (0, 77)
+        truncated = output[:4096] + ("\n[...output truncated...]" if len(output) > 4096 else "")
         return {
             "crashed": crashed,
             "sanitizer": sanitizer,
@@ -804,7 +777,8 @@ class DynamicRunner:
             # that callers can run tools in any order (useful when an agent
             # wants to run coverage on a pre-existing binary layout).
             workspace_dir, _ = prepare_pinned_oss_fuzz_workspace(
-                self.source_oss_fuzz_dir, self.worker_workspace
+                self.source_oss_fuzz_dir, self.worker_workspace,
+                pinned_commit=self.pinned_commit,
             )
             self._workspace_dir = workspace_dir
         return self._workspace_dir

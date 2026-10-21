@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import os
 import logging
 import re
+import time
 import shutil
 import subprocess
 from pathlib import Path
@@ -27,7 +29,13 @@ def generate_corpus(
     stream_to: Console | None = None,
     stream_prefix: str = "",
 ) -> FuzzerRunResult:
-    """Run a fuzzer in Docker to generate a corpus.
+    """Run a fuzzer in Docker for *duration* seconds to generate a corpus.
+
+    Mirrors the evaluation runner (dataset_v2/tools/fuzz_trial.sh, ClusterFuzz
+    behaviour): libFuzzer flags -rss_limit_mb=2560 -timeout=25, and a crash,
+    leak, OOM or timeout restarts the fuzzer on the kept corpus until the
+    budget is spent.  The case's extra ASan options (QF_EXTRA_ASAN, from
+    dataset_v2/tools/asan_overrides.json) apply as in the evaluation.
 
     Args:
         corpus_name: Override corpus directory name. Defaults to fuzz_target.
@@ -39,54 +47,104 @@ def generate_corpus(
     if corpus_dir.exists():
         shutil.rmtree(corpus_dir, ignore_errors=True)
     corpus_dir.mkdir(parents=True, exist_ok=True)
-
-    cmd = [
-        "docker",
-        "run",
-        "--rm",
-        "-v",
-        f"{paths.build_out(project)}:/out",
-        "-v",
-        f"{corpus_dir}:/corpus",
-        f"gcr.io/oss-fuzz/{project}",
-        f"/out/{fuzz_target}",
-        "/corpus",
-        f"-max_total_time={duration}",
-        "-rss_limit_mb=0",
-    ]
+    extra_asan = os.environ.get("QF_EXTRA_ASAN", "")
 
     stderr_lines: list[str] = []
+    crashes: list[str] = []      # one excerpt per run that ended early
     error: str | None = None
+    start = time.monotonic()
+    total_execs = 0
+    runs = 0
 
-    try:
-        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True, errors="replace")
-        assert proc.stderr is not None
-        for raw_line in proc.stderr:
-            line = raw_line.rstrip()
-            stderr_lines.append(line)
-            if stream_to and line:
-                stream_to.print(f"         [dim]{stream_prefix}{line}[/dim]")
-        proc.wait(timeout=duration + 120)
-        if proc.returncode != 0:
-            error = f"Fuzzer exited with code {proc.returncode}"
-    except subprocess.TimeoutExpired:
-        proc.kill()
-        proc.wait()
-        error = f"Fuzzer timed out after {duration + 120}s"
-    except Exception as exc:
-        error = f"Fuzzer error: {exc}"
+    while True:
+        remain = int(duration - (time.monotonic() - start))
+        if remain < 5 or runs >= 200:
+            break
+        runs += 1
+        cmd = ["docker", "run", "--rm",
+               "-v", f"{paths.build_out(project)}:/out",
+               "-v", f"{corpus_dir}:/corpus"]
+        if extra_asan:
+            cmd += ["-e", f"ASAN_OPTIONS={extra_asan}"]
+        cmd += [f"gcr.io/oss-fuzz/{project}", f"/out/{fuzz_target}", "/corpus",
+                f"-max_total_time={remain}", "-rss_limit_mb=2560", "-timeout=25",
+                f"-seed={runs}"]
+        run_lines: list[str] = []
+        try:
+            proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
+                                    text=True, errors="replace")
+            assert proc.stderr is not None
+            for raw_line in proc.stderr:
+                line = raw_line.rstrip()
+                run_lines.append(line)
+                if stream_to and line:
+                    stream_to.print(f"         [dim]{stream_prefix}{line}[/dim]")
+            proc.wait(timeout=remain + 120)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait()
+            error = f"Fuzzer timed out after {remain + 120}s"
+            break
+        except Exception as exc:
+            error = f"Fuzzer error: {exc}"
+            break
+        stderr_lines = run_lines
+        total_execs += _parse_libfuzzer_stats(run_lines).get("execs", 0)
+        excerpt = _crash_excerpt(run_lines)
+        if excerpt:
+            crashes.append(excerpt)
+        elif proc.returncode != 0:
+            crashes.append(f"Fuzzer exited with code {proc.returncode}\n" + "\n".join(run_lines[-15:]))
+        else:
+            break  # ran to the end of its budget
+        if runs == 1 and count_corpus(corpus_dir) == 0 and total_execs == 0:
+            error = f"Fuzzer exited with code {proc.returncode} before running any input"
+            break
 
     stats = _parse_libfuzzer_stats(stderr_lines)
+    elapsed = time.monotonic() - start
     return FuzzerRunResult(
         corpus_dir=str(corpus_dir),
         corpus_size=count_corpus(corpus_dir),
         edges_covered=stats.get("cov", 0),
         features=stats.get("ft", 0),
-        total_executions=stats.get("execs", 0),
+        total_executions=total_execs,
         exec_per_second=stats.get("exec_s", 0),
         peak_rss_mb=stats.get("rss", 0),
+        elapsed_seconds=elapsed,
         error=error,
+        crash=_summarize_crashes(crashes),
+        restarts=max(0, runs - 1) if crashes else 0,
     )
+
+
+def _summarize_crashes(crashes: list[str]) -> str | None:
+    """The first report of each distinct crash (by its SUMMARY line), with a count."""
+    if not crashes:
+        return None
+    seen: dict[str, list] = {}
+    for c in crashes:
+        key = next((l for l in c.splitlines() if l.startswith("SUMMARY:")), c.splitlines()[0])
+        seen.setdefault(key, [0, c])[0] += 1
+    parts = [f"[{n}x] {key}\n{c}" for key, (n, c) in list(seen.items())[:3]]
+    if len(seen) > 3:
+        parts.append(f"... and {len(seen) - 3} more distinct crashes")
+    return "\n\n".join(parts)
+
+
+def _crash_excerpt(stderr_lines: list[str], max_lines: int = 25) -> str | None:
+    """The report libFuzzer / a sanitizer printed when it stopped the run
+    (first ERROR/deadly-signal line through the SUMMARY line), or None."""
+    start = next((i for i, l in enumerate(stderr_lines)
+                  if re.search(r"==\d+==\s*ERROR:|deadly signal|ERROR: libFuzzer|"
+                               r"out-of-memory|timeout after", l)), None)
+    if start is None:
+        return None
+    lines = stderr_lines[start:start + max_lines]
+    summary = next((l for l in stderr_lines[start:] if l.startswith("SUMMARY:")), None)
+    if summary and summary not in lines:
+        lines += ["...", summary]
+    return "\n".join(lines)
 
 
 def _parse_libfuzzer_stats(stderr_lines: list[str]) -> dict[str, int]:

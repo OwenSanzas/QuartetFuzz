@@ -14,11 +14,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from harness.checker.callgraph import CallGraph
     from harness.checker.dynamic import DynamicRunner
     from harness.checker.static import StaticIndex
 
 
-DEFAULT_LLM_MODEL = "claude-sonnet-4-6"
+DEFAULT_LLM_MODEL = "claude-sonnet-5"
 
 
 @dataclass
@@ -43,12 +44,16 @@ class CheckerContext:
     static_index
         Pre-loaded :class:`StaticIndex` for this project, or ``None`` if
         static analysis data is not available.
+    callgraph
+        Static call graph of the +Static ablation (:class:`CallGraph`), or
+        ``None`` (the default; ``AGF_CALLGRAPH_DIR`` unset).  When set it
+        replaces ``static_analysis`` with get_callers / get_callees / find_path.
     dynamic_runner
         :class:`DynamicRunner` for build/run/coverage/gdb, or ``None`` if
         dynamic analysis is disabled for this flow.
     llm_model
         LiteLLM model string for every LLM-backed tool.  Defaults to
-        ``claude-sonnet-4-6`` per project policy.
+        ``claude-sonnet-5``, the model every system in the evaluation runs on.
     github_token
         Optional GitHub API token for the ``github`` category.  Not used
         unless that category is registered.
@@ -59,6 +64,7 @@ class CheckerContext:
     oss_fuzz_project_dir: Path | None = None
     allowed_roots: list[Path] = field(default_factory=list)
     static_index: "StaticIndex | None" = None
+    callgraph: "CallGraph | None" = None
     dynamic_runner: "DynamicRunner | None" = None
     llm_model: str = DEFAULT_LLM_MODEL
     github_token: str | None = None

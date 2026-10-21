@@ -13,7 +13,7 @@ from mcp import types as mcp_types
 from mcp.server.fastmcp import FastMCP
 
 from .context import AgentContext
-from .llm_client import LLMClient, LLMResponse, get_context_window
+from .llm_client import LLMClient, LLMResponse, get_context_window, get_max_output_tokens
 from .result import AgentResult, TrajectoryEvent
 
 log = structlog.get_logger("agent")
@@ -35,8 +35,29 @@ class BaseAgent(ABC):
     temperature: float = 0.0
     model: str | None = None
     enable_compression: bool = True
+    # Compress only when the prompt nears the window: at 80% of the model's
+    # context window or at this many tokens, whichever comes first.
+    # Compression is observation masking (Lindenbauer et al., "The
+    # Complexity Trap", 2025): old tool outputs are replaced by a short
+    # placeholder, the agent's own reasoning and calls stay verbatim, and
+    # no LLM summary is involved.
+    # (fbv2's mechanical eviction is the same idea, with the recall store.)
+    compression_threshold_tokens: int = 100_000
+    # Tool outputs kept verbatim when masking: the most recent ones.
+    keep_recent_observations: int = 10
+    # Only above this estimated size are the agent's own old inputs and
+    # reasoning also replaced (stage 2/3).
+    shrink_threshold_tokens: int = 400_000
+    # Pure reads whose result is stable: a masked one is restored by calling
+    # the tool again.  Every other masked text (dynamic probes, builds,
+    # coverage, old harness inputs, old reasoning) is kept in memory and
+    # restored verbatim with recall(ref).
+    idempotent_read_tools: frozenset[str] = frozenset({
+        "Read", "Glob", "Grep", "get_callers", "get_callees", "lookup_symbol",
+        "reachable_from", "reverse_reachable_from", "is_public_api",
+        "public_apis_reaching", "public_apis_reaching_batch", "find_path",
+    })
     max_tool_output_tokens: int = 8000
-    max_context_tokens: int = 64000
 
     @abstractmethod
     def create_mcp_server(self) -> FastMCP:
@@ -56,8 +77,10 @@ class BaseAgent(ABC):
     def get_urgency_message(self) -> str | None:
         return None
 
-    def get_compression_criteria(self) -> str:
-        return "Keep all tool results, key findings, code snippets, and decisions."
+    def get_pinned_status(self) -> str | None:
+        """Facts the agent must keep seeing after old tool outputs are
+        masked; shown in one pinned message, refreshed at each compression."""
+        return None
 
     def should_stop(self, response: LLMResponse) -> bool:
         return False
@@ -104,13 +127,16 @@ class BaseAgent(ABC):
         mcp = self.create_mcp_server()
         tools = await self._load_tools(mcp)
 
+        if self.enable_compression:
+            tools.append(_RECALL_TOOL)
+        self._recall_store: dict[int, str] = {}
+
         system = self.get_system_prompt(**kwargs)
         messages: list[dict[str, Any]] = [
             {"role": "user", "content": self.get_initial_message(**kwargs)},
         ]
 
         last_content = ""
-        budget_extended = False
 
         while ctx.turn < self.max_turns:
             if ctx.cancelled:
@@ -118,13 +144,6 @@ class BaseAgent(ABC):
                 break
 
             turn = ctx.increment_turn()
-
-            if not budget_extended and ctx.total_input_tokens >= self.max_context_tokens:
-                log.warning("agent.budget_exceeded", turn=turn, tokens=ctx.total_input_tokens)
-                urgency = self.get_urgency_message()
-                if urgency:
-                    messages.append({"role": "user", "content": urgency})
-                budget_extended = True
 
             if turn == self.max_turns - 2:
                 urgency = self.get_urgency_message()
@@ -137,6 +156,7 @@ class BaseAgent(ABC):
                 messages=messages,
                 tools=tools if tools else None,
                 temperature=self.temperature,
+                max_tokens=get_max_output_tokens(ctx.model),
             )
             ctx.add_usage(response)
             ctx.record_event(
@@ -201,8 +221,13 @@ class BaseAgent(ABC):
                 is_error = False
                 output_text = ""
                 try:
-                    result = await mcp.call_tool(tool_name, tool_input)
-                    if isinstance(result, dict):
+                    if tool_name == "recall" and self.enable_compression:
+                        result = self._recall(tool_input)
+                    else:
+                        result = await mcp.call_tool(tool_name, tool_input)
+                    if isinstance(result, str):
+                        output_text = result
+                    elif isinstance(result, dict):
                         output_text = json.dumps(result, indent=2, default=str)
                     else:
                         output_text = _extract_mcp_text(result)
@@ -249,9 +274,11 @@ class BaseAgent(ABC):
                 )
 
             if self.enable_compression and turn > 1:
-                token_threshold = int(get_context_window(ctx.model) * 0.8)
-                needs_compress = turn % 5 == 0 or ctx.last_input_tokens >= token_threshold
-                if needs_compress:
+                token_threshold = min(
+                    int(get_context_window(ctx.model) * 0.8),
+                    self.compression_threshold_tokens,
+                )
+                if ctx.last_input_tokens >= token_threshold:
                     messages = await self._compress_context(ctx, system, messages)
 
         return last_content
@@ -315,96 +342,128 @@ class BaseAgent(ABC):
         system: str,
         messages: list[dict[str, Any]],
     ) -> list[dict[str, Any]]:
-        if len(messages) < 6:
-            return messages
+        """Observation masking.  Every tool output except the most recent
+        ``keep_recent_observations`` (and the latest artifact result) is
+        replaced by a one-line placeholder naming the call; the initial task,
+        the agent's reasoning and every tool call (with its arguments) stay
+        verbatim.  If that is still over half the threshold, superseded
+        artifact inputs and then old reasoning text are replaced by
+        placeholders.  No LLM call, no message is ever removed."""
+        names: dict[str, str] = {}
+        for m in messages:
+            for tc in m.get("tool_calls") or []:
+                names[tc.get("id")] = (tc.get("function") or {}).get("name", "?")
 
-        head_n, tail_n = 1, 4
-        head_end = head_n
-        tail_start = len(messages) - tail_n
-
-        # Walk tail_start back so it never lands on a tool_result whose
-        # parent assistant tool_call would end up in the summary.  Anthropic
-        # rejects orphan ``tool_use_id`` references; OpenAI does not, but
-        # the safe rule is the same.  We can also land on an assistant
-        # whose tool_calls have results inside the tail — those are
-        # whole-pair safe.
-        while tail_start > head_end and messages[tail_start].get("role") == "tool":
-            tail_start -= 1
-        if tail_start <= head_end:
-            return messages
-        head = messages[:head_end]
-        tail = messages[tail_start:]
-
-        # Identify the latest artifact pair (e.g. last build_harness call +
-        # its tool result).  Preserve it across compression so the
-        # generated harness source is never lost from context.
+        keep: set[int] = set()
         artifact = self._find_latest_artifact_pair(messages)
-        preserved: set[int] = set()
-        if artifact is not None:
-            for idx in artifact:
-                if 0 <= idx and head_end <= idx < tail_start:
-                    preserved.add(idx)
+        if artifact is not None and artifact[1] >= 0:
+            keep.add(artifact[1])
+        tool_idx = [i for i, m in enumerate(messages) if m.get("role") == "tool"]
+        keep.update(tool_idx[-self.keep_recent_observations:])
 
-        middle_to_summarise = [
-            messages[i]
-            for i in range(head_end, tail_start)
-            if i not in preserved
-        ]
-        if not middle_to_summarise:
-            return messages
+        masked = 0
+        out: list[dict[str, Any]] = []
+        for i, m in enumerate(messages):
+            content = m.get("content")
+            if (m.get("role") == "tool" and i not in keep and isinstance(content, str)
+                    and content and not content.startswith("[Output of ")):
+                name = names.get(m.get("tool_call_id"), "?")
+                if name in self.idempotent_read_tools:
+                    how = f"call {name} again with the same arguments to see it"
+                else:
+                    how = f"recall({self._store(content)}) restores it verbatim"
+                m = dict(m, content=(
+                    f"[Output of {name} omitted to save context ({len(content)} chars); {how}.]"))
+                masked += 1
+            out.append(m)
 
-        middle_text = "\n".join(
-            f"[{m.get('role', '?')}] {str(m.get('content', ''))[:500]}"
-            for m in middle_to_summarise
-        )
-        criteria = self.get_compression_criteria()
-        compress_prompt = (
-            f"Summarise the following conversation excerpt concisely.\n"
-            f"Criteria: {criteria}\n\n{middle_text}"
-        )
+        # Still too large: shrink, oldest first, what the agent itself wrote,
+        # never dropping a message.  Every tool call keeps its name and its
+        # place in the history; the system prompt is passed separately and
+        # the initial task (messages[0]) is never touched.
+        #   1. arguments of superseded artifact calls (old harness versions);
+        #   2. the agent's reasoning text in old turns.
+        budget_chars = self.shrink_threshold_tokens * 4  # ~4 chars/token
+        def _size(ms: list[dict[str, Any]]) -> int:
+            return sum(len(str(m.get("content") or "")) + len(str(m.get("tool_calls") or ""))
+                       for m in ms)
+        latest = artifact[0] if artifact is not None else -1
+        recent = tool_idx[-self.keep_recent_observations] if len(tool_idx) >= self.keep_recent_observations else 0
+        shrunk = 0
+        for i in range(1, recent):
+            if _size(out) <= budget_chars:
+                break
+            m = out[i]
+            if m.get("role") == "assistant" and i != latest and m.get("tool_calls"):
+                calls = []
+                for tc in m["tool_calls"]:
+                    fn = tc.get("function") or {}
+                    if fn.get("name") in self.artifact_tool_names and not str(fn.get("arguments", "")).startswith('{"_omitted"'):
+                        ref = self._store(str(fn.get("arguments")))
+                        tc = dict(tc, function=dict(fn, arguments=json.dumps({"_omitted": (
+                            f"superseded {fn.get('name')} input ({len(str(fn.get('arguments')))} chars); "
+                            f"the latest version is kept; recall({ref}) restores this one")})))
+                        shrunk += 1
+                    calls.append(tc)
+                out[i] = dict(m, tool_calls=calls)
+        for i in range(1, recent):
+            if _size(out) <= budget_chars:
+                break
+            m = out[i]
+            text = m.get("content")
+            if m.get("role") == "assistant" and isinstance(text, str) and len(text) > 200 \
+                    and not text.startswith("[Reasoning of an earlier turn omitted"):
+                out[i] = dict(m, content=(
+                    f"[Reasoning of an earlier turn omitted to save context ({len(text)} chars); "
+                    f"recall({self._store(text)}) restores it.]"))
+                shrunk += 1
+        status = self.get_pinned_status()
+        if status:
+            pinned = {"role": "user", "content": (
+                f"{_PINNED_HEADER} (as of turn {ctx.turn}; older tool outputs "
+                f"in this conversation are masked)\n{status}")}
+            if len(out) > 1 and str(out[1].get("content") or "").startswith(_PINNED_HEADER):
+                out[1] = pinned
+            else:
+                out.insert(1, pinned)
+        log.info("agent.context_masked", masked=masked, shrunk=shrunk, stored=len(self._recall_store))
+        return out
 
+    def _store(self, text: str) -> int:
+        store = self.__dict__.setdefault("_recall_store", {})
+        ref = len(store) + 1
+        store[ref] = text
+        return ref
+
+    def _recall(self, args: dict[str, Any]) -> str:
         try:
-            resp = await _llm.create(
-                model=ctx.model,
-                system="You are a concise summariser.",
-                messages=[{"role": "user", "content": compress_prompt}],
-                temperature=0.0,
-                max_tokens=1024,
-            )
-            ctx.add_usage(resp)
-            summary_msg: dict[str, Any] = {
-                "role": "user",
-                "content": (
-                    f"[Context summary of {len(middle_to_summarise)} earlier "
-                    f"messages]\n{resp.content}"
-                ),
-            }
-            preserved_msgs = [messages[i] for i in sorted(preserved)]
-            rebuilt = head + [summary_msg] + preserved_msgs + tail
+            ref = int(args.get("ref"))
+        except (TypeError, ValueError):
+            return f"Error: invalid ref {args.get('ref')!r}"
+        text = getattr(self, "_recall_store", {}).get(ref)
+        if text is None:
+            return f"Error: no omitted output #{ref}"
+        return text
 
-            # Final safety pass: drop any tool_result whose tool_use_id has
-            # no matching assistant tool_call earlier in the rebuilt list.
-            # The summary block does not contain tool_use ids, so a result
-            # message that referred to a now-summarised assistant becomes
-            # orphan; Anthropic's API rejects such payloads with
-            # ``unexpected tool_use_id``.
-            seen_tc_ids: set[str] = set()
-            cleaned: list[dict[str, Any]] = []
-            for m in rebuilt:
-                if m.get("role") == "assistant":
-                    for tc in m.get("tool_calls") or []:
-                        tc_id = tc.get("id")
-                        if tc_id:
-                            seen_tc_ids.add(tc_id)
-                if m.get("role") == "tool":
-                    if m.get("tool_call_id") not in seen_tc_ids:
-                        # orphan — skip
-                        continue
-                cleaned.append(m)
-            return cleaned
-        except Exception:
-            log.warning("agent.compress_failed")
-            return messages
+
+_PINNED_HEADER = "## STATUS (kept across context compression)"
+
+_RECALL_TOOL: dict[str, Any] = {
+    "type": "function",
+    "function": {
+        "name": "recall",
+        "description": (
+            "Restore, verbatim, an earlier tool output (or your own earlier input "
+            "or reasoning) that was omitted to save context. The placeholder "
+            "names the ref: '[... recall(7) restores it ...]' -> recall(ref=7)."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {"ref": {"type": "integer", "description": "the number in the placeholder"}},
+            "required": ["ref"],
+        },
+    },
+}
 
 
 def _strip_titles(schema: dict[str, Any]) -> dict[str, Any]:
@@ -422,6 +481,15 @@ def _strip_titles(schema: dict[str, Any]) -> dict[str, Any]:
 
 
 def _extract_mcp_text(content: Sequence[Any]) -> str:
+    # FastMCP returns ``(content blocks, structured result)`` for a tool
+    # with a return annotation (the Read/Glob/Grep tools) and the bare
+    # block list otherwise.
+    if isinstance(content, tuple) and len(content) == 2 and isinstance(content[1], dict):
+        blocks, structured = content
+        text = _extract_mcp_text(blocks)
+        if not text and "result" in structured:
+            text = str(structured["result"])
+        return text
     parts: list[str] = []
     for block in content:
         if isinstance(block, mcp_types.TextContent):

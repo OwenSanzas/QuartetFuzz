@@ -171,7 +171,7 @@ not the declaration.  Our heuristic reads the definition path.
 - The LLM layer (`check_p3` Layer 2) independently reads the `#include`
   directives in the harness and can recognize public API headers
 - Observed in trajectories: the agent follows up `"unknown"` with
-  `read_file("include/yaml.h")` to verify the declaration by hand
+  `Read("include/yaml.h")` to verify the declaration by hand
 
 ### Fix (not urgent)
 

@@ -49,6 +49,7 @@ from harness.builder import ensure_repo
 from harness.checker.dynamic import DynamicRunner
 from harness.checker.lg_agent import LogicGroupAgent
 from harness.checker.logic_group import LogicGroup
+from harness.checker.callgraph import CallGraph
 from harness.checker.static import StaticIndex
 from harness.checker.tools import DEFAULT_CATEGORIES, register_all
 from harness.checker.tools.context import DEFAULT_LLM_MODEL, CheckerContext
@@ -67,7 +68,8 @@ _DEFAULT_RUNS_ROOT = Path(f"/tmp/agf-{_USER}/system-check-runs")
 _DEFAULT_PINNED_OSS_FUZZ = Path(f"/tmp/agf-{_USER}/oss-fuzz-pinned")
 _DEFAULT_P2_STORAGE = Path(__file__).parent / "rq2_workspace" / "P2_storage"
 
-_PROMPTS_DIR = Path(__file__).parent / "prompts"
+# QF_PROMPTS_DIR selects a frozen prompt version (qf-prompts/<v>); default: the live prompts.
+_PROMPTS_DIR = Path(os.environ.get("QF_PROMPTS_DIR") or Path(__file__).parent / "prompts")
 _SUBMIT_TOOL = "submit_harness"
 
 # Shared across workers in the same process — per-project locks to avoid
@@ -168,6 +170,20 @@ def _load_p2_report(case_id: str) -> str:
     return ""
 
 
+def _save_stage_cost(path: Path, r: Any, model: str) -> None:
+    """Token use and cost of one pre-generation stage (LG or P2)."""
+    path.write_text(json.dumps({
+        "model": model,
+        "status": r.status,
+        "turns": r.total_turns,
+        "input_tokens": r.input_tokens,
+        "output_tokens": r.output_tokens,
+        "estimated_cost": r.estimated_cost,
+        "duration_ms": r.duration_ms,
+        "time": time.strftime("%Y-%m-%dT%H:%M:%S"),
+    }, indent=2))
+
+
 def _copy_tree_if_exists(src: Path, dst: Path) -> str:
     if not src.exists():
         return ""
@@ -195,10 +211,9 @@ class SystemCheckAgent(BaseAgent):
     """
 
     agent_type = "system_check"
-    max_turns = 50  # paper Table 5 production cap (Harness Generator)
+    max_turns = 300  # high enough that the agent delivers; the paper's Table 5 cap (50) ended runs before any build
     temperature = 0.0
     max_tool_output_tokens = 8000
-    max_context_tokens = 500_000
     enable_compression = True
     # Preserve the most recent build_harness / submit_harness call (the
     # harness source the agent has produced so far) when compressing
@@ -255,6 +270,11 @@ class SystemCheckAgent(BaseAgent):
         # this carries the rejection reason so the submit_harness tool
         # body can surface it to the agent on tool execution.
         self._submit_blocked_reason: str | None = None
+        # The first submission that passes the checks while builds remain is
+        # answered with a gap review (system_check_gap_review.md) instead of
+        # being accepted; the next submission is accepted.
+        self._gap_review_done: bool = False
+        self._gap_review_pending: str | None = None
 
     def create_mcp_server(self) -> FastMCP:
         mcp = FastMCP("system-check")
@@ -313,8 +333,12 @@ class SystemCheckAgent(BaseAgent):
                 return (
                     f"REJECTED: cannot submit yet — {reason}.  Call the "
                     f"missing tools first, then call submit_harness again. "
-                    f"See 'Submission preconditions' in your system prompt."
+                    f"See 'Submission rules' in your system prompt."
                 )
+            if self._gap_review_pending:
+                review = self._gap_review_pending
+                self._gap_review_pending = None
+                return review
             return "Harness submitted."
 
         return mcp
@@ -334,6 +358,7 @@ class SystemCheckAgent(BaseAgent):
             if self._ctx.oss_fuzz_project_dir
             else "",
             tool_count=tool_count,
+            static_available=self._ctx.static_index is not None or self._ctx.callgraph is not None,
         )
 
     def get_initial_message(self, **kwargs: Any) -> str:
@@ -348,6 +373,7 @@ class SystemCheckAgent(BaseAgent):
             if self._ctx.oss_fuzz_project_dir
             else "",
             validation_feedback=self._validation_feedback or "",
+            static_available=self._ctx.static_index is not None or self._ctx.callgraph is not None,
         )
 
     def get_urgency_message(self) -> str | None:
@@ -394,6 +420,22 @@ class SystemCheckAgent(BaseAgent):
 
         # Verify required tools were called before submit.
         missing = self.REQUIRED_TOOLS_BEFORE_SUBMIT - self._seen_tools
+        try:
+            submitted_code = json.loads(submit_tc["function"]["arguments"]).get("harness_code", "")
+        except (json.JSONDecodeError, TypeError, AttributeError):
+            submitted_code = ""
+        unmet = self._unmet_checks(submitted_code)
+        runner = self._ctx.dynamic_runner
+        if unmet and runner is not None and getattr(runner, "build_attempts", 0) >= 5:
+            # Out of builds: the harness cannot be fixed any more, so accept
+            # the last build as is (the unmet checks stay in the trajectory).
+            unmet = []
+        if unmet and not missing:
+            self._submit_blocked_reason = (
+                "the submitted build has not passed the submission checks: "
+                + "; ".join(unmet)
+            )
+            return False
         if missing:
             # Block this submission attempt — the submit_harness tool body
             # will read this state and return a REJECTED message that the
@@ -408,15 +450,92 @@ class SystemCheckAgent(BaseAgent):
         # tool call and signal the loop to terminate.
         try:
             args = json.loads(submit_tc["function"]["arguments"])
-            self._harness_code = args.get("harness_code", "")
-            self._harness_filename = args.get("filename", "")
+            code = args.get("harness_code", "")
+            filename = args.get("filename", "")
         except (json.JSONDecodeError, TypeError):
-            self._harness_code = ""
-            self._harness_filename = ""
+            code, filename = "", ""
+
+        # The delivered harness must be one that was built and checked (the
+        # final binaries are rebuilt from it): the last successful build or
+        # an earlier one, character for character.
+        runner = self._ctx.dynamic_runner
+        history = getattr(runner, "build_history", None) if runner is not None else None
+        if history and code.strip() not in history:
+            self._submit_blocked_reason = (
+                "harness_code is not the code of any successful build_harness call; "
+                "submit exactly the code of one of your successful builds, or build "
+                "the new code first"
+            )
+            return False
+
+        builds_left = 5 - getattr(runner, "build_attempts", 0) if runner is not None else 0
+        if not self._gap_review_done and builds_left > 0:
+            self._gap_review_done = True
+            self._gap_review_pending = _render("system_check_gap_review.md", builds_left=builds_left)
+            return False
+
+        self._harness_code = code
+        self._harness_filename = filename
         return True
+
+    def _unmet_checks(self, code: str | None = None) -> list[str]:
+        """The paper's submission rule, on the submitted build (*code*; the
+        last successful build when None or unknown): it ran an agent probe,
+        reached the target, and got coverage above zero."""
+        runner = self._ctx.dynamic_runner
+        if runner is None:
+            return []
+        if not runner._built_binary:
+            return ["no successful build_harness yet"]
+        unmet = []
+        history = getattr(runner, "build_history", {}) or {}
+        checks = history.get(code.strip()) if code else None
+        if checks is None:
+            checks = runner.checks
+        if not checks["run_done"]:
+            unmet.append("call AP_Run_check on it")
+        # The binary may name the target differently (inherited method,
+        # inline namespace, template instance): match the last name part.
+        want = re.split(r"::", self._target_function)[-1] if self._target_function else ""
+        if not any(want in f for f in checks["reached"]) or not checks["reached"]:
+            unmet.append(
+                f"AP_Reach_check must report TARGET HIT for {self._target_function or 'your entry function'}"
+            )
+        if checks["coverage_lines"] <= 0:
+            unmet.append("get_coverage must report more than 0 covered lines")
+        return unmet
+
+    def get_pinned_status(self) -> str | None:
+        runner = self._ctx.dynamic_runner
+        if runner is None:
+            return None
+        checks = runner.checks
+        lines = [
+            f"- target function: {self._target_function or '(none)'}",
+            f"- build_harness attempts used: {getattr(runner, 'build_attempts', 0)} of 5",
+            f"- last successful build: {runner._built_binary or 'none yet'}"
+            + (" (its source is in your latest build_harness call)" if runner._built_binary else ""),
+            f"- on that build: AP_Run_check done={checks['run_done']}; "
+            f"AP_Reach_check hit={sorted(checks['reached']) or 'none'}; "
+            f"get_coverage lines={checks['coverage_lines']}",
+        ]
+        unmet = self._unmet_checks()
+        lines.append("- submission checks on the last build: " + ("all met" if not unmet else "unmet: " + "; ".join(unmet)))
+        history = getattr(runner, "build_history", {}) or {}
+        if len(history) > 1:
+            lines.append("- successful builds so far (get_coverage lines; any build whose checks "
+                         "are met can be submitted with its exact code):")
+            for i, c in enumerate(history.values(), 1):
+                lines.append(f"  - build {i}: coverage lines={c['coverage_lines'] or 'not measured'}"
+                             f"{' (the last build)' if c is runner.checks else ''}")
+        return "\n".join(lines)
 
     def parse_result(self, content: str) -> str | None:
         return self._harness_code or None
+
+    @property
+    def submitted(self) -> bool:
+        return bool(self._harness_code)
 
 
 # ---------------------------------------------------------------------------
@@ -449,6 +568,10 @@ class SystemCheckCase:
     project: str
     functionality_prompt: str = ""
     target_function: str = ""
+    # The target's declaration and "path:line" where it is declared, as the
+    # benchmark gives them to every system.
+    target_declaration: str = ""
+    target_location: str = ""
     logic_group: LogicGroup | None = None
     repo_url: str = ""
     case_id: str = ""
@@ -552,6 +675,7 @@ class SystemCheckResult:
     llm_model: str = ""
     tool_call_counts: dict = field(default_factory=dict)
     static_index_available: bool = False
+    callgraph: str = ""
     error: str = ""
 
     def to_dict(self) -> dict[str, Any]:
@@ -689,26 +813,43 @@ def run_system_check(
     oss_fuzz_project_dir: Path | None = None,
     llm_model: str = DEFAULT_LLM_MODEL,
     first_harness_only: bool = False,
+    project_path: Path | None = None,
+    extra_roots: list[Path] | None = None,
+    build_project: str | None = None,
+    pinned_commit: str | None = None,
+    container_path: str | None = None,
+    runtime_image: str | None = None,
 ) -> SystemCheckResult:
     """Run the full system-check flow for one case.
 
     Thread-safe when invoked on different workers — uses per-project
     ``_clone_locks`` and ``_docker_locks`` shared at module level.
+
+    Prepared-case mode (the dataset run): *project_path* is a read-only
+    source tree exported from the case image (gold already stubbed, git
+    history scrubbed), *build_project* the per-case OSS-Fuzz project
+    (``<project>-cN``, FROM that image) in *source_oss_fuzz_dir* at
+    *pinned_commit*, *container_path* where the harness goes in the image,
+    and *runtime_image* the case image plus gdb for probes.  Nothing is
+    cloned and no file is stubbed or restored.
     """
     t0 = time.monotonic()
+    prepared = project_path is not None
 
     # ── 1. Clone the project source (cached, per-project lock) ───────────
-    with _clone_locks[case.project]:
-        try:
-            project_path = ensure_repo(project=case.project, repo_url=case.repo_url or None)
-        except Exception as exc:
-            return SystemCheckResult(
-                case_id=case.case_id or case.project,
-                project=case.project,
-                success=False,
-                error=f"ensure_repo failed: {exc}",
-                duration_ms=int((time.monotonic() - t0) * 1000),
-            )
+    if not prepared:
+        with _clone_locks[case.project]:
+            try:
+                project_path = ensure_repo(project=case.project, repo_url=case.repo_url or None)
+            except Exception as exc:
+                return SystemCheckResult(
+                    case_id=case.case_id or case.project,
+                    project=case.project,
+                    success=False,
+                    error=f"ensure_repo failed: {exc}",
+                    duration_ms=int((time.monotonic() - t0) * 1000),
+                )
+    oss_project = build_project or case.project
 
     # ── 2. Prepare per-worker output & workspace ─────────────────────────
     run_id = run_id or f"run-{int(time.time())}-{os.getpid()}-{secrets.token_hex(3)}"
@@ -730,34 +871,45 @@ def run_system_check(
 
     # ── 3. Load static index (may be None) ──────────────────────────────
     static_index = StaticIndex.load(case.project)
+    # +Static ablation only: None unless AGF_CALLGRAPH_DIR is set.
+    callgraph = CallGraph.load(case_id, case.project)
 
     # ── 4. Build DynamicRunner if enabled ───────────────────────────────
     dynamic_runner: DynamicRunner | None = None
     if enable_dynamic:
         try:
             dynamic_runner = DynamicRunner(
-                project=case.project,
+                project=oss_project,
                 source_oss_fuzz_dir=source_oss_fuzz_dir or _DEFAULT_PINNED_OSS_FUZZ,
                 worker_workspace=workspace_dir,
-                docker_lock=_docker_locks[case.project],
+                docker_lock=_docker_locks[oss_project],
                 language=case.language,
                 fuzzer_name=case.fuzzer_name or None,
+                pinned_commit=pinned_commit,
+                container_path=container_path,
+                runtime_image=runtime_image,
             )
         except Exception as exc:
             log.warning("flow.dynamic_init_failed", error=str(exc))
             dynamic_runner = None
 
     # ── 4b. Stub gold harness so agent cannot read it ───────────────────
-    gold_stub_path, gold_original = _stub_gold_harness(
-        case_id, oss_fuzz_project_dir, Path(project_path) if project_path else None,
-    )
+    if prepared:
+        gold_stub_path, gold_original = None, ""
+    else:
+        gold_stub_path, gold_original = _stub_gold_harness(
+            case_id, oss_fuzz_project_dir, Path(project_path) if project_path else None,
+        )
 
     # ── 5. Build CheckerContext ─────────────────────────────────────────
     ctx = CheckerContext(
         project=case.project,
         project_path=Path(project_path),
         oss_fuzz_project_dir=oss_fuzz_project_dir,
+        allowed_roots=list(extra_roots or [])
+        + ([dynamic_runner.build_log_dir] if dynamic_runner else []),
         static_index=static_index,
+        callgraph=callgraph,
         dynamic_runner=dynamic_runner,
         llm_model=llm_model,
     )
@@ -795,6 +947,38 @@ def run_system_check(
             except OSError as exc:
                 log.warning("flow.lg_save_failed", error=str(exc))
 
+    # ── 5a'. Logic Group around the given target (Mode C, full system) ──
+    # QF_LG_DIR turns it on.  The LG and the P2 report built on it are kept
+    # in QF_LG_DIR/<case> and reused by later runs of the same case.
+    lg_store = (Path(os.environ["QF_LG_DIR"]) / case_id.replace("/", "_")
+                if os.environ.get("QF_LG_DIR") else None)
+    if mode == "C" and lg_store is not None:
+        lg_store.mkdir(parents=True, exist_ok=True)
+        if (lg_store / "lg.json").is_file():
+            lg = LogicGroup.load_json(lg_store / "lg.json")
+        else:
+            log.info("flow.lg_target_stage", case_id=case_id, target=case.target_function)
+            lg_agent = LogicGroupAgent(
+                ctx=ctx,
+                target_function=case.target_function,
+                target_declaration=case.target_declaration,
+                target_location=case.target_location,
+                fuzzer_name=default_fuzzer_name,
+            )
+            try:
+                lg_agent_result = asyncio.run(lg_agent.run())
+                lg = lg_agent_result.parsed
+            except Exception:
+                log.error("flow.lg_agent_failed", exc_info=True)
+            if lg_agent_result is not None:
+                if lg_agent_result.trajectory:
+                    lg_agent_result.save_trajectory(lg_store / "lg_trajectory.jsonl")
+                _save_stage_cost(lg_store / "lg_cost.json", lg_agent_result, llm_model)
+            if lg is not None:
+                lg.save_json(lg_store / "lg.json")
+        if lg is not None:
+            lg.save_json(case_dir / "lg.json")
+
     # ── 6. Stage 2 — Run the system-check agent ────────────────────────
     # If we have an LG, surface it to the agent via a synthetic prompt
     # that lists the candidate entries.  This is the simplest way to
@@ -824,12 +1008,97 @@ def run_system_check(
             "doing so.  Prefer the suggestion when it is reasonable."
         )
         effective_prompt = (case.functionality_prompt or "") + lg_block
+    elif lg is not None:
+        # Mode C: the target stays the entry; the LG adds the rest of the
+        # feature around it.
+        effective_prompt = (case.functionality_prompt or "") + (
+            "\n\n## Logic Group of this feature (from the Logic Group stage)\n"
+            f"Name: {lg.name}\n"
+            f"Entries (public API of the feature; the first is the target): {', '.join(lg.entries)}\n"
+            + (f"Core (internal functions implementing it): {', '.join(lg.core)}\n" if lg.core else "")
+            + f"Description:\n{lg.description}\n"
+            "\nThe target function stays the entry your harness must call.  "
+            "The other entries are the rest of this feature: call them too, "
+            "following the P2 report, so the fuzz input reaches all of the core.  "
+            "Where the description lists parameters, flags, modes or formats "
+            "that select different paths, derive them from the fuzz input "
+            "instead of fixing one.  "
+            "The Logic Group adds to the P2 report; it is not a boundary.  What "
+            "the P2 report shows real callers doing to build the target's input "
+            "or with its results stays in scope even when the function is not "
+            "in the Logic Group.  "
+            "Follow the description's notes on the input format (keep inputs "
+            "byte-compatible with the seed corpus; take control bytes from the "
+            "end), init rejections (do not lose most inputs at init), structured "
+            "input (draw from valid examples rather than random bytes), and test "
+            "hooks (use them; leave debug/trace output switches off)."
+        )
+
+    # ── 5b. Stage 2 — P2 research on the given target (Mode C) ─────────
+    # Mode A/B get their P2 report from the pipeline; with a given target
+    # the P2 agent researches that target here, as in the paper's Stage 2.
+    p2_report = "" if prepared else _load_p2_report(case_id)
+    if lg_store is not None and (lg_store / "p2_report.md").is_file():
+        p2_report = (lg_store / "p2_report.md").read_text()
+    p2_agent_result = None
+    if mode == "C" and not p2_report and not first_harness_only:
+        from harness.checker.p2_agent import P2Agent
+
+        log.info("flow.p2_stage", case_id=case_id, target=case.target_function)
+        p2_agent = P2Agent(
+            ctx=ctx,
+            entries=[case.target_function],
+            target_declaration=case.target_declaration,
+            target_location=case.target_location,
+            # The benchmark task text is the downstream agent's task, not the
+            # researcher's; only a real Logic Group description goes here.
+            lg_description=lg.description if lg is not None else "",
+            lg_entries=lg.entries if lg is not None else None,
+            lg_core=lg.core if lg is not None else None,
+        )
+        try:
+            p2_agent_result = asyncio.run(p2_agent.run())
+            p2_report = p2_agent_result.parsed or ""
+        except Exception:
+            log.error("flow.p2_agent_failed", exc_info=True)
+        if p2_agent_result is not None and p2_agent_result.trajectory:
+            p2_agent_result.save_trajectory(case_dir / "p2_trajectory.jsonl")
+        if p2_report:
+            (case_dir / "p2_report.md").write_text(p2_report)
+        if lg_store is not None and lg is not None:
+            if p2_agent_result is not None:
+                if p2_agent_result.trajectory:
+                    p2_agent_result.save_trajectory(lg_store / "p2_trajectory.jsonl")
+                _save_stage_cost(lg_store / "p2_cost.json", p2_agent_result, llm_model)
+            if p2_report:
+                (lg_store / "p2_report.md").write_text(p2_report)
+    elif lg_store is not None and p2_report:
+        (case_dir / "p2_report.md").write_text(p2_report)
+
+    # QF_PREPARE_ONLY: stop after the LG and P2 stages (they are stored).
+    if os.environ.get("QF_PREPARE_ONLY"):
+        if dynamic_runner:
+            dynamic_runner.cleanup()
+        cost = sum(r.estimated_cost for r in (lg_agent_result, p2_agent_result) if r is not None)
+        return SystemCheckResult(
+            case_id=case_id,
+            project=case.project,
+            success=lg is not None and bool(p2_report),
+            logic_group=lg.to_dict() if lg is not None else None,
+            target_function=case.target_function,
+            p2_report=p2_report,
+            estimated_cost=cost,
+            llm_model=llm_model,
+            error="" if lg is not None and p2_report else "LG or P2 stage produced nothing",
+            duration_ms=int((time.monotonic() - t0) * 1000),
+            callgraph=str(callgraph.path) if callgraph else "",
+        )
 
     agent = SystemCheckAgent(
         ctx=ctx,
         functionality_prompt=effective_prompt,
         target_function=effective_target,
-        p2_report=_load_p2_report(case_id),
+        p2_report=p2_report,
         default_fuzzer_name=default_fuzzer_name,
         first_harness_only=first_harness_only,
     )
@@ -848,6 +1117,7 @@ def run_system_check(
             error=f"agent.run() failed: {exc}",
             duration_ms=int((time.monotonic() - t0) * 1000),
             static_index_available=static_index is not None,
+            callgraph=str(callgraph.path) if callgraph else "",
         )
     finally:
         _restore_gold_harness(gold_stub_path, gold_original)
@@ -857,12 +1127,22 @@ def run_system_check(
     if agent_result.trajectory:
         agent_result.save_trajectory(trajectory_path)
 
-    harness_code = agent_result.parsed or ""
+    harness_code = (agent_result.parsed or "") if agent.submitted else ""
     harness_filename = agent._harness_filename or f"{default_fuzzer_name}.{case.language}"
     if "." not in harness_filename:
         harness_filename += f".{case.language}"
 
-    harness_path = case_dir / harness_filename
+    # If the agent never submitted (turn limit, text-only reply), fall back
+    # to the last harness that built; delivery.json records which it was.
+    delivered_from = "submit" if agent.submitted else ""
+    if not harness_code and dynamic_runner is not None and dynamic_runner._last_harness_code:
+        harness_code = dynamic_runner._last_harness_code
+        harness_filename = dynamic_runner._last_source_filename or harness_filename
+        delivered_from = "last_build"
+
+    # The agent may name the harness by its in-tree path (util-linux:
+    # libfdisk/src/script.c); the case dir keeps only the basename.
+    harness_path = case_dir / Path(harness_filename).name
     if harness_code:
         harness_path.write_text(harness_code)
 
@@ -889,7 +1169,7 @@ def run_system_check(
 
         coverage_src_bin = (
             dynamic_runner.worker_workspace
-            / "oss-fuzz" / "build" / "out" / case.project
+            / "oss-fuzz" / "build" / "out" / dynamic_runner.project
             / dynamic_runner._built_binary
         )
         if coverage_src_bin.is_file():
@@ -905,17 +1185,17 @@ def run_system_check(
                 log.warning("flow.binary_copy_failed", error=str(exc))
 
         paths = OssFuzzPaths(dynamic_runner.worker_workspace / "oss-fuzz")
-        corpus_src = paths.corpus_dir(case.project, f"{dynamic_runner._built_binary}_systemcheck")
+        corpus_src = paths.corpus_dir(dynamic_runner.project, f"{dynamic_runner._built_binary}_systemcheck")
         corpus_dir_path = _copy_tree_if_exists(corpus_src, case_dir / "corpus")
 
-        coverage_summary_src = paths.coverage_summary(case.project, dynamic_runner._built_binary)
+        coverage_summary_src = paths.coverage_summary(dynamic_runner.project, dynamic_runner._built_binary)
         coverage_summary_path = _copy_tree_if_exists(
             coverage_summary_src,
             case_dir / "coverage" / "summary.json",
         )
 
         coverage_report_src = (
-            paths.build_out(case.project) / "report_target" / dynamic_runner._built_binary / "linux"
+            paths.build_out(dynamic_runner.project) / "report_target" / dynamic_runner._built_binary / "linux"
         )
         coverage_report_path = _copy_tree_if_exists(
             coverage_report_src,
@@ -942,7 +1222,7 @@ def run_system_check(
 
     # ── 7e. Compute description delta (if Mode A produced an LG) ───────
     lg_description_delta = 0.0
-    if lg is not None and case.functionality_prompt and lg.description:
+    if mode == "A" and lg is not None and case.functionality_prompt and lg.description:
         try:
             from harness.checker.scripts.description_delta import (
                 score_description_delta_sync,
@@ -959,6 +1239,12 @@ def run_system_check(
     lg_agent_in_tokens = lg_agent_result.input_tokens if lg_agent_result else 0
     lg_agent_out_tokens = lg_agent_result.output_tokens if lg_agent_result else 0
     lg_agent_cost = lg_agent_result.estimated_cost if lg_agent_result else 0.0
+    # P2 agent stats join the LG ones in the case totals.
+    if p2_agent_result is not None:
+        lg_agent_turns += p2_agent_result.total_turns
+        lg_agent_in_tokens += p2_agent_result.input_tokens
+        lg_agent_out_tokens += p2_agent_result.output_tokens
+        lg_agent_cost += p2_agent_result.estimated_cost
 
     # Determine target_source_method.
     if case.target_function:
@@ -967,6 +1253,9 @@ def run_system_check(
         tsm = "lg_selection"
     else:
         tsm = "prompt_search"
+
+    if p2_report:
+        signals["p2_report"] = p2_report[:20000]
 
     # ── 8. Build result summary ────────────────────────────────────────
     result = SystemCheckResult(
@@ -994,8 +1283,26 @@ def run_system_check(
         estimated_cost=agent_result.estimated_cost + lg_agent_cost,
         llm_model=llm_model,
         static_index_available=static_index is not None,
+        callgraph=str(callgraph.path) if callgraph else "",
         **signals,
     )
+
+    # ── 8a. Delivery record: what the final build compiles ─────────────
+    if harness_code:
+        import hashlib
+        delivery = {
+            "case_id": case_id,
+            "delivered_from": delivered_from,
+            "harness_file": harness_path.name,
+            "harness_sha256": hashlib.sha256(harness_code.encode()).hexdigest(),
+            "oss_fuzz_project": oss_project,
+            "oss_fuzz_commit": pinned_commit or "",
+            "container_path": container_path or "",
+            "fuzzer_name": dynamic_runner._built_binary if dynamic_runner else case.fuzzer_name,
+            "runtime_image": runtime_image or "",
+            "agent_binaries": {"asan": harness_binary_path, "coverage": coverage_binary_path},
+        }
+        (case_dir / "delivery.json").write_text(json.dumps(delivery, indent=2))
 
     # Persist flow-level result
     (case_dir / "result.json").write_text(

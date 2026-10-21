@@ -5,7 +5,7 @@ matching the following user description:
 
 Follow the **core-first workflow** from your system prompt:
 
-1. `list_existing_fuzzers` and `list_directory("{{ project_path }}")`
+1. `Glob("**/*fuzz*")` and `Glob("*")` in `{{ project_path }}`
    for context.
 2. Pick the **core C** (3-5 internal functions whose bugs you want
    to find) — this is the heart of the LG.

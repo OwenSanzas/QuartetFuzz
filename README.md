@@ -96,7 +96,7 @@ input/output pair captured from a live run.
 │                       │                                        │
 │                       ▼                                        │
 │   tools/                                                       │
-│    ├ code_view.py        read_file / list_directory / search   │
+│    ├ code_view.py        Read / Glob / Grep                    │
 │    ├ static_analysis.py  call-graph queries (8 tools)          │
 │    └ dynamic_analysis.py build / AP probes / coverage / GDB    │
 │                                                                │
@@ -274,8 +274,7 @@ QuartetFuzz/
 │       ├── logic_group.py  LogicGroup + SystemCheckCase dataclasses.
 │       ├── prompts/       Jinja2 prompts for each agent.
 │       └── tools/
-│           ├── code_view.py        read_file / list_directory / search_files /
-│           │                       list_existing_fuzzers
+│           ├── code_view.py        Read / Glob / Grep (from agent/tools/)
 │           ├── static_analysis.py  get_callers / get_callees / find_definition /
 │           │                       forward_reach / reverse_reach /
 │           │                       public_entries_for / public_entries_for_batch /

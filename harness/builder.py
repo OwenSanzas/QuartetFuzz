@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from infra.ossfuzz.build import (
+    _error_excerpt,
     build_project,
     list_fuzzers,
     load_gold_source_paths,
@@ -120,11 +121,16 @@ def _needs_sg_docker() -> bool:
 # ---------------------------------------------------------------------------
 
 
-def ensure_oss_fuzz(oss_fuzz_dir: Path | None = None, *, pin_worktree: bool = False) -> Path:
+def ensure_oss_fuzz(
+    oss_fuzz_dir: Path | None = None,
+    *,
+    pin_worktree: bool = False,
+    pinned_commit: str | None = None,
+) -> Path:
     """Return a usable oss-fuzz checkout, cloning if necessary."""
     oss_fuzz_dir = oss_fuzz_dir or _DEFAULT_OSS_FUZZ_DIR
     if (oss_fuzz_dir / "infra" / "helper.py").exists():
-        ensure_pinned_oss_fuzz_commit_available(oss_fuzz_dir)
+        ensure_pinned_oss_fuzz_commit_available(oss_fuzz_dir, pinned_commit=pinned_commit)
         if pin_worktree:
             checkout_source_oss_fuzz_to_commit(oss_fuzz_dir)
         return oss_fuzz_dir
@@ -231,9 +237,12 @@ class BuildValidator:
         fuzzer_name: str | None = None,
         docker_lock: threading.Lock | None = None,
         language: str = "c",
+        pinned_commit: str | None = None,
     ) -> None:
         self.project = project
-        self.oss_fuzz_dir = ensure_oss_fuzz(oss_fuzz_dir)
+        # oss-fuzz commit the worker workspace is reset to (None: the default pin).
+        self._pinned_commit = pinned_commit
+        self.oss_fuzz_dir = ensure_oss_fuzz(oss_fuzz_dir, pinned_commit=pinned_commit)
         self.workspace_root = (
             Path(workspace_root) if workspace_root else Path(tempfile.mkdtemp(prefix="agf-build-validate-"))
         )
@@ -243,6 +252,9 @@ class BuildValidator:
         self._gold_paths = load_gold_source_paths()
         self._docker_lock = docker_lock
         self._language = language
+        # Full stdout+stderr of the last build (sg docker path); the
+        # BuildResult only carries an excerpt.
+        self.last_full_log = ""
 
     def validate(
         self,
@@ -255,13 +267,29 @@ class BuildValidator:
         with a formatted feedback string for the generator.
         """
         container_path = self._resolve_container_path(source_filename)
-        workspace_dir, _ = prepare_pinned_oss_fuzz_workspace(self.oss_fuzz_dir, self.workspace_root)
+        workspace_dir, _ = prepare_pinned_oss_fuzz_workspace(
+            self.oss_fuzz_dir, self.workspace_root, pinned_commit=self._pinned_commit
+        )
 
-        cleaned_source, _ = sanitize_harness_source(harness_code, source_filename, language=self._language)
+        if self._container_path:
+            # The harness replaces the case's fuzzer source and is compiled
+            # by the project's own build.sh, as the baselines' and the final
+            # builds are: verbatim.  (The sanitizer strips extern "C" from
+            # .c files, which breaks projects that build .c fuzzers as C++.)
+            cleaned_source = harness_code
+        else:
+            cleaned_source, _ = sanitize_harness_source(harness_code, source_filename, language=self._language)
 
         project_dir = workspace_dir / "projects" / self.project
         swap_gold_source(project_dir, source_filename, cleaned_source, container_path)
         _patch_build_sh(project_dir, self.project)
+
+        # Drop fuzzers left in build/out by an earlier build in this worktree:
+        # build.sh may build several fuzzers and fail on ours after the others
+        # are in place, and a stale binary must not pass for a fresh one.
+        out_dir = OssFuzzPaths(workspace_dir).build_out(self.project)
+        if out_dir.is_dir():
+            force_rmtree(out_dir)
 
         if self._docker_lock:
             with self._docker_lock:
@@ -269,6 +297,17 @@ class BuildValidator:
         else:
             build_result = self._build(workspace_dir)
         self._clean_build_artifacts(workspace_dir)
+
+        if self._container_path and self._fuzzer_name:
+            # The harness replaces the case's fuzzer source: the build is good
+            # exactly when that fuzzer came out, whatever else build.sh did.
+            if self._fuzzer_name in build_result.fuzzers:
+                return BuildValidationResult(success=True, binary_name=self._fuzzer_name)
+            return BuildValidationResult(
+                success=False,
+                error=build_result.error or f"fuzzer binary '{self._fuzzer_name}' was not produced",
+                build_log=build_result.build_log,
+            )
 
         if not build_result.success and not build_result.fuzzers:
             return BuildValidationResult(
@@ -280,7 +319,12 @@ class BuildValidator:
         # Check that our fuzzer binary was actually produced.  Some projects
         # use glob patterns (e.g. $SRC/*_fuzzer.c) in build.sh, so a misnamed
         # file will be silently skipped.
-        expected_binary = Path(source_filename).stem
+        # With a fixed container path the harness replaces the case's fuzzer
+        # source, so build.sh produces the case's fuzzer name whatever the
+        # agent called the file.
+        expected_binary = (
+            self._fuzzer_name if self._container_path and self._fuzzer_name else Path(source_filename).stem
+        )
         if expected_binary not in build_result.fuzzers:
             # Fuzzy match: some projects rename binaries (e.g. php adds
             # "php-fuzz-" prefix, binutils may rename).  Check if any
@@ -314,7 +358,7 @@ class BuildValidator:
             )
 
         logger.info("Build succeeded for %s/%s", self.project, source_filename)
-        return BuildValidationResult(success=True)
+        return BuildValidationResult(success=True, binary_name=expected_binary)
 
     def cleanup_workspace(self) -> None:
         """Remove the entire .build_validate workspace tree."""
@@ -334,8 +378,11 @@ class BuildValidator:
     def _build(self, workspace_dir: Path) -> BuildResult:
         """Run the OSS-Fuzz build, wrapping with ``sg docker`` if needed."""
         if _needs_sg_docker():
-            return self._build_via_sg_docker(workspace_dir)
-        return build_project(workspace_dir, self.project, sanitizer=self.sanitizer)
+            r = self._build_via_sg_docker(workspace_dir)
+        else:
+            r = build_project(workspace_dir, self.project, sanitizer=self.sanitizer)
+        self.last_full_log = r.full_log
+        return r
 
     def _build_via_sg_docker(self, workspace_dir: Path, max_retries: int = 2) -> BuildResult:
         """Run build_project inside ``sg docker`` for Docker group permissions."""
@@ -390,13 +437,17 @@ class BuildValidator:
                 output_dir=str(output_dir),
                 fuzzers=fuzzers,
                 error=f"Build failed (exit {result.returncode})",
-                build_log=combined[-3000:],
+                build_log=_error_excerpt(combined) + combined[-3000:],
+                full_log=combined,
             )
         return BuildResult(
             success=True,
             output_dir=str(output_dir),
             fuzzers=fuzzers,
-            build_log=combined[-1000:],
+            # build.sh can exit 0 with our fuzzer missing (its link failed
+            # inside a make loop): keep the error lines, not just the tail.
+            build_log=_error_excerpt(combined) + combined[-3000:],
+            full_log=combined,
         )
 
     def _resolve_container_path(self, source_filename: str) -> str:

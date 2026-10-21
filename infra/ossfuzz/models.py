@@ -9,7 +9,8 @@ class BuildResult:
     output_dir: str = ""
     fuzzers: list[str] = field(default_factory=list)
     error: str | None = None
-    build_log: str = ""
+    build_log: str = ""  # error excerpt + tail, for the agent
+    full_log: str = ""  # whole build output, saved to a file for the agent to Grep/Read
 
 
 @dataclass(frozen=True)
@@ -25,6 +26,10 @@ class FuzzerRunResult:
     peak_rss_mb: int = 0
     elapsed_seconds: float = 0.0
     error: str | None = None
+    # The sanitizer / libFuzzer report that ended the run early, if any.
+    crash: str | None = None
+    # Times the fuzzer was restarted after a crash / leak / OOM / timeout.
+    restarts: int = 0
 
 
 @dataclass(frozen=True)

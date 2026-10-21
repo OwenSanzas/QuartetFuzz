@@ -87,7 +87,7 @@ harness/checker/                            (~4500 lines new)
 ├── tools/
 │   ├── __init__.py               register_all dispatch
 │   ├── context.py                CheckerContext dataclass
-│   ├── code_view.py              read_file / list_directory / search_files
+│   ├── code_view.py              Read / Glob / Grep
 │   ├── static_analysis.py        5 tools wrapping StaticIndex
 │   ├── dynamic_analysis.py       4 tools wrapping DynamicRunner
 │   ├── quality_check.py          check_p1/p2/p3/p4 (static + LLM stacked)
@@ -120,7 +120,7 @@ Total: **~4500 lines of new code**, 44 unit tests all green.
 
 | Category | Tools | Count | Purpose |
 |---|---|---:|---|
-| code_view | read_file, list_directory, search_files | 3 | Project source exploration |
+| code_view | Read, Glob, Grep | 3 | Project source exploration |
 | static_analysis | get_callers, get_callees, lookup_symbol, reachable_from, is_public_api | 5 | Call graph queries via StaticIndex |
 | dynamic_analysis | build_harness, AP_Run_check, get_coverage, run_gdb | 4 | Docker-backed build/fuzz/cov/gdb |
 | quality_check | check_p1, check_p2, check_p3, check_p4 | 4 | Static + LLM principle audits |

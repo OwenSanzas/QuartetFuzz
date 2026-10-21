@@ -36,7 +36,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
     unavailable = (
         f"Static analysis unavailable for project '{project}'. "
         f"No call graph data found under AGF_STATIC_ANALYSIS_DIR. "
-        f"Fall back to code_view tools (read_file / search_files) to "
+        f"Fall back to code_view tools (Read / Grep) to "
         f"reason about the call graph manually."
     )
 
@@ -48,7 +48,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
         surface: if the only callers are under test/ or fuzz/ directories,
         the function is probably not reachable from external input in
         production.  Also use it (P2) to find real usage examples — read
-        the top caller via read_file to see how the function is actually
+        the top caller via Read to see how the function is actually
         invoked in practice.
         """
         if idx is None:
@@ -119,7 +119,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
 
         Use this to (P1) sanity-check that a symbol you plan to call
         actually exists in the project (no LLM hallucinations), and (P2/P3)
-        to locate the source file so you can read_file the definition.
+        to locate the source file so you can Read the definition.
         """
         if idx is None:
             return unavailable
@@ -130,7 +130,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
                 f"Possible causes: (a) it's a libc / stdlib function not "
                 f"indexed, (b) it's a macro not a function, (c) it's a "
                 f"compile-time-generated symbol, or (d) the LLM hallucinated "
-                f"the name.  Try search_files to look for it textually "
+                f"the name.  Try Grep to look for it textually "
                 f"before assuming it exists."
             )
         header = f"{len(recs)} definition(s) of '{name}' in {project}:"
@@ -189,7 +189,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
         Use this for paper §3.6 Step 3 fallback: when
         `public_apis_reaching` returns nothing useful (path heuristic
         too coarse), pull the full ancestor list here, then use
-        `is_public_api` and `read_file` to judge ambiguous symbols
+        `is_public_api` and `Read` to judge ambiguous symbols
         yourself.
         """
         if idx is None:
@@ -246,7 +246,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
                 f"(verdict: unknown).  Cannot judge public/internal from "
                 f"static data — if you're planning to call this symbol, "
                 f"verify it exists by reading its declaration with "
-                f"read_file / search_files."
+                f"Read / Grep."
             )
         header = f"'{name}' verdict: {verdict.upper()}"
         lines = [header, f"  Based on {len(recs)} definition(s):"]
@@ -340,7 +340,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
         count and up to 10 names per target.  When all targets return
         empty lists, the path heuristic has nothing for this core --
         fall back to `reverse_reachable_from` per target plus
-        `read_file` on the unknown ancestors.
+        `Read` on the unknown ancestors.
         """
         if idx is None:
             return unavailable
