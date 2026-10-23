@@ -308,7 +308,6 @@ class SystemCheckAgent(BaseAgent):
         # Terminator tool that ends the loop.  Enforces that all
         # required verification tools have been called before submission
         # by surfacing a REJECTED message that the agent must respond to.
-        @mcp.tool()
         def submit_harness(harness_code: str, filename: str = ""):
             """Submit the final harness.
 
@@ -341,6 +340,21 @@ class SystemCheckAgent(BaseAgent):
                 return review
             return "Harness submitted."
 
+        if os.environ.get("QF_NO_AP"):
+            # w/o AP ablation: same tool, description without the two probes.
+            submit_harness.__doc__ = (
+                "Submit the final harness.\n\n"
+                "Call this ONCE, as your last action, only after build_harness "
+                "and get_coverage (libFuzzer + llvm-cov) have run on the code you "
+                "submit.  If a required tool has not been called this run, the "
+                "submission will be REJECTED and you must call the missing tools "
+                "first.\n\n"
+                "Args:\n"
+                "    harness_code: Complete, compilable C/C++ source.\n"
+                "    filename: Filename with extension (e.g. ``yaml_loader_fuzz.c``).\n"
+            )
+        mcp.tool()(submit_harness)
+
         return mcp
 
     def get_system_prompt(self, **kwargs: Any) -> str:
@@ -354,6 +368,7 @@ class SystemCheckAgent(BaseAgent):
             functionality_prompt=self._functionality_prompt,
             target_function=self._target_function,
             p2_report=self._p2_report,
+            no_ap=bool(os.environ.get("QF_NO_AP")),
             oss_fuzz_project_dir=str(self._ctx.oss_fuzz_project_dir)
             if self._ctx.oss_fuzz_project_dir
             else "",
@@ -419,7 +434,10 @@ class SystemCheckAgent(BaseAgent):
             return False
 
         # Verify required tools were called before submit.
-        missing = self.REQUIRED_TOOLS_BEFORE_SUBMIT - self._seen_tools
+        required = self.REQUIRED_TOOLS_BEFORE_SUBMIT
+        if os.environ.get("QF_NO_AP"):  # w/o AP ablation: no probe gate
+            required = required - {"AP_Run_check", "AP_Reach_check"}
+        missing = required - self._seen_tools
         try:
             submitted_code = json.loads(submit_tc["function"]["arguments"]).get("harness_code", "")
         except (json.JSONDecodeError, TypeError, AttributeError):
@@ -492,12 +510,13 @@ class SystemCheckAgent(BaseAgent):
         checks = history.get(code.strip()) if code else None
         if checks is None:
             checks = runner.checks
-        if not checks["run_done"]:
+        no_ap = bool(os.environ.get("QF_NO_AP"))  # w/o AP ablation: build + coverage only
+        if not checks["run_done"] and not no_ap:
             unmet.append("call AP_Run_check on it")
         # The binary may name the target differently (inherited method,
         # inline namespace, template instance): match the last name part.
         want = re.split(r"::", self._target_function)[-1] if self._target_function else ""
-        if not any(want in f for f in checks["reached"]) or not checks["reached"]:
+        if not no_ap and (not any(want in f for f in checks["reached"]) or not checks["reached"]):
             unmet.append(
                 f"AP_Reach_check must report TARGET HIT for {self._target_function or 'your entry function'}"
             )
@@ -1032,11 +1051,13 @@ def run_system_check(
     # ── 5b. Stage 2 — P2 research on the given target (Mode C) ─────────
     # Mode A/B get their P2 report from the pipeline; with a given target
     # the P2 agent researches that target here, as in the paper's Stage 2.
-    p2_report = "" if prepared else _load_p2_report(case_id)
-    if lg_store is not None and (lg_store / "p2_report.md").is_file():
+    # QF_NO_P2 (w/o P2 ablation): no P2 report at all; the LG is still used.
+    no_p2 = bool(os.environ.get("QF_NO_P2"))
+    p2_report = "" if prepared or no_p2 else _load_p2_report(case_id)
+    if not no_p2 and lg_store is not None and (lg_store / "p2_report.md").is_file():
         p2_report = (lg_store / "p2_report.md").read_text()
     p2_agent_result = None
-    if mode == "C" and not p2_report and not first_harness_only:
+    if mode == "C" and not p2_report and not first_harness_only and not no_p2:
         from harness.checker.p2_agent import P2Agent
 
         log.info("flow.p2_stage", case_id=case_id, target=case.target_function)

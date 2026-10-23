@@ -26,6 +26,7 @@ complete a draft without dynamic verification.
 from __future__ import annotations
 
 import base64
+import os
 import binascii
 import logging
 
@@ -45,6 +46,8 @@ _MAX_BUILD_ATTEMPTS = 5
 
 
 def register(mcp: FastMCP, ctx: CheckerContext) -> None:
+    # QF_NO_AP (w/o AP ablation): the two adversarial probes are not offered.
+    ap_tool = (lambda f: f) if os.environ.get("QF_NO_AP") else mcp.tool()
     runner = ctx.dynamic_runner
     project = ctx.project
     unavailable = (
@@ -133,7 +136,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             )
         return msg
 
-    @mcp.tool()
+    @ap_tool
     def AP_Run_check(generator_code: str, binary_name: str = ""):
         """**AP Probe 2 (run check).**  Adversarial single-shot run.
 
@@ -320,7 +323,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             return f"GDB ERROR (infrastructure): {exc}"
         return f"GDB OUTPUT  binary={binary_name or '(last built)'}\n\n{output}"
 
-    @mcp.tool()
+    @ap_tool
     def AP_Reach_check(
         generator_code: str,
         target_function: str,

@@ -50,12 +50,12 @@ API surface the way real callers do.
 {% endif %}- `build_harness(harness_code, filename)` — compiles your harness in the project's
   OSS-Fuzz image (30–120 s). **5 builds in total**; a 6th returns
   `BUILD BUDGET EXHAUSTED`.
-- `AP_Run_check(generator_code, binary_name)` — runs one input on the ASan build.
+{% if not no_ap %}- `AP_Run_check(generator_code, binary_name)` — runs one input on the ASan build.
   `generator_code` is Python defining `generate() -> bytes`. Returns PASS, or FAIL with
   the sanitizer report.
 - `AP_Reach_check(generator_code, target_function, binary_name)` — runs one input
   under gdb with a breakpoint on the target. Returns TARGET HIT or MISS.
-- `run_gdb(generator_code, gdb_commands, binary_name)` — runs one input under gdb with
+{% endif %}- `run_gdb(generator_code, gdb_commands, binary_name)` — runs one input under gdb with
   your commands (breakpoints, `bt`, `print`, `finish`, ...).
 - `get_coverage(binary_name)` — fuzzes the build for 600 s from an empty corpus and
   returns line, branch, function and region coverage of the project code (~10 min).
@@ -105,13 +105,13 @@ it yourself with {% if static_available %}`get_callers`, `get_callees`, `find_pa
    files, network or shell commands, no `exit()`/`abort()` in normal control flow. On
    BUILD FAILED, read the compiler errors, fix, build again.
 6. **Check the build.**
-   - `AP_Run_check` with an input aimed at the P1 check you trust least. A FAIL is
+{% if not no_ap %}   - `AP_Run_check` with an input aimed at the P1 check you trust least. A FAIL is
      most likely a bug in your harness: read the report (use `run_gdb` if needed), fix
      it and rebuild. If you are confident the crash is a real library bug deep in the
      library code, submit that harness and stop.
    - `AP_Reach_check` with an input that should reach the target: it must report
      TARGET HIT. On MISS, find where execution stops (`run_gdb`) and fix the harness.
-   - `get_coverage`.
+{% endif %}   - `get_coverage`.
 7. **Improve.** Passing the checks is the minimum for submission, not the goal.
    Compare your harness with the P2 report:
    - result-usage APIs (P2.9) you do not call;
@@ -132,9 +132,9 @@ it yourself with {% if static_available %}`get_callers`, `get_callees`, `find_pa
 `submit_harness` is rejected unless, on your **last successful build**:
 
 - `harness_code` is exactly the code of that build;
-- `AP_Run_check` ran on it;
+{% if not no_ap %}- `AP_Run_check` ran on it;
 - `AP_Reach_check` reported TARGET HIT for the target function;
-- `get_coverage` reported more than 0 covered lines.
+{% endif %}- `get_coverage` reported more than 0 covered lines.
 
 A new successful build resets these checks. After 5 builds the checks are waived and
 the last successful build is accepted as it is.
