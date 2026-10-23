@@ -1026,12 +1026,7 @@ def run_system_check(
             "The Logic Group adds to the P2 report; it is not a boundary.  What "
             "the P2 report shows real callers doing to build the target's input "
             "or with its results stays in scope even when the function is not "
-            "in the Logic Group.  "
-            "Follow the description's notes on the input format (keep inputs "
-            "byte-compatible with the seed corpus; take control bytes from the "
-            "end), init rejections (do not lose most inputs at init), structured "
-            "input (draw from valid examples rather than random bytes), and test "
-            "hooks (use them; leave debug/trace output switches off)."
+            "in the Logic Group."
         )
 
     # ── 5b. Stage 2 — P2 research on the given target (Mode C) ─────────

@@ -43,9 +43,6 @@ single function.
     round trip (encode ↔ decode, compress ↔ decompress, pack ↔ unpack);
   - *configuration* functions whose settings select different paths in
     C (flags, modes, options, levels, setters called before the target);
-  - *siblings*: the other public functions declared next to the target
-    (same header / same source file) that take the same kind of input
-    (the same string, buffer, object) — they parse it another way;
   - *consumers* of the target's result that run more code on it
     (traverse, query, convert, serialize, export, write out, minify,
     validate), including what the target's real callers in the source
@@ -53,10 +50,7 @@ single function.
   Do not add pure lifecycle boilerplate (create/free) unless the
   feature cannot run without it — the API researcher collects that.
   Do not add functions of a different feature just because they are
-  public.  When the fuzzer name names a module or a format rather than
-  the target (e.g. `<lib>_graphics_fuzzer`, `<lib>_fuzzer_obj`), the
-  feature is that module or format: cover its entries, and keep inputs
-  inside that format.  Typical size: 2-12 entries.
+  public.  Typical size: 2-10 entries.
   E is a guide for the harness writer, not a boundary: list what you
   found, the harness may still use more.
 - **name** — short human label of the feature.
@@ -68,32 +62,12 @@ single function.
   3. the **input space**: which parameters, flags, modes or input
      formats select different paths through C (list the concrete
      values or constants you found), so the harness can derive them
-     from the fuzz input instead of fixing one;
-  4. **input format**: what the fuzz bytes should look like.  Read the
-     OSS-Fuzz build script for this fuzzer name: a seed corpus,
-     dictionary or options file shows the expected format.  If the format
-     starts with a magic number, header or length field, say so: the
-     harness must keep inputs byte-compatible with the seeds (control
-     bytes taken from the end, not the front);
-  5. **init rejections**: the checks in the feature's init / compile /
-     configure step that reject parameter combinations (strict or
-     compatibility modes, limits), and the switch that relaxes them if
-     there is one — so the harness does not lose most inputs there;
-  6. **structured input**: if the input is a language (a program, query,
-     expression, pattern, schema), where valid examples live in the source
-     tree (tests, examples, docs), so the harness can draw from them
-     instead of feeding random bytes to the compiler;
-  7. **test hooks and debug switches**: hooks the project's own tests or
-     fuzzers use to reach more code (allocation-failure injection, CPU
-     feature / SIMD disabling, private setters), and switches that only
-     print debug or trace output (these stay off).
-  Write "none found" for an item that does not apply.
+     from the fuzz input instead of fixing one.
 
 ## Your tools
 
 - **code_view** — `Read`, `Glob`, `Grep`: explore the project source
-  at `{{ project_path }}`{% if oss_fuzz_project_dir %} and the OSS-Fuzz build directory
-  `{{ oss_fuzz_project_dir }}`{% endif %}.
+  at `{{ project_path }}`.
 {% if static_available %}
 - **call graph** — `get_callers(name)`, `get_callees(name)`,
   `find_path(from_function, to_function)` over the project's static
@@ -117,9 +91,6 @@ single function.
    (`get_callers` on each core function){% endif %}: which other public
    functions reach C or configure it?  Check how tests, examples and
    tools in the source tree use the target together with them.
-   Read the OSS-Fuzz build directory for this fuzzer (seed corpus,
-   dictionary, options) and how the project's tests and fuzzers set
-   the feature up (items 4-7 of the description).
    Verify each candidate: it must exist (read its declaration) and
    reach C{% if static_available %} (`find_path(candidate, core)`){% endif %} or set
    state that C reads.

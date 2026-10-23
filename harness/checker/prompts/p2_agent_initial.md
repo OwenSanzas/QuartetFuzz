@@ -28,15 +28,6 @@ call protocol of each other entry (what it needs before it, its parameters
 and the values or flags that select different paths, its return value, what
 to free), and how it combines with the target in one harness.  If an entry
 does not exist or does not belong to this feature, say so in the report.
-
-Check the Logic Group description's notes on input format, init rejections,
-structured input and test hooks against the source and the OSS-Fuzz build
-directory, and give the details a harness needs: the seed corpus / dictionary
-for this fuzzer and the format they imply; each init check that rejects
-parameters and the exact call that relaxes it; where valid example inputs are
-(files, tables in tests); how to enable each test hook (header, symbol,
-declaration).  Also name any from-memory deserializer of the object the target
-takes.  Correct the notes where the source says otherwise.
 {% endif %}
 
 **Project source:** `{{ project_path }}`
