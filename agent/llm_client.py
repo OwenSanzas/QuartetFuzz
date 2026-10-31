@@ -261,6 +261,12 @@ class LLMClient:
         api_key = self._get_api_key(model)
         if api_key:
             kwargs["api_key"] = api_key
+        if _is_anthropic(model) and "/" not in model:
+            # litellm infers the provider from its model cost map; when the
+            # remote map cannot be fetched its bundled copy may not know a new
+            # model and every call fails ("LLM Provider NOT provided"), as on
+            # 2026-10-23.  Same model and request, provider stated explicitly.
+            kwargs["custom_llm_provider"] = "anthropic"
 
         t0 = time.monotonic()
         raw = await litellm.acompletion(**kwargs)
