@@ -253,6 +253,23 @@ against externally-pinned OSS-Fuzz commits.
 
 ---
 
+## Unit tests
+
+`tests/` covers the pure-Python layer — `LogicGroup`, the `StaticIndex`
+and `CallGraph` call-graph queries, and the Stage 1 danger score —
+on toy graphs written to a temp dir. It needs no Docker, Joern, OSS-Fuzz
+checkout or API key and runs in under a second:
+
+```bash
+pip install pytest
+pytest
+```
+
+Tests marked `xfail` record known scoring issues; see the reason on
+each marker in `tests/test_danger_score.py`.
+
+---
+
 ## Repo layout
 
 ```
@@ -286,6 +303,7 @@ QuartetFuzz/
 │   └── demo_libplist.py          End-to-end libplist demo driver.
 ├── dataset_v2/            The final 100-case dataset (see Dataset section above).
 ├── legacy/                Earlier case sets and scripts; not used.
+├── tests/                 Unit tests for the pure-Python layer (see Unit tests).
 ├── demo/libplist/         (see End-to-end demo section above)
 ├── docs/AP_PROBE_EXAMPLE.md  Real I/O for both AP probes from a live run.
 ├── README.md              This file.
