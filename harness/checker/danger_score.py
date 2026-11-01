@@ -46,7 +46,7 @@ def _is_unsafe_callee(name: str) -> bool:
 
 def compute_danger(
     entry: str,
-    static_index: "StaticIndex",
+    static_index: StaticIndex,
     *,
     max_depth: int = 20,
 ) -> dict:
@@ -71,19 +71,16 @@ def compute_danger(
             continue
         reachable += 1
 
-        # Check callees for unsafe operations.
-        # The callee is at distance dist+1 from the entry.
+        # The callee is at distance dist+1 from the entry: score unsafe
+        # operations at that distance, and expand the BFS to new callees.
         callee_dist = dist + 1
         for callee in static_index.callees_of(func):
             if _is_unsafe_callee(callee):
                 danger += 1.0 / callee_dist
                 unsafe_ops += 1
-
-        # Expand BFS to callees
-        for callee in static_index.callees_of(func):
             if callee not in visited:
-                visited[callee] = dist + 1
-                queue.append((callee, dist + 1))
+                visited[callee] = callee_dist
+                queue.append((callee, callee_dist))
 
     return {
         "function": entry,
@@ -95,7 +92,7 @@ def compute_danger(
 
 def rank_entries(
     entries: list[str],
-    static_index: "StaticIndex",
+    static_index: StaticIndex,
     *,
     max_depth: int = 20,
 ) -> list[dict]:
@@ -106,28 +103,20 @@ def rank_entries(
     """
     results = []
     for entry in entries:
-        # Try exact match; fall back to partial if needed
-        if static_index.lookup(entry):
-            results.append(compute_danger(entry, static_index, max_depth=max_depth))
+        # Exact match first; otherwise fall back to the first known function
+        # whose name contains *entry* (the result then carries that name).
+        name = entry if static_index.lookup(entry) else next(
+            (f for f in static_index.functions_by_name if entry in f), None
+        )
+        if name is not None:
+            results.append(compute_danger(name, static_index, max_depth=max_depth))
         else:
-            # Attempt partial match on function name
-            candidates = [
-                f.name
-                for f in static_index.lookup(entry)  # already empty
-            ]
-            # Broader search: check all known functions
-            all_funcs = list(static_index.functions_by_name.keys())
-            matches = [f for f in all_funcs if entry in f]
-            if matches:
-                best = matches[0]
-                results.append(compute_danger(best, static_index, max_depth=max_depth))
-            else:
-                results.append({
-                    "function": entry,
-                    "danger": 0.0,
-                    "reachable": 0,
-                    "unsafe_ops": 0,
-                })
+            results.append({
+                "function": entry,
+                "danger": 0.0,
+                "reachable": 0,
+                "unsafe_ops": 0,
+            })
 
     results.sort(key=lambda r: -r["danger"])
 
