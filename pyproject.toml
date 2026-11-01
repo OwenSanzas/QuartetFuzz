@@ -34,11 +34,5 @@ target-version = "py310"
 select = ["E", "F", "I", "UP"]
 
 [tool.pytest.ini_options]
-testpaths = [
-    "agent/tests",
-    "harness/generator/tests",
-    "harness/checker/tests",
-    "harness/tests",
-    "benchmark/oss_fuzz_harness/tests",
-    "benchmark/oss_fuzz_harness/data/pre_cleanup/selection",
-]
+testpaths = ["tests"]
+pythonpath = ["."]
