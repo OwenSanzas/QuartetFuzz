@@ -232,9 +232,9 @@ class SystemCheckAgent(BaseAgent):
     # it here forces every submission to pass through at least one round
     # of attack-style challenge — the harness is not "I built and ran it"
     # but "I tried to break it and it survived".
+    # w/o AP ablation: no probe gate, build + coverage only.
     REQUIRED_TOOLS_BEFORE_SUBMIT: frozenset[str] = frozenset({
-        "build_harness", "AP_Run_check", "get_coverage",
-        "AP_Reach_check",
+        "build_harness", "get_coverage",
     })
 
     def __init__(
@@ -312,16 +312,11 @@ class SystemCheckAgent(BaseAgent):
         def submit_harness(harness_code: str, filename: str = ""):
             """Submit the final harness.
 
-            Call this ONCE, as your last action, only after all required
-            verification tools have been invoked: build_harness;
-            AP_Run_check (P1 sanitizer probe — agent supplies one
-            attack blob via generator_code); AP_Reach_check (P2 reach
-            probe — agent supplies a generator_code aimed at the target
-            API); get_coverage (libFuzzer + llvm-cov).  Submission in
-            turn 1 is impossible: you must complete build → both AP
-            probes → coverage before this call is accepted.  If any
-            required tool has not been called this run, the submission
-            will be REJECTED and you must call the missing tools first.
+            Call this ONCE, as your last action, only after build_harness
+            and get_coverage (libFuzzer + llvm-cov) have run on the code you
+            submit.  If a required tool has not been called this run, the
+            submission will be REJECTED and you must call the missing tools
+            first.
 
             Args:
                 harness_code: Complete, compilable C/C++ source.
@@ -492,15 +487,7 @@ class SystemCheckAgent(BaseAgent):
         checks = history.get(code.strip()) if code else None
         if checks is None:
             checks = runner.checks
-        if not checks["run_done"]:
-            unmet.append("call AP_Run_check on it")
-        # The binary may name the target differently (inherited method,
-        # inline namespace, template instance): match the last name part.
-        want = re.split(r"::", self._target_function)[-1] if self._target_function else ""
-        if not any(want in f for f in checks["reached"]) or not checks["reached"]:
-            unmet.append(
-                f"AP_Reach_check must report TARGET HIT for {self._target_function or 'your entry function'}"
-            )
+        # w/o AP ablation: no AP_Run_check / AP_Reach_check requirement.
         if checks["coverage_lines"] <= 0:
             unmet.append("get_coverage must report more than 0 covered lines")
         return unmet

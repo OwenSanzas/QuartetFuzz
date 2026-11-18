@@ -133,7 +133,7 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             )
         return msg
 
-    @mcp.tool()
+    # w/o AP ablation: the adversarial probes are not offered to the agent.
     def AP_Run_check(generator_code: str, binary_name: str = ""):
         """**AP Probe 2 (run check).**  Adversarial single-shot run.
 
@@ -320,7 +320,6 @@ def register(mcp: FastMCP, ctx: CheckerContext) -> None:
             return f"GDB ERROR (infrastructure): {exc}"
         return f"GDB OUTPUT  binary={binary_name or '(last built)'}\n\n{output}"
 
-    @mcp.tool()
     def AP_Reach_check(
         generator_code: str,
         target_function: str,
