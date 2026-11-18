@@ -1032,43 +1032,9 @@ def run_system_check(
     # ── 5b. Stage 2 — P2 research on the given target (Mode C) ─────────
     # Mode A/B get their P2 report from the pipeline; with a given target
     # the P2 agent researches that target here, as in the paper's Stage 2.
-    p2_report = "" if prepared else _load_p2_report(case_id)
-    if lg_store is not None and (lg_store / "p2_report.md").is_file():
-        p2_report = (lg_store / "p2_report.md").read_text()
+    # w/o P2 ablation: no P2 report is loaded or generated; the LG is still used.
+    p2_report = ""
     p2_agent_result = None
-    if mode == "C" and not p2_report and not first_harness_only:
-        from harness.checker.p2_agent import P2Agent
-
-        log.info("flow.p2_stage", case_id=case_id, target=case.target_function)
-        p2_agent = P2Agent(
-            ctx=ctx,
-            entries=[case.target_function],
-            target_declaration=case.target_declaration,
-            target_location=case.target_location,
-            # The benchmark task text is the downstream agent's task, not the
-            # researcher's; only a real Logic Group description goes here.
-            lg_description=lg.description if lg is not None else "",
-            lg_entries=lg.entries if lg is not None else None,
-            lg_core=lg.core if lg is not None else None,
-        )
-        try:
-            p2_agent_result = asyncio.run(p2_agent.run())
-            p2_report = p2_agent_result.parsed or ""
-        except Exception:
-            log.error("flow.p2_agent_failed", exc_info=True)
-        if p2_agent_result is not None and p2_agent_result.trajectory:
-            p2_agent_result.save_trajectory(case_dir / "p2_trajectory.jsonl")
-        if p2_report:
-            (case_dir / "p2_report.md").write_text(p2_report)
-        if lg_store is not None and lg is not None:
-            if p2_agent_result is not None:
-                if p2_agent_result.trajectory:
-                    p2_agent_result.save_trajectory(lg_store / "p2_trajectory.jsonl")
-                _save_stage_cost(lg_store / "p2_cost.json", p2_agent_result, llm_model)
-            if p2_report:
-                (lg_store / "p2_report.md").write_text(p2_report)
-    elif lg_store is not None and p2_report:
-        (case_dir / "p2_report.md").write_text(p2_report)
 
     # QF_PREPARE_ONLY: stop after the LG and P2 stages (they are stored).
     if os.environ.get("QF_PREPARE_ONLY"):
