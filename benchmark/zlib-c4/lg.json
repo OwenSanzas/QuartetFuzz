@@ -1,0 +1,24 @@
+{
+  "name": "zlib buffer-to-buffer decompression (uncompress2/uncompress family)",
+  "description": "This feature decompresses an in-memory zlib-formatted (RFC1950) stream from an untrusted source buffer into a caller-supplied destination buffer, in one shot, without the caller managing an explicit z_stream across multiple calls. uncompress2 (and its siblings uncompress/uncompress_z, which funnel into uncompress2_z) wrap a full inflateInit/inflate-loop/inflateEnd lifecycle: they feed the input in up to UINT_MAX-sized chunks to inflate() with Z_NO_FLUSH until an error or Z_STREAM_END, so all the zlib-header parsing, Huffman table construction, LZ77 back-reference window handling and checksum verification inside inflate's core live in C. Because the source bytes are attacker-controlled, this is exactly the kind of buffer-length/arithmetic/decoding logic fuzzing targets (malformed headers, truncated streams, bad Huffman tables, window overflows, adler32 mismatches, *destLen too small, etc.).\n- uncompress2: target; drives the whole decompression state machine (inflateInit/inflate loop/inflateEnd) over caller buffers, returning actual bytes consumed/produced.\n- uncompress: variant without *sourceLen in/out; simpler API that still reaches the same inflate loop via uncompress2.\n- uncompress_z / uncompress2_z: size_t-length variants of the same API, the former wrapping uncompress2_z directly, the latter the real implementation containing the inflate loop that chooses chunk sizes and translates inflate's error codes (Z_STREAM_END->Z_OK, Z_NEED_DICT->Z_DATA_ERROR, Z_BUF_ERROR with no input left->Z_DATA_ERROR); exercising it directly lets the harness also probe the uLong vs size_t length-truncation boundary.\n- compress2 (and its size_t variant compress2_z): source/round-trip partner; produces a well-formed zlib stream (optionally at different compression levels/strategies) that can be mutated by the fuzzer and fed into uncompress2, or used to validate successful round trips, exercising the symmetric encode path that shares the same stream format inflate must parse.\n- compressBound: configuration/helper used together with compress2 to correctly size buffers for the round trip, letting the harness derive a destination length matching the deflate output bound.\nInput space the harness should vary: the raw compressed bytes in `source` (valid vs. corrupted zlib headers/CM-CINFO/FDICT bits, truncated streams, bad Huffman code lengths, incomplete final blocks); `*sourceLen` (exact, truncated, or oversized relative to real data, including values near UINT_MAX to exercise the chunking loop); `*destLen`/dest buffer size (too small to force Z_BUF_ERROR/partial fill, exactly right, or oversized); whether `dest`/`source` are NULL with zero-length counterparts (Z_STREAM_ERROR path); and, when pairing with compress2, the `level` parameter (Z_NO_COMPRESSION..Z_BEST_COMPRESSION, Z_DEFAULT_COMPRESSION) which changes the structure of the compressed stream subsequently fed to uncompress2.",
+  "entries": [
+    "uncompress2",
+    "uncompress",
+    "uncompress_z",
+    "uncompress2_z",
+    "compress2",
+    "compressBound"
+  ],
+  "core": [
+    "inflateInit",
+    "inflate",
+    "inflateEnd",
+    "inflate_fast",
+    "inflate_table",
+    "inflate_fixed",
+    "updatewindow"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {}
+}

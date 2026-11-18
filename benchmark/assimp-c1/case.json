@@ -1,0 +1,32 @@
+{
+  "case": "assimp-c1",
+  "case_id": "assimp/assimp_fuzzer_obj",
+  "project": "assimp",
+  "fuzzer_name": "assimp_fuzzer_obj",
+  "language": "c++",
+  "gold_harness_path": "$SRC/assimp/fuzz/assimp_fuzzer_obj.cc",
+  "gold_source_file": "/src/assimp/fuzz/assimp_fuzzer_obj.cc",
+  "target_function": "Assimp::Importer::ReadFileFromMemory",
+  "target_declaration": "const aiScene *ReadFileFromMemory( const void *pBuffer, size_t pLength, unsigned int pFlags, const char *pHint = \"\");",
+  "target_location": "assimp/Importer.hpp:460",
+  "prompt": "Project: assimp\nRepository: https://github.com/assimp/assimp\nRevision: b742a483e2834ff4359935576b32fa8bb0fab97f\nLanguage: C++\n\nTarget function: Assimp::Importer::ReadFileFromMemory\nDeclared in: assimp/Importer.hpp:460\nDeclaration: const aiScene *ReadFileFromMemory( const void *pBuffer, size_t pLength, unsigned int pFlags, const char *pHint = \"\");\nEnclosing scope: namespace Assimp, class ASSIMP_API Importer (public section)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/assimp/assimp.git",
+      "rev": "b742a483e2834ff4359935576b32fa8bb0fab97f",
+      "type": "git"
+    },
+    "upstream_path": "/src/assimp",
+    "all_repos": {
+      "/src/assimp": {
+        "url": "https://github.com/assimp/assimp.git",
+        "rev": "b742a483e2834ff4359935576b32fa8bb0fab97f",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/assimp.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

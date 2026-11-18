@@ -1,0 +1,24 @@
+{
+  "name": "libopcodes architecture disassembler dispatch and decode",
+  "description": "The `disassembler()` function in opcodes/disassemble.c is the dispatcher at the heart of GNU binutils' disassembly feature: given a BFD architecture, endianness, machine variant and (optionally) a bfd handle, it selects and returns the matching `print_insn_*` function pointer (e.g. print_insn_i386, print_insn_aarch64, print_insn_arm, print_insn_score, print_insn_z8001/z8002, etc.). That returned function pointer is later invoked by callers (objdump, gdb) on raw, attacker-controllable instruction bytes taken from a buffer or target memory; those print_insn_* decoders are large hand-written/CGen-generated state machines that parse opcode/prefix/operand bytes and are a classic source of out-of-bounds reads, infinite loops and integer-decoding bugs when fed malformed binaries, which is exactly why this surface is security relevant.\n- disassembler: target; selects the decoder entry point (print_insn_* core) for a given architecture/mach/endianness.\n- init_disassemble_info: config/lifecycle, sets up the struct disassemble_info (default buffer-based read_memory_func = buffer_read_memory, memory_error_func = perror_memory, print_address_func = generic_print_address, symbol_at_address_func/symbol_is_valid) that the selected print_insn_* core reads from; required before invoking the returned decoder.\n- disassemble_init_for_target: config, called after disassembler() and after info->arch/mach are filled in; switches on info->arch to set target-specific fields (symbol_is_valid override, disassembler_needs_relocs, created_styled_output, skip_zeroes, private_data for m32c ISA bitset) that change which paths the core decoder takes (e.g. styled output formatting, relocation-aware operand printing).\n- buffer_read_memory: source/consumer, the default read_memory_func invoked repeatedly by every print_insn_* core to fetch instruction bytes from info->buffer/info->buffer_vma/info->buffer_length; this is the function through which fuzzed byte buffers actually reach the decoders, and it performs the bounds checking that decoders rely on.\n- arc_get_disassembler / cris_get_disassembler: variants, architecture-specific analogues of disassembler() used instead of/alongside it for ARC and CRIS targets, reaching their own print_insn_arc/print_insn_cris cores with the same buffer_read_memory-driven input path.\nThe input space to fuzz: (1) the `arc` (enum bfd_architecture) argument to disassembler() \u2014 each distinct architecture (bfd_arch_i386, bfd_arch_aarch64, bfd_arch_arm, bfd_arch_mips, bfd_arch_powerpc, bfd_arch_riscv, bfd_arch_score, bfd_arch_z8k with mach bfd_mach_z8001/z8002, etc.) selects a structurally different decoder with its own core logic \u2014 this is the dominant axis, since each print_insn_* is effectively a separate parser; (2) the `big` endianness flag, which flips decoder variants for byte-order-sensitive formats (e.g. score big/little, m32c endian handling); (3) the `mach` value, which selects sub-ISA decoding tables within one architecture (e.g. z8001 vs z8002, m16c vs m32c); (4) the raw instruction bytes placed in disassemble_info.buffer that the returned print_insn_* function decodes byte-by-byte via buffer_read_memory, including prefix bytes, opcode bytes, ModRM/operand-size fields, and REX/VEX/EVEX-style prefixes for x86, which is the richest state space for finding decoder bugs; most permissive/most-code-reaching configuration is bfd_arch_i386 (print_insn_i386) since the x86 decoder table is by far the largest and most branch-heavy.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "disassembler",
+    "init_disassemble_info",
+    "disassemble_init_for_target",
+    "buffer_read_memory",
+    "arc_get_disassembler",
+    "cris_get_disassembler"
+  ],
+  "core": [
+    "print_insn_i386",
+    "print_insn_aarch64",
+    "print_insn_arm",
+    "ckprefix",
+    "disassemble_init_for_target",
+    "generic_print_address",
+    "generic_symbol_is_valid"
+  ],
+  "project": "binutils",
+  "risk_level": "",
+  "danger_scores": {}
+}

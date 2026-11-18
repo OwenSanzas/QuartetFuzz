@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1618,
+  "count": 9668,
+  "percent": 16.736
+ },
+ "functions": {
+  "covered": 60,
+  "count": 470,
+  "percent": 12.766
+ },
+ "regions": {
+  "covered": 933,
+  "count": 1383,
+  "percent": 67.462
+ },
+ "branches": {
+  "covered": 603,
+  "count": 657,
+  "percent": 91.781
+ },
+ "scope": "/src/glaze/",
+ "files_in_scope": 51,
+ "files_total": 51,
+ "all_linked": {
+  "lines": {
+   "covered": 1618,
+   "count": 9668,
+   "percent": 16.736
+  },
+  "functions": {
+   "covered": 60,
+   "count": 470,
+   "percent": 12.766
+  },
+  "regions": {
+   "covered": 933,
+   "count": 1383,
+   "percent": 67.462
+  },
+  "branches": {
+   "covered": 603,
+   "count": 657,
+   "percent": 91.781
+  }
+ },
+ "timestamp": "2026-08-28T20:28:42Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

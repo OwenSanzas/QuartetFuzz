@@ -1,0 +1,22 @@
+{
+  "name": "Avahi string list (TXT record) serialize/parse",
+  "description": "avahi_string_list_parse decodes an untrusted byte buffer (typically the raw rdata of a DNS TXT record received over the network) into a linked list of AvahiStringList nodes. It walks the buffer byte by byte, treating each byte as a length prefix for the following string segment (DNS \"character-string\" encoding): `k = *c++; if (k > remaining_size) fail; else allocate a node of k bytes and copy`. Because the length byte is attacker controlled and the function must correctly reject/bound it against the remaining buffer size without over-reading, and because many downstream node allocations and copies derive their sizes directly from attacker bytes, this is a classic boundary-parsing routine that is highly relevant to fuzz (off-by-one over-read, OOM amplification by many 0..255-length chunks, integer/size handling). The resulting list is also round-tripped back to bytes via avahi_string_list_serialize and consumed by string/pair extraction routines, so the harness should feed parsed output into those consumers to exercise the full life-cycle of a TXT record.\n- avahi_string_list_parse: target; the parser itself; input path is the length-prefixed byte stream, with branches on each embedded length byte (0 = skip, 1-255 = copy, >remaining = fail) and total buffer size.\n- avahi_string_list_serialize: inverse/round-trip entry; re-encodes a list back into the length-prefixed wire format used by parse, truncating entries >255 bytes and emitting a single NUL byte for empty lists (DNS-SD spec section 6.1); feeding its output back into avahi_string_list_parse exercises round-trip consistency and the truncation/empty-list edge cases.\n- avahi_string_list_equal: consumer; walks two parsed lists node by node comparing sizes/bytes, exercising the list structure built by the core add_arbitrary/add_anonymous loop.\n- avahi_string_list_to_string: consumer; converts the parsed list into a quoted/escaped textual representation (escapes '\"', '\\\\', and bytes <32 or >=127 as \\NNN), exercising per-node byte iteration over arbitrary (including embedded-NUL) content produced by the parser.\n- avahi_string_list_find / avahi_string_list_get_pair: consumers; interpret parsed nodes as \"key[=value]\" pairs, searching with case-insensitive comparisons and splitting on '=' \u2014 exercising text that was built purely from raw parsed bytes (which may lack a NUL-terminator boundary matching real string length).\n- avahi_string_list_copy: variant; builds a fresh list from an existing one via the same avahi_string_list_add_arbitrary/add_anonymous core allocation path used by parse, useful to compare allocation behavior against directly-parsed lists.\nThe input space to vary: the raw byte buffer and its size (size=0 producing NULL list; size with a single length byte with k==0 - empty-string skip; k==size boundary - exact fit; k>size - triggers the fail/cleanup path; many consecutive zero-length or small-length chunks to grow a long list; large k values near 255 to test chunk copy sizes; embedded NUL bytes inside a chunk, which must survive parse/serialize but break naive C-string assumptions in find/get_pair/to_string).",
+  "entries": [
+    "avahi_string_list_parse",
+    "avahi_string_list_serialize",
+    "avahi_string_list_equal",
+    "avahi_string_list_to_string",
+    "avahi_string_list_find",
+    "avahi_string_list_get_pair",
+    "avahi_string_list_copy"
+  ],
+  "core": [
+    "avahi_string_list_add_anonymous",
+    "avahi_string_list_add_arbitrary",
+    "avahi_string_list_free",
+    "avahi_string_list_reverse"
+  ],
+  "project": "avahi",
+  "risk_level": "",
+  "danger_scores": {}
+}

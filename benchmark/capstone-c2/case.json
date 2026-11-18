@@ -1,0 +1,37 @@
+{
+  "case": "capstone-c2",
+  "case_id": "capstone/fuzz_disasmv5",
+  "project": "capstone",
+  "fuzzer_name": "fuzz_disasmv5",
+  "language": "c++",
+  "gold_harness_path": "$SRC/capstonev5/suite/fuzz/fuzz_disasm.c",
+  "gold_source_file": "/src/capstonev5/suite/fuzz/fuzz_disasm.c",
+  "target_function": "cs_disasm",
+  "target_declaration": "CAPSTONE_EXPORT size_t CAPSTONE_API cs_disasm(csh handle, const uint8_t *code, size_t code_size, uint64_t address, size_t count, cs_insn **insn);",
+  "target_location": "capstone/capstone.h:656",
+  "prompt": "Project: capstone\nRepository: https://github.com/capstone-engine/capstone.git\nRevision: cc6f8e0767738fc51c12eda6492d420e5db2c7a2\nLanguage: C++\n\nTarget function: cs_disasm\nDeclared in: capstone/capstone.h:656\nDeclaration: CAPSTONE_EXPORT size_t CAPSTONE_API cs_disasm(csh handle, const uint8_t *code, size_t code_size, uint64_t address, size_t count, cs_insn **insn);\n\nExercise it under this configuration: the v5 branch of the library.\n(this harness is built against capstone's v5 branch (pinned revision above); its sibling fuzz_disasmnext targets the next branch)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/capstone-engine/capstone.git",
+      "rev": "cc6f8e0767738fc51c12eda6492d420e5db2c7a2",
+      "type": "git"
+    },
+    "upstream_path": "/src/capstonev5",
+    "all_repos": {
+      "/src/capstonenext": {
+        "type": "git",
+        "url": "https://github.com/capstone-engine/capstone.git",
+        "rev": "251c5bb4bc9bb92973e738ae3c5f4ef86f103356"
+      },
+      "/src/capstonev5": {
+        "type": "git",
+        "url": "https://github.com/capstone-engine/capstone.git",
+        "rev": "cc6f8e0767738fc51c12eda6492d420e5db2c7a2"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821; main repo mounted at that revision"
+  },
+  "callgraph": "callgraphs/capstone-c2.callgraph.sqlite.xz",
+  "lg_version": "lg100v6"
+}

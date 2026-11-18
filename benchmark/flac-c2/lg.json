@@ -1,0 +1,28 @@
+{
+  "name": "FLAC stream encoder frame processing (interleaved PCM input)",
+  "description": "FLAC__stream_encoder_process_interleaved() feeds raw, untrusted interleaved PCM audio samples into the FLAC encoder state machine: it validates each sample against the configured bit depth range, copies samples into the per-channel integer_signal buffers, and whenever a full block (+1 overread sample) has accumulated it triggers process_frame_() which runs the whole encoding pipeline (apodization windowing, fixed/LPC predictor search, residual coding, rice partitioning, bit writing, CRC/MD5 and, if verify mode is enabled, a round-trip decode check). Because the sample values, channel count, bit-per-sample, blocksize and all compression-related settings are attacker/caller controlled before encoding starts, this is a rich surface for integer-overflow, buffer-overrun and divide-by-zero style bugs inside the subframe/predictor/rice-coding inner loops.\n- FLAC__stream_encoder_process_interleaved: target; copies interleaved samples into per-channel buffers, validates sample range against bits_per_sample, and calls process_frame_() once a block is full \u2014 this is the main fuzzed data path.\n- FLAC__stream_encoder_process: variant taking non-interleaved (per-channel) buffers; reaches the identical process_frame_()/process_subframes_() core, so both input shapes should be exercised.\n- FLAC__stream_encoder_init_stream / FLAC__stream_encoder_init_FILE / FLAC__stream_encoder_init_ogg_stream: lifecycle entries required to move the encoder from UNINITIALIZED to OK state (process_* only runs when protected_->state == FLAC__STREAM_ENCODER_OK) and to pick the native-FLAC vs Ogg-FLAC output path, which changes how write_bitbuffer_ emits frames.\n- FLAC__stream_encoder_set_channels / FLAC__stream_encoder_set_bits_per_sample / FLAC__stream_encoder_set_sample_rate / FLAC__stream_encoder_set_blocksize: configuration setters that directly determine channels, blocksize and sample_min/sample_max bounds used in the per-sample validation and buffer copy loops in the target.\n- FLAC__stream_encoder_set_compression_level / FLAC__stream_encoder_set_do_mid_side_stereo / FLAC__stream_encoder_set_max_lpc_order / FLAC__stream_encoder_set_do_exhaustive_model_search / FLAC__stream_encoder_set_min_residual_partition_order / FLAC__stream_encoder_set_max_residual_partition_order / FLAC__stream_encoder_set_apodization / FLAC__stream_encoder_set_verify: configuration setters that select different subframe evaluation strategies (constant/fixed/LPC/verbatim, mid-side vs independent stereo, apodization window types, partition order range for Rice coding, and whether a decode-verify pass runs) inside process_subframe_()/process_subframes_(), each exercising different arithmetic paths in the core.\n- FLAC__stream_encoder_finish: consumer/lifecycle call that flushes the last partial block through process_frame_() and writes the final frame/metadata, exercising the tail-of-stream code path that process_interleaved alone does not reach.\nThe input space to vary: sample values (near INT32_MIN/MAX and near the bits_per_sample-derived sample_min/sample_max boundaries), number of channels (1-8+), bits_per_sample (4-32), blocksize (small/large/odd), compression_level (0-8, selecting different apodization/LPC/partition-order presets), do_mid_side_stereo/loose_mid_side_stereo flags, verify on/off, is_ogg vs native stream, and the number of samples passed per call (to exercise the partial-block/overread bookkeeping and multiple block boundaries).",
+  "entries": [
+    "FLAC__stream_encoder_process_interleaved",
+    "FLAC__stream_encoder_process",
+    "FLAC__stream_encoder_init_stream",
+    "FLAC__stream_encoder_init_FILE",
+    "FLAC__stream_encoder_set_channels",
+    "FLAC__stream_encoder_set_bits_per_sample",
+    "FLAC__stream_encoder_set_blocksize",
+    "FLAC__stream_encoder_set_compression_level",
+    "FLAC__stream_encoder_finish"
+  ],
+  "core": [
+    "process_frame_",
+    "process_frame_thread_inner_",
+    "process_subframes_",
+    "process_subframe_",
+    "evaluate_lpc_subframe_",
+    "evaluate_fixed_subframe_",
+    "apply_apodization_",
+    "write_bitbuffer_"
+  ],
+  "project": "flac",
+  "risk_level": "",
+  "danger_scores": {}
+}

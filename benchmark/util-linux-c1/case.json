@@ -1,0 +1,32 @@
+{
+  "case": "util-linux-c1",
+  "case_id": "util-linux/test_fdisk_script_fuzz",
+  "project": "util-linux",
+  "fuzzer_name": "test_fdisk_script_fuzz",
+  "language": "c",
+  "gold_harness_path": "$SRC/util-linux/libfdisk/src/script.c",
+  "gold_source_file": "/src/util-linux/libfdisk/src/script.c",
+  "target_function": "fdisk_script_read_file",
+  "target_declaration": "int fdisk_script_read_file(struct fdisk_script *dp, FILE *f);",
+  "target_location": "libfdisk/libfdisk.h:844",
+  "prompt": "Project: util-linux\nRepository: https://github.com/util-linux/util-linux\nRevision: 39465c780eed56034ed1440068a2722fc3331343\nLanguage: C\n\nTarget function: fdisk_script_read_file\nDeclared in: libfdisk/libfdisk.h:844\nDeclaration: int fdisk_script_read_file(struct fdisk_script *dp, FILE *f);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/util-linux/util-linux",
+      "rev": "39465c780eed56034ed1440068a2722fc3331343",
+      "type": "git"
+    },
+    "upstream_path": "/src/util-linux",
+    "all_repos": {
+      "/src/util-linux": {
+        "type": "git",
+        "url": "https://github.com/util-linux/util-linux",
+        "rev": "39465c780eed56034ed1440068a2722fc3331343"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821; main repo mounted at that revision"
+  },
+  "callgraph": "callgraphs/util-linux.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

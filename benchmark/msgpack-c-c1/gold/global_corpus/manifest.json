@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/msgpack-c-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/msgpack-c_unpack_pack_fuzzer/public.zip",
+ "qualified_name": "msgpack-c_unpack_pack_fuzzer",
+ "seeds": 2183,
+ "unpacked_bytes": 32813564,
+ "zip_bytes": 4561075,
+ "zip_sha256": "9fe5db9b65c7630ac953fa24472e1c8bbc5b14e0f8404f602acefc269036e589",
+ "content_digest_sha256": "277b56d0bae36dc7a9a88155d1cb61e5b47e96c6de2142158e44bcc07720644f",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

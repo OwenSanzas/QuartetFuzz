@@ -1,0 +1,32 @@
+{
+  "case": "nghttp2-c1",
+  "case_id": "nghttp2/nghttp2_fuzzer_fdp",
+  "project": "nghttp2",
+  "fuzzer_name": "nghttp2_fuzzer_fdp",
+  "language": "c++",
+  "gold_harness_path": "$SRC/nghttp2/fuzz/fuzz_target_fdp.cc",
+  "gold_source_file": "/src/nghttp2/fuzz/fuzz_target_fdp.cc",
+  "target_function": "nghttp2_session_mem_recv2",
+  "target_declaration": "NGHTTP2_EXTERN nghttp2_ssize nghttp2_session_mem_recv2(nghttp2_session *session, const uint8_t *in, size_t inlen);",
+  "target_location": "nghttp2/nghttp2.h:3741",
+  "prompt": "Project: nghttp2\nRepository: https://github.com/nghttp2/nghttp2.git\nRevision: b6729c46cf134a59940a20de534b7f44fdb0e877\nLanguage: C++\n\nTarget function: nghttp2_session_mem_recv2\nDeclared in: nghttp2/nghttp2.h:3741\nDeclaration: NGHTTP2_EXTERN nghttp2_ssize nghttp2_session_mem_recv2(nghttp2_session *session, const uint8_t *in, size_t inlen);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/nghttp2/nghttp2.git",
+      "rev": "b6729c46cf134a59940a20de534b7f44fdb0e877",
+      "type": "git"
+    },
+    "upstream_path": "/src/nghttp2",
+    "all_repos": {
+      "/src/nghttp2": {
+        "url": "https://github.com/nghttp2/nghttp2.git",
+        "rev": "b6729c46cf134a59940a20de534b7f44fdb0e877",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/nghttp2.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

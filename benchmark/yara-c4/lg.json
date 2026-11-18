@@ -1,0 +1,25 @@
+{
+  "name": "YARA memory buffer scanning (Aho-Corasick matching + condition VM execution)",
+  "description": "yr_rules_scan_mem takes a compiled YR_RULES object and scans an untrusted in-memory buffer for all the string/regex patterns compiled into the rules. Internally it creates a YR_SCANNER, wires in the caller's callback/flags/timeout, and calls yr_scanner_scan_mem which iterates the buffer as a single memory block through yr_scanner_scan_mem_blocks. For every byte offset the Aho-Corasick automaton (_yr_scanner_scan_mem_block) is advanced using the compiled transition/match tables built from the rule strings; whenever a candidate match state is hit, yr_scan_verify_match is invoked to fully verify it, dispatching to _yr_scan_verify_literal_match (plain/xor/wide/nocase literal comparisons) or _yr_scan_verify_re_match (regex forward/backward execution, handling ascii/wide/base64 string modifiers) directly against attacker-controlled bytes. After string matching completes (or interleaved via OP_IMPORT), the compiled rule condition bytecode is evaluated by yr_execute_code, a stack VM that reads integers/strings at attacker-influenced offsets from the scanned buffer (read_intNN_t_*, ss_compare/ss_contains family) and resolves pe/elf/dotnet/etc. module fields parsed from the same buffer. This is the core security-relevant surface of YARA: AC-matcher bounds handling, regex backtracking, and the bytecode VM's arbitrary-offset reads into the scanned memory all operate directly on fuzzer-controlled bytes.\n- yr_rules_scan_mem: target; drives rules.c -> scanner.c -> scan.c -> exec.c core directly on an in-memory buffer.\n- yr_rules_scan_mem_blocks: variant, lets the caller supply a custom YR_MEMORY_BLOCK_ITERATOR (e.g. multiple/sparse blocks) instead of one contiguous buffer; reaches the identical core (yr_scanner_scan_mem_blocks and below) but exercises the multi-block code paths (entry-point search across blocks, ERROR_BLOCK_NOT_READY resumption) that a single yr_rules_scan_mem call cannot.\n- yr_rules_scan_file / yr_rules_scan_fd: variants that memory-map a file/fd and then call yr_rules_scan_mem internally; useful as alternative ways to feed the same buffer-scanning core from a corpus file.\n- yr_rules_define_integer_variable / yr_rules_define_boolean_variable / yr_rules_define_float_variable / yr_rules_define_string_variable: configuration, set external variable values consulted by rule conditions evaluated in yr_execute_code, changing which condition branches/opcodes run over the scanned data.\n- Input space to fuzz (most-to-least coverage): the `flags` bitmask passed to yr_rules_scan_mem (SCAN_FLAGS_FAST_MODE=1 skips exhaustive matching, SCAN_FLAGS_PROCESS_MEMORY=2 selects yr_get_entry_point_address instead of yr_get_entry_point_offset, SCAN_FLAGS_NO_TRYCATCH=4 disables the exception trycatch wrapper around the AC loop, SCAN_FLAGS_REPORT_RULES_MATCHING=8 / SCAN_FLAGS_REPORT_RULES_NOT_MATCHING=16 change which CALLBACK_MSG_* events the VM emits); the raw buffer bytes/length themselves (drive both the AC automaton and, through module parsers invoked from condition bytecode, format-specific decoding of the same bytes); the `timeout` value (large/zero exercising or bypassing the timeout check in the scan loop); and the rule set loaded into YR_RULES (choice of literal vs regex vs xor/base64/wide string modifiers, and which modules/condition opcodes are compiled) since the compiled patterns and condition bytecode fully determine which parts of the AC matcher, regex engine and VM get exercised against the buffer.\nThis list is incomplete; what the project's own fuzzers (tests/oss-fuzz/*.cc) and tests (tests/test-exec.c, tests/util.c) do with the target stays.",
+  "entries": [
+    "yr_rules_scan_mem",
+    "yr_rules_scan_mem_blocks",
+    "yr_rules_scan_file",
+    "yr_rules_scan_fd",
+    "yr_rules_define_integer_variable",
+    "yr_rules_define_boolean_variable",
+    "yr_rules_define_string_variable",
+    "yr_rules_define_float_variable"
+  ],
+  "core": [
+    "yr_scanner_scan_mem_blocks",
+    "_yr_scanner_scan_mem_block",
+    "yr_scan_verify_match",
+    "_yr_scan_verify_re_match",
+    "_yr_scan_verify_literal_match",
+    "yr_execute_code"
+  ],
+  "project": "yara",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vips_smartcrop content-aware cropping",
+  "description": "vips_smartcrop implements \"smart\" cropping of an arbitrary input image down to a requested width/height by locating the most \"interesting\" sub-region rather than simply cropping around the centre. It is a VipsConversion operation whose build() method dispatches on the \"interesting\" enum into several distinct analysis algorithms (entropy search, attention/edge+skin-colour+saturation heat-map search, specific user-given point, centre, low/high corner, or the whole image) and finally calls vips_extract_area/vips_image_write to produce the cropped output. Because width/height/interesting/interesting_x/interesting_y/premultiplied are all attacker-controllable parameters that select different, numerically heavy code paths (band extraction, histogram/entropy computation, colourspace conversion, convolution-based edge detection, Gaussian blur, max-position search) operating directly on pixel data decoded from an untrusted image buffer, this is a security-relevant surface: bugs in region/offset arithmetic (e.g. VIPS_CLIP computations, slice sizes in the entropy loop, hscale/vscale division by Xsize/Ysize) or in the band-count-dependent pythagoras()/vips_smartcrop_attention loops can lead to out-of-bounds reads, divide-by-zero, or integer overflow on malformed/degenerate images (e.g. 0-band or huge-band images, 1x1 images, width/height equal to or exceeding the source size).\n- vips_smartcrop: target; the entry point itself, dispatches on `interesting` to the core per-mode routines and calls vips_extract_area/vips_image_write.\n- vips_image_new_from_buffer: source; decodes an in-memory, fuzzer-supplied byte buffer into the VipsImage that is then fed as `in` to vips_smartcrop, giving the fuzz input full control over image format, dimensions, bands and pixel content.\n- vips_image_new_from_file: source (variant); same role as vips_image_new_from_buffer but loads from a path, useful if the harness writes the fuzz data to a temp file to exercise format sniffing via the file loader instead of buffer loader.\n- vips_thumbnail: consumer/real caller; the library's own vips_thumbnail_build() calls vips_smartcrop after a crop/shrink stage, showing the intended production call sequence (shrink -> crop -> smartcrop) and that \"interesting\"/interesting_x/interesting_y are meant to be forwarded from a higher-level configuration.\n- vips_extract_area: consumer/companion; used internally by vips_smartcrop_build and vips_smartcrop_score to cut out candidate sub-regions; also the documented \"see also\" inverse/complement operation for manually cropping the smartcrop result or feeding a pre-cropped region back in.\n- vips_premultiply: config path; invoked automatically inside vips_smartcrop_build when the input has an alpha channel and \"premultiplied\" is FALSE, changing the pixel values analysed by the entropy/attention scorers.\n\nInput space: the `interesting` enum (VIPS_INTERESTING_NONE, CENTRE, ENTROPY, ATTENTION [default], LOW, HIGH, ALL, SPECIFIC) selects seven different code paths inside vips_smartcrop_build; `interesting_x`/`interesting_y` matter only for SPECIFIC and should be varied in/out of image bounds; `width`/`height` must be validated against `in->Xsize`/`in->Ysize` (values at, above, or just below the bounds, plus 1x1 extremes, exercise the bounds checks and the entropy slicing/attention scaling arithmetic); `premultiplied` toggles whether vips_premultiply runs when the loaded image has an alpha channel; and the image itself (bands, size, pixel format/interpretation) supplied through vips_image_new_from_buffer/vips_image_new_from_file drives the band-count-dependent loops in pythagoras()/vips_smartcrop_attention and the histogram/entropy computation in vips_smartcrop_entropy/vips_smartcrop_score.",
+  "entries": [
+    "vips_smartcrop",
+    "vips_image_new_from_buffer",
+    "vips_image_new_from_file",
+    "vips_thumbnail",
+    "vips_extract_area",
+    "vips_premultiply"
+  ],
+  "core": [
+    "vips_smartcrop_build",
+    "vips_smartcrop_entropy",
+    "vips_smartcrop_attention",
+    "vips_smartcrop_score",
+    "pythagoras"
+  ],
+  "project": "libvips",
+  "risk_level": "",
+  "danger_scores": {}
+}

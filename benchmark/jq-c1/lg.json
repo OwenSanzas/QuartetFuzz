@@ -1,0 +1,29 @@
+{
+  "name": "jq bytecode VM execution (compile -> start -> next)",
+  "description": "jq_next is the heart of jq's bytecode interpreter: it drives a stack-machine virtual machine (struct jq_state's exec stack, frame stack, fork/backtrack stack) that executes the bytecode produced by compiling an untrusted jq filter program (jq_compile/jq_compile_args) over an untrusted JSON input value (jq_start). The interpreter's giant opcode switch (LOADK, DUP/DUPN/DUP2, SUBEXP_BEGIN/END, APPEND, INSERT, RANGE, LOADV/LOADVN/STOREV, JUMP/JUMP_F, EACH/EACH_OPT, TRY_BEGIN/TRY_END, FORK/DESTRUCTURE_ALT, CALL_BUILTIN, CALL_JQ/TAIL_CALL_JQ, RET, BACKTRACK) manipulates jv values built straight from parsed JSON/program constants, so bugs in path tracking, backtracking/forking, closure/frame management, or type-dispatch on container kinds (array/object/other) are directly reachable from attacker-controlled program text and input data. This is highly security relevant because the stack/frame memory layout, reference counting of jv values, and backtracking continuations are all manipulated per opcode with many non-obvious invariants (e.g. path_intact checks, error wrapping in try/catch, closures with level/index addressing).\n- jq_next: target; the main interpreter loop that fetches/executes bytecode instructions and returns the next output value (or jv_invalid() at end-of-stream / on error), driving all of C.\n- jq_init: lifecycle source \u2014 allocates and zero/default-initializes the jq_state (stack, frame pointers, nomem handler) that jq_next operates on; required before any other call.\n- jq_compile / jq_compile_args: source/config \u2014 parses+compiles an arbitrary jq program string (optionally with named arguments jv array/object) into the struct bytecode jq_next executes; the program text and its arguments (via args2obj, CALL_BUILTIN dispatch targets, closures) select which opcodes and cfunctions run, i.e. define most of the input space.\n- jq_start: config/source \u2014 resets VM state (jq_reset) and pushes the initial input jv value plus flags (e.g. JQ_DEBUG_TRACE*) onto the stack before interpretation; the jv value supplied here (built from arbitrary/malformed JSON via jv_parse or similar) is exactly the data EACH/APPEND/INSERT/RANGE operate on.\n- jq_halt / jq_halted / jq_get_exit_code / jq_get_error_message: consumers/config \u2014 jq_halt (invoked from the `halt`/`halt_error` builtins reached via CALL_BUILTIN) sets jq->halted and exit/error jv's that jq_next checks at the top of its loop to short-circuit execution; jq_halted/jq_get_exit_code/jq_get_error_message are the consumers that read that state after jq_next returns jv_invalid().\n- jq_teardown: lifecycle sink \u2014 frees the jq_state, its bytecode and stacks after a jq_next loop completes; necessary to run the feature without leaking/crashing across repeated fuzz iterations.\nThe input space a harness should vary: (1) the jq program text passed to jq_compile/jq_compile_args, which selects which opcodes (EACH vs EACH_OPT, TRY/FORK/DESTRUCTURE_ALT branches, CALL_BUILTIN vs CALL_JQ, RANGE, APPEND/INSERT) and builtins (including ones that call jq_halt) are exercised; (2) the named-argument jv (array or object form) given to jq_compile_args, exercised through args2obj; (3) the input jv tree given to jq_start \u2014 its JV_KIND (array/object/number/string/null/bool) determines which EACH/RANGE/INSERT type-check branch executes and whether errors (\"Cannot iterate over ...\", \"Range bounds must be numeric\", \"Cannot use ... as object key\") are raised and caught by TRY/DESTRUCTURE_ALT; (4) the flags bit passed to jq_start (JQ_DEBUG_TRACE / JQ_DEBUG_TRACE_DETAIL) which toggles the debug-dump code paths inside jq_next; (5) calling jq_next repeatedly in a loop until it returns jv_invalid() to exercise backtracking/forking across multiple result values, including deliberately malformed programs/inputs to hit the error/backtrack paths.",
+  "entries": [
+    "jq_next",
+    "jq_init",
+    "jq_compile_args",
+    "jq_compile",
+    "jq_start",
+    "jq_halted",
+    "jq_get_exit_code",
+    "jq_get_error_message",
+    "jq_teardown"
+  ],
+  "core": [
+    "frame_current",
+    "frame_push",
+    "frame_pop",
+    "make_closure",
+    "path_append",
+    "path_intact",
+    "set_error",
+    "stack_restore",
+    "stack_save"
+  ],
+  "project": "jq",
+  "risk_level": "",
+  "danger_scores": {}
+}

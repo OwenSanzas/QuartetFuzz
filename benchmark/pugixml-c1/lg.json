@@ -1,0 +1,26 @@
+{
+  "name": "pugixml buffer-based XML parsing",
+  "description": "Parses untrusted, attacker-controlled bytes from memory into a pugixml DOM tree. `load_buffer` (and its siblings) auto-detect or are told the text encoding, convert/normalize the raw bytes to the library's internal char_t buffer (handling UTF-8/16/32 with either endianness and Latin-1, including BOM stripping and NUL insertion), and then run the hand-written recursive-descent XML tokenizer/tree-builder (`xml_parser::parse` -> `parse_tree`) which interprets tags, attributes, comments, CDATA, PIs, DOCTYPE and character/entity references directly in the buffer (in-place mutation with escape sequences written back over the source bytes). This is the core attack surface of the library: encoding conversion routines and the character-class-driven scanning/escaping state machine are exactly where a fuzzer is expected to find buffer-handling and parsing bugs. The various `load_*`/`append_buffer` entries differ only in how they obtain/own/mutate the byte buffer feeding this same core, and `xml_node::print`/`xml_document::save` exercise the resulting tree afterwards which can surface additional tree-corruption issues.\n- load_buffer: target; builds the xml_document object straight from a caller-owned buffer, copies/converts it, then calls load_buffer_impl -> convert_buffer -> xml_parser::parse -> parse_tree.\n- load_buffer_inplace: variant; same core path but parses the buffer in place (is_mutable=true) without copying, exercising the no-copy conversion/parsing branch in convert_buffer/load_buffer_impl.\n- load_buffer_inplace_own: variant; like load_buffer_inplace but the document takes ownership of the buffer (own=true), exercising the ownership/free-on-destruct branch of load_buffer_impl.\n- load_string: source/variant; wraps load_buffer with strlen-derived size and forced native encoding (encoding_utf8/encoding_wchar), skipping auto-detection in guess_buffer_encoding.\n- load_file / load_file(wchar_t*): variant; reads a file into memory and funnels it to the same load_buffer_impl/parse core via load_file_impl, letting the harness also exercise encoding auto-detection from file contents.\n- xml_node::append_buffer: consumer/variant; parses a second buffer and grafts the resulting fragment onto an existing node (the fragment-parsing / parse_fragment / parse_merge_pcdata paths) using the same load_buffer_impl/parse core, testing multi-buffer documents and buffer ownership bookkeeping (extra_buffers list).\n- xml_document::print / xml_node::print: consumer; serializes the parsed tree back out, exercising code paths that traverse whatever tree structure the parser built (good for catching tree corruption introduced during parsing).\n\nInput space to vary from fuzz bytes: the `options` bitmask (parse_pi, parse_comments, parse_cdata, parse_ws_pcdata, parse_escapes, parse_eol, parse_wconv_attribute, parse_wnorm_attribute, parse_declaration, parse_doctype, parse_ws_pcdata_single, parse_trim_pcdata, parse_fragment, or combined parse_default/parse_full) which select different scanning/escaping branches in parse_tree and get_strconv_attribute/get_strconv_pcdata; the `encoding` parameter (encoding_auto triggers guess_buffer_encoding's BOM/declaration sniffing vs. explicitly forcing encoding_utf8/utf16_le/utf16_be/utf32_le/utf32_be/latin1/wchar), which selects different branches in convert_buffer (convert_buffer_generic vs convert_buffer_latin1 vs no-op); and the raw buffer content/size itself (empty buffer early-out, buffers with/without BOM, malformed UTF sequences, deeply nested or malformed tags/attributes/comments/CDATA/DOCTYPE/PI, and the mutable-vs-own buffer lifetime combinations across load_buffer/load_buffer_inplace/load_buffer_inplace_own).",
+  "entries": [
+    "pugi::xml_document::load_buffer",
+    "pugi::xml_document::load_buffer_inplace",
+    "pugi::xml_document::load_buffer_inplace_own",
+    "pugi::xml_document::load_string",
+    "pugi::xml_document::load_file",
+    "pugi::xml_node::append_buffer",
+    "pugi::xml_node::print"
+  ],
+  "core": [
+    "impl::load_buffer_impl",
+    "impl::convert_buffer",
+    "impl::get_buffer_encoding",
+    "impl::guess_buffer_encoding",
+    "impl::xml_parser::parse",
+    "impl::xml_parser::parse_tree",
+    "impl::get_strconv_attribute",
+    "impl::get_strconv_pcdata"
+  ],
+  "project": "pugixml",
+  "risk_level": "",
+  "danger_scores": {}
+}

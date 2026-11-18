@@ -1,0 +1,21 @@
+{
+  "name": "Markdown-to-HTML rendering",
+  "description": "md_html() converts an untrusted Markdown document (raw bytes + size) into an HTML fragment by driving the md4c core parser (md_parse) with a built-in callback table (md4c-html.c) that emits HTML for every block/span/text event. Because the input bytes directly control the parser's state machine (line analysis, inline-mark scanning, HTML-escaping and entity decoding), this is a classic \"parse untrusted text -> dispatch through many format-specific branches -> serialize\" surface where buffer handling, escaping and entity/UTF-8 decoding bugs are most likely.\n- md_html: target; sets up an MD_PARSER vtable (enter/leave block & span callbacks, text callback) pointing at the internal HTML renderer, optionally skips a UTF-8 BOM, then calls md_parse() to run the parser over the whole input.\n- md_parse: variant/lower-level entry that md_html wraps; it is the public core driver (md_build_mark_char_map, md_process_doc) that any custom renderer (not just the HTML one) would call, so exercising it directly with different parser_flags/MD_PARSER callback sets reaches the same block/inline state machine as md_html but without the HTML-specific escaping layer, useful to separate parser-core bugs from renderer bugs.\nInput space: parser_flags selects which CommonMark/GFM extensions are active and therefore which parsing branches run (e.g. MD_FLAG_TABLES, MD_FLAG_STRIKETHROUGH, MD_FLAG_TASKLISTS, MD_FLAG_PERMISSIVE*AUTOLINKS, MD_FLAG_WIKILINKS, MD_FLAG_UNDERLINE, MD_FLAG_SPOILERS, MD_FLAG_SUPERSCRIPTS/SUBSCRIPTS, MD_FLAG_ADMONITIONS, MD_FLAG_FOOTNOTES, MD_FLAG_HIGHLIGHT, MD_FLAG_INSERT, MD_FLAG_NOHTMLBLOCKS/SPANS, MD_FLAG_HARD_SOFT_BREAKS, MD_FLAG_COLLAPSEWHITESPACE, MD_FLAG_PRESERVEBLANKLINES, or the combined MD_DIALECT_COMMONMARK/MD_DIALECT_GITHUB presets); renderer_flags (MD_HTML_FLAG_DEBUG, MD_HTML_FLAG_VERBATIM_ENTITIES, MD_HTML_FLAG_SKIP_UTF8_BOM, MD_HTML_FLAG_XHTML) select HTML-escaping/entity-decoding and self-closing-tag behaviour; and of course the Markdown text itself (block types, inline spans, raw HTML, numeric/named HTML entities, UTF-8 sequences including malformed/surrogate codepoints) selects which of the many enter/leave_block/span and text-type branches are taken inside the renderer and inside the parser's line/mark analysis.",
+  "entries": [
+    "md_html",
+    "md_parse"
+  ],
+  "core": [
+    "md_process_doc",
+    "md_analyze_line",
+    "md_process_inlines",
+    "md_process_all_blocks",
+    "enter_block_callback",
+    "text_callback",
+    "render_html_escaped",
+    "render_entity"
+  ],
+  "project": "md4c",
+  "risk_level": "",
+  "danger_scores": {}
+}

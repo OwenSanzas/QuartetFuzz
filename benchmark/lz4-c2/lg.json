@@ -1,0 +1,25 @@
+{
+  "name": "LZ4 Frame decompression",
+  "description": "LZ4F_decompress is the core of the LZ4 \"Frame\" format decoder: it runs an internal state machine (LZ4F_decodeHeader -> dstage_getBlockHeader -> dstage_getCBlock/copyDirect -> dstage_getSuffix) that parses an untrusted, attacker-controlled byte stream (frame magic number, flags byte, block-descriptor byte, optional content-size/dictID fields, header checksum, a sequence of block headers/blocks each optionally checksummed, and a final content checksum) and reconstructs the original data into a caller buffer, feeding compressed blocks into LZ4_decompress_safe_usingDict for the actual LZ4 block decoding. Because the format is self-describing (block sizes, flags, skippable-frame magic, dictionary IDs, checksums) and the function is designed to be called repeatedly with partial/arbitrary chunking of both source and destination buffers, it is a classic target for fuzzing: malformed headers, oversized block-size fields, checksum bypass flags, and partial/fragmented input must all be handled without memory corruption or infinite loops.\n- LZ4F_decompress: target; drives the state machine stage by stage over attacker-supplied srcBuffer bytes, handling header parsing, block decoding (compressed/uncompressed, linked/independent block modes), and checksum validation.\n- LZ4F_createDecompressionContext: lifecycle/source \u2014 allocates and initializes the LZ4F_dctx state the target operates on; required before any decompression call.\n- LZ4F_resetDecompressionContext: config/variant \u2014 resets dctx state machine (dStage) back to start, used after an error or to reuse the context for a new frame, exercising state-reset code paths inside LZ4F_decompress itself (also called internally on successful frame completion).\n- LZ4F_getFrameInfo: consumer/variant \u2014 alternate entry into the same header-decoding core (LZ4F_decodeHeader) that extracts frame parameters (block size id, checksum flags, content size, dictID) before or during decompression; harness can call it first to exercise header parsing via a different API surface and to validate consistency with subsequent LZ4F_decompress calls.\n- LZ4F_decompress_usingDict: variant \u2014 same decompression state machine but seeds dctx->dict/dictSize from caller-supplied dictionary bytes before delegating to LZ4F_decompress, exercising the dictionary-based block-decoding path (LZ4_decompress_safe_usingDict with non-empty external dictionary) and the dictionary bookkeeping code in LZ4F_updateDict.\n- LZ4F_headerSize: source/config helper \u2014 parses just enough of the frame to report header length (uses the same magic-number/flags logic), useful to compute how much of the fuzz input to treat as header vs. block stream.\n- LZ4F_compressFrame / LZ4F_compressBegin+LZ4F_compressUpdate+LZ4F_compressEnd (round-trip source): used to produce syntactically valid frames so the harness can both fuzz raw malformed bytes directly into LZ4F_decompress and fuzz mutations of legitimately-produced frames, maximizing coverage of the block/checksum logic beyond just early header-rejection paths.\nInput space / branches to cover: frame vs. skippable-frame magic number (LZ4F_MAGICNUMBER vs 0x184D2A5x), FLG byte bits (version must be 1, reserved bit, blockChecksumFlag, blockMode independent/linked, contentSizeFlag, contentChecksumFlag, dictIDFlag), BD byte blockSizeID (must be 4-7, reserved bits must be 0), header checksum correctness, block header's top bit LZ4F_BLOCKUNCOMPRESSED_FLAG (raw vs LZ4-compressed block) and its size field bound by maxBlockSize, block-size of 0 (end-of-frame marker), block checksum and content checksum present/absent and skipChecksums option in LZ4F_decompressOptions_t, stableDst option, chunked vs. whole-buffer src/dst sizes (partial header/block/suffix delivered across multiple calls), and use/absence of an external dictionary (LZ4F_decompress_usingDict dict/dictSize).",
+  "entries": [
+    "LZ4F_decompress",
+    "LZ4F_createDecompressionContext",
+    "LZ4F_resetDecompressionContext",
+    "LZ4F_getFrameInfo",
+    "LZ4F_decompress_usingDict",
+    "LZ4F_headerSize",
+    "LZ4F_compressFrame"
+  ],
+  "core": [
+    "LZ4F_decodeHeader",
+    "LZ4F_updateDict",
+    "LZ4_decompress_safe_usingDict",
+    "LZ4F_resetDecompressionContext",
+    "LZ4F_readLE32",
+    "XXH32_update",
+    "XXH32_digest"
+  ],
+  "project": "lz4",
+  "risk_level": "",
+  "danger_scores": {}
+}

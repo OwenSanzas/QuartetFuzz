@@ -1,0 +1,26 @@
+{
+  "name": "miniz streaming DEFLATE compression (zlib-style mz_deflate pipeline)",
+  "description": "mz_deflate drives miniz's streaming raw/zlib DEFLATE encoder (tdefl) over an mz_stream whose next_in/avail_in/next_out/avail_out fields are fully attacker-controllable, so the fuzz input decides how many bytes are fed per call, how the output buffer is sized, and which flush mode is used at each step; bugs here (buffer bookkeeping errors, LZ77 match/hash-chain issues, Huffman block emission) are directly security relevant because the same tdefl_compress core is reused by the ZIP writer and other single-call compression helpers. \n- mz_deflate: target. Core: tdefl_compress -> tdefl_compress_fast / tdefl_compress_normal (LZ77 match finding + literal/match emission) -> tdefl_flush_block (Huffman block building/output) -> tdefl_flush_output_buffer (output copy bookkeeping), plus mz_adler32 when a zlib header is requested.\n- mz_deflateInit / mz_deflateInit2: config/source, set up the tdefl_compressor state and comp_flags (level, window_bits, strategy) that tdefl_compress/tdefl_create_comp_flags_from_zip_params read; mz_deflateInit2 reaches the same core as mz_deflate but with attacker-chosen level/window_bits/method/mem_level/strategy.\n- mz_deflateReset: variant/config, re-initializes the same tdefl_compressor in place (reuses tdefl_init) so repeated deflate cycles on the same stream object can be fuzzed without reallocation, exercising state-reset edge cases in tdefl_compress's m_prev_return_status / m_finished handling.\n- mz_deflateEnd: lifecycle counterpart needed to free/reuse the stream between fuzzing iterations.\n- mz_compress2 (and mz_compress which calls it): variant, a single-shot wrapper that calls mz_deflateInit + mz_deflate(MZ_FINISH) + mz_deflateEnd, exercising the whole core in one shot with a different buffer-sizing discipline (uses mz_deflateBound for output sizing).\n- mz_deflateBound: config/consumer, used to size the output buffer that is subsequently fed to mz_deflate; feeding undersized buffers (ignoring the bound) is a useful fuzzing dimension for MZ_BUF_ERROR / partial-output paths.\nThe input space worth fuzzing: the compressed-data bytes themselves (next_in/avail_in, in arbitrary chunk sizes across repeated mz_deflate calls to hit partial-input/partial-output states); the flush parameter per call (MZ_NO_FLUSH, MZ_PARTIAL_FLUSH/MZ_SYNC_FLUSH, MZ_FULL_FLUSH, MZ_FINISH \u2014 MZ_FINISH with multi-chunk MZ_NO_FLUSH calls beforehand exercises the most of the core); compression level 0-10 (level 0 forces TDEFL_FORCE_ALL_RAW_BLOCKS, levels 1-3 set TDEFL_GREEDY_PARSING_FLAG/tdefl_compress_fast, higher levels use tdefl_compress_normal with larger probe counts \u2014 level around 6-9 with normal non-greedy parsing exercises the most code); window_bits (MZ_DEFAULT_WINDOW_BITS for zlib-wrapped output including the adler32 path vs its negation for raw deflate, which turns the header/adler code off and should not be the default choice to fuzz); strategy (MZ_DEFAULT_STRATEGY, MZ_FILTERED, MZ_HUFFMAN_ONLY, MZ_FIXED, MZ_RLE, each toggling a distinct comp_flags bit read inside tdefl_compress_normal/tdefl_flush_block); and the size of avail_out relative to avail_in/mz_deflateBound to force the output-buffer-full and no-forward-progress branches in mz_deflate's loop. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "mz_deflate",
+    "mz_deflateInit",
+    "mz_deflateInit2",
+    "mz_deflateReset",
+    "mz_deflateEnd",
+    "mz_compress2",
+    "mz_deflateBound"
+  ],
+  "core": [
+    "tdefl_compress",
+    "tdefl_compress_fast",
+    "tdefl_compress_normal",
+    "tdefl_flush_block",
+    "tdefl_flush_output_buffer",
+    "tdefl_create_comp_flags_from_zip_params",
+    "tdefl_init",
+    "mz_adler32"
+  ],
+  "project": "miniz",
+  "risk_level": "",
+  "danger_scores": {}
+}

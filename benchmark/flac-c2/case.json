@@ -1,0 +1,42 @@
+{
+  "case": "flac-c2",
+  "case_id": "flac/fuzzer_encoder_v2",
+  "project": "flac",
+  "fuzzer_name": "fuzzer_encoder_v2",
+  "language": "c++",
+  "gold_harness_path": "$SRC/flac/oss-fuzz/encoder_v2.cc",
+  "gold_source_file": "/src/flac/oss-fuzz/encoder_v2.cc",
+  "target_function": "FLAC__stream_encoder_process_interleaved",
+  "target_declaration": "FLAC_API FLAC__bool FLAC__stream_encoder_process_interleaved(FLAC__StreamEncoder *encoder, const FLAC__int32 buffer[], uint32_t samples);",
+  "target_location": "FLAC/stream_encoder.h:1896",
+  "prompt": "Project: flac\nRepository: https://github.com/xiph/flac.git\nRevision: e94ff9f68b8e7dbd3e9f8b1ac18a8eca1914f181\nLanguage: C++\n\nTarget function: FLAC__stream_encoder_process_interleaved\nDeclared in: FLAC/stream_encoder.h:1896\nDeclaration: FLAC_API FLAC__bool FLAC__stream_encoder_process_interleaved(FLAC__StreamEncoder *encoder, const FLAC__int32 buffer[], uint32_t samples);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/xiph/flac.git",
+      "rev": "e94ff9f68b8e7dbd3e9f8b1ac18a8eca1914f181",
+      "type": "git"
+    },
+    "upstream_path": "/src/flac",
+    "all_repos": {
+      "/src/ExoPlayer": {
+        "url": "https://github.com/google/ExoPlayer.git",
+        "rev": "dd430f7053a1a3958deea3ead6a0565150c06bfc",
+        "type": "git"
+      },
+      "/src/ogg": {
+        "url": "https://github.com/xiph/ogg.git",
+        "rev": "06a5e0262cdc28aa4ae6797627a783b5010440f0",
+        "type": "git"
+      },
+      "/src/flac": {
+        "url": "https://github.com/xiph/flac.git",
+        "rev": "e94ff9f68b8e7dbd3e9f8b1ac18a8eca1914f181",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/flac.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

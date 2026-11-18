@@ -1,0 +1,32 @@
+{
+  "case": "md4c-c1",
+  "case_id": "md4c/fuzz-mdhtml",
+  "project": "md4c",
+  "fuzzer_name": "fuzz-mdhtml",
+  "language": "c",
+  "gold_harness_path": "$SRC/md4c/test/fuzzers/fuzz-mdhtml.c",
+  "gold_source_file": "/src/md4c/test/fuzzers/fuzz-mdhtml.c",
+  "target_function": "md_html",
+  "target_declaration": "int md_html(const MD_CHAR* input, MD_SIZE input_size, void (*process_output)(const MD_CHAR*, MD_SIZE, void*), void* userdata, unsigned parser_flags, unsigned renderer_flags);",
+  "target_location": "md4c-html.h:59",
+  "prompt": "Project: md4c\nRepository: https://github.com/mity/md4c\nRevision: 61f5ce76647a93d60f652da8212e263ae2b4d8b7\nLanguage: C\n\nTarget function: md_html\nDeclared in: md4c-html.h:59\nDeclaration: int md_html(const MD_CHAR* input, MD_SIZE input_size, void (*process_output)(const MD_CHAR*, MD_SIZE, void*), void* userdata, unsigned parser_flags, unsigned renderer_flags);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/mity/md4c",
+      "rev": "61f5ce76647a93d60f652da8212e263ae2b4d8b7",
+      "type": "git"
+    },
+    "upstream_path": "/src/md4c",
+    "all_repos": {
+      "/src/md4c": {
+        "url": "https://github.com/mity/md4c",
+        "rev": "61f5ce76647a93d60f652da8212e263ae2b4d8b7",
+        "type": "git"
+      }
+    },
+    "pin_source": "read from the built image's /src/md4c/.git"
+  },
+  "callgraph": "callgraphs/md4c.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

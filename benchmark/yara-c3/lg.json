@@ -1,0 +1,24 @@
+{
+  "name": "YARA memory buffer scanning",
+  "description": "This feature scans an attacker-controlled byte buffer against a set of compiled YARA rules: it runs an Aho-Corasick automaton over every byte of the buffer to find candidate string matches, verifies each candidate with literal/XOR/wide/regex matchers, and then executes the compiled rule bytecode (the YARA condition VM) to decide which rules actually fire, invoking a user callback for each event. Because the buffer content, its size and the scan flags all come straight from fuzz input while being pushed through a hand-written state machine, a bytecode interpreter and various string-comparison routines, this is the most security-relevant part of the library.\n- yr_rules_scan_mem: target entry; creates a YR_SCANNER bound to compiled rules, wires in the callback/timeout/flags, wraps buffer+buffer_size in a single in-memory block and runs the scan (yr_scanner_scan_mem -> yr_scanner_scan_mem_blocks).\n- yr_rules_scan_mem_blocks: variant entry letting a custom YR_MEMORY_BLOCK_ITERATOR (multiple non-contiguous blocks) drive the same core scanning loop (_yr_scanner_scan_mem_block / yr_scan_verify_match / yr_execute_code), exercising the \"block not ready\"/multi-block code paths that scan_mem's single-block wrapper does not.\n- yr_rules_scan_file: variant/source; memory-maps a file and feeds the mapped bytes into yr_rules_scan_mem, letting the harness exercise the exact same core via a file-shaped buffer.\n- yr_rules_scan_fd: variant/source; same as scan_file but via a file descriptor mapping, another path converging on yr_rules_scan_mem.\n- yr_rules_define_integer_variable / yr_rules_define_boolean_variable / yr_rules_define_float_variable / yr_rules_define_string_variable: configuration entries that set YR_EXTERNAL_VARIABLE values on the YR_RULES object prior to scanning; these values are read back by the OP_PUSH_EXTERNAL* opcodes inside yr_execute_code, so they select different branches through the compiled condition bytecode without changing the call graph directly.\nInput space the harness should vary from fuzz bytes: the scanned buffer content/size (buffer, buffer_size) which drives the Aho-Corasick transitions and match verification (literal/wide/xor/regex string flags baked into the compiled rules); the `flags` bitmask passed to yr_rules_scan_mem (SCAN_FLAGS_FAST_MODE, SCAN_FLAGS_PROCESS_MEMORY, SCAN_FLAGS_NO_TRYCATCH, SCAN_FLAGS_REPORT_RULES_MATCHING, SCAN_FLAGS_REPORT_RULES_NOT_MATCHING) which changes whether fast-matching stops at the first hit, whether try/catch fault protection wraps block fetches, and which callback messages are emitted; the `timeout` value which gates the periodic stopwatch check inside the AC scan loop; and the callback's return value (CALLBACK_CONTINUE/CALLBACK_ABORT/CALLBACK_ERROR) which affects control flow of yr_scanner_scan_mem_blocks/yr_execute_code. The external variables set via the define_* functions select different outcomes of rule conditions evaluated by yr_execute_code.",
+  "entries": [
+    "yr_rules_scan_mem",
+    "yr_rules_scan_mem_blocks",
+    "yr_rules_scan_file",
+    "yr_rules_scan_fd",
+    "yr_rules_define_integer_variable",
+    "yr_rules_define_boolean_variable",
+    "yr_rules_define_string_variable"
+  ],
+  "core": [
+    "_yr_scanner_scan_mem_block",
+    "yr_scanner_scan_mem_blocks",
+    "yr_scan_verify_match",
+    "_yr_scan_verify_literal_match",
+    "_yr_scan_verify_re_match",
+    "yr_execute_code"
+  ],
+  "project": "yara",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "crypto_secretbox xsalsa20poly1305 authenticated decryption",
+  "description": "crypto_secretbox_open_easy authenticates and decrypts a ciphertext produced by the secretbox construction (xsalsa20poly1305): it derives a subkey via HSalsa20 from the nonce/key, verifies the Poly1305 MAC (taken from the first MACBYTES of the attacker-controlled buffer) in constant time against the ciphertext, and only on success XORs the Salsa20 keystream over the ciphertext to recover the plaintext. Because `c`, `clen`, `n` are fully attacker-influenced, this is a classic place to look for MAC-verification bypass, buffer-overlap/underflow bugs around the length checks (clen < MACBYTES), and incorrect keystream generation across the first-64-byte block boundary (ZEROBYTES padding window) versus the remainder handled by crypto_stream_salsa20_xor_ic.\n- crypto_secretbox_open_easy: target; validates clen>=MACBYTES, splits MAC off the front of c, calls crypto_secretbox_open_detached (core decrypt+verify path).\n- crypto_secretbox_open_detached: variant with explicit separate mac buffer; same core (HSalsa20 subkey derivation, Poly1305 verify, Salsa20 keystream XOR, buffer-overlap handling) reached without going through the easy-mode length check, letting the harness exercise clen edge cases (including clen==0) directly.\n- crypto_secretbox_easy: inverse operation (encrypt) that produces valid ciphertext/MAC pairs for a given message/nonce/key, letting the harness build correctly-authenticated inputs to decrypt as well as tamper with them afterward (flip MAC or ciphertext bytes) to exercise both the \"valid\" and \"forged\" branches of open_easy.\n- crypto_secretbox_detached: variant of the inverse operation with separate mac/ciphertext output, same encrypt core (HSalsa20 + Poly1305 init/update/final + Salsa20 keystream) as crypto_secretbox_easy, useful as another source of valid (c, mac, n, k) tuples and to vary message sizes around the 64-byte block boundary.\n- crypto_secretbox_keygen: configuration/lifecycle helper that produces a properly randomized key; used so the harness doesn't need to hand-craft key bytes, letting fuzz input focus on message/ciphertext/nonce content.\nInput space to vary from fuzz bytes: ciphertext length `clen` (especially around crypto_secretbox_MACBYTES boundary, 0, 64-ZEROBYTES split point, and larger-than-one-block sizes to hit the xor_ic remainder path), the ciphertext/MAC bytes themselves (valid vs. bit-flipped to trigger MAC verification failure), the nonce bytes `n` (24 bytes, crypto_secretbox_NONCEBYTES), the key bytes `k` (32 bytes, crypto_secretbox_KEYBYTES) possibly derived via crypto_secretbox_keygen vs. raw fuzz bytes, and whether `m`/`c` buffers alias each other (in-place decryption) to exercise the overlap-detection memmove branch.",
+  "entries": [
+    "crypto_secretbox_open_easy",
+    "crypto_secretbox_open_detached",
+    "crypto_secretbox_easy",
+    "crypto_secretbox_detached",
+    "crypto_secretbox_keygen"
+  ],
+  "core": [
+    "crypto_secretbox_open_detached",
+    "crypto_secretbox_detached",
+    "crypto_core_hsalsa20",
+    "crypto_onetimeauth_poly1305_verify",
+    "crypto_stream_salsa20_xor",
+    "crypto_stream_salsa20_xor_ic"
+  ],
+  "project": "libsodium",
+  "risk_level": "",
+  "danger_scores": {}
+}

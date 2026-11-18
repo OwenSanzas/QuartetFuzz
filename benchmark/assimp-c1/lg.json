@@ -1,0 +1,25 @@
+{
+  "name": "Assimp in-memory 3D scene import pipeline",
+  "description": "Assimp::Importer::ReadFileFromMemory lets a caller hand a raw byte buffer (untrusted file content) plus a format hint to the library; the Importer wraps the buffer in a MemoryIOSystem, synthesizes a fake filename (magic prefix + hint extension), and forwards to the regular ReadFile() pipeline. That pipeline (a) picks a BaseImporter subclass by extension or by signature-sniffing (CanRead), (b) calls the chosen importer's InternReadFile() which is the actual per-format binary/text parser (OBJ, glTF, FBX, Collada, IFC, Blender, 3DS, PLY, etc.) filling an aiScene from attacker-controlled bytes, (c) runs ScenePreprocessor to normalize/sanity the freshly parsed scene, (d) optionally runs ValidateDSProcess, and (e) runs the full post-processing step pipeline (ApplyPostProcessing) selected by the pFlags bitmask (aiProcess_Triangulate, aiProcess_JoinIdenticalVertices, aiProcess_ValidateDataStructure, aiProcess_OptimizeMeshes, aiProcess_GenNormals, aiProcess_CalcTangentSpace, aiProcess_SplitLargeMeshes, etc.), each of which walks and mutates the newly built scene graph. Because untrusted bytes drive both the format auto-detection and the per-format parser state machines (and then the post-process algorithms that walk attacker-shaped meshes/bones/animations), this whole chain is the primary attack surface for memory-safety bugs in Assimp, making it a prime fuzzing target.\n- ReadFileFromMemory: target; wraps pBuffer/pLength in a MemoryIOSystem and a synthetic filename \"$$$___magic___$$$.<pHint>\", then calls ReadFile() to run format detection, parsing and post-processing; pHint selects which importer gets tried first/most strongly.\n- ReadFile(const char*,pFlags): internal file-based sibling invoked by ReadFileFromMemory itself; the real driver of extension/signature-based importer selection (BaseImporter::GetExtensionList/HasExtension/CanRead), scene preprocessing and post-processing dispatch - exercising it directly with on-disk-style paths is a natural variant.\n- ApplyPostProcessing: variant/consumer; can be called again on an already-loaded scene with a different pFlags bitmask, independently driving the post-process step pipeline (BaseProcess::IsActive/ExecuteOnScene) without re-parsing, useful to fuzz flag combinations against a fixed parsed scene.\n- SetIOHandler: configuration; lets the harness install/replace the IOSystem used for file existence/open/size checks that ReadFile's importer-selection logic depends on (ReadFileFromMemory itself swaps in MemoryIOSystem internally, but callers can preset a custom IOSystem before/after).\n- SetPropertyInteger / SetPropertyFloat / SetPropertyString: configuration; sets AI_CONFIG_* properties consumed by BaseImporter::SetupProperties() and individual InternReadFile implementations (e.g. per-format limits, scale, validation toggles), so the fuzz input can select different internal parsing paths in the per-format importers.\n- GetOrphanedScene / GetScene: consumer; retrieves the aiScene built from the fuzzed memory buffer so the harness can further traverse/serialize it, exercising scene-graph-walking code beyond the parse+postprocess step.\nThe input space spans: the raw byte buffer and its length (drives signature detection and every per-format tokenizer/parser), the pHint string (selects/narrows which BaseImporter claims the data, e.g. \"obj\",\"fbx\",\"blend\",\"ifc\",\"dae\",\"ply\",\"3ds\",\"sib\",\"assbin\"), and pFlags (any combination of the aiProcess_* bitmask constants, which both gates ValidateDSProcess and selects which of the ~20 post-processing BaseProcess subclasses run over the parsed scene).",
+  "entries": [
+    "Assimp::Importer::ReadFileFromMemory",
+    "Assimp::Importer::ReadFile",
+    "Assimp::Importer::ApplyPostProcessing",
+    "Assimp::Importer::SetIOHandler",
+    "Assimp::Importer::SetPropertyInteger",
+    "Assimp::Importer::SetPropertyString",
+    "Assimp::Importer::GetOrphanedScene"
+  ],
+  "core": [
+    "Assimp::BaseImporter::ReadFile",
+    "Assimp::BaseImporter::CanRead",
+    "Assimp::BaseImporter::SetupProperties",
+    "Assimp::ScenePreprocessor::ProcessScene",
+    "Assimp::ValidateDSProcess::ExecuteOnScene",
+    "Assimp::BaseProcess::IsActive",
+    "Assimp::BaseProcess::ExecuteOnScene"
+  ],
+  "project": "assimp",
+  "risk_level": "",
+  "danger_scores": {}
+}

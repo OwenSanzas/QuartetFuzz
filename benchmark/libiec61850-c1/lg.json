@@ -1,0 +1,22 @@
+{
+  "name": "MMS Data BER decode/encode round-trip",
+  "description": "MmsValue_decodeMmsData parses a BER/ASN.1-encoded \"MMS Data\" element (as used in IEC 61850/MMS read responses, journal entries and write-service requests) from an untrusted byte buffer into a heap-allocated MmsValue tree. It is directly security-relevant: the decoder recursively walks attacker-controlled tag/length/value triplets to build nested arrays and structures, allocates buffers sized from attacker-controlled length fields (bit strings, octet strings, integers, visible/MMS strings, binary time, UTC time), and must defend against malformed/oversized/negative lengths and unbounded recursion. A natural companion feature is the inverse operation, MmsValue_encodeMmsData, which re-serializes the decoded tree, and MmsValue_printToBuffer, which walks/dumps the resulting tree \u2014 both are realistic \"consumers\" that exercise the decoded structure further and are exactly what the existing in-tree fuzz harnesses (fuzz_mms_decode/print/encode) and the server read-response/journal/write-service code paths do with the result.\n- MmsValue_decodeMmsData: target; top-level entry that calls MmsValue_decodeMmsDataMaxRecursion with a fixed depth of 25; parses one BER tag/length/value element and dispatches on the tag byte.\n- MmsValue_decodeMmsDataMaxRecursion: variant/config; same decoder but lets the caller select the maximum recursion depth, directly controlling how deep nested array/structure tags (0xa1/0xa2) can be before MmsValue_decodeMmsDataRecursive aborts.\n- MmsValue_encodeMmsData: consumer/inverse; re-encodes the MmsValue tree produced by the decoder back into BER bytes (supports a length-only pass and an actual-encode pass), exercising encodeArrayAccessResult/encodeStructuredAccessResult and all the per-type encoders \u2014 a natural round-trip check on the decoded object graph.\n- MmsValue_printToBuffer: consumer; serializes the decoded MmsValue tree (including nested arrays/structures) to a human-readable string, walking the whole structure and thus validating consistency of every field the decoder filled in (bitstring padding, integer/float sizes, string contents, time buffers).\n\nInput space (selected by the fuzzed buffer bytes and by the harness choosing which entries/params to call):\n- BER tag byte dispatch in MmsValue_decodeMmsDataRecursive/getNumberOfElements: 0xa1 (array), 0xa2 (structure, recursive), 0x80 (data-access-error), 0x83 (boolean), 0x84 (bit string, with a padding-bits byte 0-7 that must be validated), 0x85 (integer, length must be \u22648), 0x86 (unsigned, length \u22648), 0x87 (float, length must be exactly 5 or 9 for float/double), 0x89 (octet string), 0x8a (visible string), 0x8c (binary time, length 4 or 6), 0x90 (MMS string), 0x91 (UTC time, length must be exactly 8), 0x00 (indefinite-length end tag), and any other tag value which must be rejected as an error;\n- BER length encoding (short/long form, possibly malformed or pointing past bufferLength) decoded by BerDecoder_decodeLength, which determines dataLength and triggers the zero-length rejection rule (data length must be >0 unless tag is visible-string/mms-string/octet-string);\n- nesting depth of array/structure elements vs. maxDepth, exercised via MmsValue_decodeMmsDataMaxRecursion's maxDepth parameter as well as the fixed 25-depth default used by MmsValue_decodeMmsData;\n- number and length of sibling elements inside an array/structure as computed by getNumberOfElements, which itself re-walks the same tag space;\n- bufPos/bufferLength/endBufPos offsets supplied directly by the harness, letting the fuzzer choose where decoding starts/stops within the input buffer;\n- for the encode/print consumers: the `encode` boolean of MmsValue_encodeMmsData (length-only vs. real encode pass) and the printBuffer size for MmsValue_printToBuffer, both of which traverse whatever array/structure/type the decoder produced.",
+  "entries": [
+    "MmsValue_decodeMmsData",
+    "MmsValue_decodeMmsDataMaxRecursion",
+    "MmsValue_encodeMmsData",
+    "MmsValue_printToBuffer"
+  ],
+  "core": [
+    "MmsValue_decodeMmsDataRecursive",
+    "getNumberOfElements",
+    "encodeArrayAccessResult",
+    "encodeStructuredAccessResult",
+    "BerDecoder_decodeLength",
+    "MmsValue_createEmptyArray",
+    "MmsValue_createEmptyStructure"
+  ],
+  "project": "libiec61850",
+  "risk_level": "",
+  "danger_scores": {}
+}

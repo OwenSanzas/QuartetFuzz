@@ -1,0 +1,27 @@
+{
+  "name": "miniz zip reader (central directory parsing + member extraction)",
+  "description": "mz_zip_reader_init_mem opens a ZIP archive that lives entirely in an attacker-controlled memory buffer: it installs a bounds-checked memcpy-based read callback (mz_zip_mem_read_func) over the buffer and then calls mz_zip_reader_read_central_dir, which locates the End-Of-Central-Directory record (optionally the Zip64 EOCD locator/record), parses every central directory header, and builds internal offset/size tables used by all subsequent reader calls \u2014 this is the main attack surface for malformed/crafted ZIP files (truncated/forged EOCD, bogus zip64 fields, corrupted central-directory entries, bad filename/extra-field lengths). Once the directory is parsed, the other reader APIs decode and decompress (DEFLATE via tinfl_decompress) individual file entries straight from the same untrusted buffer, so the feature naturally extends from \"parse the directory\" to \"inflate a member\", both driven purely by the input bytes.\n- mz_zip_reader_init_mem: target; sets up the mem read function and calls mz_zip_reader_init_internal + mz_zip_reader_read_central_dir (core).\n- mz_zip_reader_init: variant/source, same core (mz_zip_reader_read_central_dir) but driven through a user-supplied m_pRead callback instead of a raw buffer \u2014 exercises the same central-directory parser with a different I/O path.\n- mz_zip_reader_init_file / mz_zip_reader_init_file_v2: variants that open from disk, same core (mz_zip_reader_read_central_dir, mz_zip_reader_locate_header_sig, mz_zip_reader_eocd64_valid) \u2014 alternative source, not extra C coverage, but useful to show the shared parser.\n- mz_zip_reader_locate_file_v2: consumer; looks a filename up in the parsed central directory (uses mz_zip_reader_sort_central_dir_offsets_by_filename ordering / linear compare), exercising the directory tables built by the core.\n- mz_zip_reader_file_stat: consumer; decodes one central directory header's full metadata (name, extra fields, zip64 fields) from the buffer into a stat struct \u2014 reaches extra-field/zip64 parsing paths in the core not otherwise hit.\n- mz_zip_reader_extract_to_mem / mz_zip_reader_extract_to_mem_no_alloc: consumer; after locating/stat'ing a member, reads its local header and calls tinfl_decompress (or stores raw for STORED entries) \u2014 this is the decompression core reachable only once the central directory from the target has been parsed.\n- mz_zip_reader_end: lifecycle counterpart needed to clean up pZip->m_pState before re-init; required for multi-iteration fuzzing.\n- mz_zip_validate_mem_archive: higher-level consumer/wrapper that itself calls mz_zip_reader_init_mem then walks and validates every file (mz_zip_validate_file), a convenient reference for \"do more with it after init\".\nInput-space dimensions worth fuzzing: the `flags` bitmask passed to mz_zip_reader_init_mem/read_central_dir \u2014 MZ_ZIP_FLAG_DO_NOT_SORT_CENTRAL_DIRECTORY (changes whether sort runs), MZ_ZIP_FLAG_CASE_SENSITIVE / MZ_ZIP_FLAG_IGNORE_PATH (affect locate_file comparisons), MZ_ZIP_FLAG_VALIDATE_LOCATE_FILE_FLAG and MZ_ZIP_FLAG_VALIDATE_HEADERS_ONLY (used by mz_zip_validate_mem_archive); the raw ZIP byte layout itself is the primary input space \u2014 presence/absence/corruption of the Zip64 EOCD locator and record (drives the m_zip64 branch), number of central directory entries and their field values (compression method STORED vs DEFLATED selects the tinfl_decompress path vs raw copy), filename/extra-field lengths and encryption/compression-method flags used by is_file_encrypted/is_file_supported checks during extraction. The most permissive setting is flags == 0 (full sort + case-insensitive compare) combined with an archive containing both zip64 and regular entries and at least one DEFLATE-compressed member, since this exercises the sort routine, zip64 parsing, and the inflate core together.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "mz_zip_reader_init_mem",
+    "mz_zip_reader_init",
+    "mz_zip_reader_init_file",
+    "mz_zip_reader_locate_file_v2",
+    "mz_zip_reader_file_stat",
+    "mz_zip_reader_extract_to_mem",
+    "mz_zip_reader_end",
+    "mz_zip_validate_mem_archive"
+  ],
+  "core": [
+    "mz_zip_reader_init_internal",
+    "mz_zip_reader_read_central_dir",
+    "mz_zip_reader_locate_header_sig",
+    "mz_zip_reader_eocd64_valid",
+    "mz_zip_reader_sort_central_dir_offsets_by_filename",
+    "mz_zip_mem_read_func",
+    "mz_zip_reader_extract_to_mem_no_alloc1",
+    "tinfl_decompress"
+  ],
+  "project": "miniz",
+  "risk_level": "",
+  "danger_scores": {}
+}

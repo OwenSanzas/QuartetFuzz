@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1627,
+  "count": 29888,
+  "percent": 5.444
+ },
+ "functions": {
+  "covered": 110,
+  "count": 1696,
+  "percent": 6.486
+ },
+ "regions": {
+  "covered": 2372,
+  "count": 46527,
+  "percent": 5.098
+ },
+ "branches": {
+  "covered": 1035,
+  "count": 20666,
+  "percent": 5.008
+ },
+ "scope": "/src/util-linux/",
+ "files_in_scope": 185,
+ "files_total": 185,
+ "all_linked": {
+  "lines": {
+   "covered": 1627,
+   "count": 29888,
+   "percent": 5.444
+  },
+  "functions": {
+   "covered": 110,
+   "count": 1696,
+   "percent": 6.486
+  },
+  "regions": {
+   "covered": 2372,
+   "count": 46527,
+   "percent": 5.098
+  },
+  "branches": {
+   "covered": 1035,
+   "count": 20666,
+   "percent": 5.008
+  }
+ },
+ "timestamp": "2026-10-12T12:19:19Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "miniz zlib-style single-call compression (mz_compress2 / deflate)",
+  "description": "mz_compress2 is miniz's zlib-compatible, single-call entry point that takes a raw untrusted byte buffer (pSource/source_len) and a compression level, and drives it through the full tdefl deflate state machine to produce a zlib-wrapped compressed stream in pDest. It internally builds a one-shot mz_stream, calls mz_deflateInit (which maps level/window_bits/strategy into tdefl compressor flags via tdefl_create_comp_flags_from_zip_params and initializes the compressor with tdefl_init), then calls mz_deflate(..., MZ_FINISH) which repeatedly invokes tdefl_compress (dispatching to tdefl_compress_fast or tdefl_compress_normal, with tdefl_flush_block/tdefl_flush_output_buffer handling output buffering and Huffman/LZ77 encoding) until the whole input is consumed, before finally releasing state with mz_deflateEnd. Because the compressor's LZ77 matching, Huffman table construction and output buffer bookkeeping run entirely over fuzzer-controlled bytes and lengths, and the destination buffer size is attacker/caller supplied, this is a natural place for buffer-overflow, integer-overflow (32-bit truncation of mz_ulong lengths) and state-machine bugs \u2014 exactly the kind of code a fuzzer should stress. Pairing it with the decompression counterpart (mz_uncompress/mz_uncompress2, built on tinfl_decompress) turns the harness into a round-trip test that also exercises the inverse LZ77/Huffman decode path and validates that encoded output decodes back correctly, doubling the attack surface covered for the same feature.\n- mz_compress2: target; the main entry, builds the one-shot stream and drives tdefl_init -> tdefl_compress (tdefl_compress_fast/tdefl_compress_normal) -> tdefl_flush_block/tdefl_flush_output_buffer over the input, parameterized by the compression level (0-10, plus MZ_DEFAULT_COMPRESSION=-1) which selects number of match-finder probes, greedy vs lazy parsing, forced raw/static blocks, etc.\n- mz_compress: variant/wrapper of the target with level fixed to MZ_DEFAULT_COMPRESSION; useful as an alternate call path exercising the same core with a canonical level.\n- mz_compressBound: configuration/support function; computes the destination buffer size bound (via mz_deflateBound) that callers must use to size pDest before calling mz_compress2, so the harness can derive a correctly-sized output buffer from the fuzzed input length instead of a fixed guess.\n- mz_uncompress: consumer / inverse operation; decompresses the output produced by mz_compress2 (zlib stream -> raw data) by building its own mz_stream and running mz_inflateInit/mz_inflate(MZ_FINISH) down to tinfl_decompress, letting the harness validate round-trip correctness and additionally fuzz the independent inflate/tinfl state machine on both fuzzer-crafted \"compressed\" bytes and on real compressed output.\n- mz_uncompress2: variant of mz_uncompress taking a mutable *pSource_len (partial-consumption semantics), reaching the same tinfl_decompress core; useful to exercise the alternate source-length-reporting code path.\nThe input space the harness should vary: the raw content and length of pSource (source_len), the compression level argument to mz_compress2 across the documented range (MZ_NO_COMPRESSION=0, MZ_BEST_SPEED=1, intermediate levels 2-9, MZ_BEST_COMPRESSION=9, the hidden level 10, and MZ_DEFAULT_COMPRESSION=-1, plus invalid out-of-range levels to hit MZ_PARAM_ERROR paths), and the size of pDest_len/pDest (undersized buffers to trigger MZ_BUF_ERROR, exactly-bound-sized buffers via mz_compressBound, and oversized buffers), as well as feeding mz_compress2's output (or fuzzer-mutated variants of it) into mz_uncompress/mz_uncompress2 with varying destination buffer sizes to exercise MZ_DATA_ERROR / MZ_BUF_ERROR / MZ_STREAM_END result paths.",
+  "entries": [
+    "mz_compress2",
+    "mz_compress",
+    "mz_compressBound",
+    "mz_uncompress",
+    "mz_uncompress2"
+  ],
+  "core": [
+    "mz_deflateInit",
+    "mz_deflateInit2",
+    "mz_deflate",
+    "tdefl_init",
+    "tdefl_compress",
+    "tdefl_compress_normal",
+    "tdefl_flush_block",
+    "tdefl_create_comp_flags_from_zip_params",
+    "mz_inflate",
+    "tinfl_decompress"
+  ],
+  "project": "miniz",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,1 @@
+/src/assimp https://github.com/assimp/assimp.git b742a483e2834ff4359935576b32fa8bb0fab97f

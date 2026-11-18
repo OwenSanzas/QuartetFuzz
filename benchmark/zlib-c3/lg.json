@@ -1,0 +1,30 @@
+{
+  "name": "gzip file read/write via gzopen",
+  "description": "gzopen() opens a named file as a gzFile stream for reading, writing, or appending as specified by a POSIX-fopen-like mode string; gz_open() (the shared worker behind gzopen/gzopen64/gzdopen/gzopen_w) parses the mode string (r/w/a, digits for compression level, f/h/R/F for deflate strategy, T/G to force transparent/gzip-only mode, e/x/N for OS open() flags) and stores this untrusted-derived configuration in the gz_state object that later read/write calls use to decide how to parse or produce gzip data. Once opened, gzread()/gzgets()/gzgetc()/gzungetc() pull bytes from the underlying fd and run them through gz_look()/gz_fetch()/gz_decomp(), which sniff the first bytes for the gzip magic (1F 8B 08) to decide between transparent copy and inflate-based decompression, making this a classic untrusted-file-content parsing path (header sniffing, inflate state machine, multi-member handling, trailing junk handling) reachable purely from fuzzer-controlled file bytes and the mode string. Symmetrically gzwrite()/gzprintf()/gzflush() drive gz_comp()/gz_init(), which initialize a deflate stream (or bypass it when \"T\" direct/transparent mode is set) and compress buffered data before writing it to the fd, exercising the encode side of the same feature as a round trip partner to the read side.\n- gzopen: target; opens the file by path and mode string, builds the gz_state that selects every later code path (GZ_READ/GZ_WRITE/GZ_APPEND, compression level 0-9, strategy, direct/transparent flag).\n- gzdopen: variant of the target that opens from an existing file descriptor instead of a path, reaching the same gz_open() worker and gz_reset()/gz_look() core.\n- gzbuffer: configuration call, sets state->want (internal buffer size) before the first read/write, which changes the chunking performed by gz_look()/gz_avail()/gz_comp().\n- gzsetparams: configuration call for write mode, changes level/strategy fed into gz_comp()'s deflateInit2()/deflateParams() path.\n- gzread / gzgets / gzgetc / gzungetc: consumers/sources that pull bytes from the opened file and drive gz_look()/gz_fetch()/gz_decomp(), the gzip-header-sniffing and inflate state machine that processes untrusted on-disk bytes.\n- gzwrite / gzprintf / gzflush: the inverse (encode) operation of the same round-trip feature, driving gz_init()/gz_comp(), the deflate-based gzip writer.\n- gzclose / gzclose_r / gzclose_w: lifecycle calls needed to flush/finalize and release the gz_state opened by gzopen.\nInput space: the `mode` string passed to gzopen selects read vs write vs append ('r'/'w'/'a'), compression level ('0'-'9'), deflate strategy ('f'=Z_FILTERED, 'h'=Z_HUFFMAN_ONLY, 'R'=Z_RLE, 'F'=Z_FIXED), and transparent-vs-gzip-only decoding ('T' forces transparent/raw copy, 'G' forces gzip-only, default auto-detects by sniffing the first 4 bytes for 1F 8B 08 xx); the bytes of the target file itself select the COPY vs GZIP vs LOOK path inside gz_look()/gz_decomp() (valid gzip header, truncated header, multi-member concatenated gzip streams, corrupted deflate data, or non-gzip/transparent content), and gzbuffer's size parameter changes internal buffer boundaries exercised by those same state machines.",
+  "entries": [
+    "gzopen",
+    "gzdopen",
+    "gzbuffer",
+    "gzsetparams",
+    "gzread",
+    "gzgets",
+    "gzungetc",
+    "gzwrite",
+    "gzprintf",
+    "gzflush",
+    "gzclose"
+  ],
+  "core": [
+    "gz_open",
+    "gz_reset",
+    "gz_look",
+    "gz_fetch",
+    "gz_decomp",
+    "gz_read",
+    "gz_init",
+    "gz_comp"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,32 @@
+{
+  "case": "uriparser-c1",
+  "case_id": "uriparser/uri_dissect_query_malloc_fuzzer",
+  "project": "uriparser",
+  "fuzzer_name": "uri_dissect_query_malloc_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/uriparser/fuzz/DissectQueryMallocFuzzer.cpp",
+  "gold_source_file": "/src/uriparser/fuzz/DissectQueryMallocFuzzer.cpp",
+  "target_function": "uriDissectQueryMallocA",
+  "target_declaration": "URI_PUBLIC int URI_FUNC(DissectQueryMalloc)(URI_TYPE(QueryList) * *dest, int * itemCount, const URI_CHAR * first, const URI_CHAR * afterLast);",
+  "target_location": "uriparser/Uri.h:1026",
+  "prompt": "Project: uriparser\nRepository: https://github.com/uriparser/uriparser\nRevision: 35a929905323fbc291acf9b6a26a680d0827f997\nLanguage: C++\n\nTarget function: uriDissectQueryMallocA\nDeclared in: uriparser/Uri.h:1026\nDeclaration: URI_PUBLIC int URI_FUNC(DissectQueryMalloc)(URI_TYPE(QueryList) * *dest, int * itemCount, const URI_CHAR * first, const URI_CHAR * afterLast);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/uriparser/uriparser",
+      "rev": "35a929905323fbc291acf9b6a26a680d0827f997",
+      "type": "git"
+    },
+    "upstream_path": "/src/uriparser",
+    "all_repos": {
+      "/src/uriparser": {
+        "url": "https://github.com/uriparser/uriparser",
+        "rev": "35a929905323fbc291acf9b6a26a680d0827f997",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/uriparser.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

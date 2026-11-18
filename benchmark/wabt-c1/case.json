@@ -1,0 +1,32 @@
+{
+  "case": "wabt-c1",
+  "case_id": "wabt/wasm2wat_fuzzer",
+  "project": "wabt",
+  "fuzzer_name": "wasm2wat_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/wasm2wat_fuzzer.cc",
+  "gold_source_file": "/src/wasm2wat_fuzzer.cc",
+  "target_function": "wabt::ReadBinaryIr",
+  "target_declaration": "Result ReadBinaryIr(const char* filename, ByteSpan data, const ReadBinaryOptions& options, Errors*, Module* out_module);",
+  "target_location": "wabt/binary-reader-ir.h:28",
+  "prompt": "Project: wabt\nRepository: https://github.com/WebAssembly/wabt\nRevision: dce62429770ea7b2795461d34b99d140e048e1f5\nLanguage: C++\n\nTarget function: wabt::ReadBinaryIr\nDeclared in: wabt/binary-reader-ir.h:28\nDeclaration: Result ReadBinaryIr(const char* filename, ByteSpan data, const ReadBinaryOptions& options, Errors*, Module* out_module);\nEnclosing scope: namespace wabt\n\nExercise it under this configuration: reading to IR, then writing text.\n(after the same read the module is rendered back to the text format, so the writer runs too)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/WebAssembly/wabt",
+      "rev": "dce62429770ea7b2795461d34b99d140e048e1f5",
+      "type": "git"
+    },
+    "upstream_path": "/src/wabt",
+    "all_repos": {
+      "/src/wabt": {
+        "url": "https://github.com/WebAssembly/wabt",
+        "rev": "dce62429770ea7b2795461d34b99d140e048e1f5",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/wabt.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

@@ -1,0 +1,32 @@
+{
+  "case": "simdjson-c1",
+  "case_id": "simdjson/fuzz_dump_raw_tape",
+  "project": "simdjson",
+  "fuzzer_name": "fuzz_dump_raw_tape",
+  "language": "c++",
+  "gold_harness_path": "$SRC/simdjson/fuzz/fuzz_dump_raw_tape.cpp",
+  "gold_source_file": "/src/simdjson/fuzz/fuzz_dump_raw_tape.cpp",
+  "target_function": "simdjson::dom::element::dump_raw_tape",
+  "target_declaration": "inline bool dump_raw_tape(std::ostream &out) const noexcept;",
+  "target_location": "simdjson.h:7635",
+  "prompt": "Project: simdjson\nRepository: https://github.com/simdjson/simdjson.git\nRevision: f807de973580fb22cc0db6b3b896716684b0266c\nLanguage: C++\n\nTarget function: simdjson::dom::element::dump_raw_tape\nDeclared in: simdjson.h:7635\nDeclaration: inline bool dump_raw_tape(std::ostream &out) const noexcept;\nEnclosing scope: namespace simdjson::dom, class element\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/simdjson/simdjson.git",
+      "rev": "f807de973580fb22cc0db6b3b896716684b0266c",
+      "type": "git"
+    },
+    "upstream_path": "/src/simdjson",
+    "all_repos": {
+      "/src/simdjson": {
+        "url": "https://github.com/simdjson/simdjson.git",
+        "rev": "f807de973580fb22cc0db6b3b896716684b0266c",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/simdjson.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

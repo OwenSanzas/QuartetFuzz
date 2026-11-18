@@ -1,0 +1,25 @@
+{
+  "name": "YARA in-memory rule scanning (Aho-Corasick + regex/hex match verification)",
+  "description": "yr_rules_scan_mem is the public entry that scans an arbitrary in-memory buffer against a compiled YR_RULES object. Internally it creates a YR_SCANNER, wires up the user callback/timeout/flags, and calls yr_scanner_scan_mem which wraps the buffer as a single YR_MEMORY_BLOCK and drives it through yr_scanner_scan_mem_blocks -> _yr_scanner_scan_mem_block. That function walks every byte of the buffer through the compiled Aho-Corasick automaton (rules->ac_transition_table / rules->ac_match_table), and for every state whose match_table entry is non-zero it calls yr_scan_verify_match to confirm candidate string matches, which dispatches to _yr_scan_verify_literal_match (plain/xor/base64/no-case literal matching) or _yr_scan_verify_re_match (regex/hex-string NFA execution via yr_re_exec/yr_re_fast_exec, handling ascii/wide/full-word/greedy/dot-all variants). Confirmed matches and non-matches eventually feed yr_execute_code, which evaluates the compiled rule condition bytecode (external variables, module objects, iterators, string counting/offset functions) and invokes the user YR_CALLBACK_FUNC with CALLBACK_MSG_RULE_MATCHING / NOT_MATCHING / SCAN_FINISHED / TOO_MANY_MATCHES messages. Because the buffer bytes are untrusted and directly drive the pattern-matching state machine, regex engine and rule-condition VM, this is a security-critical parsing/execution path (stack/heap overflow, infinite loop/timeouts, OOB reads in match verification are classic bug classes here).\n- yr_rules_scan_mem: target; creates scanner, sets flags/timeout/callback, drives the buffer through the AC automaton and match verification (core).\n- yr_rules_scan_mem_blocks: variant; same pipeline but via a custom YR_MEMORY_BLOCK_ITERATOR instead of a flat buffer, reaches the same yr_scanner_scan_mem_blocks/_yr_scanner_scan_mem_block core, letting the harness exercise multi-block scanning.\n- yr_rules_scan_file / yr_rules_scan_fd: variants that mmap a file/fd and then call yr_rules_scan_mem internally \u2014 same core, different input-acquisition path (useful to confirm the harness should feed the buffer rather than reimplement these).\n- yr_rules_define_integer_variable / yr_rules_define_boolean_variable / yr_rules_define_float_variable / yr_rules_define_string_variable: configuration; set external-variable values read by the rule-condition bytecode executed in yr_execute_code, changing which rule conditions evaluate true/false and which branches run.\n- yr_compiler_add_string / yr_compiler_add_file / yr_compiler_get_rules: source; build the YR_RULES object (compiled AC automaton, match/transition tables, rule condition bytecode) that yr_rules_scan_mem scans against \u2014 the rule source text (strings, regexps, hex patterns, modifiers like nocase/wide/ascii/xor/base64/fullword, and conditions) is itself part of the input space that selects which code paths the core exercises.\nInput space: the fuzz input should vary (1) the scanned buffer content/size (bytes driving the AC transition table and match_table lookups), (2) the flags bitmask passed to yr_rules_scan_mem (SCAN_FLAGS_FAST_MODE, SCAN_FLAGS_PROCESS_MEMORY, SCAN_FLAGS_NO_TRYCATCH, SCAN_FLAGS_REPORT_RULES_MATCHING, SCAN_FLAGS_REPORT_RULES_NOT_MATCHING), (3) the timeout value, and (4) the YARA rule source compiled via yr_compiler_add_string, since string modifiers (nocase, wide, ascii, fullword, xor, base64/base64wide, regexp vs literal vs hex) select distinct code paths inside _yr_scan_verify_literal_match vs _yr_scan_verify_re_match and the greedy/backward-match handling in the regex engine.",
+  "entries": [
+    "yr_rules_scan_mem",
+    "yr_rules_scan_mem_blocks",
+    "yr_rules_scan_file",
+    "yr_rules_define_integer_variable",
+    "yr_rules_define_string_variable",
+    "yr_compiler_add_string",
+    "yr_compiler_get_rules"
+  ],
+  "core": [
+    "yr_scanner_scan_mem",
+    "yr_scanner_scan_mem_blocks",
+    "_yr_scanner_scan_mem_block",
+    "yr_scan_verify_match",
+    "_yr_scan_verify_literal_match",
+    "_yr_scan_verify_re_match",
+    "yr_execute_code"
+  ],
+  "project": "yara",
+  "risk_level": "",
+  "danger_scores": {}
+}

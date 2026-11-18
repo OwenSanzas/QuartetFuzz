@@ -1,0 +1,23 @@
+{
+  "name": "libtasn1 BER/DER simple string decoding",
+  "description": "asn1_decode_simple_ber decodes a single untrusted ASN.1 value (an ETYPE_ string/primitive type) from attacker-controlled BER/DER bytes into a freshly allocated buffer, recursively handling BER's indefinite-length constructed string encoding (nested chunks terminated by an EOC 00 00 marker) as well as plain definite-length DER values; this recursive, length-arithmetic-heavy parser over raw memory is a classic target for out-of-bounds reads, integer underflow/overflow of lengths, unbounded recursion and allocation issues when fed malformed or deeply nested input.\n- asn1_decode_simple_ber: target entry; public wrapper that calls the static worker _asn1_decode_simple_ber with DECODE_FLAG_HAVE_TAG, driving tag parsing, indefinite/definite length dispatch, and the recursive reconstruction of split BER octet/bit strings into one buffer (core: _asn1_decode_simple_ber, append, asn1_get_tag_der, asn1_get_length_ber, asn1_get_length_der).\n- asn1_decode_simple_der: variant; decodes the same ETYPE_ values as plain non-constructed DER (pointer-into-buffer, no allocation) and is itself called internally from _asn1_decode_simple_ber for the definite \"non-string\" / non-constructed branch, so it exercises an overlapping but distinct subset of the tag/length parsing core.\n- asn1_encode_simple_der: inverse/round-trip entry; encodes a string back to simple DER (tag+length+value) with asn1_length_der/asn1_octet_der style logic, letting a harness round-trip fuzzer-chosen (etype, bytes) through encode\u2192decode to cross-check the decoder against known-good encodings and reach more of the length-encoding edge cases (short/long form lengths).\n- asn1_der_decoding2 (and its wrapper asn1_der_decoding): consumer/caller context; when decoding a full ASN.1_ETYPE_OCTET_STRING node that uses BER constructed/indefinite encoding instead of plain DER, this top-level structure decoder calls _asn1_decode_simple_ber directly, showing how the target is used inside real structure decoding and giving a harness a way to drive the same core through a defined ASN.1 node/schema rather than only a bare etype integer.\nThe input space a harness should vary: etype (must satisfy ETYPE_OK and ETYPE_CLASS==ASN1_CLASS_UNIVERSAL, e.g. ASN1_ETYPE_OCTET_STRING, ASN1_ETYPE_BIT_STRING, ASN1_ETYPE_IA5_STRING, ASN1_ETYPE_UTF8_STRING, ASN1_ETYPE_GENERALIZED_TIME, etc., including invalid/non-universal classes to hit error paths); the der buffer bytes and _der_len (length field encodings: short-form, long-form, 0x80 indefinite marker, missing/garbled EOC 00 00, nested constructed indefinite strings up to the internal LEVEL1/LEVEL2/LEVEL3 recursion cap, truncated buffers, zero length); and whether the leading byte signals ASN1_CLASS_STRUCTURED (constructed, triggering the recursive indefinite/definite-constructed string-concatenation path via append()) versus a primitive tag (triggering the plain DER/_asn1_decode_simple_der path).",
+  "entries": [
+    "asn1_decode_simple_ber",
+    "asn1_decode_simple_der",
+    "asn1_encode_simple_der",
+    "asn1_der_decoding2",
+    "asn1_der_decoding"
+  ],
+  "core": [
+    "_asn1_decode_simple_ber",
+    "_asn1_decode_simple_der",
+    "append",
+    "asn1_get_tag_der",
+    "asn1_get_length_ber",
+    "asn1_get_length_der",
+    "asn1_length_der"
+  ],
+  "project": "libtasn1",
+  "risk_level": "",
+  "danger_scores": {}
+}

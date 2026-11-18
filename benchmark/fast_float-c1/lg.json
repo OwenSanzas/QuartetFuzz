@@ -1,0 +1,23 @@
+{
+  "name": "fast_float::from_chars locale-independent string-to-float parser",
+  "description": "fast_float::from_chars parses an untrusted, attacker-controlled byte range [first,last) that is claimed to represent a floating-point number (decimal/scientific notation, special inf/nan tokens, or JSON/Fortran-flavoured numbers depending on `fmt`) into a correctly-rounded `T` value (float/double), without allocating and without throwing. Because it is meant to replace std::strtod/std::from_chars on raw, untrusted buffers (e.g. parsing numbers out of JSON, config files, network text), its digit-scanning, overflow handling, Eisel-Lemire fast path, and bignum fallback are classic fuzzing targets for out-of-bounds reads, infinite loops, and incorrect pointer advancement on malformed/boundary input (huge exponents, >19 significant digits, missing digits after sign/exponent, NaN payload parsing, embedded NULs, mixed-width character types).\n- fast_float::from_chars (target): public entry, dispatches to from_chars_advanced with a parse_options_t built from `fmt`; reaches all of core.\n- fast_float::from_chars_advanced (2-arg chars_format overload used by target, and 4-arg options overload): variant/config \u2014 lets the harness directly set parse_options_t (custom decimal_point character, arbitrary chars_format bit combinations, base) instead of only the `chars_format` enum that `from_chars` exposes; reaches the same core (from_chars_float_advanced for floating types) and additionally from_chars_int_advanced/parse_int_string for integer T (different core: integer digit scanning, not the float bignum path).\n- fast_float::from_chars (int base overload, parse_number.h:403 / fast_float.h:86): variant \u2014 integer parsing with a configurable `base` (2..36), exercises parse_int_string (a sibling core path with its own overflow/base-digit logic), useful to also fuzz the shared ascii_number.h digit-scanning infrastructure.\n- detail::parse_number_string<basic_json_fmt,UC> / detail::parse_infnan: core, called from from_chars_float_advanced; the digit/sign/exponent scanner and the \"inf\"/\"nan\"/\"-infinity\" special-case matcher.\n- from_chars_float_advanced: core, orchestrates skip-whitespace, calls parse_number_string, routes to the Clinger fast path, Eisel-Lemire compute_float, or the slow path.\n- parse_number_slow_path / from_chars_advanced(parsed_number_string_t&,T&): core, re-parses with materialized integer/fraction spans and drives compute_float / compute_error / digit_comp for numbers with >19 significant digits or unresolved binary exponent.\n- compute_float / compute_error (decimal_to_binary.h): core, the Eisel-Lemire correctly-rounded binary conversion and its error/ambiguity detector.\n- digit_comp / positive_digit_comp / negative_digit_comp (digit_comparison.h, with the internal `bigint` type): core, the arbitrary-precision bignum fallback comparison used when Eisel-Lemire cannot resolve the rounding.\n- parse_int_string (ascii_number.h): core for the integer from_chars overload, including the base-10/base-N digit loops and overflow detection.\nThe input space to fuzz is primarily (a) the byte content between first/last \u2014 digit runs, sign, decimal point placement, exponent marker/sign/digits, \"inf\"/\"infinity\"/\"nan\"/\"nan(...)\" tokens, leading/trailing garbage, embedded whitespace, very long digit strings (>19 digits) to force the slow/bignum path, boundary values near subnormal/overflow; (b) the `chars_format`/`parse_options_t` passed to from_chars/from_chars_advanced \u2014 chars_format::general (most permissive, both fixed+scientific), ::scientific, ::fixed, ::json (adds basic_json_fmt + no_infnan, forbids leading '+', requires digit after sign), ::json_or_infnan, ::fortran (adds 'd'/'D' exponent marker handling), ::no_infnan, ::allow_leading_plus, ::skip_white_space, and a custom `decimal_point` character in parse_options_t; (c) for the integer overload, the `base` parameter (2..36) and signed vs unsigned T; (d) the character type UC (char, wchar_t, char16_t, char32_t) since the templates are generic over UC. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "fast_float::from_chars",
+    "fast_float::from_chars_advanced",
+    "fast_float::from_chars_float_advanced",
+    "fast_float::parse_int_string"
+  ],
+  "core": [
+    "fast_float::detail::parse_number_string",
+    "fast_float::detail::parse_infnan",
+    "fast_float::from_chars_float_advanced",
+    "fast_float::parse_number_slow_path",
+    "fast_float::compute_float",
+    "fast_float::compute_error",
+    "fast_float::digit_comp",
+    "fast_float::parse_int_string"
+  ],
+  "project": "fast_float",
+  "risk_level": "",
+  "danger_scores": {}
+}

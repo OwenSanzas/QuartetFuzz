@@ -1,0 +1,23 @@
+{
+  "name": "LZ4 block decompression with explicit dictionary",
+  "description": "LZ4_decompress_safe_usingDict decompresses an LZ4-compressed block that was encoded using an external dictionary (e.g. one block of a message produced with LZ4_compress_fast_continue/LZ4_attach_dictionary), without requiring a stateful LZ4_streamDecode_t object; the dictionary bytes just need to remain accessible. This is a classic bounded decoder: it walks attacker-controlled token/literal/match-length/offset fields from `src` and writes into a fixed-size `dst`, and the core loop (shared by every *_safe* decoder) is exactly the kind of state machine where malformed offsets/lengths or dictionary-boundary math lead to out-of-bounds reads/writes, so it is highly security relevant to fuzz with varied src bytes, dstCapacity and dict placement/size.\n- LZ4_decompress_safe_usingDict: target; dispatches by dictSize/dictStart placement to LZ4_decompress_safe (no dict), LZ4_decompress_safe_withPrefix64k, LZ4_decompress_safe_withSmallPrefix, or LZ4_decompress_safe_forceExtDict \u2014 all of which funnel into the shared core LZ4_decompress_generic.\n- LZ4_decompress_safe_partial_usingDict: variant, same dict-dispatch logic but with partialDecoding enabled (earlyEnd_directive=partial_decode), reaching the same LZ4_decompress_generic core but exercising the \"stop early / may end anywhere in block\" code paths that the non-partial calls never hit.\n- LZ4_decompress_safe_continue: variant/alternative entry using the stateful LZ4_streamDecode_t (external dict or internal ring-buffer prefix tracked across calls) instead of explicit dictStart/dictSize per call; reaches the same core (LZ4_decompress_generic via withPrefix64k/withSmallPrefix/forceExtDict/doubleDict) and is how the \"normal\" streaming API exercises this decoder.\n- LZ4_setStreamDecode: configuration for LZ4_decompress_safe_continue; installs the dictionary pointer/size state that the streaming variant reads before calling into core.\n- LZ4_compress_fast / LZ4_compress_default: source; the easiest way to generate syntactically-valid compressed blocks (with real token/offset/match-length structure) so the fuzz input drives semantically interesting decoder states (valid-looking matches referencing the dictionary, boundary offsets, etc.) rather than being rejected immediately as garbage.\nInput-space dimensions worth varying in the harness: (1) dictSize relative to the 64KB threshold \u2014 dictSize==0 (no-dict path), 0<dictSize<64KB-1 (withSmallPrefix / forceExtDict depending on placement), dictSize>=64KB-1 (withPrefix64k) \u2014 this selects which decode path/dict_directive runs; (2) whether dictStart+dictSize==dst (prefix mode, fastest, different pointer arithmetic) vs. a separate external dictionary buffer (forceExtDict, exercises match-spanning-dictionary-boundary code); (3) dstCapacity vs. the real decompressed size (too-small dstCapacity exercises the LASTLITERALS/oend-MATCH_SAFEGUARD_DISTANCE error paths); (4) srcSize/content, including malformed tokens, RUN_MASK-extended lengths, and small offsets (<8) that hit the inc32table/dec64table branch, to cover both the LZ4_FAST_DEC_LOOP and the safe/fallback decode loop. This list is incomplete; what the project's own fuzzers (ossfuzz, tests/fuzzer.c) and tests (tests/fullbench.c) do with the target stays.",
+  "entries": [
+    "LZ4_decompress_safe_usingDict",
+    "LZ4_decompress_safe_partial_usingDict",
+    "LZ4_decompress_safe_continue",
+    "LZ4_setStreamDecode",
+    "LZ4_compress_fast",
+    "LZ4_compress_default"
+  ],
+  "core": [
+    "LZ4_decompress_generic",
+    "LZ4_decompress_safe_withPrefix64k",
+    "LZ4_decompress_safe_withSmallPrefix",
+    "LZ4_decompress_safe_forceExtDict",
+    "LZ4_decompress_safe_doubleDict",
+    "LZ4_wildCopy8"
+  ],
+  "project": "lz4",
+  "risk_level": "",
+  "danger_scores": {}
+}

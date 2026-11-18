@@ -1,0 +1,24 @@
+{
+  "name": "X.509 CRL (Certificate Revocation List) parsing",
+  "description": "Parses one or more X.509 Certificate Revocation Lists (CRLs) from untrusted DER or PEM-encoded input and builds a linked list of mbedtls_x509_crl structures (issuer name, validity dates, revoked-certificate entries, extensions, signature). Since the CRL data (including attacker-controlled fields such as ASN.1 lengths/tags, OIDs, names, dates and nested extension sequences) comes directly from untrusted buffers/files, the recursive-descent ASN.1 decoder in x509_crl.c and the shared x509 helpers it calls are classic fuzzing targets for out-of-bounds reads, integer/length mismatches and allocation-failure handling.\n\n- mbedtls_x509_crl_parse: target entry. First tries to strip a PEM \"-----BEGIN X509 CRL-----\" envelope (looping to consume multiple concatenated PEM blocks) and otherwise treats the buffer as raw DER, feeding each decoded CRL to mbedtls_x509_crl_parse_der. Selects the PEM vs. DER path depending on whether the buffer is NUL-terminated and matches the PEM markers.\n- mbedtls_x509_crl_parse_der: variant/core driver called directly with DER bytes (same function invoked internally by mbedtls_x509_crl_parse); copies the raw buffer, walks the CertificateList SEQUENCE, parses TBSCertList (version, signature AlgorithmIdentifier, issuer Name, thisUpdate/nextUpdate Time, revokedCertificates entries, v2 crlExtensions) then the outer signatureAlgorithm/signatureValue, and appends the result to the mbedtls_x509_crl linked list (chaining further CRLs on repeated calls).\n- mbedtls_x509_crl_parse_file: source/variant that loads a CRL (PEM or DER, possibly multiple concatenated CRLs) from a file via mbedtls_pk_load_file and forwards the bytes to mbedtls_x509_crl_parse, exercising the same parser from a different input channel.\n- mbedtls_x509_crl_info: consumer that walks the parsed chain and formats issuer DN, serial numbers, update times and signature algorithm into a human-readable string, exercising mbedtls_x509_dn_gets/mbedtls_x509_serial_gets/mbedtls_x509_sig_alg_gets over the structures the parser produced.\n- mbedtls_x509_crl_init / mbedtls_x509_crl_free: lifecycle helpers needed to initialize the chain object before parsing and to release allocated entries/strings/sig_opts afterward (required because parse_der mutates/allocates fields such as crl->next, entry->next, sig_opts on both success and failure paths).\n\nInput space / paths to drive through C:\n- PEM vs. raw DER input (presence/absence of \"-----BEGIN X509 CRL-----\"/\"-----END X509 CRL-----\" markers and NUL-termination) \u2014 selects PEM decode loop vs. direct DER parse in mbedtls_x509_crl_parse.\n- Multiple concatenated PEM blocks or multiple DER buffer calls \u2014 exercises the \"append to chained list\" logic (crl->next allocation loop) in mbedtls_x509_crl_parse_der.\n- CRL version field (absent/0 -> v1, 1 -> v2, other -> MBEDTLS_ERR_X509_UNKNOWN_VERSION) in x509_crl_get_version \u2014 gates whether crlExtensions (x509_get_crl_ext) are parsed at all.\n- Number and well-formedness of revokedCertificates entries (0, 1, many) and per-entry crlEntryExtensions presence, handled by x509_get_entries / x509_get_crl_entry_ext, including malformed/garbage extension sequences.\n- Presence/absence and well-formedness of nextUpdate (optional Time) vs. mandatory thisUpdate, handled by mbedtls_x509_get_time.\n- Issuer Name RDN structure complexity (handled by mbedtls_x509_get_name) and signature/algorithm OID variety (handled by mbedtls_x509_get_alg / mbedtls_x509_get_sig_alg), including mismatched inner vs outer signature OID/parameters which triggers the MBEDTLS_ERR_X509_SIG_MISMATCH-style consistency check.\n- Malformed ASN.1 (wrong tags, truncated lengths, length mismatches) at every nesting level \u2014 exercises all the error-return branches of mbedtls_asn1_get_tag-based parsing and the cleanup via mbedtls_x509_crl_free on each failure path.",
+  "entries": [
+    "mbedtls_x509_crl_parse",
+    "mbedtls_x509_crl_parse_der",
+    "mbedtls_x509_crl_parse_file",
+    "mbedtls_x509_crl_info",
+    "mbedtls_x509_crl_init",
+    "mbedtls_x509_crl_free"
+  ],
+  "core": [
+    "x509_crl_get_version",
+    "x509_get_crl_ext",
+    "x509_get_crl_entry_ext",
+    "x509_get_entries",
+    "mbedtls_x509_get_name",
+    "mbedtls_x509_get_time",
+    "mbedtls_x509_get_sig_alg"
+  ],
+  "project": "mbedtls",
+  "risk_level": "",
+  "danger_scores": {}
+}

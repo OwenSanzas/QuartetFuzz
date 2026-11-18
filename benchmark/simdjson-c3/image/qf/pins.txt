@@ -1,0 +1,1 @@
+/src/simdjson https://github.com/simdjson/simdjson.git f807de973580fb22cc0db6b3b896716684b0266c

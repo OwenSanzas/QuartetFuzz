@@ -1,0 +1,26 @@
+{
+  "name": "Locale likely-subtags maximization (CLDR addLikelySubtags/minimizeSubtags)",
+  "description": "Locale::addLikelySubtags() takes the Locale's current locale ID string (built by the caller from untrusted language/script/region/variant/keyword subtags, e.g. parsed from a BCP-47 tag or constructed with Locale(lang,country,variant,keywords)) and \"maximizes\" it using CLDR likely-subtags data: it calls ulocimp_addLikelySubtags()->LikelySubtags::makeMaximizedLsrFrom(), which re-parses the locale's subtags, resolves language/region aliases through a trie, matches pseudolocale patterns (en-XA/ar-XB/*-PSACCENT etc.), walks a ustringtrie-encoded likely-subtags table to fill in the missing language/script/region, then rebuilds and re-parses the locale ID string (Locale::init) to overwrite the object's own name/baseName/keywords. Because the whole pipeline starts from a locale-ID string and round-trips through locale ID parsing (ulocimp_getSubtags / uloc_getLanguage / createTagStringWithAlternates) and trie-based lookups keyed by attacker-influenced subtag bytes, it is a good target for fuzzing malformed/edge-case locale strings (oversized subtags, bogus scripts, unusual variant/keyword combinations, '@x=' private-use tags, pseudolocale codes).\n- Locale::addLikelySubtags: target; core = LikelySubtags::makeMaximizedLsrFrom/makeMaximizedLsr/maximize, trie walk in loclikelysubtags.cpp, ulocimp_getSubtags, createTagStringWithAlternates, Locale::init.\n- Locale::minimizeSubtags(UErrorCode&) / minimizeSubtags(bool favorScript, UErrorCode&): inverse operation (round trip with addLikelySubtags); reaches LikelySubtags::minimizeSubtags which shares the same alias-resolution/trie machinery and the maximize step internally (minimization re-maximizes to verify), same core.\n- Locale::forLanguageTag: source; builds the Locale object from a raw BCP-47 string (ulocimp_forLanguageTag) whose subtags then flow into addLikelySubtags' maximization, reaching the same core via a different, more permissive parser path (accepts extensions, private-use \"x-...\" tags, legacy grandfathered tags).\n- Locale::createFromName / Locale::createCanonical: sources; build/normalize a Locale from a raw POSIX/ICU-style locale ID string (the classic \"lang_SCRIPT_REGION@keywords\" form) before maximization, exercising canonicalize/variant/keyword parsing paths not hit by forLanguageTag.\n- Locale(const char* language, const char* country, const char* variant, const char* keywordsAndValues) constructor: source; lets the fuzzer control each subtag component independently (including keyword/value lists) before calling addLikelySubtags.\n- Locale::canonicalize: configuration/variant; re-canonicalizes the locale ID (different normalization pass) which changes the string addLikelySubtags will re-parse, exposing different alias/trailing-data edge cases.\n- Locale::toLanguageTag: consumer; serializes the maximized locale back out to a BCP-47 string, exercising the output side of the round trip (useful to confirm no OOB/UB when printing attacker-influenced maximized subtags).\nInput space to fuzz (most-path-covering first): the raw locale-ID / BCP-47 string fed to the constructors (language length 0,2-8 and the special 4-letter-as-script case, script present/absent, region 2-letter vs 3-digit vs pseudolocale codes XA/XB/XC, variant values such as \"PSACCENT\"/\"PSBIDI\"/\"PSCRACK\" and arbitrary variants, trailing keyword/extension data after '@' or '-u-'/'-x-', private-use \"@x=\" tags); for minimizeSubtags, the favorScript boolean flag (false vs true) selects a different minimization branch in LikelySubtags::minimizeSubtags.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "icu::Locale::addLikelySubtags",
+    "icu::Locale::minimizeSubtags",
+    "icu::Locale::forLanguageTag",
+    "icu::Locale::createFromName",
+    "icu::Locale::createCanonical",
+    "icu::Locale::canonicalize",
+    "icu::Locale::toLanguageTag"
+  ],
+  "core": [
+    "ulocimp_addLikelySubtags",
+    "LikelySubtags::makeMaximizedLsrFrom",
+    "LikelySubtags::makeMaximizedLsr",
+    "LikelySubtags::maximize",
+    "LikelySubtags::minimizeSubtags",
+    "ulocimp_getSubtags",
+    "createTagStringWithAlternates",
+    "Locale::init"
+  ],
+  "project": "icu",
+  "risk_level": "",
+  "danger_scores": {}
+}

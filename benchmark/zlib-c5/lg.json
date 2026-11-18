@@ -1,0 +1,26 @@
+{
+  "name": "zlib buffer-to-buffer decompression (uncompress/compress round trip)",
+  "description": "uncompress() decodes a complete zlib-wrapped deflate stream held entirely in memory into a caller-supplied output buffer: it wraps a z_stream, calls inflateInit/inflate/inflateEnd internally, and is a primary place where attacker-controlled compressed bytes (headers, Huffman code tables, length/distance codes, stored blocks, checksums) are parsed and expanded, making it a classic target for buffer-overflow, integer-overflow and infinite-loop bugs in the inflate state machine. Feeding it arbitrary/corrupted byte streams (and varying destLen) exercises header validation, dynamic/fixed/stored block handling, the inflate_fast hot loop, and window/adler32 checks, all without needing a streaming z_stream API in the harness.\n- uncompress: target; single-shot source-to-dest decompression, entry point into uncompress2 -> uncompress2_z -> inflateInit_/inflate/inflateEnd.\n- uncompress2: variant that additionally reports consumed source length and supports partial/streamed-looking input; same core path.\n- uncompress_z / uncompress2_z: size_t-width variants of the same decompression core, selected input path depends only on buffer sizes, otherwise identical core (inflateInit_, inflate, inflate_fast, inflate_table, updatewindow, inflateEnd).\n- compress / compress2: inverse operation (the source-generation side); used to produce well-formed zlib streams at arbitrary compression levels (Z_NO_COMPRESSION..Z_BEST_COMPRESSION) feeding valid data into the decompressor, letting the harness do round-trip testing as well as feeding raw/mutated bytes directly.\n- compressBound: configuration/helper used by callers of compress2 to size the destination buffer correctly before compressing fuzz-derived payloads for round-trip tests.\nThe input space the harness should vary: the raw byte content of `source` (valid zlib headers vs. corrupted/truncated/garbage streams, different compression methods/levels, dynamic vs. fixed vs. stored deflate block types, bad header checksums, wrong CM/CINFO nibble, missing Z_NEED_DICT handling), the declared `sourceLen` (exact, truncated, or with trailing garbage), and the `destLen` capacity passed in (too small to trigger Z_BUF_ERROR, exactly right, or oversized), since these select different branches through inflate()'s state machine (HEAD, FLAGS/TIME/OS for gzip wrap when enabled, STORED, TABLE/LENLENS/CODELENS, LEN/MATCH via inflate_fast, CHECK/LENGTH, DONE/BAD/MEM states).",
+  "entries": [
+    "uncompress",
+    "uncompress2",
+    "uncompress_z",
+    "uncompress2_z",
+    "compress",
+    "compress2",
+    "compressBound"
+  ],
+  "core": [
+    "inflateInit_",
+    "inflateInit2_",
+    "inflate",
+    "inflate_fast",
+    "inflate_table",
+    "updatewindow",
+    "inflateEnd",
+    "inflateReset"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {}
+}

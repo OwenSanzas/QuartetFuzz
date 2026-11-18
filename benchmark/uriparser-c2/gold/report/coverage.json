@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1321,
+  "count": 2241,
+  "percent": 58.947
+ },
+ "functions": {
+  "covered": 64,
+  "count": 94,
+  "percent": 68.085
+ },
+ "regions": {
+  "covered": 5492,
+  "count": 8167,
+  "percent": 67.246
+ },
+ "branches": {
+  "covered": 3270,
+  "count": 3810,
+  "percent": 85.827
+ },
+ "scope": "/src/uriparser/",
+ "files_in_scope": 13,
+ "files_total": 13,
+ "all_linked": {
+  "lines": {
+   "covered": 1321,
+   "count": 2241,
+   "percent": 58.947
+  },
+  "functions": {
+   "covered": 64,
+   "count": 94,
+   "percent": 68.085
+  },
+  "regions": {
+   "covered": 5492,
+   "count": 8167,
+   "percent": 67.246
+  },
+  "branches": {
+   "covered": 3270,
+   "count": 3810,
+   "percent": 85.827
+  }
+ },
+ "timestamp": "2026-08-31T20:32:17Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

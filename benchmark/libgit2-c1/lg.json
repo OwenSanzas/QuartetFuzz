@@ -1,0 +1,26 @@
+{
+  "name": "In-memory git config backend: create from string and parse",
+  "description": "git_config_backend_from_string() builds a read-only git_config_backend whose raw bytes come directly from attacker-controlled memory (`cfg`/`len`); the real parsing of that untrusted data happens lazily, on the first call to the backend's open() vtable entry (config_memory_open -> parse_config), which drives the generic INI-style config-file parser (git_config_parser_init/git_config_parse) through its section-header, subsection, quoting/escaping and multi-line-value state machines, then materializes each key/value pair into a git_config_list. This is security relevant because the parser does manual pointer arithmetic over untrusted bytes (quote scanning, backslash/escape counting, line continuation, UTF-8 BOM skipping) and feeds the results into the config_list/entry allocation code.\n- git_config_backend_from_string: target, allocates the memory backend and copies the raw config-file text into backend->cfg; no parsing happens yet (core only runs once the backend is opened).\n- git_config_backend_open (cfg->open -> config_memory_open): source/trigger \u2014 this is what actually invokes git_config_parser_init/git_config_parse over the copied bytes and is required to reach the core parsing code; without it the fuzz input is never parsed.\n- git_config_backend_from_values: variant source \u2014 builds the same kind of backend but from a pre-split `name=value` array instead of raw config-file text, so it reaches parse_values() instead of parse_config()/git_config_parse(); useful as an alternate, more structured way to drive git_config_list_append but exercises a different (simpler) path than the full text parser.\n- git_config_backend_memory_options_init: configuration \u2014 initializes/validates the git_config_backend_memory_options struct (version, backend_type, origin_path) passed to the target; backend_type/origin_path values are copied verbatim into every produced config_list entry and are read back by consumers.\n- git_config_backend_get_string / git_config_backend_foreach (via cfg->get / cfg->iterator through git_config_list_get, git_config_list_iterator_new): consumers that query the parsed entries by exact key or iterate all entries, exercising git_config_list lookup/iteration and the lower-cased, dotted key construction done in read_variable_cb.\n- git_config_add_backend: consumer/integration entry \u2014 registers the opened backend into a full git_config object (also calls backend->open internally), after which the generic git_config_get_string/git_config_get_multivar/foreach APIs can query it, exercising the config_list regexp/multivar matching code as well.\nInput space to fuzz (all via the `cfg`/`len` buffer passed to the target, since the backend is read-only and config_memory_set/delete/lock always fail):\n- The full range of git config-file syntax: well-formed vs malformed section headers (`[section]`, `[section \"sub\"]` with required quoting, missing `]`, missing closing quote), variable lines with/without a value, boolean-looking keys, quoted values, backslash escape sequences (`\\n`,`\\t`,`\\b`,`\\\"`,`\\\\`), multi-line (line-continuation `\\` at EOL) values, comments (`;`/`#`) inside/outside quotes, a leading UTF-8 BOM, and deeply nested/garbage bytes that stress parse_section_header/parse_subsection_header/parse_variable/parse_multiline_variable and strip_comments.\n- opts->backend_type and opts->origin_path strings (attacker can set arbitrary length/content; these are strdup'd and attached to every entry, feeding later get/foreach consumers).\n- len independent of strlen(cfg) (embedded NULs), and the size-0 vs size>0 boundary that decides whether parse_config runs at all.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "git_config_backend_from_string",
+    "git_config_backend_open",
+    "git_config_backend_from_values",
+    "git_config_backend_memory_options_init",
+    "git_config_backend_get_string",
+    "git_config_backend_foreach",
+    "git_config_add_backend"
+  ],
+  "core": [
+    "config_memory_open",
+    "parse_config",
+    "git_config_parse",
+    "parse_variable",
+    "parse_section_header",
+    "parse_subsection_header",
+    "read_variable_cb",
+    "git_config_list_append"
+  ],
+  "project": "libgit2",
+  "risk_level": "",
+  "danger_scores": {}
+}

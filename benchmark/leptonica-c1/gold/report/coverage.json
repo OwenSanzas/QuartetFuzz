@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 3005,
+  "count": 92526,
+  "percent": 3.248
+ },
+ "functions": {
+  "covered": 195,
+  "count": 2902,
+  "percent": 6.72
+ },
+ "regions": {
+  "covered": 2900,
+  "count": 148172,
+  "percent": 1.957
+ },
+ "branches": {
+  "covered": 1422,
+  "count": 74007,
+  "percent": 1.921
+ },
+ "scope": "/src/leptonica/",
+ "files_in_scope": 124,
+ "files_total": 449,
+ "all_linked": {
+  "lines": {
+   "covered": 3005,
+   "count": 180931,
+   "percent": 1.661
+  },
+  "functions": {
+   "covered": 195,
+   "count": 6327,
+   "percent": 3.082
+  },
+  "regions": {
+   "covered": 2900,
+   "count": 236971,
+   "percent": 1.224
+  },
+  "branches": {
+   "covered": 1422,
+   "count": 119020,
+   "percent": 1.195
+  }
+ },
+ "timestamp": "2026-08-28T20:35:02Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,32 @@
+{
+  "case": "boost-c1",
+  "case_id": "boost/boost_graph_graphml_fuzzer",
+  "project": "boost",
+  "fuzzer_name": "boost_graph_graphml_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/boost_graph_graphml_fuzzer.cc",
+  "gold_source_file": "/src/boost_graph_graphml_fuzzer.cc",
+  "target_function": "boost::read_graphml",
+  "target_declaration": "template < typename MutableGraph > void read_graphml(std::istream& in, MutableGraph& g, dynamic_properties& dp, size_t desired_idx = 0)",
+  "target_location": "boost/graph/graphml.hpp:228",
+  "prompt": "Project: boost\nRepository: https://github.com/boostorg/boost.git\nRevision: 229b426acc80ceded4ca72c435a953d367d39d42\nLanguage: C++\n\nTarget function: boost::read_graphml\nDeclared in: boost/graph/graphml.hpp:228\nDeclaration: template < typename MutableGraph > void read_graphml(std::istream& in, MutableGraph& g, dynamic_properties& dp, size_t desired_idx = 0)\nEnclosing scope: namespace boost\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/boostorg/boost.git",
+      "rev": "229b426acc80ceded4ca72c435a953d367d39d42",
+      "type": "git"
+    },
+    "upstream_path": "/src/boost",
+    "all_repos": {
+      "/src/boost": {
+        "url": "https://github.com/boostorg/boost.git",
+        "rev": "229b426acc80ceded4ca72c435a953d367d39d42",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/boost-c1.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

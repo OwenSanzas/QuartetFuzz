@@ -1,0 +1,32 @@
+{
+  "case": "libyaml-c3",
+  "case_id": "libyaml/libyaml_reformatter_alt_fuzzer",
+  "project": "libyaml",
+  "fuzzer_name": "libyaml_reformatter_alt_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libyaml_reformatter_alt_fuzzer.c",
+  "gold_source_file": "/src/libyaml_reformatter_alt_fuzzer.c",
+  "target_function": "yaml_emitter_dump",
+  "target_declaration": "YAML_DECLARE(int) yaml_emitter_dump(yaml_emitter_t *emitter, yaml_document_t *document);",
+  "target_location": "yaml.h:1978",
+  "prompt": "Project: libyaml\nRepository: https://github.com/yaml/libyaml\nRevision: 893682bb98d5ed663a3e314c46dceaf9b1c8802f\nLanguage: C++\n\nTarget function: yaml_emitter_dump\nDeclared in: yaml.h:1978\nDeclaration: YAML_DECLARE(int) yaml_emitter_dump(yaml_emitter_t *emitter, yaml_document_t *document);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/yaml/libyaml",
+      "rev": "893682bb98d5ed663a3e314c46dceaf9b1c8802f",
+      "type": "git"
+    },
+    "upstream_path": "/src/libyaml",
+    "all_repos": {
+      "/src/libyaml": {
+        "url": "https://github.com/yaml/libyaml",
+        "rev": "893682bb98d5ed663a3e314c46dceaf9b1c8802f",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libyaml.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

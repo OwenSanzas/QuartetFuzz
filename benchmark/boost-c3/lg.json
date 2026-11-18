@@ -1,0 +1,24 @@
+{
+  "name": "boost::regex search-and-replace (regex_replace / regex_merge)",
+  "description": "regex_replace drives untrusted text (first..last) through the full regex matching state machine (via regex_iterator \u2192 regex_search \u2192 perl_matcher) and then feeds every match's captured sub-matches together with an attacker-influenced format string (fmt) through the format-string interpreter (basic_regex_formatter), writing the substituted text to an OutputIterator. Both the subject text and the format string are attacker data, and the format interpreter supports a small expression language (literal copy, $N / $&, \\N backreferences, (?1...)(?2...) conditional blocks, \\U \\L \\E case folding, Perl \"verbs\") so bugs in either the NFA matcher or the formatter's recursive mini-parser are the security-relevant surface.\n- regex_replace (OutputIterator overload, target): core engine entry; builds a regex_iterator over [first,last) with the given basic_regex and flags, then for each match calls match_results::format(out, fmt, flags, e) which dispatches into basic_regex_formatter; reaches core directly.\n- regex_replace (std::basic_string overload): source/variant; wraps the string in begin()/end() iterators and a string_out_iterator, then calls the iterator-pair overload \u2014 same core, convenience form that lets the fuzzer drive input purely as strings.\n- regex_merge (both overloads, out+iterators and string forms): variant; trivial forwarding wrapper that calls regex_replace with the same arguments \u2014 exercises identical core but is a distinct public entry a harness may call interchangeably, useful to vary the call shape.\n- basic_regex (constructor/assign from charT* or string, with flag_type such as regex_constants::normal, extended, perl, egrep, icase, collate, nosubs): source/config; compiles the attacker-supplied pattern string into the NFA program that regex_iterator/regex_search walks, and the chosen regex-syntax flag selects very different parser/compiler paths in basic_regex_creator before any matching happens.\n- regex_search / regex_match: consumer/variant sharing perl_matcher core; useful to separately validate that a match found by the same NFA machinery used inside regex_replace matches expectations, and to drive the matcher directly with more match_flag_type combinations (match_not_bol, match_continuous, match_partial, match_any, match_posix).\nInput space to fuzz (most permissive first): the match_flag_type passed to regex_replace itself \u2014 format_all (enables the full conditional/recursive mini-language: '(', ')', '?', ':' grouping, \\U\\L\\E, Perl $ constructs) vs format_sed (changes '&' and '\\N' handling) vs format_perl/format_default vs format_no_copy (suppresses copying unmatched text) vs format_first_only (stop after first match); the regex compile flag_type given to basic_regex (regex_constants::normal/extended/perl/egrep, icase, nosubs, collate) which changes which bytes of the pattern string are even valid and what the compiled program looks like; and of course the two raw byte strings under fuzzer control \u2014 the subject text (first/last) and the format string (fmt), since the formatter's switch on '&', '\\\\', '(', ')', ':', '?', '$' walks fmt as a tiny parser with its own recursion-depth-limited state machine (format_perl, format_escape, format_conditional, format_until_scope_end, handle_perl_verb).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "boost::regex_replace",
+    "boost::regex_merge",
+    "boost::basic_regex::assign",
+    "boost::regex_search",
+    "boost::regex_match"
+  ],
+  "core": [
+    "boost::regex_iterator_implementation::init",
+    "boost::regex_iterator_implementation::next",
+    "boost::BOOST_REGEX_DETAIL_NS::perl_matcher::match_all_states",
+    "boost::BOOST_REGEX_DETAIL_NS::perl_matcher::find_imp",
+    "boost::match_results::format",
+    "boost::BOOST_REGEX_DETAIL_NS::basic_regex_formatter::format_all",
+    "boost::BOOST_REGEX_DETAIL_NS::basic_regex_formatter::format_perl",
+    "boost::BOOST_REGEX_DETAIL_NS::basic_regex_formatter::format_conditional"
+  ],
+  "project": "boost",
+  "risk_level": "",
+  "danger_scores": {}
+}

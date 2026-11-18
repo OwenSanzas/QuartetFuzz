@@ -1,0 +1,28 @@
+{
+  "name": "SentencePiece model deserialization and tokenization",
+  "description": "LoadFromSerializedProto deserializes an untrusted, attacker-controlled byte blob as a protobuf ModelProto and then builds the full tokenizer state from it (vocabulary trie, normalizer precompiled-charsmap trie, special-token ids, and a self-test run that already exercises Encode on embedded self_test_data samples). Because the blob directly drives vocabulary parsing, trie construction (Darts double array) and normalizer charsmap decoding, a malformed/malicious serialized model is a prime target for memory-safety and logic bugs (e.g. oversized/overlapping pieces, bad trie arrays, misaligned precompiled_charsmap, NaN/Inf scores, unknown model_type).\n- LoadFromSerializedProto: target; parses the raw bytes into a ModelProto (ParseFromArray) and calls Load(unique_ptr<ModelProto>), reaching all of core.\n- Load(const ModelProto&) / Load(std::unique_ptr<ModelProto>): variants/sources \u2014 alternate ways to hand a (possibly fuzzer-built) ModelProto object into the same core; Load(unique_ptr) is the common sink all loaders funnel into and is where ModelFactory::Create, Normalizer construction and the self-test loop run.\n- Load(absl::string_view filename): variant/source \u2014 loads the same serialized-proto bytes from a file via io::LoadModelProto instead of memory, reaching the same core.\n- SetEncodeExtraOptions / SetDecodeExtraOptions: configuration \u2014 parse \"bos:eos:reverse:unk\"-style strings (ParseExtraOptions) that toggle ApplyExtraOptions behavior used by Encode/Decode consumers; they require a successfully loaded model (status() check) so must follow LoadFromSerializedProto.\n- Encode(input, pieces/ids) and NBestEncode/SampleEncode: consumers \u2014 run model_->Encode()/NBestEncode()/SampleEncode(), which dispatch to the model-specific core (unigram Viterbi lattice PopulateNodes/EncodeOptimized, BPE symbol merge, word/char splitting) chosen at load time by TrainerSpec.model_type(), and also exercise normalizer_->Normalize() on the loaded precompiled_charsmap trie.\n- Decode(pieces or ids, detokenized): consumer \u2014 walks the loaded piece table (IdToPiece/PieceToId/IsByte/IsControl/IsUnknown) built during Load, exercising the vocabulary data structures from the opposite direction.\n- Input space to fuzz: the raw serialized ModelProto bytes themselves are the primary fuzz surface \u2014 particularly trainer_spec.model_type() (UNIGRAM/BPE/WORD/CHAR, each selecting a different ModelInterface subclass and thus a different core path in ModelFactory::Create), the pieces() list (piece text/length up to and beyond kMaxPieceSize=8000, score NaN/Inf, piece type NORMAL/USER_DEFINED/UNUSED/CONTROL/UNKNOWN/BYTE), normalizer_spec.precompiled_charsmap (empty vs present, well-formed vs corrupted Darts double-array blob, alignment), denormalizer_spec presence, and self_test_data.samples (which get auto-run through Encode during Load, already exercising the encode core). Secondary surface: the extra_option strings passed to SetEncodeExtraOptions/SetDecodeExtraOptions (\"bos\",\"eos\",\"reverse\",\"unk\"/\"unk_piece\") and the text/ids given to Encode/Decode after loading.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "sentencepiece::SentencePieceProcessor::LoadFromSerializedProto",
+    "sentencepiece::SentencePieceProcessor::Load",
+    "sentencepiece::SentencePieceProcessor::SetEncodeExtraOptions",
+    "sentencepiece::SentencePieceProcessor::SetDecodeExtraOptions",
+    "sentencepiece::SentencePieceProcessor::Encode",
+    "sentencepiece::SentencePieceProcessor::Decode",
+    "sentencepiece::SentencePieceProcessor::NBestEncode",
+    "sentencepiece::SentencePieceProcessor::SampleEncode"
+  ],
+  "core": [
+    "sentencepiece::ModelFactory::Create",
+    "sentencepiece::ModelInterface::InitializePieces",
+    "sentencepiece::unigram::Model::Model",
+    "sentencepiece::unigram::Model::EncodeOptimized",
+    "sentencepiece::unigram::Model::PopulateNodes",
+    "sentencepiece::bpe::Model::Model",
+    "sentencepiece::normalizer::Normalizer::Init",
+    "sentencepiece::normalizer::Normalizer::DecodePrecompiledCharsMap",
+    "sentencepiece::normalizer::Normalizer::Normalize"
+  ],
+  "project": "sentencepiece",
+  "risk_level": "",
+  "danger_scores": {}
+}

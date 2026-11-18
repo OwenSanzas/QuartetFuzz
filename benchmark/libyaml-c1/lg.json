@@ -1,0 +1,30 @@
+{
+  "name": "libyaml document loading (parser \u2192 composer)",
+  "description": "yaml_parser_load reads raw, untrusted YAML byte input (string/file/custom reader) and composes it into an in-memory document tree (yaml_document_t of yaml_node_t nodes for scalars, sequences and mappings), resolving anchors/aliases and tag directives along the way. This is the highest-value fuzzing surface in libyaml because it drives the full pipeline: byte reader -> UTF-8/16/32 decoding -> lexical scanner (tokens) -> event-level parser (state machine covering block/flow sequences, mappings, documents, directives) -> composer (loader.c) that builds the node stack, registers anchors, and resolves alias back-references. Bugs here (buffer handling in the scanner, stack growth, duplicate/dangling anchor handling, mapping/sequence node construction) are classic memory-safety targets.\n- yaml_parser_load: entry point/target; pulls parse events via yaml_parser_parse and composes a yaml_document_t (loader.c: yaml_parser_load_document -> yaml_parser_load_nodes -> yaml_parser_load_alias/scalar/sequence/mapping/*_end), exercising the whole scan+parse+compose core.\n- yaml_parser_initialize: lifecycle setup required before any parsing; must be called first.\n- yaml_parser_set_input_string / yaml_parser_set_input_file / yaml_parser_set_input: sources \u2014 select how the raw fuzz bytes are fed to the reader (in-memory buffer vs FILE* vs custom read handler), feeding the scanner's reader.c buffer-fill logic.\n- yaml_parser_set_encoding: configuration \u2014 forces UTF-8/UTF-16LE/UTF-16BE decoding path in reader.c instead of autodetecting from the BOM, changing which decode branch in the reader processes the bytes.\n- yaml_parser_parse: variant \u2014 lower-level event API used internally by yaml_parser_load (can also be called directly/alternately to exercise yaml_parser_state_machine and all its sub-state handlers for block/flow scalars, sequences, mappings, directives, anchors and tags without composing a document).\n- yaml_document_get_root_node / yaml_document_get_node: consumers \u2014 traverse the composed document returned by yaml_parser_load, walking into the node arrays (sequence.items, mapping.pairs) built by the composer, exercising node-array/content-correctness paths.\n- yaml_document_delete: lifecycle cleanup needed between repeated yaml_parser_load calls (a stream can contain multiple documents) and on error paths.\nInput space to vary from the fuzz bytes: document content/structure (plain/quoted/block/folded scalars, flow vs block sequences and mappings, nested anchors \"&name\"/aliases \"*name\", duplicate anchors, %YAML and %TAG directives, multiple documents \"---\"/\"...\" separators, comments, explicit vs implicit document start/end, BOM presence selecting UTF-8/16 encoding, and which yaml_parser_set_input* source/yaml_parser_set_encoding value is used to feed/interpret the same bytes).",
+  "entries": [
+    "yaml_parser_load",
+    "yaml_parser_initialize",
+    "yaml_parser_set_input_string",
+    "yaml_parser_set_input_file",
+    "yaml_parser_set_input",
+    "yaml_parser_set_encoding",
+    "yaml_parser_parse",
+    "yaml_document_get_root_node",
+    "yaml_document_get_node",
+    "yaml_document_delete"
+  ],
+  "core": [
+    "yaml_parser_load_document",
+    "yaml_parser_load_nodes",
+    "yaml_parser_load_alias",
+    "yaml_parser_load_scalar",
+    "yaml_parser_load_sequence",
+    "yaml_parser_load_mapping",
+    "yaml_parser_state_machine",
+    "yaml_parser_fetch_more_tokens",
+    "yaml_parser_register_anchor"
+  ],
+  "project": "libyaml",
+  "risk_level": "",
+  "danger_scores": {}
+}

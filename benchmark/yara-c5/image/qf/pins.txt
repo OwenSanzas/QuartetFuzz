@@ -1,0 +1,1 @@
+/src/yara https://github.com/VirusTotal/yara.git a69cc6a3bd83069c5f8ff0be8ef0c29a053682e3

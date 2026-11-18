@@ -1,0 +1,25 @@
+{
+  "name": "JPEG save (encode) to memory buffer",
+  "description": "vips_jpegsave_buffer encodes an in-memory VipsImage into a JPEG byte stream held in a GLib-allocated buffer, driving libjpeg's compressor over pixel data and image metadata (ICC profile, EXIF, XMP, IPTC) that may itself come from attacker-controlled sources (e.g. a previously loaded JPEG/other image file). Because the encoder walks arbitrary image geometries/band formats, embeds/rewrites metadata blobs, and exposes many compression-mode switches (quality, subsampling, progressive/optimized scans, trellis quantization, restart intervals, quantization table selection), it is a rich target for libjpeg-level and vips-glue-level memory-safety bugs (buffer sizing in the custom destination manager, metadata marker writers, colour/band conversion before encode).\n- vips_jpegsave_buffer: target. Builds the VipsForeignSaveJpegBuffer object, triggers vips_foreign_save_jpeg_build -> vips__jpeg_write_target -> write_vips, and returns the encoded bytes via an output VipsArea/buffer.\n- vips_jpegsave: variant, same core but writes to a file path instead of a buffer (same vips_foreign_save_jpeg_build/vips__jpeg_write_target path with a file-backed VipsTarget).\n- vips_jpegsave_target: variant, writes to an arbitrary VipsTarget (memory, file, descriptor, custom), same core encode path; useful to drive the same core with a fuzzer-controlled sink.\n- vips_jpegsave_mime: variant, writes the JPEG to stdout as a mime-typed stream, same core encode path.\n- vips_jpegload_buffer: source, decodes a fuzzer-supplied JPEG byte buffer into the VipsImage that is then fed to vips_jpegsave_buffer, so the pixel data, bands, ICC/EXIF/XMP metadata and dimensions driving the encoder's branches come directly from untrusted input rather than being fixed by the harness.\n- vips_image_new_from_buffer: source/variant, a format-agnostic loader (PNG, TIFF, etc., auto-detected by vips) that can likewise build the VipsImage object from raw bytes before it is handed to vips_jpegsave_buffer, broadening the input-space of band formats/types/metadata reaching the encoder.\nInput space: the image's Bands/BandFmt/Type (mono/RGB/CMYK, uchar vs other -> forces vips__foreign_convert_saveable promotion), presence of attached \"gainmap-data\"/scRGB/CICP metadata (diverts to vips_uhdrsave_target instead of the plain JPEG path), and the optional vips_jpegsave_buffer arguments: Q (1-100 quality factor), optimize_coding, interlace (progressive), subsample_mode (VIPS_FOREIGN_SUBSAMPLE_AUTO/ON/OFF, also legacy no_subsample bool), trellis_quant, overshoot_deringing, optimize_scans (only effective when progressive), quant_table index, restart_interval, and profile (embedded ICC profile file path, \"none\", or embedded-in-image profile blob) together with attached EXIF/XMP/IPTC metadata blobs on the input image, all of which select different branches in set_cinfo/write_metadata/write_vips.",
+  "entries": [
+    "vips_jpegsave_buffer",
+    "vips_jpegsave",
+    "vips_jpegsave_target",
+    "vips_jpegsave_mime",
+    "vips_jpegload_buffer",
+    "vips_image_new_from_buffer"
+  ],
+  "core": [
+    "vips_foreign_save_jpeg_build",
+    "vips__jpeg_write_target",
+    "write_vips",
+    "set_cinfo",
+    "write_metadata",
+    "write_jpeg_block",
+    "vips__foreign_convert_saveable",
+    "empty_output_buffer"
+  ],
+  "project": "libvips",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,32 @@
+{
+  "case": "miniz-c5",
+  "case_id": "miniz/uncompress_fuzzer",
+  "project": "miniz",
+  "fuzzer_name": "uncompress_fuzzer",
+  "language": "c",
+  "gold_harness_path": "$SRC/miniz/tests/uncompress_fuzzer.c",
+  "gold_source_file": "/src/miniz/tests/uncompress_fuzzer.c",
+  "target_function": "mz_uncompress",
+  "target_declaration": "MINIZ_EXPORT int mz_uncompress(unsigned char *pDest, mz_ulong *pDest_len, const unsigned char *pSource, mz_ulong source_len);",
+  "target_location": "miniz.h:443",
+  "prompt": "Project: miniz\nRepository: https://github.com/richgel999/miniz.git\nRevision: 77d0dce8627735138c51770d1799a1ef48f2117d\nLanguage: C\n\nTarget function: mz_uncompress\nDeclared in: miniz.h:443\nDeclaration: MINIZ_EXPORT int mz_uncompress(unsigned char *pDest, mz_ulong *pDest_len, const unsigned char *pSource, mz_ulong source_len);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/richgel999/miniz.git",
+      "rev": "77d0dce8627735138c51770d1799a1ef48f2117d",
+      "type": "git"
+    },
+    "upstream_path": "/src/miniz",
+    "all_repos": {
+      "/src/miniz": {
+        "url": "https://github.com/richgel999/miniz.git",
+        "rev": "77d0dce8627735138c51770d1799a1ef48f2117d",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/miniz.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

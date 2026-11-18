@@ -1,0 +1,67 @@
+{
+  "case": "leptonica-c1",
+  "case_id": "leptonica/graphics_fuzzer",
+  "project": "leptonica",
+  "fuzzer_name": "graphics_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/leptonica/prog/fuzzing/graphics_fuzzer.cc",
+  "gold_source_file": "/src/leptonica/prog/fuzzing/graphics_fuzzer.cc",
+  "target_function": "pixRenderBox",
+  "target_declaration": "LEPT_DLL extern l_ok pixRenderBox ( PIX *pix, BOX *box, l_int32 width, l_int32 op );",
+  "target_location": "leptonica/allheaders.h:979",
+  "prompt": "Project: leptonica\nRepository: https://github.com/DanBloomberg/leptonica.git\nRevision: 10bdea2f19240ffe8c931701b0b7340f41c6b256\nLanguage: C++\n\nTarget function: pixRenderBox\nDeclared in: leptonica/allheaders.h:979\nDeclaration: LEPT_DLL extern l_ok pixRenderBox ( PIX *pix, BOX *box, l_int32 width, l_int32 op );\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/DanBloomberg/leptonica.git",
+      "rev": "10bdea2f19240ffe8c931701b0b7340f41c6b256",
+      "type": "git"
+    },
+    "upstream_path": "/src/leptonica",
+    "all_repos": {
+      "/src/zstd": {
+        "url": "https://github.com/facebook/zstd",
+        "rev": "82d322c4973d9e2968d94047a40892bc6d9a9bdf",
+        "type": "git"
+      },
+      "/src/libjpeg-turbo": {
+        "url": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "rev": "2646fa33f8d67373c27b558b47e77b2d8d517e31",
+        "type": "git"
+      },
+      "/src/jbigkit": {
+        "url": "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
+        "rev": "4f96ddd9e8850594a2d94fb2201571be0398c8c7",
+        "type": "git"
+      },
+      "/src/libwebp": {
+        "url": "https://chromium.googlesource.com/webm/libwebp",
+        "rev": "523e30432fdbf77b9566a9fc65394a97cbebc11c",
+        "type": "git"
+      },
+      "/src/libpng": {
+        "url": "https://github.com/glennrp/libpng.git",
+        "rev": "d1d0abeffede1cc898ddc3d0e600839cf026d749",
+        "type": "git"
+      },
+      "/src/libtiff": {
+        "url": "https://gitlab.com/libtiff/libtiff",
+        "rev": "b99beace423ebb3d2040a2a61fe8c01bd857d854",
+        "type": "git"
+      },
+      "/src/zlib": {
+        "url": "https://github.com/madler/zlib.git",
+        "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+        "type": "git"
+      },
+      "/src/leptonica": {
+        "url": "https://github.com/DanBloomberg/leptonica.git",
+        "rev": "10bdea2f19240ffe8c931701b0b7340f41c6b256",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/leptonica.callgraph.sqlite.xz",
+  "lg_version": "lg100v4"
+}

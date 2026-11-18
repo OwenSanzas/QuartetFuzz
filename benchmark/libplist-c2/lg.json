@@ -1,0 +1,23 @@
+{
+  "name": "libplist JSON parser (jplist)",
+  "description": "plist_from_json parses an untrusted, attacker-controlled JSON byte buffer into an in-memory plist_t tree. It tokenizes the input with the embedded jsmn tokenizer (growing the token array on JSMN_ERROR_NOMEM) and then walks the token stream recursively building dict/array/string/primitive nodes; the recursive-descent parsing (parse_object/parse_array/parse_string/parse_primitive, plus the string-unescaping and numeric-literal parsing helpers) is the security-relevant core, since it has to deal with malformed/truncated JSON, deeply nested containers, invalid \\u escapes, huge/overflowing numeric literals, and partial UTF-8/byte sequences supplied directly from the fuzz input. The inverse function plist_to_json(_with_options) serializes a plist tree back to JSON text and is a natural round-trip consumer that exercises the writer side (node_to_json/node_estimate_size) on whatever structure the parser produced, which is useful to detect structural corruption introduced by the parser. plist_from_memory is a format-sniffing wrapper that, when it detects JSON-looking content, forwards directly to plist_from_json, so it is a legitimate alternate entry into the same core logic driven purely by the raw byte buffer (and it also reaches the XML/binary/OSTEP parsers, but for the JSON path it is equivalent to calling plist_from_json with auto-detection).\n- plist_from_json: target; drives the full JSON tokenizer + recursive-descent tree builder (jsmn_parse, parse_object, parse_array, parse_string, parse_primitive, unescape_string, parse_decimal) directly from the fuzz buffer and length.\n- plist_from_memory: source/variant; auto-detects the format of a raw buffer (via plist_is_binary-style sniffing) and dispatches to plist_from_json when the content looks like JSON, feeding the same core parser from an untyped byte blob plus exercising the format-detection branch.\n- plist_to_json: consumer/inverse; serializes the plist_t tree that plist_from_json built back into a JSON string (node_estimate_size + node_to_json), validating that the parsed tree is well-formed and round-trippable, and exercising a different code path (writer) on parser output.\n- plist_to_json_with_options: consumer/inverse variant with explicit plist_write_options_t (PLIST_OPT_COMPACT prettify switch, PLIST_OPT_COERCE for lossy numeric coercion), giving the harness multiple serialization configurations to run over the parsed tree.\n\nInput space: the raw JSON text/length fed to plist_from_json selects very different parser paths depending on the top-level token type (JSMN_OBJECT, JSMN_ARRAY, JSMN_STRING, JSMN_PRIMITIVE) encountered by jsmn, nesting depth of objects/arrays (recursion depth passed to parse_object/parse_array), presence/validity of string escape sequences (\\\", \\\\, \\/, \\b, \\f, \\n, \\r, \\t, \\uXXXX with surrogate handling in unescape_string), numeric literal shapes (integer vs. floating point vs. exponent forms handled by parse_decimal and the float branch with over/underflow and inf/nan checks), truncated/incomplete JSON (JSMN_ERROR_PART), malformed tokens (JSMN_ERROR_INVAL), and oversized/too many tokens forcing the token-buffer growth loop (JSMN_ERROR_NOMEM) up to the INT_MAX-16 cap (JSMN_ERROR_LIMIT). On the writer side, the PLIST_OPT_COMPACT and PLIST_OPT_COERCE flags of plist_to_json_with_options select prettified vs. compact output and strict vs. coercive handling of non-JSON-native plist types (data/date/uid), giving further path diversity when round-tripping the parsed tree.",
+  "entries": [
+    "plist_from_json",
+    "plist_from_memory",
+    "plist_to_json",
+    "plist_to_json_with_options"
+  ],
+  "core": [
+    "parse_object",
+    "parse_array",
+    "parse_string",
+    "parse_primitive",
+    "unescape_string",
+    "parse_decimal",
+    "node_to_json",
+    "node_estimate_size"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,37 @@
+{
+  "case": "libtasn1-c1",
+  "case_id": "libtasn1/asn1_decode_simple_ber_fuzzer",
+  "project": "libtasn1",
+  "fuzzer_name": "asn1_decode_simple_ber_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libtasn1/fuzz/asn1_decode_simple_ber_fuzzer.c",
+  "gold_source_file": "/src/libtasn1/fuzz/asn1_decode_simple_ber_fuzzer.c",
+  "target_function": "asn1_decode_simple_ber",
+  "target_declaration": "extern ASN1_API int asn1_decode_simple_ber (unsigned int etype, const unsigned char *der, unsigned int _der_len, unsigned char **str, unsigned int *str_len, unsigned int *ber_len);",
+  "target_location": "libtasn1.h:440",
+  "prompt": "Project: libtasn1\nRepository: https://gitlab.com/gnutls/libtasn1.git\nRevision: 2b2065b2383aebe138c7d0f7b5646369e5f56ec3\nLanguage: C++\n\nTarget function: asn1_decode_simple_ber\nDeclared in: libtasn1.h:440\nDeclaration: extern ASN1_API int asn1_decode_simple_ber (unsigned int etype, const unsigned char *der, unsigned int _der_len, unsigned char **str, unsigned int *str_len, unsigned int *ber_len);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://gitlab.com/gnutls/libtasn1.git",
+      "rev": "2b2065b2383aebe138c7d0f7b5646369e5f56ec3",
+      "type": "git"
+    },
+    "upstream_path": "/src/libtasn1",
+    "all_repos": {
+      "/src/libtasn1": {
+        "url": "https://gitlab.com/gnutls/libtasn1.git",
+        "rev": "2b2065b2383aebe138c7d0f7b5646369e5f56ec3",
+        "type": "git"
+      },
+      "/src/gnulib": {
+        "url": "git://git.savannah.gnu.org/gnulib.git",
+        "rev": "b201da757520ca70e9c09c55c2771768b620605f",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libtasn1.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

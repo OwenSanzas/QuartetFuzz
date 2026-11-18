@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/lz4-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/lz4_round_trip_hc_fuzzer/public.zip",
+ "qualified_name": "lz4_round_trip_hc_fuzzer",
+ "seeds": 9543,
+ "unpacked_bytes": 669824444,
+ "zip_bytes": 169563584,
+ "zip_sha256": "b3afed56786731c0b0eee62d57f560802b4b2725a6264d423bde508d78b9debc",
+ "content_digest_sha256": "d32f7f098dd5d1360387a18f93a8cbc24e2dedd1448cd8673214a11dd1bc99b2",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

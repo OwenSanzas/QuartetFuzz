@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 2059,
+  "count": 23197,
+  "percent": 8.876
+ },
+ "functions": {
+  "covered": 140,
+  "count": 1475,
+  "percent": 9.492
+ },
+ "regions": {
+  "covered": 2130,
+  "count": 32731,
+  "percent": 6.508
+ },
+ "branches": {
+  "covered": 1106,
+  "count": 13910,
+  "percent": 7.951
+ },
+ "scope": "/src/janet/",
+ "files_in_scope": 4,
+ "files_total": 4,
+ "all_linked": {
+  "lines": {
+   "covered": 2059,
+   "count": 23197,
+   "percent": 8.876
+  },
+  "functions": {
+   "covered": 140,
+   "count": 1475,
+   "percent": 9.492
+  },
+  "regions": {
+   "covered": 2130,
+   "count": 32731,
+   "percent": 6.508
+  },
+  "branches": {
+   "covered": 1106,
+   "count": 13910,
+   "percent": 7.951
+  }
+ },
+ "timestamp": "2026-08-31T19:21:52Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

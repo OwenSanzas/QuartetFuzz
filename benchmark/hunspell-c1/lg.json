@@ -1,0 +1,22 @@
+{
+  "name": "Hunspell morphological analysis (analyze / stem / generate)",
+  "description": "Hunspell::analyze takes an attacker-controlled word string and returns its morphological analysis (root form plus affix/flag tags), driving a large amount of untrusted-input parsing logic: character-set cleanup, Unicode case folding, affix-file driven prefix/suffix/compound matching, and dictionary lookups built from the loaded .dic/.aff files, so malformed or adversarial words (and dictionaries) can trigger out-of-bounds or logic bugs deep in the affix/compound matching state machines. Hunspell::analyze forwards to HunspellImpl::analyze, which calls analyze_internal (the real worker) and then applies an output-conversion table (OCONV, from the affix file) to the produced analysis lines.\n- Hunspell::analyze: target; calls analyze_internal which cleans the word (cleanword2, case detection via captype: NOCAP/INITCAP/ALLCAP/HUHCAP/HUHINITCAP), optionally applies ICONV input conversion (RepList::conv), handles LANG_hu numeric/dash-compound special casing, and calls SuggestMgr::suggest_morph / affix_check_morph / compound_check_morph to produce the morphological breakdown; also applies OCONV output conversion and a MAXMORPHRESULT size cap.\n- Hunspell::stem(word): variant/consumer \u2014 calls analyze(word) internally then reduces the analysis lines to plain stems, exercising the same analyze_internal path plus the stem-extraction post-processing (HunspellImpl::stem(vector<string>)).\n- Hunspell::stem(morph): variant \u2014 the two-argument form that takes an already-produced analysis vector (as from analyze) and extracts stems from it, exercising the morphological-field parsing (MORPH_STEM tag scanning) independently of re-running analyze_internal.\n- Hunspell::generate(word, word2): consumer \u2014 calls analyze(word2) to get a pattern, then analyze(word) for base forms, and drives SuggestMgr::suggest_gen/suggest_hentry_gen using both analyses plus spell() filtering, exercising morphological generation by example, a different consumer path over the same affix-matching core.\n- Hunspell::generate(word, pl): variant \u2014 the same generation feature but takes a vector of morphological description strings directly (bypassing the inner analyze(pattern) call for the pattern side) while still calling analyze(word) for the base word, letting a harness feed morph-description strings (e.g. \"is:plural\") directly to exercise suggest_gen/morphgen.\n- Hunspell::add_dic: configuration/source \u2014 loads an extra dictionary file at runtime (HashMgr), changing which hentry/affix data analyze_internal's lookup() and compound_check_morph() can match, so varying dictionaries select different code paths through the affix engine.\nThe input space includes: the raw word bytes/length (UTF-8 vs 8-bit mode via `utf8`, length checks against MAXWORDUTF8LEN/MAXWORDLEN and the FUZZING_BUILD_MODE 32768 cap), capitalization class (captype: NOCAP, INITCAP, ALLCAP, HUHCAP, HUHINITCAP) which selects different suggest_morph call sequences, presence of trailing '.' (abbreviation handling), LANG_hu-specific numeric and dash-compound parsing branches, whether the active dictionary has complex prefixes, ICONV/OCONV replacement tables from the loaded affix file, and whether the affix file enables compounding (get_compound()) or two-level suffix/prefix classes (havecontclass) \u2014 all of which are controlled indirectly by which .aff/.dic files and which word strings are fed to the harness.",
+  "entries": [
+    "Hunspell::analyze",
+    "Hunspell::stem",
+    "Hunspell::generate",
+    "Hunspell::add_dic"
+  ],
+  "core": [
+    "HunspellImpl::analyze",
+    "HunspellImpl::analyze_internal",
+    "SuggestMgr::suggest_morph",
+    "SuggestMgr::suggest_gen",
+    "AffixMgr::affix_check_morph",
+    "AffixMgr::compound_check_morph",
+    "HunspellImpl::spell_internal"
+  ],
+  "project": "hunspell",
+  "risk_level": "",
+  "danger_scores": {}
+}

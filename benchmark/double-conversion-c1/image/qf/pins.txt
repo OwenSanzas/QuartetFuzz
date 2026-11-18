@@ -1,0 +1,1 @@
+/src/double-conversion https://github.com/google/double-conversion.git 9176765db2fdbc9d564f013d7678a6d7acf78dc6

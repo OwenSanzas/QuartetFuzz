@@ -1,0 +1,29 @@
+{
+  "name": "XPath query compilation and evaluation",
+  "description": "pugi::xpath_query::xpath_query(query, variables) compiles an attacker-controlled XPath 1.0 expression string into an AST (xpath_ast_node tree) using a hand-written recursive-descent parser (xpath_lexer + xpath_parser) and a bump allocator (xpath_allocator/xpath_memory_block). The constructor is the core entry point that turns raw untrusted text into an executable expression tree; the tree is later walked by evaluate_* methods against an XML document, and the lexer/parser/optimizer/evaluator recursion depth, node/step counts and string handling make this a security-relevant parsing+interpreter surface (stack-depth recursion limits, allocator OOM paths, type coercion between boolean/number/string/node-set, predicate and axis handling, union operators, variable binding).\n- xpath_query(query, variables): target/entry. Builds an xpath_parser, calls xpath_parser::parse -> parse_expression -> parse_expression_rec/parse_path_or_unary_expression, which recursively parses the XPath grammar (OrExpr/AndExpr/EqualityExpr/RelationalExpr/AdditiveExpr/MultiplicativeExpr/UnaryExpr, path expressions, predicates, axes, node tests, function calls) via the lexer (xpath_lexer::next/current, token/string scanning with escape handling), allocates xpath_ast_node nodes from the per-query xpath_allocator, then calls xpath_ast_node::optimize on the resulting tree.\n- xpath_query() (default ctor) + xpath_query::operator bool/operator!: config/lifecycle, lets the harness exercise an empty/invalid query object state and the validity check before evaluating.\n- xpath_query::evaluate_boolean / evaluate_number / evaluate_string(xpath_node) / evaluate_string(buffer,capacity,xpath_node) / evaluate_node_set / evaluate_node: consumers of the compiled query; each walks the AST via xpath_ast_node::eval_boolean/eval_number/eval_string/eval_node_set against a supplied xpath_node context, exercising the interpreter's type-conversion and node-set construction logic (the actual security-relevant runtime behavior driven by the parsed query).\n- xml_node::select_node(const char_t*, xpath_variable_set*) / xml_node::select_nodes(const char_t*, xpath_variable_set*) / xml_node::select_single_node: variants/consumers that internally construct an xpath_query from the string and immediately evaluate it against a real xml_document node, combining the XML-parsing feature with the XPath-compiling feature in the way real callers use the API.\n- xpath_variable_set::add/set/get: configuration \u2014 lets the harness bind named variables (boolean/number/string/node-set typed) referenced by $name in the query, selecting different parse/eval code paths (variable reference resolution vs. literal-only expressions).\nInput space to vary from fuzz bytes: the raw query string itself (operators -, +, *, div, mod, =, !=, <, <=, >, >=, |, and, or; axes like child::, descendant::, attribute::, parent::, following-sibling::, etc. and abbreviations //, ., ..; node tests * / name() / comment() / text() / processing-instruction(); predicates [...]; function calls (string(), count(), position(), last(), substring(), contains(), ...); string vs numeric vs variable-reference literals; deeply nested parentheses/predicates to hit the xpath_ast_depth_limit recursion guard); whether an xpath_variable_set is supplied and which variable names/types are registered (boolean/number/string/node_set, hitting xpath_type_* branches in xpath_variable_set::add/get); and which evaluate_* method is called afterward (selects eval_boolean/eval_number/eval_string/eval_node_set/eval_node code paths and type-coercion branches in xpath_ast_node).",
+  "entries": [
+    "pugi::xpath_query::xpath_query",
+    "pugi::xpath_query::evaluate_boolean",
+    "pugi::xpath_query::evaluate_number",
+    "pugi::xpath_query::evaluate_string",
+    "pugi::xpath_query::evaluate_node_set",
+    "pugi::xpath_query::evaluate_node",
+    "pugi::xml_node::select_node",
+    "pugi::xml_node::select_nodes",
+    "pugi::xpath_variable_set::add",
+    "pugi::xpath_variable_set::set"
+  ],
+  "core": [
+    "impl::xpath_parser::parse",
+    "impl::xpath_parser::parse_expression",
+    "impl::xpath_parser::parse_path_or_unary_expression",
+    "impl::xpath_lexer::next",
+    "impl::xpath_ast_node::optimize",
+    "impl::xpath_ast_node::eval_node_set",
+    "impl::xpath_ast_node::eval_boolean",
+    "impl::xpath_query_impl::create"
+  ],
+  "project": "pugixml",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1274,
+  "count": 4455,
+  "percent": 28.597
+ },
+ "functions": {
+  "covered": 150,
+  "count": 656,
+  "percent": 22.866
+ },
+ "regions": {
+  "covered": 858,
+  "count": 1559,
+  "percent": 55.035
+ },
+ "branches": {
+  "covered": 448,
+  "count": 574,
+  "percent": 78.049
+ },
+ "scope": "/src/msgpack-c/",
+ "files_in_scope": 48,
+ "files_total": 48,
+ "all_linked": {
+  "lines": {
+   "covered": 1274,
+   "count": 4455,
+   "percent": 28.597
+  },
+  "functions": {
+   "covered": 150,
+   "count": 656,
+   "percent": 22.866
+  },
+  "regions": {
+   "covered": 858,
+   "count": 1559,
+   "percent": 55.035
+  },
+  "branches": {
+   "covered": 448,
+   "count": 574,
+   "percent": 78.049
+  }
+ },
+ "timestamp": "2026-08-31T19:39:53Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

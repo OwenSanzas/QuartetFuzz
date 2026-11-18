@@ -1,0 +1,32 @@
+{
+  "case": "yara-c2",
+  "case_id": "yara/dotnet_fuzzer",
+  "project": "yara",
+  "fuzzer_name": "dotnet_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/yara/tests/oss-fuzz/dotnet_fuzzer.cc",
+  "gold_source_file": "/src/yara/tests/oss-fuzz/dotnet_fuzzer.cc",
+  "target_function": "yr_rules_scan_mem",
+  "target_declaration": "YR_API int yr_rules_scan_mem( YR_RULES* rules, const uint8_t* buffer, size_t buffer_size, int flags, YR_CALLBACK_FUNC callback, void* user_data, int timeout);",
+  "target_location": "yara/rules.h:84",
+  "prompt": "Project: yara\nRepository: https://github.com/VirusTotal/yara.git\nRevision: a69cc6a3bd83069c5f8ff0be8ef0c29a053682e3\nLanguage: C++\n\nTarget function: yr_rules_scan_mem\nDeclared in: yara/rules.h:84\nDeclaration: YR_API int yr_rules_scan_mem( YR_RULES* rules, const uint8_t* buffer, size_t buffer_size, int flags, YR_CALLBACK_FUNC callback, void* user_data, int timeout);\n\nExercise it under this configuration: the .NET module.\n(the rule is `import \"dotnet\"`, routing the input through the .NET metadata parser)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/VirusTotal/yara.git",
+      "rev": "a69cc6a3bd83069c5f8ff0be8ef0c29a053682e3",
+      "type": "git"
+    },
+    "upstream_path": "/src/yara",
+    "all_repos": {
+      "/src/yara": {
+        "url": "https://github.com/VirusTotal/yara.git",
+        "rev": "a69cc6a3bd83069c5f8ff0be8ef0c29a053682e3",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/yara.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

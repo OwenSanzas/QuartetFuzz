@@ -1,0 +1,23 @@
+{
+  "name": "StringToDoubleConverter string parsing (char/uc16, double/float)",
+  "description": "StringToDoubleConverter parses an untrusted, attacker-controlled byte/uc16 buffer into a double (or float), handling signs, leading/trailing whitespace, decimal/hex/hex-float/octal literals, custom digit separators, and special \"infinity\"/\"nan\" symbols entirely configured at construction time via flags and symbol strings. Because the parser walks the buffer with manual pointer/iterator arithmetic and feeds the parsed significant digits into the Bignum-based exact-rounding engine in strtod.cc, it is a classic target for off-by-one reads, exponent-overflow, and rounding-boundary bugs when fed malformed or edge-case numeric text.\n- StringToDouble(char*): target; drives the shared StringToIeee<Iterator> engine with read_as_double=true; reaches core.\n- StringToDouble(uc16*): variant, 16-bit-character iterator overload of the same StringToIeee core; exercises the CodeUnit/ToLower templated-iterator code paths (same core, different Iterator instantiation).\n- StringToFloat(char*): variant, same StringToIeee core with read_as_double=false, diverging inside RadixStringToIeee/StrtofTrimmed (single- vs double-precision significand sizing and rounding-to-odd logic) \u2014 reaches related but distinct core code.\n- StringToFloat(uc16*): variant, 16-bit-character counterpart of StringToFloat, same core as above.\n- StringTo<double>/StringTo<float> (char* and uc16* overloads): thin templated dispatchers that just call StringToDouble/StringToFloat; same core, convenience wrappers.\n- StringToDoubleConverter(flags, empty_string_value, junk_string_value, infinity_symbol, nan_symbol, separator): configuration \u2014 the constructor whose bit-mask flags and symbol strings select almost every branch in the core (not itself reaching core, but it sets the state StringToIeee reads on every call, so a harness must construct several converters with different flag/symbol/separator combinations before calling StringToDouble).\nThe input space to vary (most path-opening settings first): the `flags_` bit combination \u2014 ALLOW_HEX (parses \"0x...\" via RadixStringToIeee<4>), ALLOW_HEX_FLOATS (enables IsHexFloatString + RadixStringToIeee hex-float/exponent path), ALLOW_OCTALS (RadixStringToIeee<3> octal path), ALLOW_TRAILING_JUNK, ALLOW_LEADING_SPACES, ALLOW_TRAILING_SPACES, ALLOW_SPACES_AFTER_SIGN, ALLOW_CASE_INSENSITIVITY; the `separator` character (kNoSeparator vs a real digit-group separator like ' ' which activates the Advance()-with-separator skipping logic); non-null `infinity_symbol`/`nan_symbol` strings (activate ConsumeFirstCharacter/ConsumeSubString special-value matching) versus null (skips that code); the buffer content itself (sign, leading zeros, decimal/hex/octal/hex-float digit sequences, exponent with '+'/'-', very long digit runs beyond kMaxSignificantDigits to exercise nonzero_digit_dropped/insignificant_digits, and malformed/truncated forms like \"0x\", \"123e\", \"--1\") which determines which branch of StringToIeee, RadixStringToIeee and ultimately StrtodTrimmed/StrtofTrimmed/ComputeGuess (strtod.cc) is taken; and the `length`/`processed_characters_count` boundary (empty buffer, buffer fully consumed vs. trailing junk left).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "double_conversion::StringToDoubleConverter::StringToDouble",
+    "double_conversion::StringToDoubleConverter::StringToFloat",
+    "double_conversion::StringToDoubleConverter::StringTo",
+    "double_conversion::StringToDoubleConverter::StringToDoubleConverter"
+  ],
+  "core": [
+    "double_conversion::StringToDoubleConverter::StringToIeee",
+    "double_conversion::RadixStringToIeee",
+    "double_conversion::IsHexFloatString",
+    "double_conversion::Advance",
+    "double_conversion::ConsumeSubString",
+    "double_conversion::StrtodTrimmed",
+    "double_conversion::StrtofTrimmed",
+    "double_conversion::ComputeGuess"
+  ],
+  "project": "double-conversion",
+  "risk_level": "",
+  "danger_scores": {}
+}

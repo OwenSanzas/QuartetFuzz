@@ -1,0 +1,22 @@
+{
+  "name": "JSON prettify/minify reformatting",
+  "description": "glz::prettify_json takes a raw JSON text buffer (std::string/string_view or any contiguous byte range, not necessarily validated) and re-serializes it with indentation and newlines by running a lightweight, hand-rolled JSON tokenizer (glz::detail::prettify_json) that classifies every byte via the json_types lookup table and walks strings, numbers, comments and nesting structure directly over the raw bytes using SIMD-ish 8-byte chunk scanning (read_json_string, read_json_number, read_jsonc_comment); because this scanner re-implements its own string/number/comment boundary detection and recursion-depth tracking rather than calling the full validating parser, it is a prime target for out-of-bounds reads, infinite loops, or depth-limit bypasses on malformed/adversarial input (unterminated strings, unbalanced braces/brackets, broken UTF-8, deeply nested structures, mixed escaping).\n- glz::prettify_json(const auto& in): target; allocating string overload; drives detail::prettify_json over the input buffer and is the primary way to reach the tokenizer core.\n- glz::prettify_json(const auto& in, auto& out): variant/overload writing into a caller-supplied resizable buffer instead of returning a new std::string; same core (detail::prettify_json), exercises the output-buffer resizing path (out.resize(in.size()*2) then final resize(ix)) in addition to the core loop.\n- glz::prettify_jsonc(const auto& in): variant that forces Opts.comments=true, enabling the Comment branch (read_jsonc_comment) in the shared tokenizer core that prettify_json normally skips as a no-op whitespace-equivalent when Opts.comments=false \u2014 this is the most path-opening configuration.\n- glz::prettify_jsonc(const auto& in, auto& out): same as above but buffer-output overload.\n- glz::minify_json(resizable auto& in) / glz::minify_json(resizable auto& in, auto& out): inverse operation; runs a sibling tokenizer (detail::minify_json) sharing read_json_string/read_json_number/json_types with prettify_json's core, used in round-trip tests (prettify then minify) to validate output is still well-formed JSON \u2014 good consumer/round-trip coverage of the same byte-scanning primitives.\n- glz::minify_jsonc(resizable auto& in): comment-aware variant of minify, same rationale as prettify_jsonc.\nInput space to fuzz: the raw JSON byte buffer itself is the primary fuzzing surface (any sequence of bytes, not required to be well-formed \u2014 the tokenizer must gracefully error via ctx.error rather than crash); the Opts template parameter exposes: Opts.comments (false default; true via prettify_jsonc/minify_jsonc enables /* */ comment parsing \u2014 most permissive, adds a whole branch of C); Opts.new_lines_in_arrays (default true; false collapses array formatting \u2014 a narrowing switch, not a path-adding one) and indentation_char/indentation_width which only affect output bytes, not control flow; the null_terminated flag (set automatically based on whether `in` is a std::string vs a non-null-terminated contiguous range) changes which of two read_iterators-selected code paths (bounds-checked via `end` vs scanning until a null terminator) is taken \u2014 fuzzing both std::string and non-null-terminated byte buffers (e.g. vector<char>/span) as `in` exercises both loop variants and their differing loop/overrun conditions. Also worth stressing: deeply nested `[`/`{` to trigger the state-vector growth and max_recursive_depth_limit check, and malformed input hitting the syntax_error default branch and the indent<0 checks on stray `]`/`}`.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "glz::prettify_json",
+    "glz::prettify_jsonc",
+    "glz::minify_json",
+    "glz::minify_jsonc"
+  ],
+  "core": [
+    "glz::detail::prettify_json",
+    "glz::detail::minify_json",
+    "glz::detail::read_json_string",
+    "glz::detail::read_json_number",
+    "glz::detail::read_jsonc_comment",
+    "glz::detail::append_new_line",
+    "glz::detail::read_iterators"
+  ],
+  "project": "glaze",
+  "risk_level": "",
+  "danger_scores": {}
+}

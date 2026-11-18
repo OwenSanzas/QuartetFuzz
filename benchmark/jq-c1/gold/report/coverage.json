@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 17237,
+  "count": 40528,
+  "percent": 42.531
+ },
+ "functions": {
+  "covered": 691,
+  "count": 1344,
+  "percent": 51.414
+ },
+ "regions": {
+  "covered": 12918,
+  "count": 41979,
+  "percent": 30.773
+ },
+ "branches": {
+  "covered": 6234,
+  "count": 20709,
+  "percent": 30.103
+ },
+ "scope": "/src/jq/",
+ "files_in_scope": 52,
+ "files_total": 52,
+ "all_linked": {
+  "lines": {
+   "covered": 17237,
+   "count": 40528,
+   "percent": 42.531
+  },
+  "functions": {
+   "covered": 691,
+   "count": 1344,
+   "percent": 51.414
+  },
+  "regions": {
+   "covered": 12918,
+   "count": 41979,
+   "percent": 30.773
+  },
+  "branches": {
+   "covered": 6234,
+   "count": 20709,
+   "percent": 30.103
+  }
+ },
+ "timestamp": "2026-08-31T21:19:33Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

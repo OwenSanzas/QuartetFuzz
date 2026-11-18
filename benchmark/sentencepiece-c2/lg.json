@@ -1,0 +1,26 @@
+{
+  "name": "SentencePiece text tokenization (Encode)",
+  "description": "SentencePieceProcessor::Encode takes raw, untrusted UTF-8 text and turns it into a sequence of sub-word pieces/ids, driving the full tokenization pipeline: Unicode-aware text normalization (whitespace handling, dummy-prefix/suffix insertion, precompiled charsmap substitution) followed by a model-specific segmentation algorithm (Viterbi/lattice search for unigram, greedy BPE merges with optional dropout sampling, whitespace splitting for word model, or per-character splitting for char model), plus post-processing (byte-fallback for unknown bytes, unk/bos/eos/reverse extra-options). Because the model (vocabulary, scores, merge rules, normalizer spec) is itself loaded from an attacker-controllable serialized protobuf, and the segmentation algorithms do unbounded trie/lattice traversal over arbitrary byte sequences, this is a classic fuzzing target: malformed models combined with adversarial input strings can trigger out-of-bounds, infinite loops, or arithmetic issues in the trie builder, lattice construction, or BPE merge heap.\n- SentencePieceProcessor::Encode (target): core entry, calls EncodeOptimized<std::string> which normalizes the input via Normalizer::Normalize and then calls ModelInterface::Encode (dispatches to unigram/bpe/word/char model's Encode/EncodeOptimized), exercising the lattice Viterbi search (unigram::Model::EncodeOptimized, PopulateNodes), BPE merge loop (bpe::Model::SampleEncode with alpha=0), or simple split logic (word/char models).\n- Load / Load(ModelProto) / LoadFromSerializedProto: source, builds the ModelInterface + Normalizer from a (fuzzer-controlled) serialized ModelProto \u2014 selects model_type (UNIGRAM/BPE/WORD/CHAR) via ModelFactory::Create and builds the piece trie (BuildTrie) and normalizer precompiled_charsmap, all of which are read inside C during Encode.\n- Encode(input, vector<int>*) / Encode(input, SentencePieceText*): variant, same EncodeOptimized/EncodeOptimized<T> template or Encode(SentencePieceText*) path, returning ids or the richer SentencePieceText proto (different output container, exercises ApplyExtraOptions proto-specific branches).\n- NBestEncode(input, nbest_size, ...): variant, forces the full lattice path (unigram::Model::NBestEncode -> PopulateNodes -> Lattice::NBest) instead of the optimized single-best path, a different and heavier part of C.\n- SampleEncode(input, nbest_size, alpha, ...): variant/config, exercises BPE-dropout sampling (bpe::Model::SampleEncode with alpha>0) and unigram forward-filtering/backward-sampling (Lattice::Sample), selecting different random-walk code paths in C based on alpha and nbest_size sign.\n- SetEncodeExtraOptions(extra_option): configuration, sets encode_extra_options_ (parsed via ParseExtraOptions from strings like \"bos\", \"eos\", \"reverse\", \"unk_piece\") which make Encode call ApplyExtraOptions, taking different branches (REVERSE/EOS/BOS/UNK_PIECE) in the output post-processing code.\n- Decode(pieces/ids, ...): consumer/inverse operation, feeds Encode's output (or arbitrary piece/id vectors) back through DecodeOptimized and the normalizer's reverse mapping, completing the round-trip and exercising additional code that reads model_ piece tables.\nThe input space spans: (1) the raw text bytes passed to Encode (arbitrary UTF-8/binary, empty vs non-empty, containing whitespace/control chars/byte sequences that trigger byte-fallback); (2) the loaded ModelProto's trainer_spec.model_type (UNIGRAM/BPE/WORD/CHAR) selecting which ModelInterface subclass processes the text; (3) the ModelProto's pieces (vocabulary, scores, NaN/Inf-rejected) and normalizer_spec (precompiled_charsmap, add_dummy_prefix, remove_extra_whitespaces, escape_whitespaces) which drive BuildTrie/Normalize; (4) nbest_size and alpha values for NBestEncode/SampleEncode (nbest_size sign chooses lattice-NBest vs backward-sampling; alpha selects BPE dropout rate or sampling temperature); (5) extra_options strings (\"reverse\", \"bos\", \"eos\", \"unk_piece\") that select post-processing branches.",
+  "entries": [
+    "sentencepiece::SentencePieceProcessor::Encode",
+    "sentencepiece::SentencePieceProcessor::Load",
+    "sentencepiece::SentencePieceProcessor::LoadFromSerializedProto",
+    "sentencepiece::SentencePieceProcessor::NBestEncode",
+    "sentencepiece::SentencePieceProcessor::SampleEncode",
+    "sentencepiece::SentencePieceProcessor::SetEncodeExtraOptions",
+    "sentencepiece::SentencePieceProcessor::Decode"
+  ],
+  "core": [
+    "sentencepiece::SentencePieceProcessor::EncodeOptimized",
+    "sentencepiece::normalizer::Normalizer::Normalize",
+    "sentencepiece::ModelFactory::Create",
+    "sentencepiece::unigram::Model::EncodeOptimized",
+    "sentencepiece::unigram::Model::PopulateNodes",
+    "sentencepiece::unigram::Model::BuildTrie",
+    "sentencepiece::bpe::Model::SampleEncode",
+    "sentencepiece::SentencePieceProcessor::ApplyExtraOptions"
+  ],
+  "project": "sentencepiece",
+  "risk_level": "",
+  "danger_scores": {}
+}

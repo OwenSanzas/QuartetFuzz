@@ -1,0 +1,22 @@
+{
+  "name": "UnicodeString codepage-based charset conversion construction",
+  "description": "This feature constructs a UnicodeString (UTF-16) object by decoding an untrusted byte buffer (codepageData/dataLength) using a named charset converter (codepage), i.e. it drives ICU's generic charset-conversion engine (ucnv_toUnicode / MBCS/UTF-8 state machines) directly from fuzz-controlled bytes, length, and converter name. This is security-relevant because the conversion state machines (ucnv_toUnicode, table lookups, stack/heap buffer growth in doCodepageCreate) are classic sources of OOB-read/overflow bugs when fed malformed multi-byte sequences, truncated lengths, or unusual/invalid codepage names.\n- icu::UnicodeString(const char *codepageData, int32_t dataLength, const char *codepage): target; the core constructor that calls doCodepageCreate(data, length, codepage), opening a converter via ucnv_open(codepage) (or using the default converter when codepage==nullptr, or the \"invariant chars\" fast path when codepage==\"\"), then calling ucnv_toUnicode to fill the internal char16_t buffer, growing the buffer via cloneArrayIfNeeded as needed.\n- icu::UnicodeString(const char *codepageData, const char *codepage): variant, same doCodepageCreate path but NUL-terminated input (dataLength computed via strlen) instead of an explicit length \u2014 exercises the length==-1/strlen path and embedded-NUL truncation behavior.\n- icu::UnicodeString(const char *codepageData, int32_t dataLength): variant using the *default* platform converter only (codepage forced to nullptr), reaching the same doCodepageCreate/ucnv_toUnicode core but without the explicit codepage-name selection branch.\n- icu::UnicodeString(const char *src, int32_t srcLength, UConverter *cnv, UErrorCode &errorCode): variant/config \u2014 takes a pre-opened UConverter* (built by the harness via ucnv_open on a fuzzed name, or default converter) and calls doCodepageCreate(src, srcLength, cnv, errorCode) directly, letting the harness separate converter-selection from the actual decode-core call and reuse the converter across iterations.\n- extract(int32_t start, int32_t length, char *target, uint32_t dstSize, const char *codepage): consumer/inverse operation \u2014 takes the UnicodeString produced by the constructors above and re-encodes it back to bytes in a given codepage via ucnv_fromUnicode/doExtract, forming a decode\u2192encode round trip that exercises both halves of the conversion core and can reveal size/overflow mismatches between the two directions.\n- extract(char *dest, int32_t destCapacity, UConverter *cnv, UErrorCode &errorCode): consumer variant of extract that reuses an explicit UConverter, mirroring the UConverter-based constructor and completing a full decode/re-encode cycle with a caller-managed converter object.\n\nInput space the harness should vary from the fuzz input: the raw codepageData bytes and their dataLength (including -1 for NUL-terminated, 0, and negative/invalid lengths which doCodepageCreate special-cases); the codepage name string, including nullptr (default codepage, which internally special-cases UTF-8 default via UCNV_FAST_IS_UTF8), the empty string \"\" (invariant-character fast path bypassing ucnv_open entirely), and arbitrary/invalid converter names passed to ucnv_open (valid names like \"UTF-8\", \"ISO-8859-1\", \"Shift_JIS\", \"GB18030\", \"UTF-16BE\", or malformed/unknown names that make ucnv_open fail and force setToBogus()); and, when going through the UConverter* overloads, the specific converter type opened (single-byte, DBCS/MBCS table-driven, UTF-8/UTF-16 built-in, stateful ISO-2022 etc.), since each converter implementation has its own decode state machine that the fuzzed bytes drive.",
+  "entries": [
+    "icu::UnicodeString",
+    "icu::UnicodeString::extract",
+    "icu::ucnv_open",
+    "icu::ucnv_close"
+  ],
+  "core": [
+    "UnicodeString::doCodepageCreate",
+    "UnicodeString::doExtract",
+    "ucnv_toUnicode_79",
+    "ucnv_fromUnicode",
+    "UnicodeString::cloneArrayIfNeeded",
+    "ucnv_getDefaultName_79",
+    "u_getDefaultConverter_79"
+  ],
+  "project": "icu",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/uriparser-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/uriparser_uri_dissect_query_malloc_fuzzer/public.zip",
+ "qualified_name": "uriparser_uri_dissect_query_malloc_fuzzer",
+ "seeds": 1548,
+ "unpacked_bytes": 80529387,
+ "zip_bytes": 3989284,
+ "zip_sha256": "2f1dec9d7618e574ae3fd010f305326b9e1fccadfe69c4152ee600199875bd9c",
+ "content_digest_sha256": "f73998ab1032197ced1a91b3adc719dfd75256955309bc71173363e6076f6d31",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

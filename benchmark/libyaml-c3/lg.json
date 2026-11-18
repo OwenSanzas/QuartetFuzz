@@ -1,0 +1,27 @@
+{
+  "name": "libyaml document dumping (document tree -> YAML event stream)",
+  "description": "yaml_emitter_dump() serializes an in-memory yaml_document_t (a tree of scalar/sequence/mapping nodes, each carrying attacker-influenced tag strings, scalar byte content/length and style flags) into a sequence of emitter events that are ultimately written out as YAML text/bytes. This is security relevant because the dumper walks the document graph recursively (yaml_emitter_dump_node -> dump_scalar/dump_sequence/dump_mapping), computing/assigning anchors for nodes with multiple references, comparing node->tag strings against the default tag constants, and feeding node content (lengths, raw bytes, tags) into the emitter's lower-level event/state-machine/writer code that performs scalar-style analysis and escaping; malformed or adversarial tags/content/structure (e.g. deeply nested or cyclic sequences/mappings, huge scalars, non-NUL-terminated tags) can trigger bugs in anchor bookkeeping, recursive node traversal or the write/analyze routines.\n- yaml_emitter_dump: target; drives STREAM/DOCUMENT events and triggers the recursive node dump over the document tree.\n- yaml_document_initialize: source; creates/configures the yaml_document_t object (version directive, tag directives, start/end implicit flags) that yaml_emitter_dump consumes.\n- yaml_document_add_scalar: source; appends a scalar node (tag, byte value+length, scalar style) built directly from fuzz input, exercised by yaml_emitter_dump_scalar.\n- yaml_document_add_sequence / yaml_document_add_mapping: source; create sequence/mapping container nodes (tag, collection style) whose children are later walked by yaml_emitter_dump_sequence/yaml_emitter_dump_mapping.\n- yaml_document_append_sequence_item / yaml_document_append_mapping_pair: source; link child node indices into sequence/mapping nodes, letting fuzz input control document shape (depth, fan-out, repeated references that trigger anchor generation) reached by yaml_emitter_anchor_node and yaml_emitter_dump_node's recursion.\n- yaml_parser_load: alternate source/variant; parses raw YAML text (fully attacker controlled byte stream) into a yaml_document_t, giving a realistic round-trip path (parse -> dump) that produces documents with arbitrary tags/anchors/styles instead of hand-built ones.\n- yaml_emitter_set_canonical / yaml_emitter_set_unicode / yaml_emitter_set_width / yaml_emitter_set_indent: configuration; select different emitter formatting/scalar-style paths (canonical vs block/flow style, escaping of non-ASCII, line width/indent) taken while dumping the same document.\nInput space the harness should vary: node types (SCALAR/SEQUENCE/MAPPING), node tag strings (default vs custom, to flip the implicit/plain_implicit branches in dump_scalar/sequence/mapping), scalar style enum (PLAIN/SINGLE_QUOTED/DOUBLE_QUOTED/LITERAL/FOLDED/ANY), sequence/mapping style (BLOCK/FLOW/ANY), document graph shape (tree depth, shared/repeated child indices to force anchor id assignment at reference count 2), version_directive/tag_directives presence, start/end implicit flags, and emitter options (canonical on/off, unicode on/off, width, indent) \u2014 plus, when going through yaml_parser_load first, the raw YAML source text itself as the primary untrusted input.",
+  "entries": [
+    "yaml_emitter_dump",
+    "yaml_document_initialize",
+    "yaml_document_add_scalar",
+    "yaml_document_add_sequence",
+    "yaml_document_add_mapping",
+    "yaml_document_append_sequence_item",
+    "yaml_document_append_mapping_pair",
+    "yaml_parser_load"
+  ],
+  "core": [
+    "yaml_emitter_dump_node",
+    "yaml_emitter_anchor_node",
+    "yaml_emitter_dump_scalar",
+    "yaml_emitter_dump_sequence",
+    "yaml_emitter_dump_mapping",
+    "yaml_emitter_emit",
+    "yaml_emitter_state_machine",
+    "yaml_emitter_analyze_event"
+  ],
+  "project": "libyaml",
+  "risk_level": "",
+  "danger_scores": {}
+}

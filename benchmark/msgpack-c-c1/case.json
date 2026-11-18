@@ -1,0 +1,32 @@
+{
+  "case": "msgpack-c-c1",
+  "case_id": "msgpack-c/unpack_pack_fuzzer",
+  "project": "msgpack-c",
+  "fuzzer_name": "unpack_pack_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/msgpack-c/fuzz/unpack_pack_fuzzer.cpp",
+  "gold_source_file": "/src/msgpack-c/fuzz/unpack_pack_fuzzer.cpp",
+  "target_function": "msgpack::unpack",
+  "target_declaration": "object_handle unpack( const char* data, std::size_t len, unpack_reference_func f = MSGPACK_NULLPTR, void* user_data = MSGPACK_NULLPTR, unpack_limit const& limit = unpack_limit());",
+  "target_location": "msgpack/v1/unpack_decl.hpp:272",
+  "prompt": "Project: msgpack-c\nRepository: https://github.com/msgpack/msgpack-c.git\nRevision: a5250ecbcae1d34346c7445345774b0abbd651bc\nLanguage: C++\n\nTarget function: msgpack::unpack\nDeclared in: msgpack/v1/unpack_decl.hpp:272\nDeclaration: object_handle unpack( const char* data, std::size_t len, unpack_reference_func f = MSGPACK_NULLPTR, void* user_data = MSGPACK_NULLPTR, unpack_limit const& limit = unpack_limit());\nEnclosing scope: namespace msgpack, MSGPACK_API_VERSION_NAMESPACE(v1) (i.e. msgpack::v1, inline-exported as msgpack::)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/msgpack/msgpack-c.git",
+      "rev": "a5250ecbcae1d34346c7445345774b0abbd651bc",
+      "type": "git"
+    },
+    "upstream_path": "/src/msgpack-c",
+    "all_repos": {
+      "/src/msgpack-c": {
+        "url": "https://github.com/msgpack/msgpack-c.git",
+        "rev": "a5250ecbcae1d34346c7445345774b0abbd651bc",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/msgpack-c.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

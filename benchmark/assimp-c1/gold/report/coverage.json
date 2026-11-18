@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 5534,
+  "count": 102512,
+  "percent": 5.398
+ },
+ "functions": {
+  "covered": 507,
+  "count": 7359,
+  "percent": 6.89
+ },
+ "regions": {
+  "covered": 3990,
+  "count": 76952,
+  "percent": 5.185
+ },
+ "branches": {
+  "covered": 2247,
+  "count": 46982,
+  "percent": 4.783
+ },
+ "scope": "/src/assimp/",
+ "files_in_scope": 410,
+ "files_total": 410,
+ "all_linked": {
+  "lines": {
+   "covered": 5534,
+   "count": 102512,
+   "percent": 5.398
+  },
+  "functions": {
+   "covered": 507,
+   "count": 7359,
+   "percent": 6.89
+  },
+  "regions": {
+   "covered": 3990,
+   "count": 76952,
+   "percent": 5.185
+  },
+  "branches": {
+   "covered": 2247,
+   "count": 46982,
+   "percent": 4.783
+  }
+ },
+ "timestamp": "2026-08-28T20:26:50Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

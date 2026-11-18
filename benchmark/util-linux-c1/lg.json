@@ -1,0 +1,25 @@
+{
+  "name": "libfdisk script parser (sfdisk dump format reader)",
+  "description": "fdisk_script_read_file() parses a text \"sfdisk script\" (the dump format produced by sfdisk/fdisk -d) line-by-line from an untrusted FILE stream into an in-memory struct fdisk_script, which contains a header list and a fdisk_table of fdisk_partition objects. Because it directly tokenizes attacker-controlled text (header lines like \"label: dos\", name=value partition lines, and comma-separated legacy lines), and later fdisk_apply_script()/fdisk_apply_table() feed the parsed numeric offsets/sizes/types/UUIDs into the real partition-table engine, this is a classic text-parser attack surface for a C project (buffer handling, integer parsing with strtoX, string quoting/escaping, and downstream use of parsed values to build on-disk structures).\n- fdisk_script_read_file: target/entry, reads the whole FILE line by line via fdisk_script_read_line() and dispatches each non-blank/non-comment line to fdisk_script_read_buffer().\n- fdisk_new_script: lifecycle entry needed to obtain the struct fdisk_script * the target writes into (also usable without a fdisk_context for a context-free fuzzing path).\n- fdisk_new_script_from_file: variant/source that itself calls fdisk_script_read_file() on a path given as a string instead of a FILE*, exercising the identical core logic through the filename API.\n- fdisk_script_read_line: lower-level variant of the per-line reader (also public) letting the harness feed single lines or use a custom fgets-like callback (fdisk_script_set_fgets) to control line boundaries.\n- fdisk_script_write_file: inverse/consumer operation (dump-format or JSON serializer) that round-trips the parsed table/headers back to text, exercising the data structures the parser filled in.\n- fdisk_apply_script: consumer that takes the fully parsed script and applies its headers (fdisk_apply_script_headers, creates a label) and its partition table (fdisk_apply_table) to a fdisk_context, running much more code on the parsed/validated values (types, uuids, start/size) and is the real downstream use of the parser's output in sfdisk.\n- fdisk_script_set_header / fdisk_script_get_table: configuration/accessor functions used alongside parsing to inspect or pre-seed state that the core reads (dp->headers, dp->table).\nInput space selected by the fuzz data: which of the three per-line grammars is taken (is_header_line() -> \"name: value\" header line vs. a line containing '=' -> name=value partition fields vs. plain comma/space separated legacy \"start,size,type,bootable\" line); for header lines, the header name (one of \"label\",\"unit\",\"label-id\",\"device\",\"grain\",\"first-lba\",\"last-lba\",\"table-length\",\"sector-size\", each with its own validation, e.g. sector-size must be a multiple of 512, unit must be \"sectors\"); for name=value lines, which partition fields appear (start=, size=, bootable, attrs=, uuid=, name=, type=/Id=) including quoted (\"...\") and hex-escaped strings for name=, and the leading \"<device>:\" / \"<device> : \" partno prefix parsed by partno_from_devname(); for the legacy comma format, the ordered positional fields (start,size,type,bootable,...); plus line-length/EOF edge cases (missing trailing newline, comments '#', blank lines, CRLF) handled directly in fdisk_script_read_line()/fdisk_script_read_file().",
+  "entries": [
+    "fdisk_script_read_file",
+    "fdisk_new_script",
+    "fdisk_new_script_from_file",
+    "fdisk_script_read_line",
+    "fdisk_script_write_file",
+    "fdisk_apply_script"
+  ],
+  "core": [
+    "fdisk_script_read_buffer",
+    "parse_line_header",
+    "parse_line_nameval",
+    "parse_line_valcommas",
+    "parse_start_value",
+    "parse_size_value",
+    "next_token",
+    "fdisk_apply_table"
+  ],
+  "project": "util-linux",
+  "risk_level": "",
+  "danger_scores": {}
+}

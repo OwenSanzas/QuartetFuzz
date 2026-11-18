@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1298,
+  "count": 4799,
+  "percent": 27.047
+ },
+ "functions": {
+  "covered": 61,
+  "count": 278,
+  "percent": 21.942
+ },
+ "regions": {
+  "covered": 1630,
+  "count": 6585,
+  "percent": 24.753
+ },
+ "branches": {
+  "covered": 617,
+  "count": 2795,
+  "percent": 22.075
+ },
+ "scope": "/src/lz4/",
+ "files_in_scope": 12,
+ "files_total": 12,
+ "all_linked": {
+  "lines": {
+   "covered": 1298,
+   "count": 4799,
+   "percent": 27.047
+  },
+  "functions": {
+   "covered": 61,
+   "count": 278,
+   "percent": 21.942
+  },
+  "regions": {
+   "covered": 1630,
+   "count": 6585,
+   "percent": 24.753
+  },
+  "branches": {
+   "covered": 617,
+   "count": 2795,
+   "percent": 22.075
+  }
+ },
+ "timestamp": "2026-08-31T19:34:10Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

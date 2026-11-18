@@ -1,0 +1,28 @@
+{
+  "name": "libtasn1 DER decoding of ASN.1 structures",
+  "description": "asn1_der_decoding walks a previously-created (but empty) asn1_node tree and fills it with values parsed out of an untrusted DER/BER byte buffer, recursively decoding tags, lengths, and per-type contents (INTEGER, OCTET/BIT STRING, OBJECT IDENTIFIER, SEQUENCE/SET/SET OF, CHOICE, ANY, GeneralizedTime/UTCTime, implicit/explicit tagging, indefinite-length BER forms). Because the parser drives its traversal (down/right/up over the template tree) purely from attacker-controlled tag/length/class/content bytes, this is the classic place where a hostile certificate, CRL or other ASN.1 blob triggers out-of-bounds reads, integer overflows in length handling, or infinite loops in the decoder state machine, so it is highly security-relevant.\n- asn1_der_decoding: target; the convenience wrapper (ider_len fixed) around asn1_der_decoding2, the main tree-walking DER/BER decoder.\n- asn1_der_decoding2: variant/core driver, takes explicit flags (ASN1_DECODE_FLAG_ALLOW_PADDING, ASN1_DECODE_FLAG_STRICT_DER, ASN1_DECODE_FLAG_ALLOW_INCORRECT_TIME) and an in/out max_ider_len, selecting BER-tolerant vs strict-DER parsing and trailing-padding behaviour.\n- asn1_create_element: source/lifecycle - builds the empty asn1_node template (from ASN.1 module definitions) that asn1_der_decoding fills in; required before every decode call.\n- asn1_array2tree / asn1_parser2tree: sources - build the asn1_node definitions tree (from a static array of nodes or from parsing a .asn1 text file) that asn1_create_element instantiates elements from, i.e. they select which ASN.1 grammar (SEQUENCE/CHOICE/SET/ANY DEFINED BY layout) the decoder will enforce on the fuzzed DER bytes.\n- asn1_der_coding: inverse/round-trip operation - re-encodes a decoded (or manually populated) tree back to DER, letting a harness feed asn1_der_decoding's output back through re-encoding to compare round trips and exercise asn1_length_der/_asn1_object_id_der/_asn1_time_der paths.\n- asn1_expand_any_defined_by: consumer - after decoding, expands every ASN.1 \"ANY DEFINED BY\" field by locating its OBJECT IDENTIFIER value and recursively calling asn1_der_decoding on the embedded sub-blob, adding another decode path keyed by OID content.\n- asn1_expand_octet_string: consumer - similarly expands an OCTET STRING field into a nested structure via a nested asn1_der_decoding call, keyed by sibling OBJECT IDENTIFIER value.\n- asn1_der_decoding_startEnd: consumer/variant - locates the start/end byte offsets of a named element inside the DER blob, internally re-invoking asn1_der_decoding if the tree was not decoded yet.\nThe input space is large: ider/ider_len (the raw untrusted bytes and claimed length), the flags bitmask passed to asn1_der_decoding2 (padding-allowed vs strict-DER vs lenient time parsing), the ASN.1 grammar selected via asn1_array2tree/asn1_create_element (which element/module is instantiated, e.g. CHOICE vs SEQUENCE vs SET OF vs ANY DEFINED BY vs explicit/implicit tag types), definite vs indefinite length encodings (0x80 length octet triggering _asn1_get_indefinite_length_string), tag classes/numbers (UNIVERSAL/APPLICATION/CONTEXT/PRIVATE, primitive vs constructed bit), and nested OID-keyed ANY/OCTET STRING expansion content \u2014 all of which drive different branches inside asn1_der_decoding2, extract_tag_der_recursive, _asn1_decode_simple_ber/_der, asn1_get_tag_der, asn1_get_length_der/asn1_get_length_ber, and asn1_get_object_id_der.",
+  "entries": [
+    "asn1_der_decoding",
+    "asn1_der_decoding2",
+    "asn1_create_element",
+    "asn1_array2tree",
+    "asn1_der_coding",
+    "asn1_expand_any_defined_by",
+    "asn1_expand_octet_string",
+    "asn1_der_decoding_startEnd"
+  ],
+  "core": [
+    "extract_tag_der_recursive",
+    "_asn1_decode_simple_ber",
+    "_asn1_decode_simple_der",
+    "asn1_get_tag_der",
+    "asn1_get_length_der",
+    "asn1_get_length_ber",
+    "asn1_get_object_id_der",
+    "_asn1_get_indefinite_length_string",
+    "_asn1_get_time_der"
+  ],
+  "project": "libtasn1",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,107 @@
+{
+  "case": "libvips-c2",
+  "case_id": "libvips/smartcrop_fuzzer",
+  "project": "libvips",
+  "fuzzer_name": "smartcrop_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libvips/fuzz/smartcrop_fuzzer.cc",
+  "gold_source_file": "/src/libvips/fuzz/smartcrop_fuzzer.cc",
+  "target_function": "vips_smartcrop",
+  "target_declaration": "VIPS_API int vips_smartcrop(VipsImage *in, VipsImage **out, int width, int height, ...) G_GNUC_NULL_TERMINATED;",
+  "target_location": "vips/conversion.h:188",
+  "prompt": "Project: libvips\nRepository: https://github.com/libvips/libvips\nRevision: 8bc2e4fc64f108a5aa830f24c96ee49d91b18649\nLanguage: C++\n\nTarget function: vips_smartcrop\nDeclared in: vips/conversion.h:188\nDeclaration: VIPS_API int vips_smartcrop(VipsImage *in, VipsImage **out, int width, int height, ...) G_GNUC_NULL_TERMINATED;\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/libvips/libvips.git",
+      "rev": "8bc2e4fc64f108a5aa830f24c96ee49d91b18649",
+      "type": "git"
+    },
+    "upstream_path": "/src/libvips",
+    "all_repos": {
+      "/src/libultrahdr": {
+        "url": "https://github.com/google/libultrahdr.git",
+        "rev": "248738051c2fc2ec22ab085a03610b396cc2a2be",
+        "type": "git"
+      },
+      "/src/highway": {
+        "url": "https://github.com/google/highway.git",
+        "rev": "7fff3c667fb62475cdfb2b6c441452c8223c1a67",
+        "type": "git"
+      },
+      "/src/cgif": {
+        "url": "https://github.com/dloebl/cgif.git",
+        "rev": "b1facf77a226e971fdd9c0f2fd616ab9b03562d9",
+        "type": "git"
+      },
+      "/src/libimagequant": {
+        "url": "https://github.com/lovell/libimagequant.git",
+        "rev": "ce5fdeb1ccd9db288950faa21fd09c42c0a59bbb",
+        "type": "git"
+      },
+      "/src/libjxl": {
+        "url": "https://github.com/libjxl/libjxl.git",
+        "rev": "e4b66d30278df6050137a4529e5efde5ef691f32",
+        "type": "git"
+      },
+      "/src/libheif": {
+        "url": "https://github.com/strukturag/libheif.git",
+        "rev": "1a3583bcce77de6d3f8701c0758e3954863681ba",
+        "type": "git"
+      },
+      "/src/aom": {
+        "url": "https://aomedia.googlesource.com/aom",
+        "rev": "2da1a47e6ebe56b297137afc01050b40cf0f4cad",
+        "type": "git"
+      },
+      "/src/libtiff": {
+        "url": "https://gitlab.com/libtiff/libtiff.git",
+        "rev": "b99beace423ebb3d2040a2a61fe8c01bd857d854",
+        "type": "git"
+      },
+      "/src/libwebp": {
+        "url": "https://chromium.googlesource.com/webm/libwebp",
+        "rev": "523e30432fdbf77b9566a9fc65394a97cbebc11c",
+        "type": "git"
+      },
+      "/src/libpng": {
+        "url": "https://github.com/pnggroup/libpng.git",
+        "rev": "d1d0abeffede1cc898ddc3d0e600839cf026d749",
+        "type": "git"
+      },
+      "/src/libjpeg-turbo": {
+        "url": "https://github.com/libjpeg-turbo/libjpeg-turbo.git",
+        "rev": "2646fa33f8d67373c27b558b47e77b2d8d517e31",
+        "type": "git"
+      },
+      "/src/lcms": {
+        "url": "https://github.com/mm2/Little-CMS.git",
+        "rev": "a5b898c7e3985550aab846a2abb4ae08904a857f",
+        "type": "git"
+      },
+      "/src/libexif": {
+        "url": "https://github.com/libexif/libexif.git",
+        "rev": "aebe2a7b61a2fcd95f8d72e2d317027faf73fdc1",
+        "type": "git"
+      },
+      "/src/zlib": {
+        "url": "https://github.com/madler/zlib.git",
+        "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+        "type": "git"
+      },
+      "/src/seed-corpora": {
+        "url": "https://github.com/libvips/seed-corpora.git",
+        "rev": "4d14170c78172da46babe9b5bb4158484ef538c9",
+        "type": "git"
+      },
+      "/src/libvips": {
+        "url": "https://github.com/libvips/libvips.git",
+        "rev": "8bc2e4fc64f108a5aa830f24c96ee49d91b18649",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libvips.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

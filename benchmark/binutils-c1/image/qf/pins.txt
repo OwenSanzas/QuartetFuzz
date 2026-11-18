@@ -1,0 +1,2 @@
+/src/binary-samples https://github.com/DavidKorczynski/binary-samples 50f4f6ad752e982f26fab167665e763b6877c942
+/src/binutils-gdb git://sourceware.org/git/binutils-gdb.git 2093ffeb9efdef4f4c7c1145ca4f2b7afc1cdd65

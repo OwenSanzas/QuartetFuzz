@@ -1,0 +1,32 @@
+{
+  "case": "znc-c1",
+  "case_id": "znc/msg_parse_fuzzer",
+  "project": "znc",
+  "fuzzer_name": "msg_parse_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/msg_parse_fuzzer.cpp",
+  "gold_source_file": "/src/msg_parse_fuzzer.cpp",
+  "target_function": "CMessage::Parse",
+  "target_declaration": "void Parse(const CString& sMessage);",
+  "target_location": "znc/Message.h:164",
+  "prompt": "Project: znc\nRepository: https://github.com/znc/znc\nRevision: fe8d43f828f49561c8156f60a2dc51a1b5b7da2c\nLanguage: C++\n\nTarget function: CMessage::Parse\nDeclared in: znc/Message.h:164\nDeclaration: void Parse(const CString& sMessage);\nEnclosing scope: class CMessage\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/znc/znc",
+      "rev": "fe8d43f828f49561c8156f60a2dc51a1b5b7da2c",
+      "type": "git"
+    },
+    "upstream_path": "/src/znc",
+    "all_repos": {
+      "/src/znc": {
+        "url": "https://github.com/znc/znc",
+        "rev": "fe8d43f828f49561c8156f60a2dc51a1b5b7da2c",
+        "type": "git"
+      }
+    },
+    "pin_source": "last upstream commit on or before the anchor date; no srcmap published, no image kept"
+  },
+  "callgraph": "callgraphs/znc.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

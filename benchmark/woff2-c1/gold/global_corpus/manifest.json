@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/woff2-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/woff2_convert_woff2ttf_fuzzer/public.zip",
+ "qualified_name": "woff2_convert_woff2ttf_fuzzer",
+ "seeds": 8614,
+ "unpacked_bytes": 88961712,
+ "zip_bytes": 13783056,
+ "zip_sha256": "f6253ebda87e381f1c42343815412054b1a151c6ec2d6716811afc2059ef7160"
+}

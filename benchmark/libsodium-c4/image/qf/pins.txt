@@ -1,0 +1,1 @@
+/src/libsodium https://github.com/jedisct1/libsodium.git 2c61b499e7cea2d873a9afee220c946601f78beb

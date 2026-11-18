@@ -1,0 +1,27 @@
+{
+  "name": "DateTimePatternGenerator skeleton-to-pattern matching",
+  "description": "DateTimePatternGenerator::getBestPattern takes an untrusted \"skeleton\" string (e.g. \"MMMdd\", \"jjmm\", a sequence of date/time field letters and quoted literals supplied by the caller) and must parse it, map locale-specific hour metacharacters (j/J/C), match it against an internal PatternMap built from locale/custom data, and reassemble a concrete pattern string by merging field widths/types and (if both date and time parts are needed) combining them via a SimpleFormatter date-time-combining pattern. Because the skeleton text is attacker-controllable and drives field-parsing, bitmask distance computation, pattern-tree lookups and string reassembly, it is a good fuzz target for buffer/index errors in the pattern parser and matcher.\n- getBestPattern(skeleton, status): target; parses skeleton via mapSkeletonMetacharacters, builds a DateTimeMatcher, calls getBestRaw/getBestAppending/adjustFieldTypes; core.\n- getBestPattern(skeleton, options, status): variant/overload of the target taking a UDateTimePatternMatchOptions bitmask (UDATPG_MATCH_NO_OPTIONS, UDATPG_MATCH_HOUR_FIELD_LENGTH, UDATPG_MATCH_MINUTE_FIELD_LENGTH, UDATPG_MATCH_SECOND_FIELD_LENGTH, UDATPG_MATCH_ALL_FIELDS_LENGTH) that changes how adjustFieldTypes decides whether to force the skeleton's field widths into the output pattern \u2014 reaches the same core as the target, selecting an extra code path inside adjustFieldTypes.\n- addPattern(pattern, override, conflictingPattern, status): source/config; parses an arbitrary pattern string into a skeleton+PtnSkeleton and inserts it into the generator's PatternMap (via addPatternWithOptionalSkeleton), directly controlling the candidate set that getBestRaw searches and thus which internal pattern-matching/distance-computation branches getBestPattern exercises.\n- addPatternWithSkeleton(pattern, skeletonToUse, override, conflictingPattern, status): variant of addPattern that lets the fuzz input also control the explicit skeleton associated with a pattern entry (simulating availableFormats data), exercising extra conflict-resolution branches in addPatternWithOptionalSkeleton/PatternMap::add.\n- replaceFieldTypes(pattern, skeleton, status): consumer/variant; runs adjustFieldTypes directly on an attacker-supplied pattern+skeleton pair without going through getBestRaw, so it fuzzes the field-matching/length-adjustment core in isolation.\n- getSkeleton(pattern, status) / getBaseSkeleton(pattern, status): consumers that re-parse an attacker pattern with the FormatParser (fp) to derive a skeleton/base skeleton, exercising the same field-parsing core (FormatParser::set, getCanonicalIndex, dtTypes table lookup) used inside adjustFieldTypes.\n- createInstance(UErrorCode&) / createInstance(const Locale&, status): lifecycle-ish source; selects which locale's resource-derived patterns are preloaded into the PatternMap (via initData), changing the matcher's candidate pool and therefore the paths taken inside getBestRaw's distance loop; also required before any of the above can run.\n- setDecimal(decimal): config; stores a custom decimal separator string used when adjustFieldTypes substitutes fractional-second patterns, enabling that substitution branch to run with attacker-controlled content.\nThe input space to fuzz: the skeleton/pattern string itself (sequences of date/time field letters S,s,m,H,h,K,k,a,b,B,E,e,c,M,L,d,D,F,G,y,Y,u,U,r,v,V,z,Z,O,X,x, the hour metacharacters j/J/C with repeated lengths 1-6, single-quoted literal runs, and separators) which drives mapSkeletonMetacharacters and FormatParser branches; the UDateTimePatternMatchOptions bitmask passed to the two-argument overload/replaceFieldTypes path; whether addPattern/addPatternWithSkeleton are called beforehand to populate the PatternMap with attacker patterns (including deliberately conflicting or duplicate base patterns) before calling getBestPattern, which is the most permissive setting since it maximizes the number of candidate matchers scanned by getBestRaw and the distance/merge logic exercised. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "icu::DateTimePatternGenerator::getBestPattern",
+    "icu::DateTimePatternGenerator::addPattern",
+    "icu::DateTimePatternGenerator::addPatternWithSkeleton",
+    "icu::DateTimePatternGenerator::replaceFieldTypes",
+    "icu::DateTimePatternGenerator::getSkeleton",
+    "icu::DateTimePatternGenerator::getBaseSkeleton",
+    "icu::DateTimePatternGenerator::createInstance",
+    "icu::DateTimePatternGenerator::setDecimal"
+  ],
+  "core": [
+    "icu::DateTimePatternGenerator::getBestRaw",
+    "icu::DateTimePatternGenerator::getBestAppending",
+    "icu::DateTimePatternGenerator::adjustFieldTypes",
+    "icu::DateTimePatternGenerator::mapSkeletonMetacharacters",
+    "icu::DateTimePatternGenerator::addPatternWithOptionalSkeleton",
+    "icu::DateTimeMatcher::set",
+    "icu::DateTimeMatcher::getDistance",
+    "icu::PatternMap::getPatternFromSkeleton"
+  ],
+  "project": "icu",
+  "risk_level": "",
+  "danger_scores": {}
+}

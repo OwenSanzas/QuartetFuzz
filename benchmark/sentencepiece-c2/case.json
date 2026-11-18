@@ -1,0 +1,32 @@
+{
+  "case": "sentencepiece-c2",
+  "case_id": "sentencepiece/processor_text_fuzzer",
+  "project": "sentencepiece",
+  "fuzzer_name": "processor_text_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/processor_text_fuzzer.cc",
+  "gold_source_file": "/src/processor_text_fuzzer.cc",
+  "target_function": "sentencepiece::SentencePieceProcessor::Encode",
+  "target_declaration": "virtual absl::Status Encode(absl::string_view input, std::vector<std::string> *pieces) const;",
+  "target_location": "sentencepiece_processor.h:183",
+  "prompt": "Project: sentencepiece\nRepository: https://github.com/google/sentencepiece.git\nRevision: b6910fd5d33a672465c74ba639551b8e8f62afb9\nLanguage: C++\n\nTarget function: sentencepiece::SentencePieceProcessor::Encode\nDeclared in: sentencepiece_processor.h:183\nDeclaration: virtual absl::Status Encode(absl::string_view input, std::vector<std::string> *pieces) const;\nEnclosing scope: namespace sentencepiece, class SentencePieceProcessor (public section)\n\nExercise it under this configuration: a model already loaded into the processor.\n(the sibling case model_load_fuzzer targets LoadFromSerializedProto with the fuzz input as the model; here the input is the text handed to an initialised processor)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/google/sentencepiece.git",
+      "rev": "b6910fd5d33a672465c74ba639551b8e8f62afb9",
+      "type": "git"
+    },
+    "upstream_path": "/src/sentencepiece",
+    "all_repos": {
+      "/src/sentencepiece": {
+        "type": "git",
+        "url": "https://github.com/google/sentencepiece.git",
+        "rev": "b6910fd5d33a672465c74ba639551b8e8f62afb9"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821; main repo mounted at that revision"
+  },
+  "callgraph": "callgraphs/sentencepiece.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

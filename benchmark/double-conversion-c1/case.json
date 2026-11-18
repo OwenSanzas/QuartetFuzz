@@ -1,0 +1,32 @@
+{
+  "case": "double-conversion-c1",
+  "case_id": "double-conversion/string_to_double_fuzzer",
+  "project": "double-conversion",
+  "fuzzer_name": "string_to_double_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/string_to_double_fuzzer.cc",
+  "gold_source_file": "/src/string_to_double_fuzzer.cc",
+  "target_function": "double_conversion::StringToDoubleConverter::StringToDouble",
+  "target_declaration": "double StringToDouble(const char* buffer, int length, int* processed_characters_count) const;",
+  "target_location": "double-conversion/string-to-double.h:186",
+  "prompt": "Project: double-conversion\nRepository: https://github.com/google/double-conversion.git\nRevision: 9176765db2fdbc9d564f013d7678a6d7acf78dc6\nLanguage: C++\n\nTarget function: double_conversion::StringToDoubleConverter::StringToDouble\nDeclared in: double-conversion/string-to-double.h:186\nDeclaration: double StringToDouble(const char* buffer, int length, int* processed_characters_count) const;\nEnclosing scope: namespace double_conversion, class StringToDoubleConverter\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/google/double-conversion.git",
+      "rev": "9176765db2fdbc9d564f013d7678a6d7acf78dc6",
+      "type": "git"
+    },
+    "upstream_path": "/src/double-conversion",
+    "all_repos": {
+      "/src/double-conversion": {
+        "url": "https://github.com/google/double-conversion.git",
+        "rev": "9176765db2fdbc9d564f013d7678a6d7acf78dc6",
+        "type": "git"
+      }
+    },
+    "pin_source": "read from the built image's /src/double-conversion/.git"
+  },
+  "callgraph": "callgraphs/double-conversion.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

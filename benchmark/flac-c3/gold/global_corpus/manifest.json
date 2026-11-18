@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/flac-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/flac_fuzzer_exo/public.zip",
+ "qualified_name": "flac_fuzzer_exo",
+ "seeds": 6159,
+ "unpacked_bytes": 38624070,
+ "zip_bytes": 2440293,
+ "zip_sha256": "1c8b9684a460777ec6d64ce5ab25d590e7dd9e491f8e13381691bb1f940368de"
+}

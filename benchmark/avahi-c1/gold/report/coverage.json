@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 293,
+  "count": 601,
+  "percent": 48.752
+ },
+ "functions": {
+  "covered": 19,
+  "count": 44,
+  "percent": 43.182
+ },
+ "regions": {
+  "covered": 294,
+  "count": 768,
+  "percent": 38.281
+ },
+ "branches": {
+  "covered": 143,
+  "count": 341,
+  "percent": 41.935
+ },
+ "scope": "/src/avahi/",
+ "files_in_scope": 6,
+ "files_total": 6,
+ "all_linked": {
+  "lines": {
+   "covered": 293,
+   "count": 601,
+   "percent": 48.752
+  },
+  "functions": {
+   "covered": 19,
+   "count": 44,
+   "percent": 43.182
+  },
+  "regions": {
+   "covered": 294,
+   "count": 768,
+   "percent": 38.281
+  },
+  "branches": {
+   "covered": 143,
+   "count": 341,
+   "percent": 41.935
+  }
+ },
+ "timestamp": "2026-08-31T12:18:06Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

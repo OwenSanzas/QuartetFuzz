@@ -1,0 +1,32 @@
+{
+  "case": "libgit2-c1",
+  "case_id": "libgit2/config_file_fuzzer",
+  "project": "libgit2",
+  "fuzzer_name": "config_file_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libgit2/fuzzers/config_file_fuzzer.c",
+  "gold_source_file": "/src/libgit2/fuzzers/config_file_fuzzer.c",
+  "target_function": "git_config_backend_from_string",
+  "target_declaration": "extern int git_config_backend_from_string( git_config_backend **out, const char *cfg, size_t len, git_config_backend_memory_options *opts);",
+  "target_location": "git2/sys/config.h:203",
+  "prompt": "Project: libgit2\nRepository: https://github.com/libgit2/libgit2\nRevision: 0551dfd4ad989b6a3d5683c0d4cf326c6efef929\nLanguage: C++\n\nTarget function: git_config_backend_from_string\nDeclared in: git2/sys/config.h:203\nDeclaration: extern int git_config_backend_from_string( git_config_backend **out, const char *cfg, size_t len, git_config_backend_memory_options *opts);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/libgit2/libgit2",
+      "rev": "0551dfd4ad989b6a3d5683c0d4cf326c6efef929",
+      "type": "git"
+    },
+    "upstream_path": "/src/libgit2",
+    "all_repos": {
+      "/src/libgit2": {
+        "url": "https://github.com/libgit2/libgit2",
+        "rev": "0551dfd4ad989b6a3d5683c0d4cf326c6efef929",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libgit2.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

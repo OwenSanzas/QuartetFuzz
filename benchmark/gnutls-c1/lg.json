@@ -1,0 +1,27 @@
+{
+  "name": "TLS/DTLS handshake state machine",
+  "description": "gnutls_handshake() drives the full TLS/DTLS protocol state machine (client and server, TLS 1.0-1.3, DTLS) that parses handshake messages (ClientHello/ServerHello, certificates, key-exchange, extensions, Finished, NewSessionTicket, HelloRetryRequest, etc.) coming from the (possibly attacker-controlled) peer over the transport callbacks. Because it directly feeds untrusted network bytes into ASN.1/X.509 certificate parsing, extension parsers, key-exchange math and record-layer crypto state transitions, it is one of the most security-critical surfaces in gnutls.\n- gnutls_handshake: target; dispatches to handshake_client/handshake_server depending on entity role and to the legacy state machine or _gnutls13_handshake_client/_gnutls13_handshake_server depending on the negotiated version; reaches core.\n- gnutls_rehandshake: variant, triggers a server-side rehandshake / TLS1.3 key update path that feeds back into the same handshake core (session_invalidate/handshake re-entry), reaches core via _gnutls_recv_handshake/_gnutls13 paths.\n- gnutls_session_key_update: variant/related, invoked directly for post-handshake TLS1.3 key updates, reaches generate_hs_traffic_keys/generate_ap_traffic_keys style key-schedule core shared with the TLS1.3 handshake.\n- gnutls_priority_set_direct / gnutls_priority_set: configuration, selects which protocol versions, ciphersuites, key-exchange methods and extensions are negotiable, directly determining which branches of the core state machine (TLS1.2 kx vs TLS1.3 key schedule, resumption, PSK, cert types) get exercised.\n- gnutls_credentials_set (with gnutls_certificate_allocate_credentials / gnutls_certificate_set_x509_key_mem / gnutls_psk_allocate_*): configuration/source, supplies the certificate or PSK credentials the server uses in _gnutls_send_server_certificate/_gnutls_recv_server_certificate paths, changing which kx and certificate-parsing code in core runs.\n- gnutls_session_set_data / gnutls_session_get_data2: source/config for abbreviated/resumption handshakes, feeds attacker-influenced session ticket bytes into the resumption branch of handshake_client (_gnutls_recv_new_session_ticket, _gnutls_set_resumed_parameters).\n- gnutls_transport_set_push_function / gnutls_transport_set_pull_function / gnutls_handshake_set_read_function: configuration, wire the untrusted fuzz buffer as the handshake's I/O source that _gnutls_recv_handshake/_gnutls_handshake_io_recv_int reads from.\nCore: handshake_client, handshake_server, _gnutls_recv_handshake, read_client_hello, read_server_hello, _gnutls13_handshake_client, _gnutls13_handshake_server, _gnutls_recv_server_certificate/_gnutls_recv_client_certificate, _gnutls13_recv_certificate/_gnutls13_recv_certificate_verify/_gnutls13_recv_finished.\nInput space: the session's GNUTLS_SERVER vs GNUTLS_CLIENT entity, the priority string passed to gnutls_priority_set_direct (selects TLS1.3 only vs TLS1.2/legacy kx paths, PSK vs certificate kx, DTLS vs TLS), whether gnutls_session_set_data supplies a (possibly malformed) resumption ticket (full vs abbreviated handshake), and above all the raw handshake-message bytes fed through the pull/read callback which determine which message parsers (ClientHello/ServerHello/Certificate/CertificateVerify/KeyExchange/Finished/NewSessionTicket/HelloRetryRequest) in the core state machine get exercised \u2014 this is the primary fuzzing surface.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "gnutls_handshake",
+    "gnutls_rehandshake",
+    "gnutls_session_key_update",
+    "gnutls_priority_set_direct",
+    "gnutls_credentials_set",
+    "gnutls_session_set_data",
+    "gnutls_transport_set_pull_function"
+  ],
+  "core": [
+    "handshake_client",
+    "handshake_server",
+    "_gnutls_recv_handshake",
+    "read_client_hello",
+    "read_server_hello",
+    "_gnutls13_handshake_client",
+    "_gnutls13_handshake_server",
+    "_gnutls_recv_server_certificate",
+    "_gnutls13_recv_finished"
+  ],
+  "project": "gnutls",
+  "risk_level": "",
+  "danger_scores": {}
+}

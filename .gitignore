@@ -1,0 +1,34 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+.pytest_cache/
+uv.lock
+.DS_Store
+.code-workspace
+
+benchmark/oss_fuzz_harness/results*
+todo/
+docs/*
+runs/
+AGF-Paper/
+harness/checker/rq2_workspace/
+plots/
+.e2e-logs/
+demo/*/run-*/
+!demo/libplist/run-*/
+# binaries and corpora they describe are 29 GB and are not. run_asan.sh and
+# run_cov.sh rebuild the measurements from the official OSS-Fuzz images.
+# selection material and full-fidelity copies stay local
+# internal assessment, not for the public artifact before publication
+benchmark_gaps.html
+work/
+benchmark/*/gold/asan_build/
+benchmark/*/gold/cov_build/
+benchmark/*/gold/global_corpus/seeds/
+benchmark/*/gold/report/*
+!benchmark/*/gold/report/coverage.json

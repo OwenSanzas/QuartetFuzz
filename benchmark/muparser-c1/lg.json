@@ -1,0 +1,26 @@
+{
+  "name": "muparser expression parse & evaluate",
+  "description": "ParserBase::Eval() drives the whole muparser pipeline: it lazily triggers tokenizing/parsing of an untrusted formula string into an RPN (reverse-polish-notation) bytecode the first time it is called (or whenever the formula/variables/constants/functions changed, which resets the parser via ReInit), and then executes that bytecode. Untrusted expression text (operators, function/variable names, numeric literals, string constants, nested brackets, ternary if/else, comma-separated sub-expressions) is fed through a hand-written recursive-descent/shunting-yard style tokenizer and RPN builder, and then interpreted by a bytecode VM; this is exactly the surface a fuzzer should stress since the tokenizer, stack-based parser and bytecode interpreter all operate directly on attacker-controlled bytes and juggle raw pointers/arrays (operator/value stacks, argument counters, stack buffer indices) that can be corrupted by malformed expressions.\n- Parser::Eval (ParserBase::Eval): target/entry. Dispatches through the function-pointer m_pParseFormula, which is ParseString the first time (forces CreateRPN + tokenizing) and ParseCmdCode/ParseCmdCodeShort afterwards (bytecode VM execution) \u2014 the main round trip of parse-then-execute.\n- Parser::SetExpr (ParserBase::SetExpr): source; sets/validates the raw formula string (length/locale checks) and calls ReInit(), which flips the parser back into string-parsing mode so the next Eval() re-tokenizes the new fuzz-supplied expression through CreateRPN/ReadNextToken.\n- Parser::Eval(int&) (ParserBase::Eval(int&)): variant; evaluates comma-separated sub-expressions (\"x+y,sin(x),cos(y)\") and returns the whole result stack, exercising the cmARG_SEP/stArgCount handling in CreateRPN and multi-result stack layout in ParseCmdCode.\n- Parser::Eval(value_type*, int) (ParserBase::Eval(value_type*,int)): variant/consumer; bulk-mode evaluation that calls CreateRPN once and then ParseCmdCodeBulk many times with varying offsets/thread ids, exercising the per-thread stack-buffer indexing path of the bytecode VM.\n- Parser::DefineVar / DefineConst / DefineFun / DefineOprt / DefineInfixOprt / DefinePostfixOprt: configuration; register variables, constants, user functions and operators that the tokenizer (IsVar/IsFunTok/IsOprt in muParserTokenReader) and CreateRPN (cmVAR/cmFUNC/cmOPRT_BIN/cmOPRT_INFIX) must recognise, selecting very different code paths depending on which names/operators are defined before Eval() is called.\n- Parser::GetUsedVar: consumer; forces a CreateRPN() pass (with undefined variables tolerated) purely to populate the used-variable map, reusing the same tokenizer/RPN-builder core as Eval but with a different error-tolerance mode (IgnoreUndefVar).\nThe input space fuzzing should vary: the formula string itself (arbitrary tokens, nested parentheses, ternary \"?:\" expressions, comma lists, string literals, numeric literals in different locales/decimal separators), the set of defined variables/constants/functions/operators (via the Define* configuration calls, which changes which identifiers the tokenizer accepts as cmVAR/cmFUNC/cmOPRT_BIN/cmOPRT_INFIX/cmOPRT_POSTFIX), the decimal/thousands separators (SetDecSep/SetThousandsSep) which change numeric-literal tokenizing, and which of the three Eval overloads (scalar / multi-result / bulk) is used, since each drives a different branch of ParseCmdCode/ParseCmdCodeBulk/ParseCmdCodeShort over the same RPN bytecode.",
+  "entries": [
+    "mu::Parser::Eval",
+    "mu::Parser::SetExpr",
+    "mu::ParserBase::GetUsedVar",
+    "mu::ParserBase::DefineVar",
+    "mu::ParserBase::DefineFun",
+    "mu::ParserBase::DefineOprt",
+    "mu::ParserBase::DefineConst"
+  ],
+  "core": [
+    "ParserBase::CreateRPN",
+    "ParserBase::ParseString",
+    "ParserBase::ParseCmdCode",
+    "ParserBase::ParseCmdCodeBulk",
+    "ParserBase::ParseCmdCodeShort",
+    "ParserTokenReader::ReadNextToken",
+    "ParserBase::ApplyRemainingOprt",
+    "ParserBase::ApplyBinOprt"
+  ],
+  "project": "muparser",
+  "risk_level": "",
+  "danger_scores": {}
+}

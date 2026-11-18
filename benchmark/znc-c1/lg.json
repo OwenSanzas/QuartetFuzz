@@ -1,0 +1,24 @@
+{
+  "name": "IRC raw-line message parsing (CMessage::Parse)",
+  "description": "CMessage::Parse() is the core IRC protocol parser in ZNC: it takes a raw line of bytes received either from the IRC server (CIRCSock::ReadLine) or from an attached IRC client (CClient::ReadLine), both fully untrusted network input, and turns it into a structured CMessage (IRCv3 tags map, optional prefix parsed into a CNick, command string, and a vector of parameters, one of which may be a \":\"-prefixed trailing colon parameter). It then calls InitType() to classify the command into a CMessage::Type used throughout the rest of ZNC (modules, client/network relaying) to decide how to handle the message, so bugs in the tag/prefix/parameter splitting or in the type-classification logic are directly security relevant (out-of-bounds parameter access, misclassification leading to wrong module hook dispatch, etc.). The same low-level word-splitting lambda is reused for tags, prefix and parameters, and depends only on finding ' ' separators and a few sentinel characters ('@', ':', ';', '=').\n- CMessage::Parse: target; the parser itself \u2014 tag block splitting (';' and '='), tag-value unescaping via CString::Escape(EMSGTAG), optional ':'-prefixed sender parsed via CNick::Parse, command token extraction, and trailing-colon vs. middle parameter splitting loop.\n- CMessage::CMessage(const CString&): source/variant \u2014 the one-argument constructor that is the normal way untrusted raw lines become CMessage objects (it calls Parse then InitTime), so the harness can exercise construction-from-bytes directly.\n- CNick::Parse: core helper invoked for the `<prefix>` part of the message (splits on '!' and '@' to get nick/ident/host); reached only when the raw line begins with ':'.\n- InitType (private, reached via Parse/SetCommand/SetParams/SetParam): core classifier \u2014 inspects the 3-character numeric command, and does string dispatch for PRIVMSG/NOTICE (further split into Text/Action/CTCP/Notice depending on CTCP \\001 markers and \"ACTION \" prefix) or a static command->Type map for the remaining ~18 commands; this is the main branch-rich logic driven by the parsed command/param content.\n- CMessage::ToString: consumer/round-trip inverse \u2014 re-serializes tags/prefix/command/params back to wire format (including re-escaping tag values and colon-quoting the last parameter), so a harness that parses then re-serializes exercises both the decode and encode paths and can check round-trip invariants.\n- CMessage::GetParam / GetParamsColon / GetTag / GetNick / GetCommand / GetType: consumers that read out the parsed state (parameter indices, tag lookup, nick/host split, type) the way real call sites (CIRCSock::ReadLine, CClient::ReadLine, CClient::PutClient's type switch, modules) do after parsing, to confirm the parsed structure matches intent and to exercise bounds-checking in GetParam/GetParamsColon.\nInput space to vary from the fuzz bytes: presence/absence of a leading '@' tags block with varying number of ';'-separated key[=value] tags (value may be empty, may contain escape sequences handled by EMSGTAG unescaping); presence/absence of a leading ':' prefix with/without '!' ident and '@' host; the command token being alphabetic (mapped via the static Type table: ACCOUNT, AUTHENTICATE, AWAY, CAP, CHGHOST, ERROR, INVITE, JOIN, KICK, MODE, NICK, PART, PING, PONG, QUIT, TAGMSG, TOPIC, WALLOPS, PRIVMSG, NOTICE) versus exactly 3 digits (Numeric) versus unknown; for PRIVMSG/NOTICE, the first parameter starting/ending with \\001 and/or the \"ACTION \" prefix (selects Action/CTCP/Text/Notice); number and emptiness of trailing space-separated parameters; presence of a final ':'-trailing parameter (possibly empty, possibly containing spaces); degenerate inputs such as an empty string, a lone \"@\", a lone \":\", or lines with only whitespace.",
+  "entries": [
+    "CMessage::Parse",
+    "CMessage::CMessage",
+    "CMessage::ToString",
+    "CMessage::GetParam",
+    "CMessage::GetParamsColon",
+    "CMessage::GetTag",
+    "CMessage::GetType"
+  ],
+  "core": [
+    "CNick::Parse",
+    "CMessage::InitType",
+    "CMessage::InitTime",
+    "CMessage::SetCommand",
+    "CMessage::SetParams",
+    "CMessage::SetParam"
+  ],
+  "project": "znc",
+  "risk_level": "",
+  "danger_scores": {}
+}

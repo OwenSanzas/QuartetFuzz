@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/cjson-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/cjson_read_fuzzer/public.zip",
+ "qualified_name": "cjson_read_fuzzer",
+ "seeds": 2092,
+ "unpacked_bytes": 41022445,
+ "zip_bytes": 1571599,
+ "zip_sha256": "a74b4bc99adb733ad639f33e6f0cd60569a1f02d0efb3f78dfe95d7ccc9ade7a",
+ "content_digest_sha256": "cfb9c7c533517c103cf14f2dcdc4f2374620dcb39704aee383178f9d81025fb6",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

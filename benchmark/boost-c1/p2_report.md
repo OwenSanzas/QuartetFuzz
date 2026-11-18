@@ -1,0 +1,134 @@
+## target: boost::read_graphml
+
+### P2.1 Init Sequence
+**Claim:** Before calling the template `read_graphml(istream&, MutableGraph&, dynamic_properties&, size_t)`, the caller must (1) construct/default-initialize the `MutableGraph g` object (e.g. a `boost::adjacency_list` instance, empty or with 0 vertices), (2) construct a `dynamic_properties dp`, and (3) register, via one or more calls to `dp.property(name, property_map)`, every GraphML key name expected in the input document, mapping it to a property map on `g` (vertex/edge/graph property maps). No other library-wide/global init call exists (no `library_init()`); `dynamic_properties` and the graph have local, value-semantics lifetimes.
+**Evidence:**
+> libs/graph/test/graphml_test.cpp:44-55: `graph_t g; dynamic_properties dp; dp.property("foo", get(vertex_color_t(), g)); dp.property("weight", get(edge_weight_t(), g)); dp.property("name", get(vertex_name_t(), g)); ... dp.property("description", gname); ifstream ifile(argv[1]); read_graphml(ifile, g, dp);`
+> libs/graph/doc/modules/ROOT/examples/io/graphml.cpp:31-37: `Graph g2; dynamic_properties dp2; dp2.property("name", get(&City::name, g2)); dp2.property("weight", get(&Road::weight, g2)); std::istringstream in(xml.str()); read_graphml(in, g2, dp2);`
+> libs/graph/include/boost/graph/graphml.hpp:228-234: template simply wraps `g`/`dp` in `mutate_graph_impl` and forwards to the core — no separate init call is made by the template itself.
+
+### P2.2 Parameter Construction
+**Claim:** `in` must be an already-opened, readable `std::istream` (e.g. `std::ifstream`, `std::istringstream`) positioned at the start of a GraphML/XML document; it is read destructively (consumed) by the internal `boost::property_tree::read_xml`. `g` is a mutable reference to a Boost.Graph model satisfying `MutableGraph` (must support `add_vertex`, `add_edge`, and expose `graph_traits<G>::directed_category` convertible to `directed_tag`/`undirected_tag`); it is typically default-constructed or empty — the function adds vertices/edges into it. `dp` is a `dynamic_properties&` that must be pre-populated (see P2.1) so that `put(name, dp, key, value)` inside the reader can find a property map for every "attr.name" referenced in the file; if a name used in `<data key="...">` was not registered, `dp`'s internal `generate()`/`property_not_found` path is used (throws `property_not_found` unless a `generate_fn` was supplied to `dynamic_properties`). `desired_idx` is a `size_t`: 0 selects the first `<graph>` element (default), any other concrete value selects the N-th sibling `<graph>` by 0-based index, and `(size_t)-1` means "process all nested graphs".
+**Evidence:**
+> libs/graph/include/boost/graph/graphml.hpp:229-234: parameter list `(std::istream& in, MutableGraph& g, dynamic_properties& dp, size_t desired_idx = 0)`.
+> libs/graph/src/graphml.cpp:51: `if (current_idx == desired_idx || desired_idx == (size_t)(-1))` — desired_idx semantics.
+> libs/property_map/include/boost/property_map/dynamic_property_map.hpp:268-275: `generate()` throws `property_not_found(name)` if no `generate_fn` registered and name not found.
+> libs/graph/include/boost/graph/graphml.hpp:91-96: `is_directed()` derived from `graph_traits<MutableGraph>::directed_category` — determines directed/undirected mismatch checks.
+
+### P2.3 Object Lifecycle
+**Claim:** Lifecycle is: construct `g` → construct `dp` → register properties on `dp` (`dp.property(...)`, any number of times, any order) → open/construct `in` → call `read_graphml(in, g, dp[, desired_idx])` once → (optionally) consume `g`/`dp` via `write_graphml`, `get()`, graph traversal (`num_vertices`, `vertices`, `edges`, etc.) → let `g`/`dp` go out of scope (both have trivial destructors managed by RAII, no explicit "close"/"destroy" call needed). Internally the free function `read_graphml(istream&, mutate_graph&, size_t)` constructs a local, stack-allocated `graphml_reader` object wrapping the passed `mutate_graph&` and calls `reader.run(in, desired_idx)` once; `graphml_reader` and the `mutate_graph_impl` adaptor are both transient, function-local/temporary objects with no persistent handle returned to the caller.
+**Evidence:**
+> libs/graph/src/graphml.cpp:305-310: `void read_graphml(std::istream& in, mutate_graph& g, size_t desired_idx) { graphml_reader reader(g); reader.run(in, desired_idx); }` — single-call, no separate open/close.
+> libs/graph/include/boost/graph/graphml.hpp:232-233: `mutate_graph_impl<MutableGraph> mg(g, dp); read_graphml(in, mg, desired_idx);` — `mg` is a function-local temporary adaptor, destroyed automatically on return.
+> libs/property_map/include/boost/property_map/dynamic_property_map.hpp:226: `~dynamic_properties() {}` trivial destructor.
+
+### P2.4 Return Value Handling
+**Claim:** `read_graphml` returns `void`; all error signaling is via C++ exceptions, not return codes. Possible exceptions (all derive from `boost::graph_exception` or `boost::property_tree::ptree_error`/`std::runtime_error`-family from the XML/ptree layer) that a correct harness/caller must be prepared to catch: `boost::parse_error` (unknown `for=` attribute on `<key>`, unrecognized `attr.type`, or `bad_lexical_cast` during value conversion), `boost::directed_graph_error` / `boost::undirected_graph_error` (edge directedness mismatch vs. graph's actual `is_directed()`), `boost::bad_parallel_edge` (duplicate edge rejected by `do_add_edge`), `boost::property_tree::ptree_bad_path`/`ptree_error`/`xml_parser_error` (malformed XML, or missing required attributes such as `id`, `source`, `target`, `key`, `edgedefault` since the code calls `ptree::get<std::string>` which throws on absence), and `boost::property_not_found` from `dynamic_properties::generate` if an unregistered key name is referenced and no generator is set. A correct caller wraps the call in try/catch if it must not propagate (the project's own test does not catch, letting failures abort the test).
+**Evidence:**
+> libs/graph/include/boost/graph/graphml.hpp:41-52: `struct parse_error : public graph_exception` thrown from `set_graph_property/set_vertex_property/set_edge_property` on `bad_lexical_cast` or unrecognized type.
+> libs/graph/src/graphml.cpp:113-117: `BOOST_THROW_EXCEPTION(parse_error("Attribute for is not valid: " + for_));` — unknown `for=` value.
+> libs/graph/src/graphml.cpp:172-179: `BOOST_THROW_EXCEPTION(directed_graph_error()); ... BOOST_THROW_EXCEPTION(undirected_graph_error());` — directedness mismatch.
+> libs/graph/src/graphml.cpp:246-249: `if (!added) { BOOST_THROW_EXCEPTION(bad_parallel_edge(u, v)); }`.
+> libs/graph/src/graphml.cpp:138,145,162,164,188: multiple `ptree::get<std::string>(path("<xmlattr>/..."))` calls that throw `boost::property_tree::ptree_error` subclasses when the attribute/element is missing.
+> libs/graph/src/graphml.cpp:81-84: `read_xml(in, pt, no_comments|trim_whitespace); ptree gml = pt.get_child(path("graphml"));` — malformed XML or missing top-level `<graphml>` element throws from `read_xml`/`get_child`.
+> libs/property_map/include/boost/property_map/dynamic_property_map.hpp:270-274: `property_not_found(name)` thrown by `generate()` when a key has no registered map and no generator.
+
+### P2.5 Cleanup Sequence
+**Claim:** No manual cleanup is required for `read_graphml` itself: the `std::istream` passed in is owned by the caller (a `std::ifstream`/`std::istringstream` should be closed/destructed by the caller after the call, as in the test which calls `ifile.close()`); `g` and `dp` are ordinary stack/member objects whose destructors run automatically. Internally, `graphml_reader` and the `ptree` built by `read_xml` are function-local and destroyed when `run()`/`read_graphml` returns, including on the exception paths described in P2.4 (stack unwinding frees them — no explicit free/delete calls exist in the implementation). A harness must simply let exceptions propagate or catch them; no dangling-resource risk from the target itself.
+**Evidence:**
+> libs/graph/test/graphml_test.cpp:54-56: `ifstream ifile(argv[1]); read_graphml(ifile, g, dp); ifile.close();` — caller owns/closes the stream.
+> libs/graph/src/graphml.cpp:77-80: `ptree pt;` local to `run()`, no heap allocation visible, destroyed on scope exit (including via exception unwinding).
+> libs/graph/include/boost/graph/graphml.hpp:232: `mutate_graph_impl<MutableGraph> mg(g, dp);` stack object inside the template wrapper, destroyed automatically.
+
+### P2.6 API Existence
+**Claim:** All functions cited in this report exist in the current boost-c1 source tree at the cited locations: `boost::read_graphml` (template, graphml.hpp:228; non-template core, graphml.hpp:225 decl / graphml.cpp:305 def), `boost::write_graphml` (two overloads, graphml.hpp:257 and graphml.hpp:382), `boost::dynamic_properties::property` (dynamic_property_map.hpp:228 and :240), `graphml_reader::run/get_graphs/handle_vertex/handle_edge/handle_graph_property/handle_node_property/handle_edge_property` (all in libs/graph/src/graphml.cpp, anonymous namespace), `mutate_graph_impl::set_vertex_property/set_graph_property/set_edge_property/put_property` (graphml.hpp:108-211).
+**Evidence:**
+> libs/graph/include/boost/graph/graphml.hpp:225-234, 257-260, 382-387.
+> libs/graph/src/graphml.cpp:30-311 (whole `graphml_reader` class and free-function definition).
+> libs/property_map/include/boost/property_map/dynamic_property_map.hpp:228-247.
+
+### P2.7 Co-call Constraints
+**Claim:** There is no lock/unlock or begin/commit pairing for `read_graphml` itself (it is a single idempotent-per-call free function). The only "pairing" in this API surface is the round-trip pattern `write_graphml(out, g, dp)` followed by `read_graphml(in, g2, dp2)` used by both the unit test and the doc example to validate the encode/decode cycle; this is a usage convention, not an enforced API contract. `dynamic_properties::property(name, map)` calls must all happen before `read_graphml`/`write_graphml` is invoked with that `dp`, since the reader consults `dp` synchronously during the single call and does not re-check for newly added properties mid-parse.
+**Evidence:**
+> libs/graph/test/graphml_test.cpp:46-55 then :72-73: properties registered, then `read_graphml`, later `write_graphml(ofile, g, dp)`.
+> libs/graph/doc/modules/ROOT/examples/io/graphml.cpp:22-27 (write) then :32-37 (read) — write/read round trip, properties set before each call on the respective `dp`/`dp2`.
+
+### P2.8 Prerequisite State
+**Claim:** Prerequisite state the target depends on: (a) `g`'s directedness category (`graph_traits<MutableGraph>::directed_category`) must be fixed at compile time via the `MutableGraph` type chosen (e.g. `adjacency_list<..., directedS>` vs `undirectedS>`) — this drives the `is_directed()` check against the file's `edgedefault`/edge `directed=` attributes; mismatches throw. (b) `dp` must already contain an entry (inserted via `property()`) for every `attr.name` that will be referenced by `<data key="...">` in the document, mapped with the dynamic-property machinery tied to the right key type (`Graph*` for graph-level, `vertex_descriptor` for node-level, `edge_descriptor` for edge-level) — `mutate_graph_impl::put_property` relies on `boost::put(name, dp, key, value)` finding a matching map of the correct key type, else the `dp.generate()`/`property_not_found` path triggers. (c) No network/filesystem/global singleton state is required beyond the stream itself.
+**Evidence:**
+> libs/graph/include/boost/graph/graphml.hpp:91-96: `is_directed()` from `graph_traits<MutableGraph>::directed_category`.
+> libs/graph/src/graphml.cpp:153-155,167-170: `default_directed` from `<xmlattr>/edgedefault`, compared to `m_g.is_directed()`.
+> libs/graph/include/boost/graph/graphml.hpp:198-201 (put_property::operator()): `put(m_name, m_dp, m_key, lexical_cast<Value>(m_value));` — relies on `dp` containing a map for `m_name`/`m_key` type.
+
+### P2.9 Result Usage
+**Claim:** After `read_graphml` returns, callers consume the populated `g` and `dp` via standard BGL graph-query APIs and dynamic-property `get()`: counting (`num_vertices`, `num_edges`), descriptor-based access (`vertex(i, g)`, `edge(u, v, g)`), typed property access via the static property maps that were registered on `dp` (e.g. `get(vertex_color_t(), g, vertex(2, g))`), and dynamic lookup via `boost::get("name", dp, key)`. The populated graph/dp pair is also handed, unchanged in type, to `write_graphml(ostream&, Graph&, dynamic_properties&, bool)` to re-serialize, enabling round-trip testing.
+**Evidence:**
+> libs/graph/test/graphml_test.cpp:58-61: `BOOST_TEST(num_vertices(g) == 9); BOOST_TEST(num_edges(g) == 9); BOOST_TEST(get(vertex_color_t(), g, vertex(2, g)) == 100);`
+> libs/graph/test/graphml_test.cpp:62-69: `get(edge_weight_t(), g, edge(vertex(0, g), vertex(1, g), g).first)`.
+> libs/graph/test/graphml_test.cpp:70: `BOOST_TEST(get("description", dp, &g) == "Root graph.");` — dynamic `get()` on the `dp` populated by `read_graphml` via a graph-level `ref_property_map`.
+> libs/graph/test/graphml_test.cpp:72-74: `ofstream ofile(...); write_graphml(ofile, g, dp); ofile.close();` — result fed to the write/consumer API.
+> libs/graph/doc/modules/ROOT/examples/io/graphml.cpp:39-44: `num_vertices(g2)`, `num_edges(g2)`, iterate `vertices(g2)` and read `g2[v].name` (bundled property) after `read_graphml`.
+
+### P2.10 Behaviour Controls
+**Claim:** Behaviour-selecting inputs/flags:
+1. `desired_idx` parameter of `read_graphml` (0 = first `<graph>`, N = N-th sibling, `(size_t)-1` = all nested graphs recursively) — controls `graphml_reader::get_graphs` traversal (libs/graph/src/graphml.cpp:40-75, especially line 51 and 68-70).
+2. `<key for="...">` attribute value — one of `graph|node|edge|hyperedge|port|endpoint|all|graphml`; anything else throws `parse_error`; selects `key_kind` which gates whether a key's default feeds `handle_graph_property`/`handle_node_property`/`handle_edge_property` (libs/graph/src/graphml.cpp:96-124, 222-228 for defaults).
+3. `<key attr.type="...">` value — one of `boolean|int|long|float|double|string`; drives which `lexical_cast<Value>` instantiation is attempted in `put_property::operator()` via string comparison against `m_type_names[]` (libs/graph/include/boost/graph/graphml.hpp:192-201, 222-223); unrecognized type leaves `type_found=false` → `parse_error` (graphml.hpp:123-127, 146-150, 169-173).
+4. Presence/absence of `<default>` child of `<key>` — toggles whether `handle_vertex`/`handle_edge` pre-seed every new vertex/edge with a default value even without an explicit `<data>` (libs/graph/src/graphml.cpp:121-124, 220-229, 254-259).
+5. `<graph edgedefault="directed|undirected">` plus per-edge `directed="true"/"false"/""` override vs. `MutableGraph`'s static directedness — selects `directed_graph_error` / `undirected_graph_error` throw paths (libs/graph/src/graphml.cpp:153-180).
+6. Duplicate edges on a non-parallel-edge-capable graph container (e.g. `adjacency_list<setS,...>`) — `do_add_edge` returns `added=false`, triggering `bad_parallel_edge` (graphml.hpp:100-106; graphml.cpp:244-249).
+7. `write_graphml`'s `ordered_vertices` bool parameter — selects `parse.nodeids="canonical"` vs `"free"` in the emitted XML, and (indirectly, if that output is fed back to `read_graphml`) whether node ids are assumed sequential (graphml.hpp:259-260, 318-320).
+8. Which property maps/types are registered via `dynamic_properties::property(name, map)` before the call — determines which `lexical_cast<T>` / `put()` instantiations are exercised for each key name at parse time (type of `PropertyMap`'s value_type selected by caller).
+**Evidence:** see file:line citations embedded above (libs/graph/src/graphml.cpp and libs/graph/include/boost/graph/graphml.hpp as referenced).
+
+### P2.11 Input Expectations
+**Claim:** The target expects `in` to contain a well-formed XML document that, after `boost::property_tree::read_xml(in, pt, no_comments|trim_whitespace)`, has a top-level `graphml` child (`pt.get_child(path("graphml"))`, throws if absent/malformed). Within it, zero or more `<key>` elements (each optionally with `id`, `for`, `attr.name`, `attr.type` xml-attributes, defaulting to empty string if missing via `child.second.get(path(...), "")`, except `default` child which is optional via `get_optional`), and one or more `<graph>` elements, each requiring an `edgedefault` xmlattr (`gr->get<std::string>(path("<xmlattr>/edgedefault"))` — throws if missing) and containing `<node>` elements that **require** an `id` xmlattr (`node.second.get<std::string>(path("<xmlattr>/id"))` — throws `ptree` error if missing) and `<edge>` elements that **require** `source` and `target` xmlattrs (lines 162-164) with optional `directed` xmlattr. `<data>` elements under `<node>`/`<edge>`/`<graph>` require a `key` xmlattr (`attr.second.get<std::string>(path("<xmlattr>/key"))`) and carry their value as element text (`get_value("")`). There is no explicit documented size limit on the stream; it is read fully by the underlying property_tree XML parser (RapidXml- or expat-based depending on build) up to whatever that parser allows; no explicit termination sentinel beyond well-formed XML (closing tags). Values for typed keys must be lexically castable to the declared `attr.type` (e.g. numeric string for `int`/`float`/`double`) or `bad_lexical_cast` → `parse_error` is thrown.
+**Evidence:**
+> libs/graph/src/graphml.cpp:81-84: `read_xml(in, pt, no_comments|trim_whitespace); ptree gml = pt.get_child(path("graphml"));`
+> libs/graph/src/graphml.cpp:90-95: `child.second.get(path("<xmlattr>/id"), ""); ... get(path("<xmlattr>/for"), ""); ... get(path("<xmlattr>/attr.name"), ""); ... get(path("<xmlattr>/attr.type"), "");` (defaulted, not required).
+> libs/graph/src/graphml.cpp:121-124: `child.second.get_optional<std::string>(path("default"))` — optional default child.
+> libs/graph/src/graphml.cpp:137-138: `node.second.get<std::string>(path("<xmlattr>/id"))` — required, throws if absent.
+> libs/graph/src/graphml.cpp:153-154: `gr->get<std::string>(path("<xmlattr>/edgedefault"))` — required per graph.
+> libs/graph/src/graphml.cpp:161-166: `source`/`target` required via `get<std::string>`; `directed` optional via `get(..., "")`.
+> libs/graph/src/graphml.cpp:144-146,187-189: `data` elements require `key` xmlattr via `get<std::string>`, value via `get_value("")`.
+> libs/graph/include/boost/graph/graphml.hpp:118-122, 141-150, 164-173: `bad_lexical_cast` caught and rethrown as `parse_error`.
+
+## Other entries of the Logic Group and how they combine with the target in one harness
+
+### Entry: boost::write_graphml (two overloads)
+**Signatures:**
+- `template<typename Graph, typename VertexIndexMap> void write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index, const dynamic_properties& dp, bool ordered_vertices = false)` — libs/graph/include/boost/graph/graphml.hpp:257-260.
+- `template<typename Graph> void write_graphml(std::ostream& out, const Graph& g, const dynamic_properties& dp, bool ordered_vertices = false)` — libs/graph/include/boost/graph/graphml.hpp:382-387 (delegates to the first overload using `get(vertex_index, g)`).
+
+**Call protocol:**
+- Needs before it: a fully-constructed `Graph g` (vertices/edges already present, e.g. built manually or by a prior `read_graphml`), and a `dynamic_properties dp` whose maps' `key()` typeid matches `Graph*`, `vertex_descriptor`, or `edge_descriptor` for the respective graph/vertex/edge properties to be serialized (libs/graph/include/boost/graph/graphml.hpp:290-313 inspects `i->second->key() == typeid(Graph*)` etc. to classify each registered map).
+- Parameters/flags: `ordered_vertices` (bool) selects `parse.nodeids="canonical"` (true) vs `"free"` (false) in the emitted XML (graphml.hpp:318-320); the `VertexIndexMap` overload lets the caller supply a custom vertex-index map instead of the default `get(vertex_index, g)`.
+- Return: `void`; writes exclusively to `out` (an `std::ostream&`), caller owns and must flush/close it afterward (test does `ofile.close()` — libs/graph/test/graphml_test.cpp:74).
+- Used in harness: typically as the *inverse* of the target for round-trip testing — call `read_graphml` first to populate `g`/`dp` from fuzz bytes, or conversely build a small graph+dp programmatically, `write_graphml` it to a `std::ostringstream`, then feed that XML back into `read_graphml` to stress the encode/decode pair together (pattern seen at libs/graph/test/graphml_test.cpp:72-83 and libs/graph/doc/modules/ROOT/examples/io/graphml.cpp:26-37).
+- Belongs to this feature: Yes — confirmed present at the paths above; consumer/inverse of read_graphml's effects on `dp`/`g`.
+
+### Entry: boost::dynamic_properties::property(name, PropertyMap)
+**Signature:** `template<typename PropertyMap> dynamic_properties& property(const std::string& name, PropertyMap property_map_)` — libs/property_map/include/boost/property_map/dynamic_property_map.hpp:228-238 (non-const, mutating, returns `*this` for chaining); a `const` overload at :240-247 returns a *copy* with the property added.
+
+**Call protocol:**
+- Needs before it: a `dynamic_properties dp` object (default-constructed, libs/property_map/include/boost/property_map/dynamic_property_map.hpp:223) and a concrete `PropertyMap` instance already bound to the target graph (e.g. `get(vertex_color_t(), g)`, `get(&City::name, g)`, or a `boost::ref_property_map<Graph*, T>` wrapping `get_property(g, graph_name)` for graph-level properties — see libs/graph/test/graphml_test.cpp:47-52).
+- Parameters: `name` — the string key that must textually match the `attr.name` xml-attribute used in the GraphML `<key>` elements the harness intends to exercise; `property_map_` — any model of `ReadablePropertyMap`/`WritablePropertyMap` whose `key_type` is `Graph*` (graph-level), `vertex_descriptor` (node-level), or `edge_descriptor` (edge-level) for the specific `Graph` type used with `read_graphml`/`write_graphml`.
+- Return: `dynamic_properties&` (self, chainable) for the non-const overload; no cleanup needed (internally stores a `boost::shared_ptr<dynamic_property_map>` in a multimap, libs/property_map/include/boost/property_map/dynamic_property_map.hpp:232-235, 212-213) — memory is managed automatically via `shared_ptr`.
+- Used in harness: called once per distinct property name **before** `read_graphml`/`write_graphml`, in any order, any number of times (duplicate names are allowed since `property_maps` is a `multimap` — libs/property_map/include/boost/property_map/dynamic_property_map.hpp:212-213, 235). The *set* of names/types registered controls which `<key attr.name="...">`/`attr.type` combinations in the fuzzed XML will successfully resolve during `read_graphml` vs. trigger `property_not_found`/`parse_error` paths (see P2.10 point 8 above).
+- Belongs to this feature: Yes — present and used exactly as described, confirmed at the cited lines.
+
+### Combining into one harness
+**Claim:** A harness that fuzzes `read_graphml` alone needs only: construct `Graph g`, `dynamic_properties dp`, call `dp.property(...)` a few times with representative typed maps (bool/int/long/float/double/string, at graph/vertex/edge level) to maximize which `attr.type`/`attr.name` combinations in arbitrary fuzzed XML resolve into real conversions instead of immediately throwing `parse_error`/`property_not_found`, wrap the fuzzed bytes in a `std::istringstream`, and call `read_graphml(in, g, dp[, desired_idx])` inside a try/catch that catches at least `boost::graph_exception` (base of `parse_error`, `directed_graph_error`, `undirected_graph_error`, `bad_parallel_edge`) and `boost::property_tree::ptree_error`/`std::exception` broadly, since malformed XML/missing attributes are expected and must not be treated as crashes. Optionally, to exercise `write_graphml` and the round-trip path (P2.9/entry list), after a successful `read_graphml` call the harness can call `write_graphml(ostream, g, dp)` on the resulting graph/dp and optionally feed that output back into a second `read_graphml` call on a fresh `Graph g2`/`dynamic_properties dp2` (registered with the same property names/types) — this mirrors libs/graph/test/graphml_test.cpp:44-83 exactly.
+**Evidence:**
+> libs/graph/test/graphml_test.cpp:41-83: full combined pattern — construct graph type with bundled/internal properties, register `dp`, `read_graphml`, assert on results, `write_graphml`, then re-`read_graphml` into `g2`/`dp2`.
+
+## Build notes
+**Claim:** The project is compiled as C++ (clang, `-stdlib=libc++`) via Boost's `b2`/bootstrap process producing a static `stage/lib/libboost_graph.a`, which fuzzer sources are linked against directly; the `graphml.hpp` header is found via `-I .` pointing at the boost source root staged by `b2 ... stage` (so `#include <boost/graph/graphml.hpp>` resolves against the staged `boost/` include tree), and the non-template `read_graphml(istream&, mutate_graph&, size_t)` / graphml_reader implementation is pulled from the compiled `libboost_graph.a` at link time (it is NOT header-only — graphml.cpp is compiled into the library).
+**Evidence:**
+> ${QF_WORK}/ossfuzz_view/boost-c1/build.sh:25: `./b2 --user-config=user-config.jam --toolset=clang-ossfuzz link=static --with-headers --with-graph --with-filesystem --with-program_options headers stage;` — builds `libboost_graph.a` (--with-graph) as a static archive and stages headers.
+> ${QF_WORK}/ossfuzz_view/boost-c1/build.sh:40-41:
+> `$CXX $CXXFLAGS -I . ../boost_graph_graphviz_fuzzer.cc $LIB_FUZZING_ENGINE -o boost_graph_graphviz_fuzzer stage/lib/libboost_graph.a`
+> `$CXX $CXXFLAGS -I . ../boost_graph_graphml_fuzzer.cc $LIB_FUZZING_ENGINE -o boost_graph_graphml_fuzzer stage/lib/libboost_graph.a`
+> — shows a graphml-specific fuzzer is already wired into the build, compiled with `-I .` (the staged boost root) and linked against `stage/lib/libboost_graph.a`, which contains the compiled `libs/graph/src/graphml.cpp` object providing the non-template `boost::read_graphml(istream&, mutate_graph&, size_t)` symbol that the template in the header calls.
+> Current `ossfuzz_view/boost-c1/boost_graph_graphml_fuzzer.cc` is a stub (`/* Gold harness replaced by an empty stub for baseline generation. */`, lines 1-13) that ignores its input and returns 0 — i.e., the real harness body is expected to be (re)written by the downstream Harness Generator, but the build wiring (`-I .`, link against `stage/lib/libboost_graph.a`, C++ via clang/libc++) already exists and should be reused unchanged.
+> libs/graph/src/graphml.cpp:13: `#define BOOST_GRAPH_SOURCE` then `#include <boost/graph/graphml.hpp>` — confirms graphml.cpp is a library translation unit (not header-only), with `BOOST_GRAPH_DECL`/`dll_import_export.hpp` controlling symbol visibility for the exported non-template `read_graphml`/`mutate_graph` (libs/graph/include/boost/graph/graphml.hpp:20,54-76,225-226).

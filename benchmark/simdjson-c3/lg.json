@@ -1,0 +1,23 @@
+{
+  "name": "simdjson DOM parsing (parser::parse and friends)",
+  "description": "The feature is simdjson's two-stage \"on demand DOM\" JSON parser: untrusted raw bytes are first scanned (stage1, structural indexing + UTF-8 validation) and then converted into a tape-encoded DOM (stage2, tape_builder) that the caller later walks through dom::element. Since the byte buffer, its length and the realloc_if_needed/padding mode are all attacker-controllable, this is the primary security boundary of the library: stage1's SIMD structural indexer, the UTF-8 validator, and stage2's tape_builder (number parsing, string unescaping, atom validation, nesting-depth tracking) are exactly the code a fuzzer should stress.\n- simdjson::dom::parser::parse: target entry; copies (if realloc_if_needed) or references buf/len, strips a BOM, then calls dom_parser_implementation::parse (stage1+stage2) via parse_into_document, writing the result into the parser's internal document and returning its root element.\n- simdjson::dom::parser::parse_unpadded: variant that skips the padded-copy path and tells the implementation the buffer is exactly len bytes (sets _unpadded), forcing the length-aware/bounded code paths in stage2 (string unescaping, atom and near-end-of-buffer number parsing) instead of the padded fast path \u2014 a different path through the same core.\n- simdjson::dom::parser::parse_into_document: variant/sibling used by parse() internally but also public; lets the harness target a caller-supplied document object instead of the parser's own, exercising ensure_capacity/document growth as part of the input space.\n- simdjson::dom::parser::parse_many: variant that treats the buffer as a stream of whitespace- or newline-delimited concatenated JSON documents, iterated through document_stream/stage2_next, exercising the multi-document streaming (stage1_mode::streaming_partial/streaming_final) branch of stage1/stage2 not reached by a single parse().\n- simdjson::dom::parser::allocate: configuration entry that presets capacity and max_depth (DEFAULT_MAX_DEPTH), controlling ensure_capacity's growth path and the maximum object/array nesting stage2's tape_builder will accept before returning DEPTH_ERROR.\n- simdjson::dom::element::at_pointer / element::operator[] / element::begin()/end(): consumers that walk the parsed tape (JSON-pointer resolution, object/array iteration) after parse(), exercising the tape-reading code that interprets whatever stage2 produced from attacker input.\nInput space the harness should vary from the fuzz bytes: the JSON content itself (objects/arrays/strings/numbers/atoms/unicode escapes, including malformed/truncated/deeply-nested documents to probe DEPTH_ERROR and UTF8_ERROR paths); buffer length len including the BOM-prefixed case; the realloc_if_needed boolean (copy-into-padded-buffer vs. reuse-in-place path); whether the unpadded parse_unpadded() entry is used instead (forces the bounded/length-aware stage2 variant); the stream_format / batch_size when using parse_many (whitespace_delimited vs NDJSON-style streaming, partial vs final stage1 mode); and the parser's preset capacity/max_depth via allocate(), which changes when MEMALLOC/CAPACITY/DEPTH_ERROR are triggered versus successful parsing.",
+  "entries": [
+    "simdjson::dom::parser::parse",
+    "simdjson::dom::parser::parse_unpadded",
+    "simdjson::dom::parser::parse_into_document",
+    "simdjson::dom::parser::parse_many",
+    "simdjson::dom::parser::allocate",
+    "simdjson::dom::element::at_pointer"
+  ],
+  "core": [
+    "simdjson::internal::dom_parser_implementation::parse",
+    "simdjson::internal::dom_parser_implementation::stage1",
+    "simdjson::internal::dom_parser_implementation::stage2",
+    "simdjson::internal::dom_parser_implementation::stage2_next",
+    "simdjson::internal::dom_parser_implementation::parse_string",
+    "simdjson::dom::parser::ensure_capacity"
+  ],
+  "project": "simdjson",
+  "risk_level": "",
+  "danger_scores": {}
+}

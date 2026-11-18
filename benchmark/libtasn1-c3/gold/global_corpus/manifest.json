@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/libtasn1-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/libtasn1_asn1_get_object_id_der_fuzzer/public.zip",
+ "qualified_name": "libtasn1_asn1_get_object_id_der_fuzzer",
+ "seeds": 731,
+ "unpacked_bytes": 17816317,
+ "zip_bytes": 358383,
+ "zip_sha256": "d7a013541b4892709223f93362fd0fbcf83ff3cafbda1ba000b06c37579c8adb",
+ "content_digest_sha256": "0b0c7fd34d6a99b4c2b9673022f8689c3d1cfcaa60d3bb7f6c8df8d5357ed40d",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

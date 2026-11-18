@@ -1,0 +1,32 @@
+{
+  "case": "libsodium-c1",
+  "case_id": "libsodium/crypto_sign_fuzzer",
+  "project": "libsodium",
+  "fuzzer_name": "crypto_sign_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/crypto_sign_fuzzer.cc",
+  "gold_source_file": "/src/crypto_sign_fuzzer.cc",
+  "target_function": "crypto_sign_verify_detached",
+  "target_declaration": "SODIUM_EXPORT int crypto_sign_verify_detached(const unsigned char *sig, const unsigned char *m, unsigned long long mlen, const unsigned char *pk) __attribute__ ((warn_unused_result)) __attribute__ ((nonnull(1, 4)));",
+  "target_location": "sodium/crypto_sign.h:77",
+  "prompt": "Project: libsodium\nRepository: https://github.com/jedisct1/libsodium.git\nRevision: 2c61b499e7cea2d873a9afee220c946601f78beb\nLanguage: C++\n\nTarget function: crypto_sign_verify_detached\nDeclared in: sodium/crypto_sign.h:77\nDeclaration: SODIUM_EXPORT int crypto_sign_verify_detached(const unsigned char *sig, const unsigned char *m, unsigned long long mlen, const unsigned char *pk) __attribute__ ((warn_unused_result)) __attribute__ ((nonnull(1, 4)));\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/jedisct1/libsodium.git",
+      "rev": "2c61b499e7cea2d873a9afee220c946601f78beb",
+      "type": "git"
+    },
+    "upstream_path": "/src/libsodium",
+    "all_repos": {
+      "/src/libsodium": {
+        "type": "git",
+        "url": "https://github.com/jedisct1/libsodium.git",
+        "rev": "2c61b499e7cea2d873a9afee220c946601f78beb"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821; main repo mounted at that revision"
+  },
+  "callgraph": "callgraphs/libsodium.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

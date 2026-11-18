@@ -1,0 +1,2 @@
+/src/fuzzing https://github.com/google/fuzzing 734e55f3cfed1adbb51bf6cb5c65b4c1197b7089
+/src/libevent https://github.com/libevent/libevent.git c96ddc2727a4ed0ca744500efff7230316b4118d

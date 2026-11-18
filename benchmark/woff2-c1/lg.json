@@ -1,0 +1,21 @@
+{
+  "name": "WOFF2 to TTF/OTF font decompression (ConvertWOFF2ToTTF)",
+  "description": "This feature parses an untrusted, attacker-supplied WOFF2-compressed font file, brotli-decompresses its payload, and reconstructs a valid SFNT (TTF/OTF) font binary from it, including re-building transformed 'glyf'/'loca' and 'hmtx' tables and recomputing table checksums/offsets. Because every byte of the WOFF2 header, table directory, and the decompressed table streams comes directly from the fuzz input, this is a classic binary-format parser attack surface (integer overflows in offset/length arithmetic, out-of-bounds reads while walking variable-length-encoded glyph sub-streams, malformed TTC collection headers, etc.), making it a prime fuzzing target.\n- ConvertWOFF2ToTTF(data,length,WOFF2Out*): target entry; the \"preferred\" API. Parses the WOFF2 header (ReadWOFF2Header), writes SFNT headers (WriteHeaders), brotli-decompresses the payload (Woff2Uncompress), then rebuilds every font in the file (ReconstructFont, which in turn calls ReconstructGlyf/ReconstructTransformedHmtx) and streams the result through the caller-supplied WOFF2Out sink.\n- ConvertWOFF2ToTTF(result,result_length,data,length): variant/legacy overload; wraps a fixed-size WOFF2MemoryOut around the caller buffer and forwards to the WOFF2Out-based entry, exercising the identical core path but with a size-capped, pre-allocated output sink instead of an expandable one (different Write()/overflow-check path than WOFF2StringOut).\n- ComputeWOFF2FinalSize(data,length): config/sizing helper used by real callers (e.g. the woff2_decompress tool) to size the output buffer/string before calling ConvertWOFF2ToTTF; feeding it the same fuzz-controlled bytes lets the harness pick a plausible-but-adversarial output size, exercising the WOFF2MemoryOut bounds checks and the \"implausible compression ratio\" rejection path in the core.\nThe input space that selects different paths through the core: the WOFF2 signature/flavor (normal font vs. TTC collection flavor, which drives the num_fonts/TtcFont header_version 0x10000 vs 0x20000 branch in ReadWOFF2Header), per-table flag bytes in the table directory (known vs. custom 4-byte tag, whether kWoff2FlagsTransform is set for glyf/loca/other tables, which decides whether a table is copied verbatim or passed through ReconstructGlyf/ReconstructTransformedHmtx), the glyf transform's flags/version/num_glyphs/index_format/overlap-bitmap bit and its 7 sub-stream sizes, the hmtx transform flags (proportional vs monospace LSBs), presence/absence and lengths of metadata and private-data blocks, the declared vs actual compressed/uncompressed sizes (drives the compression-ratio and brotli-decompress bounds checks), and the destination-buffer size supplied through WOFF2MemoryOut/WOFF2StringOut (bounds-check paths in Write()).",
+  "entries": [
+    "woff2::ConvertWOFF2ToTTF",
+    "woff2::ConvertWOFF2ToTTF",
+    "woff2::ComputeWOFF2FinalSize"
+  ],
+  "core": [
+    "ReadWOFF2Header",
+    "ReadTableDirectory",
+    "Woff2Uncompress",
+    "WriteHeaders",
+    "ReconstructFont",
+    "ReconstructGlyf",
+    "ReconstructTransformedHmtx"
+  ],
+  "project": "woff2",
+  "risk_level": "",
+  "danger_scores": {}
+}

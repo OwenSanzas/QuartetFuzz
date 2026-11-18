@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 4475,
+  "count": 5443,
+  "percent": 82.216
+ },
+ "functions": {
+  "covered": 160,
+  "count": 196,
+  "percent": 81.633
+ },
+ "regions": {
+  "covered": 8825,
+  "count": 11833,
+  "percent": 74.58
+ },
+ "branches": {
+  "covered": 4994,
+  "count": 7083,
+  "percent": 70.507
+ },
+ "scope": "/src/libyaml/",
+ "files_in_scope": 11,
+ "files_total": 13,
+ "all_linked": {
+  "lines": {
+   "covered": 4525,
+   "count": 5495,
+   "percent": 82.348
+  },
+  "functions": {
+   "covered": 162,
+   "count": 198,
+   "percent": 81.818
+  },
+  "regions": {
+   "covered": 8854,
+   "count": 11864,
+   "percent": 74.629
+  },
+  "branches": {
+   "covered": 5010,
+   "count": 7101,
+   "percent": 70.553
+  }
+ },
+ "timestamp": "2026-08-28T20:44:41Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

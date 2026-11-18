@@ -1,0 +1,27 @@
+{
+  "name": "zlib deflate compression pipeline",
+  "description": "The deflate() function drives zlib's streaming LZ77+Huffman compressor: it consumes attacker-controlled raw bytes from strm->next_in and, depending on stream state (header/body/trailer), compression level, strategy and flush mode, writes compressed output to strm->next_out, calling into the internal match-finding/encoding engines (deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff) and the bit-level tree writer (_tr_*). Because it is a state machine driven by both the input bytes and a large set of configuration knobs (window size, memLevel, strategy, dictionary, gzip header fields, flush type), it is security relevant: bugs in window/hash management, pending-buffer flow control, or gzip-header emission with attacker-supplied extra/name/comment fields can corrupt memory or produce malformed/incorrect output that downstream inflate() would need to handle.\n- deflate: target; the per-call state machine that writes header bytes (zlib/gzip), dispatches to the level/strategy-selected compression function, flushes pending output, and finally writes the trailer (adler32/crc32 + size) at Z_FINISH.\n- deflateInit2_: source/config, builds the deflate_state with user-chosen level, windowBits (raw/zlib/gzip wrapper selection via wrap sign/magic), memLevel and strategy, allocating window/hash tables that the core match finders operate on.\n- deflateSetDictionary: source/config, seeds s->window/head/prev hash tables with a preset dictionary before compression begins, changing the match-finding state deflate's core reads (also sets s->strstart causing deflate's header logic to emit PRESET_DICT flag and an extra adler32).\n- deflateSetHeader: config, attaches a gz_header struct (text/time/extra/name/comment/hcrc fields) that deflate's GZIP_STATE/EXTRA_STATE/NAME_STATE/COMMENT_STATE/HCRC_STATE branches serialize byte-by-byte into pending_buf, exercising extra copy-loop and CRC update logic.\n- deflateParams: config, changes level/strategy mid-stream (selects a different configuration_table[].func, i.e. switches among deflate_stored/deflate_fast/deflate_slow/deflate_rle/deflate_huff) and internally calls deflate(strm, Z_BLOCK) to flush before switching, directly exercising deflate's flush-control paths.\n- deflateReset / deflateResetKeep: lifecycle/config, resets state machine (status back to INIT/GZIP_STATE, pending buffer cleared) so repeated deflate() calls with different parameters/inputs can be fuzzed across multiple rounds.\n- deflatePrime: config, injects raw bits directly into the bit buffer before deflate runs, perturbing the bitstream alignment assumptions of _tr_align/_tr_stored_block.\n- deflateEnd: lifecycle consumer, tears down state (checked for BUSY_STATE vs finished to return Z_DATA_ERROR), validating deflate left the stream in a consistent state.\n- inflate/inflateInit2_: consumer/round-trip, the natural decompressor that should successfully decode whatever deflate produced, validating the compressed bitstream deflate emitted (differential/round-trip check).\nThe input space the harness should vary: flush value (Z_NO_FLUSH, Z_PARTIAL_FLUSH, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_BLOCK, Z_FINISH), compression level (0-9, including 0 = deflate_stored, 1 = fast, default Z_DEFAULT_STRATEGY path, 6 = default, 9 = max triggering deflate_slow), strategy (Z_DEFAULT_STRATEGY, Z_FILTERED, Z_HUFFMAN_ONLY -> deflate_huff, Z_RLE -> deflate_rle, Z_FIXED), windowBits sign/magnitude (raw/-15..-9, zlib 9..15, gzip 25..31) selecting wrap mode and header format, memLevel (1-9) affecting hash table sizing, presence/size of a preset dictionary, presence and contents of a gz_header (extra/name/comment buffers of varying length, hcrc flag), chunking of avail_in/avail_out across multiple deflate() calls to exercise the pending-output and partial-flush return paths, and the raw input byte content/size (including highly repetitive vs random data to exercise RLE/match-finding branches).",
+  "entries": [
+    "deflate",
+    "deflateInit2_",
+    "deflateSetDictionary",
+    "deflateSetHeader",
+    "deflateParams",
+    "deflateReset",
+    "deflatePrime",
+    "deflateEnd"
+  ],
+  "core": [
+    "deflate_stored",
+    "deflate_fast",
+    "deflate_slow",
+    "deflate_rle",
+    "deflate_huff",
+    "flush_pending",
+    "_tr_align",
+    "_tr_stored_block"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {}
+}

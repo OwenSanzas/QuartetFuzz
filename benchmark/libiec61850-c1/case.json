@@ -1,0 +1,32 @@
+{
+  "case": "libiec61850-c1",
+  "case_id": "libiec61850/fuzz_mms_decode",
+  "project": "libiec61850",
+  "fuzzer_name": "fuzz_mms_decode",
+  "language": "c",
+  "gold_harness_path": "$SRC/libiec61850/fuzz/fuzz_mms_decode.c",
+  "gold_source_file": "/src/libiec61850/fuzz/fuzz_mms_decode.c",
+  "target_function": "MmsValue_decodeMmsData",
+  "target_declaration": "LIB61850_API MmsValue* MmsValue_decodeMmsData(uint8_t* buffer, int bufPos, int bufferLength, int* endBufPos);",
+  "target_location": "libiec61850/mms_value.h:1018",
+  "prompt": "Project: libiec61850\nRepository: https://github.com/mz-automation/libiec61850\nRevision: 664aa00b447292afdf86330745df1b25328aa98f\nLanguage: C\n\nTarget function: MmsValue_decodeMmsData\nDeclared in: libiec61850/mms_value.h:1018\nDeclaration: LIB61850_API MmsValue* MmsValue_decodeMmsData(uint8_t* buffer, int bufPos, int bufferLength, int* endBufPos);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/mz-automation/libiec61850",
+      "rev": "664aa00b447292afdf86330745df1b25328aa98f",
+      "type": "git"
+    },
+    "upstream_path": "/src/libiec61850",
+    "all_repos": {
+      "/src/libiec61850": {
+        "url": "https://github.com/mz-automation/libiec61850",
+        "rev": "664aa00b447292afdf86330745df1b25328aa98f",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libiec61850.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

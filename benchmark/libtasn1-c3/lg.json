@@ -1,0 +1,21 @@
+{
+  "name": "DER OBJECT IDENTIFIER decoding",
+  "description": "asn1_get_object_id_der parses the raw bytes of a BER/DER-encoded OBJECT IDENTIFIER (the tag already stripped) into its dotted-decimal textual form. It reads an attacker-controlled length field, then walks a sequence of base-128 continuation-bit-encoded sub-identifiers, accumulating each into a 64-bit value with overflow checks, and writes the resulting dotted string into a caller buffer; this is exactly the kind of length/arithmetic-heavy binary parser (integer overflow, buffer bounds, malformed continuation bytes, 0x80 leading-byte rule) that is prone to memory-safety and logic bugs when fed untrusted certificate/CMS/PKCS data.\n- asn1_get_object_id_der: target; core is its own body plus asn1_get_length_der, _asn1_ltostr, _asn1_str_cpy, _asn1_str_cat.\n- asn1_get_length_der: callee/shared core; also an independently callable public primitive that decodes the length octets the OID parser depends on (short form, long form, indefinite, overflow cases) \u2014 exercising it directly adds length-encoding edge cases (0x80 short boundary, long-form multi-byte lengths, overflow of length value, length exceeding der_len).\n- asn1_object_id_der: inverse/round-trip encoder (_asn1_object_id_der core), lets the harness build structurally-varied, syntactically valid or edge-case OIDs (very large sub-identifiers, many/few arcs, arc 0/1/2 boundary values 39/40) and feed the produced DER back into asn1_get_object_id_der, reaching more of the decoder's branches than a single hand-picked input ever would.\n- asn1_der_decoding: consumer/variant that drives asn1_get_object_id_der as part of full ASN.1 structure decoding (case ASN1_ETYPE_OBJECT_ID in asn1_der_decoding2's node-walking loop); feeding it a .asn1 definition containing an OBJECT IDENTIFIER field and arbitrary DER lets the fuzzer reach the same core through the \"real\" parsing pipeline, with the surrounding tag/length framing supplied by the structure decoder rather than hand-stripped by the harness.\nInput space to vary (most path-opening first): (1) the raw sub-identifier byte stream passed directly to asn1_get_object_id_der \u2014 vary continuation bit (0x80) patterns, number of 7-bit groups per arc (to hit the INT_LEFT_SHIFT_OVERFLOW checks on val/val0), leading byte 0x80 (must trigger ASN1_DER_ERROR), total arc value bucket (<=39, 40-79, >=80) controlling X/Y split; (2) der_len / encoded length-field bytes (short form vs multi-byte long form, length greater than buffer, length field itself malformed) consumed via asn1_get_length_der; (3) str_size of the output buffer (too small vs ample) to exercise _asn1_str_cpy/_asn1_str_cat truncation paths; (4) when going through the round trip, the OID string given to asn1_object_id_der (number of arcs, arc magnitudes up to 2^64, first/second arc boundary values) to synthesize varied DER inputs for the decoder; (5) when going through asn1_der_decoding, the surrounding ASN.1 type definition/flags (ASN1_DECODE_FLAG_*) that select whether the OBJECT_ID field is parsed at all and how errors propagate.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "asn1_get_object_id_der",
+    "asn1_get_length_der",
+    "asn1_object_id_der",
+    "asn1_der_decoding"
+  ],
+  "core": [
+    "asn1_get_length_der",
+    "_asn1_ltostr",
+    "_asn1_str_cpy",
+    "_asn1_str_cat",
+    "asn1_der_decoding2",
+    "_asn1_object_id_der"
+  ],
+  "project": "libtasn1",
+  "risk_level": "",
+  "danger_scores": {}
+}

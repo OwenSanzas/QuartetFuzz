@@ -1,0 +1,32 @@
+{
+  "case": "muparser-c1",
+  "case_id": "muparser/set_eval_fuzzer",
+  "project": "muparser",
+  "fuzzer_name": "set_eval_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/set_eval_fuzzer.cc",
+  "gold_source_file": "/src/set_eval_fuzzer.cc",
+  "target_function": "mu::Parser::Eval",
+  "target_declaration": "value_type Eval() const;",
+  "target_location": "muParserBase.h:118",
+  "prompt": "Project: muparser\nRepository: https://github.com/beltoforion/muparser.git\nRevision: 508cce97d983c4c61099ceacc11c984a60053967\nLanguage: C++\n\nTarget function: mu::Parser::Eval\nDeclared in: muParserBase.h:118\nDeclaration: value_type Eval() const;\nEnclosing scope: namespace mu, class API_EXPORT_CXX ParserBase (muParserBase.h:72); mu::Parser (muParser.h:50) derives from it and inherits Eval\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/beltoforion/muparser.git",
+      "rev": "508cce97d983c4c61099ceacc11c984a60053967",
+      "type": "git"
+    },
+    "upstream_path": "/src/muparser",
+    "all_repos": {
+      "/src/muparser": {
+        "url": "https://github.com/beltoforion/muparser.git",
+        "rev": "508cce97d983c4c61099ceacc11c984a60053967",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/muparser.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

@@ -1,0 +1,1 @@
+/src/libidn2 https://gitlab.com/libidn/libidn2.git 8d9fc983a98492eb434a6ea72a342d840af7d518

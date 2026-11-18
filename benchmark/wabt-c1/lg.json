@@ -1,0 +1,24 @@
+{
+  "name": "WASM binary decoding into in-memory IR Module",
+  "description": "ReadBinaryIr is the primary entry point that parses a raw, untrusted WebAssembly binary module (the wasm magic header plus the sequence of sections: type, import, function, table, memory, global, export, start, elem, code, data, tag, datacount, and custom sections such as name/linking/reloc/dylink/code-metadata) and builds the full in-memory IR (wabt::Module) used by the rest of the toolchain (wat writer, validator, interpreter, wasm2c, etc.). It constructs a BinaryReaderIR delegate and drives it through the generic low-level BinaryReader state machine (BinaryReader::ReadModule -> ReadSections -> per-section readers -> ReadFunctionBody/ReadInstructions for opcode decoding), which calls back into BinaryReaderIR's On* handlers to populate types, functions, tables, memories, globals, elem/data segments, expressions/instructions (including nested block/loop/if/try label stacks, with/without multi-value types), symbol and name tables, and generic custom sections. Because every byte of the untrusted module is consumed by this decoder (LEB128 varints, string names, raw section bytes, opcodes, immediates), and the resulting IR drives all downstream processing, this is a prime, security-critical fuzzing target: malformed, truncated, deeply nested, or structurally inconsistent modules can trigger bugs in index validation, local/type-count arithmetic, and the label/expr stack management (bounded by kMaxNestingDepth/kMaxFunctionLocals/kMaxFunctionParams/kMaxFunctionResults).\n- ReadBinaryIr (ByteSpan overload): target; drives BinaryReader::ReadModule/ReadSections over the whole binary into BinaryReaderIR, producing the Module IR - this is the main decode path into C.\n- ReadBinaryIr (const uint8_t*, size_t overload): variant/thin wrapper that forwards to the ByteSpan overload - same input path, legacy pointer+size API surface.\n- ValidateModule: consumer; runs semantic/type validation over the Module IR produced by ReadBinaryIr, exercising index and type-consistency checks across the parsed structures (as done in wasm2wat.cc and wasm-validate.cc after ReadBinaryIr).\n- GenerateNames / ApplyNames: consumers; walk and mutate the Module's name bindings built from the binary's name section / symbol table entries parsed by BinaryReaderIR, exercising the binding/uniqueness logic (GetUniqueName, tag/table/global/function symbol bindings).\n- WriteWat: consumer; serializes the parsed Module IR back to text, exercising traversal of every IR node (types, funcs, exprs, segments) that BinaryReaderIR built, surfacing structural bugs introduced during decode.\nInput space selecting different paths through the core: the raw module bytes themselves (magic/version/layer fields, section ids/sizes, LEB128-encoded counts and indices, opcodes and their immediates, and any custom section name/content) and the ReadBinaryOptions fields - features (Features, enabling/disabling individual proposal feature flags such as SIMD, threads, multi-value, exceptions, tail-call, function-references, gc, etc. via feature.def), read_debug_names (toggles whether name-section callbacks run), stop_on_first_error (changes ReadSections error-recovery/continue-after-error behavior), and fail_on_custom_section_error (changes handling of malformed custom sections like name/linking/reloc/dylink0). skip_function_bodies must stay false for this API (asserted) since BinaryReaderIR requires full code-section decoding to close label stacks correctly.",
+  "entries": [
+    "wabt::ReadBinaryIr",
+    "wabt::ValidateModule",
+    "wabt::GenerateNames",
+    "wabt::ApplyNames",
+    "wabt::WriteWat"
+  ],
+  "core": [
+    "wabt::(anonymous namespace)::BinaryReader::ReadModule",
+    "wabt::(anonymous namespace)::BinaryReader::ReadSections",
+    "wabt::(anonymous namespace)::BinaryReader::ReadFunctionBody",
+    "wabt::(anonymous namespace)::BinaryReader::ReadInstructions",
+    "wabt::(anonymous namespace)::BinaryReaderIR::OnOpcode",
+    "wabt::(anonymous namespace)::BinaryReaderIR::OnBlockExpr",
+    "wabt::(anonymous namespace)::BinaryReader::ReadCustomSection",
+    "wabt::(anonymous namespace)::BinaryReader::ReadNameSection"
+  ],
+  "project": "wabt",
+  "risk_level": "",
+  "danger_scores": {}
+}

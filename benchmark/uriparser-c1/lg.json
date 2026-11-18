@@ -1,0 +1,25 @@
+{
+  "name": "uriparser query string dissection (and compose round-trip)",
+  "description": "This feature parses a raw query string (the part of a URI after '?', untrusted input coming straight from a URL) into a linked list of key/value pairs, splitting on '&' and '=', percent-decoding (unescaping %XX sequences) and optionally turning '+' into ' ' and normalizing line breaks for each key and value. Because it walks attacker-controlled bytes, tracks overlapping key/value boundaries across repeated '&'/'=' characters, and performs dynamic allocation/unescaping per field, it is a prime target for off-by-one, integer-overflow and memory-corruption bugs.\n- uriDissectQueryMallocA: target; core: DissectQueryMallocExMm -> AppendQueryItem -> UnescapeInPlaceEx\n- uriDissectQueryMallocExA: variant (adds explicit plusToSpace/breakConversion parameters), same core as target\n- uriDissectQueryMallocExMmA: variant (adds a custom UriMemoryManager so malloc/calloc/free failures in AppendQueryItem can be forced), same core as target, additionally exercises the memory-manager failure paths inside AppendQueryItem\n- uriComposeQueryA / uriComposeQueryExA / uriComposeQueryMallocA / uriComposeQueryMallocExA / uriComposeQueryMallocExMmA: consumer/inverse operation \u2014 takes the UriQueryList produced by the dissect call and serializes it back to a query string (re-escaping, re-inserting '&'/'=' and optionally '+'<->' ' and CR/LF normalization), exercising ComposeQueryEngine/ComposeQueryCharsRequiredEx which is the natural round-trip check for the dissected data\n- uriFreeQueryListA / uriFreeQueryListMmA: lifecycle cleanup of the list built by DissectQueryMalloc, needed to free the allocations made by AppendQueryItem\nThe input space to vary across C: the raw query bytes themselves (empty keys/values, repeated '&' and '=' such as \"&&=&&&=&&&&==&===&====\"), presence/absence of '=' per segment (key-only vs key=value), percent-encoded sequences including %0D/%0A combinations that interact with breakConversion, '+' characters, and the plusToSpace (URI_TRUE/URI_FALSE) and breakConversion (URI_BR_DONT_TOUCH, URI_BR_TO_LF, URI_BR_TO_CR, URI_BR_TO_CRLF) parameters exposed by the Ex/ExMm variants \u2014 URI_BR values and plusToSpace=URI_TRUE exercise the most branches in UnescapeInPlaceEx and should be preferred as the default/most permissive configuration. Also vary the UriMemoryManager passed to the ExMm variant (NULL for default libc manager vs a custom/failing one) to reach the malloc-failure cleanup branches in AppendQueryItem and DissectQueryMallocExMm.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "uriDissectQueryMallocA",
+    "uriDissectQueryMallocExA",
+    "uriDissectQueryMallocExMmA",
+    "uriComposeQueryA",
+    "uriComposeQueryExA",
+    "uriComposeQueryMallocA",
+    "uriComposeQueryMallocExA",
+    "uriFreeQueryListA"
+  ],
+  "core": [
+    "uriDissectQueryMallocExMmA",
+    "uriAppendQueryItemA",
+    "uriUnescapeInPlaceExA",
+    "uriComposeQueryEngineA",
+    "uriComposeQueryCharsRequiredExA",
+    "uriFreeQueryListMmA"
+  ],
+  "project": "uriparser",
+  "risk_level": "",
+  "danger_scores": {}
+}

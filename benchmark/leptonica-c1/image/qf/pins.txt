@@ -1,0 +1,8 @@
+/src/jbigkit https://www.cl.cam.ac.uk/~mgk25/git/jbigkit 4f96ddd9e8850594a2d94fb2201571be0398c8c7
+/src/leptonica https://github.com/DanBloomberg/leptonica.git 10bdea2f19240ffe8c931701b0b7340f41c6b256
+/src/libjpeg-turbo https://github.com/libjpeg-turbo/libjpeg-turbo 2646fa33f8d67373c27b558b47e77b2d8d517e31
+/src/libpng https://github.com/glennrp/libpng.git d1d0abeffede1cc898ddc3d0e600839cf026d749
+/src/libtiff https://gitlab.com/libtiff/libtiff b99beace423ebb3d2040a2a61fe8c01bd857d854
+/src/libwebp https://chromium.googlesource.com/webm/libwebp 523e30432fdbf77b9566a9fc65394a97cbebc11c
+/src/zlib https://github.com/madler/zlib.git e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca
+/src/zstd https://github.com/facebook/zstd 82d322c4973d9e2968d94047a40892bc6d9a9bdf

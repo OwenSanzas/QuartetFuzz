@@ -1,0 +1,26 @@
+{
+  "name": "X.509 certificate parsing (PEM/DER) and chain verification",
+  "description": "mbedtls_x509_crt_parse accepts an untrusted buffer that may contain one DER-encoded certificate or one-or-more concatenated PEM \"-----BEGIN CERTIFICATE-----\" blocks, decodes each certificate's ASN.1 TBSCertificate structure (version, serial, signature algorithm, issuer/subject Names, validity dates, SubjectPublicKeyInfo, optional unique IDs, and v3 extensions such as basicConstraints/keyUsage/extendedKeyUsage/subjectAltName/authorityKeyIdentifier) and appends the resulting mbedtls_x509_crt nodes to a caller-supplied chain. This is a classic attacker-controlled-parser surface: malformed ASN.1 lengths/tags, forged extension OIDs/critical flags, bad PEM framing, or oversized/garbage public keys can trigger memory-safety or logic bugs in the TLV walker, the extension dispatcher, and the public-key/signature parameter parsers, which are later trusted by chain-verification/name-matching logic.\n- mbedtls_x509_crt_parse: target; detects PEM vs DER (looks for a NUL-terminated buffer containing the PEM header) and, for PEM, loops mbedtls_pem_read_buffer/mbedtls_x509_crt_parse_der over each block, accumulating partial-failure errors; for DER it calls mbedtls_x509_crt_parse_der directly.\n- mbedtls_x509_crt_parse_der: variant/source, forces make_copy=1 into mbedtls_x509_crt_parse_der_internal -> x509_crt_parse_der_core, the core ASN.1 walker for a single certificate (adds it to the chain's tail).\n- mbedtls_x509_crt_parse_der_nocopy: variant, same core parser but make_copy=0 (crt->raw points directly into caller's buffer instead of an owned copy) \u2014 exercises the \"no internal copy\" code path and buffer lifetime assumptions.\n- mbedtls_x509_crt_parse_der_with_ext_cb: variant/config, lets a caller-supplied extension callback (mbedtls_x509_crt_ext_cb_t) handle extension OIDs unknown to mbedtls_oid_get_x509_ext_type inside x509_get_crt_ext, exercising the custom-extension dispatch branch of the core.\n- mbedtls_x509_crt_parse_file: source, reads a file from disk via mbedtls_pk_load_file then calls mbedtls_x509_crt_parse, i.e. the file-based front end of the same feature.\n- mbedtls_x509_crt_info / mbedtls_x509_crt_verify_with_profile (and mbedtls_x509_crt_check_key_usage/check_extended_key_usage): consumers that walk the parsed chain's fields (DN printing via mbedtls_x509_dn_gets, serial/validity printing, extension-flag checks, chain-building/signature verification via x509_crt_verify_chain and name matching), exercising code that depends on the correctness of the fields the core parser filled in (ext_types, key_usage, basic constraints, raw/tbs offsets).\nThe input space the harness should vary: PEM vs raw DER input (presence/placement of the PEM markers and trailing NUL), number of concatenated certificates in one buffer, X.509 version field (v1/v2/v3, invalid values >2 rejected), presence/absence of issuerUniqueID/subjectUniqueID (only allowed for v2/v3), presence of the v3 extensions block and the set/criticality of individual extensions (known OIDs such as basicConstraints, keyUsage, subjectAltName, extendedKeyUsage, authorityKeyIdentifier/subjectKeyIdentifier vs unknown OIDs that hit the ext_cb or \"unsupported critical extension\" failure path), malformed ASN.1 lengths/tags at each TLV boundary (sequence, integer, OID, bitstring, octet string), mismatched signatureAlgorithm between TBSCertificate and the outer Certificate, and different public-key algorithms/encodings consumed by mbedtls_pk_parse_subpubkey.",
+  "entries": [
+    "mbedtls_x509_crt_parse",
+    "mbedtls_x509_crt_parse_der",
+    "mbedtls_x509_crt_parse_der_nocopy",
+    "mbedtls_x509_crt_parse_der_with_ext_cb",
+    "mbedtls_x509_crt_parse_file",
+    "mbedtls_x509_crt_info",
+    "mbedtls_x509_crt_verify_with_profile"
+  ],
+  "core": [
+    "x509_crt_parse_der_core",
+    "x509_get_crt_ext",
+    "x509_get_version",
+    "x509_get_dates",
+    "mbedtls_x509_get_name",
+    "mbedtls_pk_parse_subpubkey",
+    "x509_crt_verify_chain",
+    "mbedtls_x509_dn_gets"
+  ],
+  "project": "mbedtls",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,1 @@
+/src/muparser https://github.com/beltoforion/muparser.git 508cce97d983c4c61099ceacc11c984a60053967

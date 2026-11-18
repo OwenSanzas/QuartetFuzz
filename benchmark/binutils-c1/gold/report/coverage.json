@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 110755,
+  "count": 505110,
+  "percent": 21.927
+ },
+ "functions": {
+  "covered": 2163,
+  "count": 12628,
+  "percent": 17.129
+ },
+ "regions": {
+  "covered": 85243,
+  "count": 516804,
+  "percent": 16.494
+ },
+ "branches": {
+  "covered": 59427,
+  "count": 300965,
+  "percent": 19.745
+ },
+ "scope": "/src/binutils-gdb/",
+ "files_in_scope": 730,
+ "files_total": 730,
+ "all_linked": {
+  "lines": {
+   "covered": 110755,
+   "count": 505110,
+   "percent": 21.927
+  },
+  "functions": {
+   "covered": 2163,
+   "count": 12628,
+   "percent": 17.129
+  },
+  "regions": {
+   "covered": 85243,
+   "count": 516804,
+   "percent": 16.494
+  },
+  "branches": {
+   "covered": 59427,
+   "count": 300965,
+   "percent": 19.745
+  }
+ },
+ "timestamp": "2026-08-28T20:27:41Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

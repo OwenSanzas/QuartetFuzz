@@ -1,0 +1,28 @@
+{
+  "name": "SCTP inbound packet processing (usrsctp_conninput)",
+  "description": "usrsctp_conninput is the injection point by which an embedder hands a raw, untrusted SCTP packet (received e.g. over UDP/DTLS or a custom transport) into the usrsctp user-space stack. It wraps the bytes in an mbuf, pulls up the common header + first chunk header, and dispatches into sctp_common_input_processing, which looks up/creates the association, verifies/handles the SCTP common header and then walks the chunk chain via sctp_process_control (INIT/INIT-ACK/COOKIE-ECHO/COOKIE-ACK/ABORT/SHUTDOWN/ERROR/HEARTBEAT/ASCONF/AUTH/stream-reset/forward-TSN/SACK handlers) or sctp_process_data (reassembly/ordering of DATA/I-DATA chunks, sctp_process_a_data_chunk, SACK generation). This is the classic \"parse attacker-controlled network bytes\" surface: fuzzing the raw packet content exercises association/cookie state machines, chunk-length/parameter bounds checks, reassembly queues and SACK/forward-TSN bookkeeping, all places where length/bounds mistakes would be security bugs. Because usrsctp_conninput only makes sense once a usrsctp socket/endpoint exists (association lookup by addr/port/vtag), the harness must first create the local endpoint and drive a connection attempt so that an association context exists before injecting the fuzzed inbound packet(s).\n- usrsctp_conninput: target, reaches sctp_common_input_processing -> sctp_process_control / sctp_process_data (the core)\n- usrsctp_socket: lifecycle/source, creates the struct socket used as the association's upcall target that conninput's lookup needs; sets conn_output as the packet-send callback\n- usrsctp_bind: config, binds the local sockaddr_conn address/port that usrsctp_conninput's dst lookup must match\n- usrsctp_connect: source/config, initiates the association (sends an outbound INIT) so that an incoming INIT-ACK/COOKIE-ACK/DATA injected via usrsctp_conninput is matched to a real association and vtag, reaching the same core (sctp_process_control path for INIT-ACK/COOKIE-ACK)\n- usrsctp_listen / usrsctp_accept: variant, the passive-side counterpart that lets a fuzzed INIT chunk via usrsctp_conninput drive the server-side sctp_handle_init / sctp_handle_cookie_echo path in sctp_process_control, exercising different core branches than the client/COOKIE-ACK path\n- usrsctp_setsockopt: config, toggles options (e.g. SCTP_NODELAY, SCTP_RESET_STREAMS, enabling I-DATA/interleaving, NR-SACK) that change which chunk types/branches sctp_process_control and sctp_process_data take when handling the injected packet\n- usrsctp_sendv: consumer/source, queues outbound data/streams whose state (TSNs, stream ids) is then acknowledged/reset by subsequently injected SACK/forward-TSN/stream-reset packets through usrsctp_conninput, extending coverage of sctp_process_data/sctp_sack_check\n- usrsctp_recvv (via a registered upcall with usrsctp_set_upcall): consumer, drains data delivered by the core after usrsctp_conninput processes DATA/I-DATA chunks, validating the reassembly output\nThe input space to fuzz is primarily the raw packet bytes passed as `buffer`/`length` to usrsctp_conninput: the SCTP common header (ports, verification tag), and the chunk chain (chunk type byte selects the dispatch in sctp_process_control: INIT=1, INIT-ACK=2, SACK=3/NR-SACK, HEARTBEAT=4/5, ABORT=6, SHUTDOWN=7, ERROR=9, COOKIE-ECHO=10, COOKIE-ACK=11, ECN-ECHO/CWR=12/13, DATA=0 and I-DATA=64/0x40 routed to sctp_process_data, ASCONF/ASCONF-ACK=0xC1/0x80, FORWARD-TSN=0xC0, AUTH=0x0F, stream-reset=re-config chunk 0xC6), chunk flags/lengths and nested parameters (e.g. INIT optional parameters, supported-extensions, forward-TSN/I-DATA negotiation), and the `ecn_bits` argument which feeds ECN handling; the most permissive setting is a well-formed common header matching an established/initiating association combined with varying chunk type/parameter bytes so every handler in sctp_process_control/sctp_process_data is reached. This list is incomplete; what the project's own fuzzers (fuzzer_connect.c, fuzzer_fragment.c) and tests do with the target stays.",
+  "entries": [
+    "usrsctp_conninput",
+    "usrsctp_socket",
+    "usrsctp_bind",
+    "usrsctp_connect",
+    "usrsctp_listen",
+    "usrsctp_accept",
+    "usrsctp_setsockopt",
+    "usrsctp_sendv",
+    "usrsctp_recvv"
+  ],
+  "core": [
+    "sctp_common_input_processing",
+    "sctp_process_control",
+    "sctp_process_data",
+    "sctp_process_a_data_chunk",
+    "sctp_handle_init",
+    "sctp_handle_init_ack",
+    "sctp_handle_cookie_echo",
+    "sctp_sack_check"
+  ],
+  "project": "usrsctp",
+  "risk_level": "",
+  "danger_scores": {}
+}

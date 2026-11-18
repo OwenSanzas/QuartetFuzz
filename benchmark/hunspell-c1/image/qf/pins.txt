@@ -1,0 +1,1 @@
+/src/hunspell https://github.com/hunspell/hunspell.git f143a42a0b95578c39f8657101624ed44dea6514

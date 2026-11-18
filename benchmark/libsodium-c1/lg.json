@@ -1,0 +1,28 @@
+{
+  "name": "Ed25519 detached signature verification",
+  "description": "Verifies an Ed25519 detached signature over an attacker-controlled message using an attacker/peer-supplied public key. This is the security boundary that decides whether untrusted data is \"authentic\": it must correctly reject malformed signatures/points (small-order points, non-canonical scalars/points), and reject any truncated/tampered data without timing or memory-safety bugs, since crypto_sign_verify_detached is the function applications call to accept or discard signed network/file data.\n- crypto_sign_verify_detached: target; wraps crypto_sign_ed25519_verify_detached -> _crypto_sign_ed25519_verify_detached (prehashed=0), the core verification routine.\n- crypto_sign_detached: source/inverse; produces a valid (sig, m, sk) triple so the fuzzer can mutate a genuinely valid signature/message/key instead of only random bytes, exercising both the \"valid\" and \"corrupted\" paths of the core.\n- crypto_sign_keypair / crypto_sign_seed_keypair: source; generate the public/secret key pair consumed by sign/verify, including malleable seed input (seed_keypair) so fuzz input can control key material deterministically.\n- crypto_sign_open: variant that bundles the signature and message (sm = sig||m) and internally calls crypto_sign_ed25519_verify_detached, reusing the same core but exercising the combined-buffer length/size-check path (smlen < 64, MESSAGEBYTES_MAX overflow check) before reaching the core.\n- crypto_sign_init / crypto_sign_update / crypto_sign_final_create / crypto_sign_final_verify: the Ed25519ph streaming/prehashed variant of the same feature; crypto_sign_final_verify reaches the identical core function _crypto_sign_ed25519_verify_detached but with prehashed=1, so the message is first absorbed incrementally and hashed through SHA-512 before the signature check, exercising a different data-flow path through the same verification core.\nInput space: the signature bytes (64 bytes, where sig+32 encodes the scalar s and sig[0:32] encodes R), the public key bytes (32 bytes, point encoding), the message bytes/length (including 0-length and lengths near crypto_sign_MESSAGEBYTES_MAX), and the prehashed flag (0 for crypto_sign_verify_detached/crypto_sign_open vs 1 for the crypto_sign_init/update/final_* streaming API) which select different branches inside _crypto_sign_ed25519_verify_detached (ge25519_is_canonical/has_small_order checks on sig and pk, sc25519_is_canonical on the scalar, and the SHA-512 hinit variant). Mutating valid vs. invalid points/scalars and valid vs. tampered signatures drives the canonicality/small-order rejection branches that are the security-critical logic.",
+  "entries": [
+    "crypto_sign_verify_detached",
+    "crypto_sign_detached",
+    "crypto_sign_keypair",
+    "crypto_sign_seed_keypair",
+    "crypto_sign_open",
+    "crypto_sign_init",
+    "crypto_sign_update",
+    "crypto_sign_final_create",
+    "crypto_sign_final_verify"
+  ],
+  "core": [
+    "_crypto_sign_ed25519_verify_detached",
+    "ge25519_frombytes_negate_vartime",
+    "ge25519_has_small_order",
+    "ge25519_is_canonical",
+    "sc25519_is_canonical",
+    "ge25519_double_scalarmult_vartime",
+    "crypto_verify_32",
+    "sodium_memcmp"
+  ],
+  "project": "libsodium",
+  "risk_level": "",
+  "danger_scores": {}
+}

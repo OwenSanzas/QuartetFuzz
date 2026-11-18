@@ -1,0 +1,32 @@
+{
+  "case": "wxwidgets-c1",
+  "case_id": "wxwidgets/zip",
+  "project": "wxwidgets",
+  "fuzzer_name": "zip",
+  "language": "c++",
+  "gold_harness_path": "$SRC/wxwidgets/tests/fuzz/zip.cpp",
+  "gold_source_file": "/src/wxwidgets/tests/fuzz/zip.cpp",
+  "target_function": "wxZipInputStream::GetNextEntry",
+  "target_declaration": "wxZipEntry *GetNextEntry();",
+  "target_location": "wx/zipstrm.h:394",
+  "prompt": "Project: wxwidgets\nRepository: https://github.com/wxWidgets/wxWidgets.git\nRevision: 0dc27e6a3f979d6848305e1d6bb4f06673304835\nLanguage: C++\n\nTarget function: wxZipInputStream::GetNextEntry\nDeclared in: wx/zipstrm.h:394\nDeclaration: wxZipEntry *GetNextEntry();\nEnclosing scope: class WXDLLIMPEXP_BASE wxZipInputStream : public wxArchiveInputStream\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/wxWidgets/wxWidgets.git",
+      "rev": "0dc27e6a3f979d6848305e1d6bb4f06673304835",
+      "type": "git"
+    },
+    "upstream_path": "/src/wxwidgets",
+    "all_repos": {
+      "/src/wxwidgets": {
+        "url": "https://github.com/wxWidgets/wxWidgets.git",
+        "rev": "0dc27e6a3f979d6848305e1d6bb4f06673304835",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/wxwidgets.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

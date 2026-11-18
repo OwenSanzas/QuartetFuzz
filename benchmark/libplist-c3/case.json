@@ -1,0 +1,32 @@
+{
+  "case": "libplist-c3",
+  "case_id": "libplist/oplist_fuzzer",
+  "project": "libplist",
+  "fuzzer_name": "oplist_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libplist/fuzz/oplist_fuzzer.cc",
+  "gold_source_file": "/src/libplist/fuzz/oplist_fuzzer.cc",
+  "target_function": "plist_from_openstep",
+  "target_declaration": "PLIST_API plist_err_t plist_from_openstep(const char *openstep, uint32_t length, plist_t * plist);",
+  "target_location": "plist/plist.h:1101",
+  "prompt": "Project: libplist\nRepository: https://github.com/libimobiledevice/libplist\nRevision: 32428abacb909988e8e960a8845a6430b17b6a60\nLanguage: C++\n\nTarget function: plist_from_openstep\nDeclared in: plist/plist.h:1101\nDeclaration: PLIST_API plist_err_t plist_from_openstep(const char *openstep, uint32_t length, plist_t * plist);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/libimobiledevice/libplist",
+      "rev": "32428abacb909988e8e960a8845a6430b17b6a60",
+      "type": "git"
+    },
+    "upstream_path": "/src/libplist",
+    "all_repos": {
+      "/src/libplist": {
+        "url": "https://github.com/libimobiledevice/libplist",
+        "rev": "32428abacb909988e8e960a8845a6430b17b6a60",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/libplist.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

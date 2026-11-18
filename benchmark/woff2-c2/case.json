@@ -1,0 +1,32 @@
+{
+  "case": "woff2-c2",
+  "case_id": "woff2/convert_woff2ttf_fuzzer_new_entry",
+  "project": "woff2",
+  "fuzzer_name": "convert_woff2ttf_fuzzer_new_entry",
+  "language": "c++",
+  "gold_harness_path": "$SRC/woff2/src/convert_woff2ttf_fuzzer_new_entry.cc",
+  "gold_source_file": "/src/woff2/src/convert_woff2ttf_fuzzer_new_entry.cc",
+  "target_function": "woff2::ConvertWOFF2ToTTF",
+  "target_declaration": "bool ConvertWOFF2ToTTF(const uint8_t *data, size_t length, WOFF2Out* out);",
+  "target_location": "woff2/decode.h:31",
+  "prompt": "Project: woff2\nRepository: https://github.com/google/woff2\nRevision: fb9c3379f2605b10f3e8f1d9636664ab5576775c\nLanguage: C++\n\nTarget function: woff2::ConvertWOFF2ToTTF\nDeclared in: woff2/decode.h:31\nDeclaration: bool ConvertWOFF2ToTTF(const uint8_t *data, size_t length, WOFF2Out* out);\nEnclosing scope: namespace woff2\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/google/woff2",
+      "rev": "fb9c3379f2605b10f3e8f1d9636664ab5576775c",
+      "type": "git"
+    },
+    "upstream_path": "/src/woff2",
+    "all_repos": {
+      "/src/woff2": {
+        "url": "https://github.com/google/woff2",
+        "rev": "fb9c3379f2605b10f3e8f1d9636664ab5576775c",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/woff2.callgraph.sqlite.xz",
+  "lg_version": "lg100v6"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "BEVE binary deserialization (glz::read_beve)",
+  "description": "glz::read_beve decodes the Glaze BEVE binary wire format (a tagged, length-prefixed binary serialization) directly from an untrusted byte buffer into an arbitrary reflectable C++ object graph (structs, containers, variants, strings, numeric/typed arrays, optionals, tuples, maps). Every value is preceded by a one-byte type tag and most containers/strings carry a compressed-integer length, so a fuzzer exercising this entry drives the tag dispatcher (from<BEVE,T>::op specializations), the compressed-integer length decoder, the recursion/depth guard, and the object field-hash key matcher \u2014 all directly over attacker-controlled bytes, making this a classic binary-parser attack surface (out-of-bounds reads, integer overflow in lengths, stack overflow via nesting, type confusion between tag and target type).\n- glz::read_beve: target, calls glz::read<opts{.format=BEVE}> which runs parse<BEVE>::op -> from<BEVE,T>::op dispatch over the whole core.\n- read_beve (expected<T,error_ctx> overload): variant/source, same core as target but constructs+returns the value instead of taking it by reference.\n- read_beve_untagged / read_binary_untagged: variant, same core but selects the structs_as_arrays option, forcing the tuple/positional-array struct reader path in from<BEVE,T> (object-as-array) instead of the keyed/hashed-object reader \u2014 a distinct path through the core.\n- read_file_beve / read_file_beve_untagged: source, reads the raw bytes from a file via file_to_buffer then calls the same read<> core; lets the harness optionally exercise the file-input path with fuzzer-controlled file content.\n- read_beve_delimited: variant/consumer, repeatedly invokes parse<BEVE>::op over multiple delimiter-separated BEVE values in one buffer, reusing the same core per value and adding the delimiter-skipping logic (tag::delimiter) as an extra input dimension.\n- write_beve (and write_beve_untagged): inverse operation / round-trip partner, produces the BEVE bytes that pair naturally with read_beve inputs so the harness can fuzz round-trip encode/decode in addition to raw malformed-byte decoding.\nCore (internal) functions reached from read_beve: parse<BEVE>::op (tag/type dispatcher), the from<BEVE,T>::op specializations for structs/objects (hashed key lookup via decode_hash_with_size, generic_array/tuple reader, variant reader try_each_pass, nullable/optional reader, string reader with store(), typed/boolean numeric-array reader), int_from_compressed (compressed-length/integer decoder bounding counts to 2^48), skip_value<BEVE>::op (used to skip unknown keys/variant mismatches and bounds recursion via depth_guard), and depth_guard (recursion-depth limiter against stack overflow from nested BEVE containers).\nInput space to fuzz: the entire raw byte buffer (tag bytes: generic_array, string, null, typed_array, delimiter, type-tag-extension 0x0E for legacy variants, object/key headers), compressed integer length/count fields (triggering invalid_length/unexpected_end/exceeded_static_array_size paths), nesting depth (to hit exceeded_max_recursive_depth), the target T's shape itself (plain struct vs reflectable vs variant vs map vs typed numeric array vs std::tuple vs nullable pointer types \u2014 each selects a different from<BEVE,T> specialization), and the structs_as_arrays / partial_read / error_on_unknown_keys / error_on_missing_keys opts flags (most permissive: default opts{.format=BEVE} with structs_as_arrays=false exercises the full keyed-object hash-lookup core; structs_as_arrays=true via read_beve_untagged instead runs the positional tuple core \u2014 fuzz both as distinct paths, not as an on/off toggle of the same code).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "glz::read_beve",
+    "glz::read_beve_untagged",
+    "glz::read_file_beve",
+    "glz::read_beve_delimited",
+    "glz::write_beve"
+  ],
+  "core": [
+    "parse<BEVE>::op",
+    "int_from_compressed",
+    "skip_value<BEVE>::op",
+    "decode_hash_with_size",
+    "depth_guard"
+  ],
+  "project": "glaze",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "IDN2 ToUnicode (ACE/Punycode decoding) feature",
+  "description": "This feature implements the IDNA2008 \"ToUnicode\" operation: it takes a possibly ACE-encoded (xn--) domain name supplied as untrusted, attacker-controlled UTF-8 text, splits it into dot-separated labels, Punycode-decodes any label with the xn-- prefix into Unicode code points, re-assembles the labels into a full domain, and converts the result back to UTF-8/locale output. Because it parses raw external bytes, walks a bounded stack buffer (IDN2_DOMAIN_MAX_LENGTH / IDN2_LABEL_MAX_LENGTH), and implements the generalized variable-length-integer Punycode state machine (with explicit overflow/bounds checks), it is a classic target for buffer-overflow, integer-overflow and malformed-encoding bugs.\n\n- idn2_to_unicode_8z8z: target. Decodes a UTF-8 input domain string by calling idn2_to_unicode_8z4z (label splitting + idn2_punycode_decode per xn-- label) and converts the resulting UTF-32 buffer back to UTF-8 with u32_to_u8.\n- idn2_to_unicode_8z4z: core path invoked directly by the target; performs the per-label loop, detects \"xn--\" prefixes, calls idn2_punycode_decode for ACE labels or u8_to_u32 for plain UTF-8 labels, and enforces IDN2_DOMAIN_MAX_LENGTH/IDN2_LABEL_MAX_LENGTH bounds while concatenating labels into a fixed stack array.\n- idn2_to_unicode_4z4z: variant entry taking UTF-32 input; converts to UTF-8 then calls idn2_to_unicode_8z4z, reaching the same per-label/punycode core from a different input encoding.\n- idn2_to_unicode_44i: variant entry operating on raw UTF-32 code-point arrays with explicit lengths (no NUL-termination assumption), feeding the same core via idn2_to_unicode_4z4z.\n- idn2_to_unicode_8zlz: variant/consumer that calls idn2_to_unicode_8z8z and then converts the UTF-8 result into the current locale's charset, exercising the same core plus an extra iconv-based output path.\n- idn2_to_unicode_lzlz: variant that converts locale-encoded input to UTF-8 first (iconv) and then calls idn2_to_unicode_8zlz, adding an input-side character-set-conversion path in front of the core.\n- idn2_to_ascii_8z: inverse operation (ToASCII/Punycode-encode via idn2_lookup_u8); useful as a round-trip partner so a harness can feed idn2_to_unicode_8z8z's output back through encoding, or feed encoder output into the decoder, exercising both directions of the same label/punycode machinery.\n- idn2_punycode_decode: lowest-level core function actually implementing the Punycode decoding algorithm (basic-code-point validation, delimiter handling, generalized variable-length integer decoding with bias adaptation via adapt()/decode_digit(), and explicit IDN2_PUNYCODE_BAD_INPUT/IDN2_PUNYCODE_BIG_OUTPUT/IDN2_PUNYCODE_OVERFLOW error paths).\n\nInput space the harness should vary: the raw input string content (ASCII-only vs. labels containing non-ASCII UTF-8 sequences vs. malformed UTF-8), presence/absence/case of the \"xn--\" prefix per label (xn--, Xn--, XN--, mixed), number and length of dot-separated labels (to probe IDN2_LABEL_MAX_LENGTH/IDN2_DOMAIN_MAX_LENGTH boundaries), presence/position of the Punycode delimiter '-' within an ACE label (leading/trailing/absent/multiple), characters outside the Punycode basic set (0x80 to trigger IDN2_PUNYCODE_BAD_INPUT), very large encoded digit sequences to probe overflow checks in the generalized variable-length integer decoder, NULL vs non-NULL output pointer (lookup-only mode), NULL input (short-circuit OK return), and the `flags` parameter (currently unused by decode but should still be fuzzed for forward compatibility and to match real call sites alongside IDN2_NFC_INPUT/IDN2_NONTRANSITIONAL/IDN2_TRANSITIONAL/IDN2_ALABEL_ROUNDTRIP used by the sibling ToASCII functions).",
+  "entries": [
+    "idn2_to_unicode_8z8z",
+    "idn2_to_unicode_8z4z",
+    "idn2_to_unicode_4z4z",
+    "idn2_to_unicode_44i",
+    "idn2_to_unicode_8zlz",
+    "idn2_to_unicode_lzlz",
+    "idn2_to_ascii_8z"
+  ],
+  "core": [
+    "idn2_to_unicode_8z4z",
+    "idn2_punycode_decode",
+    "decode_digit",
+    "adapt",
+    "idn2_lookup_u8"
+  ],
+  "project": "libidn2",
+  "risk_level": "",
+  "danger_scores": {}
+}

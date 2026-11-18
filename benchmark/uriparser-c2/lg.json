@@ -1,0 +1,26 @@
+{
+  "name": "uriparser URI lifecycle teardown (FreeUriMembers)",
+  "description": "uriFreeUriMembersA releases all heap memory owned by a populated UriUriA structure (scheme, userInfo, host text/ip4/ip6/ipFuture data, port text, path segment list, query and fragment ranges) that was previously filled in by parsing, copying, or in-place mutation of a URI object built from untrusted input. Because the struct's \"owner\" flag and the pairwise first/afterLast pointer aliasing (e.g. ipFuture sharing hostText's range, or path segments possibly pointing into the original parsed buffer vs owned copies) determine exactly which pointers must/must-not be freed, this teardown code is a classic double-free / use-after-free / memory-leak surface whenever a producer leaves the Uri struct in an inconsistent ownership state. Exercising it after the various ways a UriUriA can be constructed (parsed from raw text, copied, normalized, mutated via setters) is essential to catch such inconsistencies.\n- uriFreeUriMembersA: target, frees all owned string ranges/host data/path list of a UriUriA; internally calls uriFreeUriMembersMmA -> uriFreeUriPathA.\n- uriParseSingleUriA / uriParseSingleUriExA: source, parses raw URI text from the fuzz input into a UriUriA (owner=FALSE, pointers alias into the input buffer) that is later passed to the target; exercises the \"non-owner, must not free text, only free ip4/ip6/path-segment heap nodes\" path.\n- uriParseUriA (deprecated streaming parser): source/variant, alternate entry that fills the same UriParserStateA->uri structure incrementally, exercising the StopSyntax/StopMalloc internal early-free paths inside UriParse.c that also call FreeUriMembersMm on parse failure.\n- uriCopyUriA: variant/consumer, deep-copies an already-parsed URI into a second UriUriA that becomes owner of fresh allocations (owner=TRUE), producing the alternate \"every range is independently malloc'd\" state that the target must correctly free without double-freeing shared ipFuture/hostText pointers.\n- uriMakeOwnerA: config/consumer, converts a non-owning parsed URI (pointers into original text) into an owning one by duplicating every text range and host data block, directly setting the ownership flags/pointer-aliasing invariants that uriFreeUriMembersA's \"if (uri->owner) ...\" branches depend on.\n- uriNormalizeSyntaxA: consumer, rewrites/reallocates parts of an already-populated URI (path segments, percent-encoding case, dot-segment removal) which can reallocate or NULL out ranges before the structure is freed, exercising another mutation path feeding into the teardown.\nInput space: the raw URI text fed to the parser selects which components are present (scheme, userinfo, reg-name vs IPv4 vs IPv6 vs IPvFuture host, port, absolute/relative path with 0+ segments, query, fragment) and therefore which branches of uriFreeUriMembersA execute; the owner flag (FALSE right after parsing vs TRUE after uriMakeOwner/uriCopyUri) selects the \"skip freeing, pointers alias caller buffer\" vs \"free every owned allocation\" code paths; malformed/truncated IPv6 or IPvFuture literals and zero-length ranges (first==afterLast, meaning \"do not free, points at a static safe placeholder\") are the edge cases the free routine special-cases throughout.",
+  "entries": [
+    "uriFreeUriMembersA",
+    "uriParseSingleUriA",
+    "uriParseSingleUriExA",
+    "uriParseUriA",
+    "uriCopyUriA",
+    "uriMakeOwnerA",
+    "uriNormalizeSyntaxA"
+  ],
+  "core": [
+    "uriFreeUriMembersMmA",
+    "uriFreeUriPathA",
+    "uriParseSingleUriExMmA",
+    "uriMakeOwnerMmA",
+    "uriCopyUriMmA",
+    "uriPreventLeakageA",
+    "uriStopSyntax",
+    "uriStopMalloc"
+  ],
+  "project": "uriparser",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,32 @@
+{
+  "case": "boost-c2",
+  "case_id": "boost/boost_programoptions_fuzzer",
+  "project": "boost",
+  "fuzzer_name": "boost_programoptions_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/boost_programoptions_fuzzer.cc",
+  "gold_source_file": "/src/boost_programoptions_fuzzer.cc",
+  "target_function": "boost::program_options::parse_config_file",
+  "target_declaration": "template<class charT> #if ! BOOST_WORKAROUND(__ICL, BOOST_TESTED_AT(700)) BOOST_PROGRAM_OPTIONS_DECL #endif basic_parsed_options<charT> parse_config_file(std::basic_istream<charT>&, const options_description&, bool allow_unregistered = false);",
+  "target_location": "boost/program_options/parsers.hpp:184",
+  "prompt": "Project: boost\nRepository: https://github.com/boostorg/boost.git\nRevision: 229b426acc80ceded4ca72c435a953d367d39d42\nLanguage: C++\n\nTarget function: boost::program_options::parse_config_file\nDeclared in: boost/program_options/parsers.hpp:184\nDeclaration: template<class charT> #if ! BOOST_WORKAROUND(__ICL, BOOST_TESTED_AT(700)) BOOST_PROGRAM_OPTIONS_DECL #endif basic_parsed_options<charT> parse_config_file(std::basic_istream<charT>&, const options_description&, bool allow_unregistered = false);\nEnclosing scope: namespace boost { namespace program_options }\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/boostorg/boost.git",
+      "rev": "229b426acc80ceded4ca72c435a953d367d39d42",
+      "type": "git"
+    },
+    "upstream_path": "/src/boost",
+    "all_repos": {
+      "/src/boost": {
+        "url": "https://github.com/boostorg/boost.git",
+        "rev": "229b426acc80ceded4ca72c435a953d367d39d42",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/boost-c2.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

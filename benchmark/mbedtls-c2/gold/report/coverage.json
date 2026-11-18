@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1466,
+  "count": 36415,
+  "percent": 4.026
+ },
+ "functions": {
+  "covered": 61,
+  "count": 1728,
+  "percent": 3.53
+ },
+ "regions": {
+  "covered": 1653,
+  "count": 44472,
+  "percent": 3.717
+ },
+ "branches": {
+  "covered": 800,
+  "count": 18952,
+  "percent": 4.221
+ },
+ "scope": "/src/mbedtls/",
+ "files_in_scope": 148,
+ "files_total": 148,
+ "all_linked": {
+  "lines": {
+   "covered": 1466,
+   "count": 36415,
+   "percent": 4.026
+  },
+  "functions": {
+   "covered": 61,
+   "count": 1728,
+   "percent": 3.53
+  },
+  "regions": {
+   "covered": 1653,
+   "count": 44472,
+   "percent": 3.717
+  },
+  "branches": {
+   "covered": 800,
+   "count": 18952,
+   "percent": 4.221
+  }
+ },
+ "timestamp": "2026-08-28T20:44:52Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

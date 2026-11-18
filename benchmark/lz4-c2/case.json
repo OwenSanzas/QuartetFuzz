@@ -1,0 +1,32 @@
+{
+  "case": "lz4-c2",
+  "case_id": "lz4/decompress_frame_fuzzer",
+  "project": "lz4",
+  "fuzzer_name": "decompress_frame_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/lz4/ossfuzz/decompress_frame_fuzzer.c",
+  "gold_source_file": "/src/lz4/ossfuzz/decompress_frame_fuzzer.c",
+  "target_function": "LZ4F_decompress",
+  "target_declaration": "LZ4FLIB_API size_t LZ4F_decompress(LZ4F_dctx* dctx, void* dstBuffer, size_t* dstSizePtr, const void* srcBuffer, size_t* srcSizePtr, const LZ4F_decompressOptions_t* dOptPtr);",
+  "target_location": "lz4frame.h:516",
+  "prompt": "Project: lz4\nRepository: https://github.com/lz4/lz4.git\nRevision: 0774d05537f9762f838f7ab541b7765f1a729cb5\nLanguage: C++\n\nTarget function: LZ4F_decompress\nDeclared in: lz4frame.h:516\nDeclaration: LZ4FLIB_API size_t LZ4F_decompress(LZ4F_dctx* dctx, void* dstBuffer, size_t* dstSizePtr, const void* srcBuffer, size_t* srcSizePtr, const LZ4F_decompressOptions_t* dOptPtr);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/lz4/lz4.git",
+      "rev": "0774d05537f9762f838f7ab541b7765f1a729cb5",
+      "type": "git"
+    },
+    "upstream_path": "/src/lz4",
+    "all_repos": {
+      "/src/lz4": {
+        "url": "https://github.com/lz4/lz4.git",
+        "rev": "0774d05537f9762f838f7ab541b7765f1a729cb5",
+        "type": "git"
+      }
+    },
+    "pin_source": "read from the built image's /src/lz4/.git"
+  },
+  "callgraph": "callgraphs/lz4.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "LZ4 HC (High Compression) block & streaming compression",
+  "description": "LZ4_compress_HC and its family implement LZ4's \"High Compression\" encoder: it builds an internal hash-chain/binary-tree match-finder state over attacker-controlled bytes, searches for the best/longest matches (hash-chain or optimal-parse strategy depending on compression level), and emits LZ4-format sequences (literal-run + match) into a caller buffer whose capacity is also attacker/caller controlled. Because the match finder walks raw input with pointer arithmetic over chain tables and the sequence encoder writes variable-length tokens near the output boundary, this is the security-critical part of the library (buffer bounds in LZ4HC_encodeSequence / LZ4HC_compress_hashChain / LZ4HC_compress_optimal, and the dest-size \"fillOutput\" early-stop path) and is reached directly by fuzzing src bytes, srcSize, dstCapacity and compressionLevel.\n- LZ4_compress_HC: target entry; single-shot block compression, allocates/initializes an internal LZ4_streamHC_t and calls into LZ4_compress_HC_extStateHC -> LZ4HC_compress_generic (noDictCtx path, limitedOutput or notLimited).\n- LZ4_compress_HC_extStateHC: variant, same path but with caller-supplied (possibly externally sized/aligned) state buffer; exercises LZ4_initStreamHC and the fastReset path.\n- LZ4_sizeofStateHC: config/source helper giving the exact state size needed for LZ4_compress_HC_extStateHC, needed to build a valid state buffer for the harness.\n- LZ4_compress_HC_destSize: variant selecting the `fillOutput` limit mode in LZ4HC_compress_generic, which drives the `_dest_overflow` truncation logic in the hash-chain/optimal encoders \u2014 a distinct, security-relevant code path from the normal limitedOutput/notLimited modes.\n- LZ4_createStreamHC / LZ4_resetStreamHC_fast / LZ4_loadDictHC / LZ4_compress_HC_continue: streaming variants/sources that set up dictionary/history state (dictCtx vs noDictCtx vs usingDictCtxHc branches in LZ4HC_compress_generic) and drive the same match-finder core across multiple successive blocks, exercising the ring-buffer and long-distance dictionary matching logic.\n- LZ4_decompress_safe (lz4.h): consumer/round-trip check \u2014 decodes the HC-produced output to validate that encoded sequences (offsets/lengths/literals) are correct, turning silent corruption into a detectable mismatch.\nInput space to vary from fuzz bytes: srcSize (0, small, up to LZ4_MAX_INPUT_SIZE), dstCapacity (0/undersized vs LZ4_compressBound(srcSize)-sized, to hit both limitedOutput and _dest_overflow truncation paths), compressionLevel (values below LZ4HC_CLEVEL_MIN, between LZ4HC_CLEVEL_MIN(2) and LZ4HC_CLEVEL_OPT_MIN(10) selecting the lz4hc hash-chain strategy, and >= LZ4HC_CLEVEL_OPT_MIN up to/above LZ4HC_CLEVEL_MAX(12) selecting the lz4opt optimal-parse strategy), plus whether a preloaded dictionary (LZ4_loadDictHC) or prior streamed blocks are present (dictCtx/noDictCtx/usingDictCtxHc branches), and repeating-byte/pathological patterns in src to stress long match chains.",
+  "entries": [
+    "LZ4_compress_HC",
+    "LZ4_compress_HC_extStateHC",
+    "LZ4_sizeofStateHC",
+    "LZ4_compress_HC_destSize",
+    "LZ4_createStreamHC",
+    "LZ4_resetStreamHC_fast",
+    "LZ4_loadDictHC",
+    "LZ4_compress_HC_continue",
+    "LZ4_decompress_safe"
+  ],
+  "core": [
+    "LZ4HC_compress_generic",
+    "LZ4HC_compress_generic_internal",
+    "LZ4HC_compress_hashChain",
+    "LZ4HC_compress_optimal",
+    "LZ4HC_InsertAndFindBestMatch",
+    "LZ4HC_InsertAndGetWiderMatch",
+    "LZ4HC_encodeSequence",
+    "LZ4MID_compress"
+  ],
+  "project": "lz4",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,10 @@
+# Versions used for the paper's runs (Python 3.12).
+litellm==1.83.0
+mcp==1.27.0
+pydantic==2.13.0
+structlog==25.5.0
+jinja2==3.1.6
+rich==15.0.0
+click==8.3.2
+python-dotenv==1.2.2
+google-genai==1.73.0

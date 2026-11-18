@@ -1,0 +1,32 @@
+{
+  "case": "llhttp-c1",
+  "case_id": "llhttp/fuzz_parser",
+  "project": "llhttp",
+  "fuzzer_name": "fuzz_parser",
+  "language": "c",
+  "gold_harness_path": "$SRC/llhttp/test/fuzzers/fuzz_parser.c",
+  "gold_source_file": "/src/llhttp/test/fuzzers/fuzz_parser.c",
+  "target_function": "llhttp_execute",
+  "target_declaration": "LLHTTP_EXPORT llhttp_errno_t llhttp_execute(llhttp_t* parser, const char* data, size_t len);",
+  "target_location": "llhttp.h",
+  "prompt": "Project: llhttp\nRepository: https://github.com/nodejs/llhttp\nRevision: ee51043701d8b90ef647cf04790cbb1c55889825\nLanguage: C\n\nTarget function: llhttp_execute\nDeclared in: llhttp.h\nDeclaration: LLHTTP_EXPORT llhttp_errno_t llhttp_execute(llhttp_t* parser, const char* data, size_t len);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/nodejs/llhttp",
+      "rev": "ee51043701d8b90ef647cf04790cbb1c55889825",
+      "type": "git"
+    },
+    "upstream_path": "/src/llhttp",
+    "all_repos": {
+      "/src/llhttp": {
+        "url": "https://github.com/nodejs/llhttp",
+        "rev": "ee51043701d8b90ef647cf04790cbb1c55889825",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/llhttp.callgraph.sqlite.xz",
+  "lg_version": "lg100v6"
+}

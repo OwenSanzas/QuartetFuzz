@@ -1,0 +1,20 @@
+{
+  "name": "JSON minification (minify_json / minify_jsonc)",
+  "description": "Minify takes an arbitrary (attacker-controlled) JSON or JSONC text buffer and re-emits a compact version of it by scanning the raw bytes with an unescaping/whitespace-skipping state machine, without doing any schema-based parsing. Because the scanner works directly on raw, untrusted bytes using SIMD 8-byte chunk reads, pointer arithmetic over string/number/comment boundaries and quote/escape counting, it is a prime target for out-of-bounds reads, infinite loops, or incorrect buffer sizing if the input is malformed, truncated inside a string/comment/array, or ends exactly at an 8-byte-read boundary.\n- glz::minify_json(resizable auto& in): target. Builds a new std::string and calls detail::minify_json<Opts>(ctx,in,out), which drives the whole state machine (core).\n- glz::minify_json(resizable auto& in, auto& out): variant with caller-supplied output buffer instead of returning a new std::string; exercises the same core, including the resizable<Out> branch that resizes/truncates `out`.\n- glz::minify_jsonc(resizable auto& in): variant that forces Opts.comments=true, turning on the Comment branch (`read_jsonc_comment`) in the core state machine that minify_json normally skips (falls through to a syntax error) \u2014 a path minify_json cannot reach.\n- glz::minify_jsonc(const auto& in, auto& out): same as above with explicit output argument.\nTogether these call into detail::minify_json<Opts>(ctx, it, end, b, ix) (the character-dispatch loop keyed on glz::detail::json_types[]) which in turn calls the core helpers: read_json_string<Opts> (quote/escape scanning, both the padded and non-padded/non-SIMD-boundary variants), read_json_number<null_terminated> (numeric_table scanning), read_jsonc_comment (`/* ... */` scanning), dump/dump_maybe_empty (output buffer writers), and the inline skip_expected_whitespace/skip_whitespace lambdas that advance `it` over whitespace_table bytes.\nInput-space dimensions worth fuzzing:\n- The raw bytes of `in` themselves: well-formed vs malformed JSON, unterminated strings/comments/arrays/objects, strings with trailing backslashes near the buffer end, numbers, nested object/array depth, embedded control characters, and buffer lengths chosen around 8-byte SIMD chunk boundaries (padding_bytes) to probe the padded vs non-padded read_json_string overloads.\n- Opts.comments (false for minify_json, forced true for minify_jsonc): selects whether `/* */` comment bytes are treated as valid tokens (routed into read_jsonc_comment) or trigger ctx.error = syntax_error via the default/fallthrough case.\n- Opts.null_terminated (compile-time default GLZ_NULL_TERMINATED, can be overridden via the Opts template parameter): switches every scan loop between a null/sentinel-terminated walk (`while(table[*it])`) and an explicit `it < end` bounds check, changing how out-of-bounds conditions on crafted buffers are reached.\n- Whether `in` is a `string_t` (affects the padding/is_padded_on<Opts> selection used when constructing iterators via read_iterators<Opts,true>(in)).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "glz::minify_json",
+    "glz::minify_jsonc"
+  ],
+  "core": [
+    "glz::detail::minify_json",
+    "glz::detail::read_json_string",
+    "glz::detail::read_json_number",
+    "glz::detail::read_jsonc_comment",
+    "glz::detail::dump",
+    "glz::detail::dump_maybe_empty",
+    "glz::read_iterators"
+  ],
+  "project": "glaze",
+  "risk_level": "",
+  "danger_scores": {}
+}

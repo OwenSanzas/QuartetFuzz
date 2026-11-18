@@ -1,0 +1,32 @@
+{
+  "case": "flatbuffers-c1",
+  "case_id": "flatbuffers/scalar_fuzzer",
+  "project": "flatbuffers",
+  "fuzzer_name": "scalar_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/flatbuffers/tests/fuzzer/flatbuffers_scalar_fuzzer.cc",
+  "gold_source_file": "/src/flatbuffers/tests/fuzzer/flatbuffers_scalar_fuzzer.cc",
+  "target_function": "flatbuffers::Parser::ParseJson",
+  "target_declaration": "bool ParseJson(const char* json, const char* json_filename = nullptr);",
+  "target_location": "flatbuffers/idl.h:1058",
+  "prompt": "Project: flatbuffers\nRepository: https://github.com/google/flatbuffers\nRevision: 5761d6e67af841d15ee21bc1ce9a78ffa9cf939e\nLanguage: C++\n\nTarget function: flatbuffers::Parser::ParseJson\nDeclared in: flatbuffers/idl.h:1058\nDeclaration: bool ParseJson(const char* json, const char* json_filename = nullptr);\nEnclosing scope: namespace flatbuffers, class Parser : public ParserState (public section)\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/google/flatbuffers",
+      "rev": "5761d6e67af841d15ee21bc1ce9a78ffa9cf939e",
+      "type": "git"
+    },
+    "upstream_path": "/src/flatbuffers",
+    "all_repos": {
+      "/src/flatbuffers": {
+        "url": "https://github.com/google/flatbuffers",
+        "rev": "5761d6e67af841d15ee21bc1ce9a78ffa9cf939e",
+        "type": "git"
+      }
+    },
+    "pin_source": "last upstream commit on or before the anchor date; no srcmap published, no image kept"
+  },
+  "callgraph": "callgraphs/flatbuffers.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

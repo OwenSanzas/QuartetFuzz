@@ -1,0 +1,30 @@
+{
+  "name": "ICU Unicode Normalizer2 string normalization",
+  "description": "The Normalizer2 class converts untrusted UTF-16 UnicodeString input into one of the standard Unicode normalization forms (NFC/NFD/NFKC/NFKD/NFKC_Casefold) or a custom mapping table loaded via getInstance(). normalize() (and its siblings) drive the core decomposition/recomposition state machine in Normalizer2Impl, which walks the input codepoint by codepoint, looks up per-character norm16 trie data, reorders combining marks by combining class, and composes/decomposes Hangul and precomposed characters \u2014 classic territory for out-of-bounds buffer, infinite-loop and reordering-buffer bugs when fed malformed or boundary-crossing Unicode text (lone surrogates, unassigned/edge codepoints, unterminated combining sequences, huge strings for buffer growth, CESU-8/UTF-8 variants, and user-supplied .nrm data via getInstance(packageName,...)).\n- icu::Normalizer2::normalize(src, errorCode): target; the convenience wrapper that calls the virtual normalize(src, dest, errorCode), entry point for the whole feature, exercises whichever concrete subclass (Decompose/Compose/FCD/Noop) the chosen instance resolves to.\n- icu::Normalizer2::getInstance / getNFCInstance / getNFDInstance / getNFKCInstance / getNFKDInstance / getNFKCCasefoldInstance: configuration/source \u2014 selects which Normalizer2Impl (built-in nfc/nfkc/nfkc_cf data, or a custom data package loaded by name) and which UNormalization2Mode (UNORM2_COMPOSE, UNORM2_DECOMPOSE, UNORM2_FCD, UNORM2_COMPOSE_CONTIGUOUS) backs the normalize() call, i.e. which concrete subclass (ComposeNormalizer2, DecomposeNormalizer2, FCDNormalizer2) and therefore which core code path (compose vs decompose) is taken.\n- icu::Normalizer2::normalize(src, dest, errorCode): variant, the virtual normalization function actually implemented per mode; reaches Normalizer2Impl::decompose/compose through the ReorderingBuffer.\n- icu::Normalizer2::normalizeSecondAndAppend / append: variants that merge a second (fuzzed) string onto an already-normalized first string, exercising Normalizer2Impl::decomposeAndAppend/composeAndAppend and the \"safeMiddle\" boundary-recomputation logic distinct from plain normalize.\n- icu::Normalizer2::isNormalized / quickCheck / spanQuickCheckYes: consumers that run the same decompose/compose inner loop in \"check-only\" mode (small/zero-length output buffer) to validate the target's input/output, exercising boundary detection code (hasBoundaryBefore/After, isInert) on the result.\n- icu::Normalizer2::getDecomposition: consumer/variant that queries per-codepoint raw decomposition mapping data directly from the trie, independent of mode, used to validate decomposition results against the normalize() output.\nCore internal functions reached: Normalizer2Impl::decompose (char16_t* streaming decomposition + recursive codepoint decomposition + Hangul::decompose), Normalizer2Impl::decomposeShort, Normalizer2Impl::compose (canonical composition with onlyContiguous flag), Normalizer2Impl::composePair, Normalizer2Impl::decomposeAndAppend, Normalizer2Impl::composeAndAppend.\nInput space: the fuzzed UnicodeString content (arbitrary UTF-16 code units including lone surrogates, combining-mark sequences, Hangul syllables/jamo, precomposed vs. decomposed forms, unassigned codepoints) drives which branch of the per-character norm16 dispatch is taken; the selected Normalizer2 instance/mode (UNORM2_COMPOSE, UNORM2_DECOMPOSE, UNORM2_FCD, UNORM2_COMPOSE_CONTIGUOUS, and nfc/nfkc/nfkc_cf/nfkc_scf table names, or a custom packageName) selects compose vs. decompose vs. FCD vs. no-op code paths; the onlyContiguous flag (FCC vs NFC) changes recomposition boundary handling; string length (including 0 and very large) stresses ReorderingBuffer growth/init.",
+  "entries": [
+    "icu::Normalizer2::normalize",
+    "icu::Normalizer2::getInstance",
+    "icu::Normalizer2::getNFCInstance",
+    "icu::Normalizer2::getNFDInstance",
+    "icu::Normalizer2::getNFKCInstance",
+    "icu::Normalizer2::getNFKDInstance",
+    "icu::Normalizer2::getNFKCCasefoldInstance",
+    "icu::Normalizer2::normalizeSecondAndAppend",
+    "icu::Normalizer2::append",
+    "icu::Normalizer2::isNormalized",
+    "icu::Normalizer2::quickCheck",
+    "icu::Normalizer2::spanQuickCheckYes",
+    "icu::Normalizer2::getDecomposition"
+  ],
+  "core": [
+    "icu::Normalizer2Impl::decompose",
+    "icu::Normalizer2Impl::decomposeShort",
+    "icu::Normalizer2Impl::compose",
+    "icu::Normalizer2Impl::composePair",
+    "icu::Normalizer2Impl::decomposeAndAppend",
+    "icu::Normalizer2Impl::composeAndAppend"
+  ],
+  "project": "icu",
+  "risk_level": "",
+  "danger_scores": {}
+}

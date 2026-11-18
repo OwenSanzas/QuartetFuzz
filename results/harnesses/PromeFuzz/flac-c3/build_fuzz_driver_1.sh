@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cd /tmp/promefuzz
+clang++ /pf/out/fuzz_driver/fuzz_driver_1.cpp -o /pf/out/fuzz_driver/fuzz_driver_1 -fsanitize=fuzzer,address,undefined -g -I/src/flac/include/FLAC -I/src/flac/include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -DASAN -D_FORTIFY_SOURCE=0 -D_GLIBCXX_DEBUG -I/src/flac/oss-fuzz/ -I/src/flac/include/ -I/src/ExoPlayer/extensions/flac/src/main/jni/ -I/usr/lib/jvm/java-11-openjdk-amd64/include/ -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux/ -fno-omit-frame-pointer -Wno-error=incompatible-function-pointer-types -Wno-error=int-conversion -Wno-error=deprecated-declarations -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=unknown-warning-option -Wno-error=vla-cxx-extension -stdlib=libc++ /src/flac/src/libFLAC++/.libs/libFLAC++.a /src/flac/src/libFLAC/.libs/libFLAC.a /src/libogg-install/lib/libogg.a

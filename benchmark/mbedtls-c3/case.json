@@ -1,0 +1,42 @@
+{
+  "case": "mbedtls-c3",
+  "case_id": "mbedtls/fuzz_x509crt",
+  "project": "mbedtls",
+  "fuzzer_name": "fuzz_x509crt",
+  "language": "c++",
+  "gold_harness_path": "$SRC/mbedtls/programs/fuzz/fuzz_x509crt.c",
+  "gold_source_file": "/src/mbedtls/programs/fuzz/fuzz_x509crt.c",
+  "target_function": "mbedtls_x509_crt_parse",
+  "target_declaration": "int mbedtls_x509_crt_parse(mbedtls_x509_crt *chain, const unsigned char *buf, size_t buflen);",
+  "target_location": "mbedtls/x509_crt.h:529",
+  "prompt": "Project: mbedtls\nRepository: https://github.com/Mbed-TLS/mbedtls.git\nRevision: 70058ce4b664bc81534b1acd2f8d144f2461daeb\nLanguage: C++\n\nTarget function: mbedtls_x509_crt_parse\nDeclared in: mbedtls/x509_crt.h:529\nDeclaration: int mbedtls_x509_crt_parse(mbedtls_x509_crt *chain, const unsigned char *buf, size_t buflen);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/Mbed-TLS/mbedtls.git",
+      "rev": "70058ce4b664bc81534b1acd2f8d144f2461daeb",
+      "type": "git"
+    },
+    "upstream_path": "/src/mbedtls",
+    "all_repos": {
+      "/src/openssl": {
+        "url": "https://github.com/openssl/openssl.git",
+        "rev": "2924476b5591e691e904c4baf57894c526c4b8de",
+        "type": "git"
+      },
+      "/src/boringssl": {
+        "url": "https://github.com/google/boringssl.git",
+        "rev": "f0e21a53342b98fd94fa4d10c7179689e060ef0a",
+        "type": "git"
+      },
+      "/src/mbedtls": {
+        "url": "https://github.com/Mbed-TLS/mbedtls.git",
+        "rev": "70058ce4b664bc81534b1acd2f8d144f2461daeb",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/mbedtls.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

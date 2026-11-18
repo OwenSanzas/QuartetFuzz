@@ -1,0 +1,9 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/util-linux-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/util-linux_test_fdisk_script_fuzz/public.zip",
+ "qualified_name": "util-linux_test_fdisk_script_fuzz",
+ "seeds": 3767,
+ "unpacked_bytes": 9300975,
+ "zip_bytes": 1116784,
+ "zip_sha256": "42a6bb5970accc72018e92491a5979218af0fa1e2d552498e64368308ced15b3"
+}

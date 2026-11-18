@@ -1,0 +1,32 @@
+{
+  "case": "libidn2-c1",
+  "case_id": "libidn2/libidn2_to_unicode_8z8z_fuzzer",
+  "project": "libidn2",
+  "fuzzer_name": "libidn2_to_unicode_8z8z_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/libidn2/fuzz/libidn2_to_unicode_8z8z_fuzzer.c",
+  "gold_source_file": "/src/libidn2/fuzz/libidn2_to_unicode_8z8z_fuzzer.c",
+  "target_function": "idn2_to_unicode_8z8z",
+  "target_declaration": "extern _IDN2_API int idn2_to_unicode_8z8z (const char *input, char **output, int flags);",
+  "target_location": "idn2.h:302",
+  "prompt": "Project: libidn2\nRepository: https://gitlab.com/libidn/libidn2.git\nRevision: 8d9fc983a98492eb434a6ea72a342d840af7d518\nLanguage: C++\n\nTarget function: idn2_to_unicode_8z8z\nDeclared in: idn2.h:302\nDeclaration: extern _IDN2_API int idn2_to_unicode_8z8z (const char *input, char **output, int flags);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://gitlab.com/libidn/libidn2.git",
+      "rev": "8d9fc983a98492eb434a6ea72a342d840af7d518",
+      "type": "git"
+    },
+    "upstream_path": "/src/libidn2",
+    "all_repos": {
+      "/src/libidn2": {
+        "type": "git",
+        "url": "https://gitlab.com/libidn/libidn2.git",
+        "rev": "8d9fc983a98492eb434a6ea72a342d840af7d518"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821; main repo mounted at that revision"
+  },
+  "callgraph": "callgraphs/libidn2.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

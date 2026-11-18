@@ -1,0 +1,34 @@
+{
+  "name": "Janet streaming source parser (reader)",
+  "description": "HARNESS RULES FOR THIS GROUP: (a) the MAIN PATH below runs on every input with the full input, exactly as listed; it is the baseline, the rest of this Logic Group only adds to it. (b) Entries marked 'same core / alternative' reach the same internal code as the main call: never replace the main call with them and never run all of them on every input (fan-out kills exec/s); if used, run at most one of them as an extra step chosen by spare input bits. (c) A configuration switch must never take inputs away from the main path; options that only add code (e.g. detail/verbose output) stay ON. (d) This list is incomplete; what the project's own fuzzers, tests and examples do with the target stays in scope.\nMAIN PATH (keep on every input, same shape as the library's own janet_dobytes, src/core/run.c:31-110):\n1. janet_init(); env = janet_core_env(NULL); janet_parser_init(&parser); inside janet_try.\n2. For each input byte: stop when janet_parser_status is JANET_PARSE_ERROR or JANET_PARSE_DEAD (janet_dobytes stops at the first parse error, run.c:90-104); janet_parser_consume(&parser, byte); then drain every ready form with janet_parser_has_more + janet_parser_produce (or janet_parser_produce_wrapped, unwrapping tuple[0]) and for each form: janet_to_string(form); janet_compile(form, env, janet_cstring(\"fuzz\")); on JANET_COMPILE_OK janet_thunk -> janet_fiber(f, 64, 0, NULL) -> fiber->env = env -> janet_continue; if the signal is not OK, janet_to_string(out) on the error value; read res.error on compile errors.\n3. After the loop: janet_parser_eof, drain again the same way, janet_parser_error if errored; janet_restore; janet_parser_deinit; janet_deinit.\nExec/s is low (janet_init + janet_core_env per input dominate), so do not add per-byte work: error recovery (janet_parser_error/flush then continue consuming) is an ADDITION \u2014 enable it only on a small share of inputs (e.g. a rare selector value), never by default; the previous LG harness recovered on every input and ran 30% fewer execs. produce vs produce_wrapped are same-core alternatives.\n\nFEATURE DESCRIPTION (from the Logic Group stage):\nThe Janet parser is a byte-at-a-time, incremental state machine that turns untrusted Janet source code (fed one byte at a time via janet_parser_consume) into Janet values (tuples, arrays, tables, structs, strings, symbols, numbers). It tracks a stack of nested parse states (JanetParseState) for brackets/parens/strings/comments/quote-reader-macros/long-strings, each driven by a `consumer` function pointer (root, tokenchar, stringchar, escapeh/escapeu/escape1, comment, longstring, atsign). Because this state machine directly interprets attacker-controlled bytes, including escape sequences, UTF-8 validation, bracket/delimiter matching, and buffer growth for tokens/strings, it is a natural fuzzing target for memory-safety and state-corruption bugs (stack over/underflow of parser->states, buffer overflows in push_buf/push_arg, infinite loops, or incorrect delimiter/escape handling).\n- janet_parser_consume: target; advances the state machine one input byte at a time, dispatching into whichever state's consumer function is on top of the state stack (core: root, tokenchar, stringchar, escapeh, escapeu, escape1, comment, longstring, atsign).\n- janet_parser_init: lifecycle/config \u2014 must be called before consume to set up parser->states[0] (root) and empty buffers/stacks; required for the harness to legally drive the target.\n- janet_parser_eof: variant/consumer \u2014 internally calls janet_parser_consume('\\n') and then checks for unterminated containers (delim_error), exercising the same core plus the \"unexpected end of source\" error path; should be called at the end of each fuzz input to flush pending nested structures and catch dangling delimiters/strings.\n- janet_parser_produce / janet_parser_produce_wrapped: consumers of the target's output \u2014 pull completed parsed Janet values (tuples/arrays/etc.) off the parser's argument stack, exercising the pending/argcount bookkeeping filled in by popstate/push_arg inside the core state machine.\n- janet_parser_status: config/query \u2014 reports JANET_PARSE_ERROR / PENDING / DEAD / ROOT; the harness must check it after each consumed byte, since a dead or errored parser panics if fed more bytes (janet_parser_checkdead), so it shapes how many bytes can safely be fed in a row.\n- janet_parser_error / janet_parser_flush: consumer/config \u2014 janet_parser_error extracts and clears an error message (also calls janet_parser_flush), resetting parser->statecount/bufcount/argcount so parsing can continue after a syntax error; flush alone lets a harness recover from errors without destroying the parser, exercising a different continuation path than deinit+reinit.\n- janet_parser_has_more: query gating janet_parser_produce calls.\nInput space (byte sequences fed to janet_parser_consume, which select different states/branches in core): whitespace (' ','\\t','\\n','\\r','\\0','\\v','\\f'); symbol/token characters (per symchars table, including raw bytes >=0x80 that get UTF-8 validated by janet_valid_utf8 and janet_is_symbol_char); reader macros ' , ; ~ |; string delimiter \" with escape sequences \\n \\t \\x.. \\u.... \\U........ and others handled by checkescape/escapeh/escapeu/escape1; long-string/long-buffer backtick ` sequences with variable numbers of backticks (longstring, PFLAG_LONGSTRING argn counting); comment character #; the @ prefix for @[...] @(...) @{...} (atsign) producing arrays/tuples/tables instead of their non-@ counterparts; bracket/paren/brace nesting ( ) [ ] { } including mismatched/unbalanced delimiters that trigger delim_error and PFLAG_PARENS/SQRBRACKETS/CURLYBRACKETS/CONTAINER flag checks; and feeding janet_parser_eof mid-nesting to force the \"unexpected end of source\" path. The most path-rich driver is simply varying the byte stream across all of the above categories (deeply nested containers, mixed escapes, malformed UTF-8, unterminated strings/long-strings) fed byte-by-byte through janet_parser_consume, interleaved with janet_parser_produce/janet_parser_error/janet_parser_flush calls as status changes.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "janet_parser_consume",
+    "janet_parser_init",
+    "janet_parser_eof",
+    "janet_parser_produce",
+    "janet_parser_produce_wrapped",
+    "janet_parser_status",
+    "janet_parser_error",
+    "janet_parser_flush",
+    "janet_parser_has_more",
+    "janet_parser_deinit",
+    "janet_compile",
+    "janet_to_string"
+  ],
+  "core": [
+    "root",
+    "tokenchar",
+    "stringchar",
+    "escapeh",
+    "escapeu",
+    "escape1",
+    "comment",
+    "longstring",
+    "atsign",
+    "popstate",
+    "delim_error"
+  ],
+  "project": "janet",
+  "risk_level": "",
+  "danger_scores": {}
+}

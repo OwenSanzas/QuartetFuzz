@@ -1,0 +1,42 @@
+{
+  "case": "gnutls-c1",
+  "case_id": "gnutls/gnutls_server_rawpk_fuzzer",
+  "project": "gnutls",
+  "fuzzer_name": "gnutls_server_rawpk_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/gnutls/fuzz/gnutls_server_rawpk_fuzzer.c",
+  "gold_source_file": "/src/gnutls/fuzz/gnutls_server_rawpk_fuzzer.c",
+  "target_function": "gnutls_handshake",
+  "target_declaration": "int gnutls_handshake(gnutls_session_t session);",
+  "target_location": "gnutls/gnutls.h:1321",
+  "prompt": "Project: gnutls\nRepository: https://gitlab.com/gnutls/gnutls.git\nRevision: df251463bbc740512a7cd25200ee81e0d9c5bbec\nLanguage: C++\n\nTarget function: gnutls_handshake\nDeclared in: gnutls/gnutls.h:1321\nDeclaration: int gnutls_handshake(gnutls_session_t session);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://gitlab.com/gnutls/gnutls.git",
+      "rev": "df251463bbc740512a7cd25200ee81e0d9c5bbec",
+      "type": "git"
+    },
+    "upstream_path": "/src/gnutls",
+    "all_repos": {
+      "/src/gnutls": {
+        "url": "https://gitlab.com/gnutls/gnutls.git",
+        "rev": "df251463bbc740512a7cd25200ee81e0d9c5bbec",
+        "type": "git"
+      },
+      "/src/nettle": {
+        "url": "https://git.lysator.liu.se/nettle/nettle.git",
+        "rev": "ef717fe1c6dba4e964474aca92ea8e3e94b524c6",
+        "type": "git"
+      },
+      "/src/gnulib": {
+        "url": "git://git.savannah.gnu.org/gnulib.git",
+        "rev": "b201da757520ca70e9c09c55c2771768b620605f",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/gnutls.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

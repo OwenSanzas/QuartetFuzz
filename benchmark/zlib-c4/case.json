@@ -1,0 +1,32 @@
+{
+  "case": "zlib-c4",
+  "case_id": "zlib/zlib_uncompress2_fuzzer",
+  "project": "zlib",
+  "fuzzer_name": "zlib_uncompress2_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/zlib_uncompress2_fuzzer.cc",
+  "gold_source_file": "/src/zlib_uncompress2_fuzzer.cc",
+  "target_function": "uncompress2",
+  "target_declaration": "ZEXTERN int ZEXPORT uncompress2(Bytef *dest, uLongf *destLen, const Bytef *source, uLong *sourceLen);",
+  "target_location": "zlib.h:1335",
+  "prompt": "Project: zlib\nRepository: https://github.com/madler/zlib.git\nRevision: e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca\nLanguage: C++\n\nTarget function: uncompress2\nDeclared in: zlib.h:1335\nDeclaration: ZEXTERN int ZEXPORT uncompress2(Bytef *dest, uLongf *destLen, const Bytef *source, uLong *sourceLen);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/madler/zlib.git",
+      "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+      "type": "git"
+    },
+    "upstream_path": "/src/zlib",
+    "all_repos": {
+      "/src/zlib": {
+        "url": "https://github.com/madler/zlib.git",
+        "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/zlib.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

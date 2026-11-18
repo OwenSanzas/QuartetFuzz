@@ -1,0 +1,16 @@
+{
+  "pinned": "2026-10-07",
+  "note": "Images used for every measurement in this benchmark. run_asan.sh and run_cov.sh reference the runner by digest; tags are recorded only so the digest can be traced back to what it was pulled as.",
+  "images": {
+    "runner": {
+      "tag": "gcr.io/oss-fuzz-base/base-runner:ubuntu-24-04",
+      "digest": "sha256:d2a23fde396b83aaa3d34dbfc0b1d73f0a2b114a90014ba07b32f9e723ed950b",
+      "used_for": "corpus replay under ASan (run_asan.sh), coverage replay (run_cov.sh), libFuzzer campaigns"
+    },
+    "builder": {
+      "tag": "gcr.io/oss-fuzz-base/base-builder:ubuntu-24-04",
+      "digest": "sha256:feb9e59248ce2de645388db04986b84d668692e7723eca6104f935494866d679",
+      "used_for": "project images built by infra/helper.py build_fuzzers at OSS-Fuzz commit 955c6866c152471d78c7472c0f1f354343548b9f"
+    }
+  }
+}

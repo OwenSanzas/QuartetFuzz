@@ -1,0 +1,1 @@
+/src/wxwidgets https://github.com/wxWidgets/wxWidgets.git 0dc27e6a3f979d6848305e1d6bb4f06673304835

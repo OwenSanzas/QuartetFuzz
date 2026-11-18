@@ -1,0 +1,3 @@
+/src/ExoPlayer https://github.com/google/ExoPlayer.git dd430f7053a1a3958deea3ead6a0565150c06bfc
+/src/flac https://github.com/xiph/flac.git e94ff9f68b8e7dbd3e9f8b1ac18a8eca1914f181
+/src/ogg https://github.com/xiph/ogg.git 06a5e0262cdc28aa4ae6797627a783b5010440f0

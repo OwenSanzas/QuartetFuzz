@@ -1,0 +1,16 @@
+/src/aom https://aomedia.googlesource.com/aom 2da1a47e6ebe56b297137afc01050b40cf0f4cad
+/src/cgif https://github.com/dloebl/cgif.git b1facf77a226e971fdd9c0f2fd616ab9b03562d9
+/src/highway https://github.com/google/highway.git 7fff3c667fb62475cdfb2b6c441452c8223c1a67
+/src/lcms https://github.com/mm2/Little-CMS.git a5b898c7e3985550aab846a2abb4ae08904a857f
+/src/libexif https://github.com/libexif/libexif.git aebe2a7b61a2fcd95f8d72e2d317027faf73fdc1
+/src/libheif https://github.com/strukturag/libheif.git 1a3583bcce77de6d3f8701c0758e3954863681ba
+/src/libimagequant https://github.com/lovell/libimagequant.git ce5fdeb1ccd9db288950faa21fd09c42c0a59bbb
+/src/libjpeg-turbo https://github.com/libjpeg-turbo/libjpeg-turbo.git 2646fa33f8d67373c27b558b47e77b2d8d517e31
+/src/libjxl https://github.com/libjxl/libjxl.git e4b66d30278df6050137a4529e5efde5ef691f32
+/src/libpng https://github.com/pnggroup/libpng.git d1d0abeffede1cc898ddc3d0e600839cf026d749
+/src/libtiff https://gitlab.com/libtiff/libtiff.git b99beace423ebb3d2040a2a61fe8c01bd857d854
+/src/libultrahdr https://github.com/google/libultrahdr.git 248738051c2fc2ec22ab085a03610b396cc2a2be
+/src/libvips https://github.com/libvips/libvips.git 8bc2e4fc64f108a5aa830f24c96ee49d91b18649
+/src/libwebp https://chromium.googlesource.com/webm/libwebp 523e30432fdbf77b9566a9fc65394a97cbebc11c
+/src/seed-corpora https://github.com/libvips/seed-corpora.git 4d14170c78172da46babe9b5bb4158484ef538c9
+/src/zlib https://github.com/madler/zlib.git e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca

@@ -1,0 +1,32 @@
+{
+  "case": "janet-c1",
+  "case_id": "janet/fuzz_dostring",
+  "project": "janet",
+  "fuzzer_name": "fuzz_dostring",
+  "language": "c++",
+  "gold_harness_path": "$SRC/janet/test/fuzzers/fuzz_dostring.c",
+  "gold_source_file": "/src/janet/test/fuzzers/fuzz_dostring.c",
+  "target_function": "janet_parser_consume",
+  "target_declaration": "JANET_API void janet_parser_consume(JanetParser *parser, uint8_t c);",
+  "target_location": "janet.h:1664",
+  "prompt": "Project: janet\nRepository: https://github.com/janet-lang/janet\nRevision: f47c7b9dce0b3688597a63303183086e11e65cdf\nLanguage: C++\n\nTarget function: janet_parser_consume\nDeclared in: janet.h:1664\nDeclaration: JANET_API void janet_parser_consume(JanetParser *parser, uint8_t c);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/janet-lang/janet",
+      "rev": "f47c7b9dce0b3688597a63303183086e11e65cdf",
+      "type": "git"
+    },
+    "upstream_path": "/src/janet",
+    "all_repos": {
+      "/src/janet": {
+        "url": "https://github.com/janet-lang/janet",
+        "rev": "f47c7b9dce0b3688597a63303183086e11e65cdf",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/janet.callgraph.sqlite.xz",
+  "lg_version": "lg100v6"
+}

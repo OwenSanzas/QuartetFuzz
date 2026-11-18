@@ -1,0 +1,32 @@
+{
+  "case": "zlib-c3",
+  "case_id": "zlib/gzio_fuzzer",
+  "project": "zlib",
+  "fuzzer_name": "gzio_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/gzio_fuzzer.c",
+  "gold_source_file": "/src/gzio_fuzzer.c",
+  "target_function": "gzopen",
+  "target_declaration": "ZEXTERN gzFile ZEXPORT gzopen(const char *path, const char *mode);",
+  "target_location": "zlib.h:1357",
+  "prompt": "Project: zlib\nRepository: https://github.com/madler/zlib.git\nRevision: e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca\nLanguage: C++\n\nTarget function: gzopen\nDeclared in: zlib.h:1357\nDeclaration: ZEXTERN gzFile ZEXPORT gzopen(const char *path, const char *mode);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/madler/zlib.git",
+      "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+      "type": "git"
+    },
+    "upstream_path": "/src/zlib",
+    "all_repos": {
+      "/src/zlib": {
+        "url": "https://github.com/madler/zlib.git",
+        "rev": "e3dc0a85b7032e98380dec011bc8f2c2ee0d8fca",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/zlib.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

@@ -1,0 +1,32 @@
+{
+  "case": "icu-c5",
+  "case_id": "icu/unicode_string_codepage_create_fuzzer",
+  "project": "icu",
+  "fuzzer_name": "unicode_string_codepage_create_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/icu/icu4c/source/test/fuzzer/unicode_string_codepage_create_fuzzer.cpp",
+  "gold_source_file": "/src/icu/icu4c/source/test/fuzzer/unicode_string_codepage_create_fuzzer.cpp",
+  "target_function": "icu::UnicodeString",
+  "target_declaration": "UnicodeString(const char *codepageData, int32_t dataLength, const char *codepage);",
+  "target_location": "unicode/unistr.h:3511",
+  "prompt": "Project: icu\nRepository: https://github.com/unicode-org/icu.git\nRevision: f44e167de2ea3adff255d942cc604fab36819367\nLanguage: C++\n\nTarget function: icu::UnicodeString\nDeclared in: unicode/unistr.h:3511\nDeclaration: UnicodeString(const char *codepageData, int32_t dataLength, const char *codepage);\nEnclosing scope: namespace icu (U_NAMESPACE_BEGIN), class UnicodeString\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/unicode-org/icu.git",
+      "rev": "f44e167de2ea3adff255d942cc604fab36819367",
+      "type": "git"
+    },
+    "upstream_path": "/src/icu",
+    "all_repos": {
+      "/src/icu": {
+        "url": "https://github.com/unicode-org/icu.git",
+        "rev": "f44e167de2ea3adff255d942cc604fab36819367",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/icu.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

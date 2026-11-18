@@ -1,0 +1,32 @@
+{
+  "case": "pugixml-c1",
+  "case_id": "pugixml/fuzz_parse",
+  "project": "pugixml",
+  "fuzzer_name": "fuzz_parse",
+  "language": "c++",
+  "gold_harness_path": "$SRC/pugixml/tests/fuzz_parse.cpp",
+  "gold_source_file": "/src/pugixml/tests/fuzz_parse.cpp",
+  "target_function": "pugi::xml_document::load_buffer",
+  "target_declaration": "xml_parse_result load_buffer(const void* contents, size_t size, unsigned int options = parse_default, xml_encoding encoding = encoding_auto);",
+  "target_location": "pugixml.hpp:1178",
+  "prompt": "Project: pugixml\nRepository: https://github.com/zeux/pugixml\nRevision: 27b68329de32cf9c601ca8eb6c588fd639960c40\nLanguage: C++\n\nTarget function: pugi::xml_document::load_buffer\nDeclared in: pugixml.hpp:1178\nDeclaration: xml_parse_result load_buffer(const void* contents, size_t size, unsigned int options = parse_default, xml_encoding encoding = encoding_auto);\nEnclosing scope: namespace pugi (line 172), class PUGIXML_CLASS xml_document: public xml_node (line 1127), public section\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/zeux/pugixml",
+      "rev": "27b68329de32cf9c601ca8eb6c588fd639960c40",
+      "type": "git"
+    },
+    "upstream_path": "/src/pugixml",
+    "all_repos": {
+      "/src/pugixml": {
+        "url": "https://github.com/zeux/pugixml",
+        "rev": "27b68329de32cf9c601ca8eb6c588fd639960c40",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/pugixml.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

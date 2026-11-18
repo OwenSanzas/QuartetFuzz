@@ -1,0 +1,24 @@
+{
+  "name": "crypto_auth HMAC-SHA-512-256 message authentication",
+  "description": "This feature implements a secret-key message authentication code (MAC) based on HMAC-SHA-512-256: crypto_auth() computes a 32-byte authentication tag over an arbitrary-length message using a 32-byte key, and crypto_auth_verify (the target) recomputes the tag from attacker-controlled message bytes and key, then compares it in constant time against an attacker-supplied tag. This is security-relevant because it is the authentication boundary that is supposed to reject any forged or tampered message/tag pair; bugs in the HMAC inner-loop (key padding, double hashing, truncation to 32 bytes) or in the comparison (timing side channel, buffer aliasing) directly break message integrity guarantees.\n- crypto_auth_verify: target, recomputes HMAC-SHA-512-256 via crypto_auth_hmacsha512256() internally and compares it to `h` with crypto_verify_32 + sodium_memcmp (double constant-time check plus an aliasing guard `h == correct`).\n- crypto_auth: variant/source, produces the tag that crypto_auth_verify checks; shares the same core (crypto_auth_hmacsha512256 -> crypto_auth_hmacsha512_init/update/final -> crypto_hash_sha512_*). Needed to build valid (h, in, k) triples as well as forged ones for the harness to explore both accept and reject paths.\n- crypto_auth_keygen: config/source, fills a crypto_auth_KEYBYTES (32-byte) key via randombytes_buf; establishes the key state crypto_auth/crypto_auth_verify consume (harness can alternatively use arbitrary fuzz-input-derived key bytes directly since the API itself does not validate key length beyond the fixed-size buffer).\n- crypto_auth_hmacsha512256_init/_update/_final: lower-level streaming variant of the same core (crypto_auth_hmacsha512_init/_update/_final at 128-byte block granularity with SHA-512 key-hashing fallback when keylen > 128), reachable through the one-shot crypto_auth()/crypto_auth_verify() path; included because they let a harness exercise multi-call chunked updates over the same core instead of only one-shot calls.\nThe input space to fuzz: the message buffer `in` and its length `inlen` (0 up to large sizes, to exercise SHA-512 block boundary handling in crypto_hash_sha512_update), the 32-byte key `k` (any byte content, since HMAC accepts arbitrary keys \u2014 the >128-byte branch in crypto_auth_hmacsha512_init that re-hashes long keys is not reachable through this exact 32-byte key API but is documented for completeness), and the 32-byte tag `h` passed to crypto_auth_verify \u2014 both a genuine tag from crypto_auth(in,k) and bit-flipped/forged tags should be fed to exercise both the match and mismatch (forgery-rejection) branches of the constant-time comparison.\nThis list is incomplete; what the project's own fuzzers and tests (e.g. test/default/auth5.c, auth2.c, auth3.c, auth6.c, auth7.c) do with the target stays.",
+  "entries": [
+    "crypto_auth_verify",
+    "crypto_auth",
+    "crypto_auth_keygen",
+    "crypto_auth_hmacsha512256_init",
+    "crypto_auth_hmacsha512256_update",
+    "crypto_auth_hmacsha512256_final"
+  ],
+  "core": [
+    "crypto_auth_hmacsha512256",
+    "crypto_auth_hmacsha512256_verify",
+    "crypto_auth_hmacsha512_init",
+    "crypto_auth_hmacsha512_update",
+    "crypto_auth_hmacsha512_final",
+    "crypto_verify_32",
+    "sodium_memcmp"
+  ],
+  "project": "libsodium",
+  "risk_level": "",
+  "danger_scores": {}
+}

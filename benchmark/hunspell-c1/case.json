@@ -1,0 +1,32 @@
+{
+  "case": "hunspell-c1",
+  "case_id": "hunspell/morphfuzzer",
+  "project": "hunspell",
+  "fuzzer_name": "morphfuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/hunspell/src/tools/morphfuzzer.cxx",
+  "gold_source_file": "/src/hunspell/src/tools/morphfuzzer.cxx",
+  "target_function": "Hunspell::analyze",
+  "target_declaration": "std::vector<std::string> analyze(const std::string& word);",
+  "target_location": "hunspell/hunspell.hxx:176",
+  "prompt": "Project: hunspell\nRepository: https://github.com/hunspell/hunspell.git\nRevision: f143a42a0b95578c39f8657101624ed44dea6514\nLanguage: C++\n\nTarget function: Hunspell::analyze\nDeclared in: hunspell/hunspell.hxx:176\nDeclaration: std::vector<std::string> analyze(const std::string& word);\nEnclosing scope: class LIBHUNSPELL_DLL_EXPORTED Hunspell (public section); no namespace\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/hunspell/hunspell.git",
+      "rev": "f143a42a0b95578c39f8657101624ed44dea6514",
+      "type": "git"
+    },
+    "upstream_path": "/src/hunspell",
+    "all_repos": {
+      "/src/hunspell": {
+        "url": "https://github.com/hunspell/hunspell.git",
+        "rev": "f143a42a0b95578c39f8657101624ed44dea6514",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/hunspell.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

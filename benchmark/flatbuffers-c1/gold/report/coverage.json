@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 2165,
+  "count": 9194,
+  "percent": 23.548
+ },
+ "functions": {
+  "covered": 230,
+  "count": 1104,
+  "percent": 20.833
+ },
+ "regions": {
+  "covered": 2681,
+  "count": 9966,
+  "percent": 26.901
+ },
+ "branches": {
+  "covered": 1226,
+  "count": 5302,
+  "percent": 23.123
+ },
+ "scope": "/src/flatbuffers/",
+ "files_in_scope": 30,
+ "files_total": 30,
+ "all_linked": {
+  "lines": {
+   "covered": 2165,
+   "count": 9194,
+   "percent": 23.548
+  },
+  "functions": {
+   "covered": 230,
+   "count": 1104,
+   "percent": 20.833
+  },
+  "regions": {
+   "covered": 2681,
+   "count": 9966,
+   "percent": 26.901
+  },
+  "branches": {
+   "covered": 1226,
+   "count": 5302,
+   "percent": 23.123
+  }
+ },
+ "timestamp": "2026-08-28T20:28:21Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

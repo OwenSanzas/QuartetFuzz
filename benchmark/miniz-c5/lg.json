@@ -1,0 +1,22 @@
+{
+  "name": "zlib-compatible single-call inflate (mz_uncompress)",
+  "description": "mz_uncompress is miniz's zlib-API-compatible single-call decompression routine: it decodes a zlib/raw-DEFLATE compressed byte buffer (untrusted, attacker-controlled bytes) directly into a caller-supplied output buffer in one shot. Because the entire decode state machine, Huffman table construction, LZ77 back-reference copying and the zlib header/Adler-32 checksum handling run on raw external bytes, this is a classic decompression-bomb / buffer-overflow / OOB-read attack surface and is security-relevant.\n- mz_uncompress: target entry; wraps mz_uncompress2 with a copy of source_len, i.e. the simplest \"decompress whole buffer at once\" API.\n- mz_uncompress2: variant entry; same logic but returns the actual number of source bytes consumed via an in/out pointer, exercising the same core path with a different source_len/pSource_len contract.\n- mz_compress / mz_compress2: inverse-operation entries; produce the compressed buffers that are fed back into mz_uncompress, letting the harness build a genuine round-trip (compress with varying level 0-9/MZ_DEFAULT_COMPRESSION, then uncompress) so fuzzed inputs reach valid-looking zlib streams as well as raw mutated ones.\n- mz_inflateInit / mz_inflateInit2: configuration entries called internally by mz_uncompress2; window_bits selects zlib-header parsing (positive value -> TINFL_FLAG_PARSE_ZLIB_HEADER set) versus raw deflate stream (negative value), which is a real branch in the core inflate driver.\n- mz_inflate: core driver that sets decompression flags (TINFL_FLAG_HAS_MORE_INPUT, TINFL_FLAG_USING_NON_WRAPPING_OUTPUT_BUF, TINFL_FLAG_COMPUTE_ADLER32) based on the flush mode (MZ_NO_FLUSH/MZ_SYNC_FLUSH/MZ_FINISH) and whether it is the first call, then repeatedly invokes tinfl_decompress, copying from its internal sliding dictionary into the caller's output buffer.\n- tinfl_decompress: the actual bit-level DEFLATE decoder state machine (Huffman table build from dynamic/static/stored block headers, length/distance decoding, back-reference copy loop); this is where malformed Huffman codes, invalid length/distance codes, and dictionary wrap-around bugs would manifest.\n- mz_inflateEnd: lifecycle cleanup called on every exit path (success or failure), freeing the per-stream inflate_state.\nThe input space the harness should vary: source_len/pDest_len (including deliberately too-small output buffers to hit MZ_BUF_ERROR), the raw compressed byte content itself (dynamic vs. fixed vs. stored DEFLATE blocks, truncated streams, corrupted Huffman tables, bad/missing zlib header and Adler-32 trailer), the window_bits sign via mz_inflateInit2 (zlib-wrapped vs. raw deflate), and the flush argument to mz_inflate (MZ_NO_FLUSH, MZ_SYNC_FLUSH, MZ_FINISH) together with the compression level passed to mz_compress2 (MZ_NO_COMPRESSION..MZ_BEST_COMPRESSION) to generate varied, sometimes-valid compressed inputs.",
+  "entries": [
+    "mz_uncompress",
+    "mz_uncompress2",
+    "mz_compress",
+    "mz_compress2",
+    "mz_inflateInit",
+    "mz_inflateInit2"
+  ],
+  "core": [
+    "mz_inflate",
+    "tinfl_decompress",
+    "mz_inflateEnd",
+    "mz_deflate",
+    "mz_deflateInit2"
+  ],
+  "project": "miniz",
+  "risk_level": "",
+  "danger_scores": {}
+}

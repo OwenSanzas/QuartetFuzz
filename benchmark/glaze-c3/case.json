@@ -1,0 +1,32 @@
+{
+  "case": "glaze-c3",
+  "case_id": "glaze/json_jmespath",
+  "project": "glaze",
+  "fuzzer_name": "json_jmespath",
+  "language": "c++",
+  "gold_harness_path": "$SRC/glaze/fuzzing/json_jmespath.cpp",
+  "gold_source_file": "/src/glaze/fuzzing/json_jmespath.cpp",
+  "target_function": "glz::read_jmespath",
+  "target_declaration": "template <string_literal Path, auto Options = opts{}, class T, contiguous Buffer> requires(Options.format == JSON) [[nodiscard]] inline error_ctx read_jmespath(T&& value, Buffer&& buffer)",
+  "target_location": "glaze/json/jmespath.hpp:816",
+  "prompt": "Project: glaze\nRepository: https://github.com/stephenberry/glaze.git\nRevision: b26b2535df9e486563e01dd96e4f1cdf11a27453\nLanguage: C++\n\nTarget function: glz::read_jmespath\nDeclared in: glaze/json/jmespath.hpp:816\nDeclaration: template <string_literal Path, auto Options = opts{}, class T, contiguous Buffer> requires(Options.format == JSON) [[nodiscard]] inline error_ctx read_jmespath(T&& value, Buffer&& buffer)\nEnclosing scope: namespace glz\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/stephenberry/glaze",
+      "rev": "b26b2535df9e486563e01dd96e4f1cdf11a27453",
+      "type": "git"
+    },
+    "upstream_path": "/src/glaze",
+    "all_repos": {
+      "/src/glaze": {
+        "url": "https://github.com/stephenberry/glaze",
+        "rev": "b26b2535df9e486563e01dd96e4f1cdf11a27453",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/glaze.callgraph.sqlite.xz",
+  "lg_version": "lg100v6"
+}

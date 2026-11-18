@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 1181,
+  "count": 7734,
+  "percent": 15.27
+ },
+ "functions": {
+  "covered": 74,
+  "count": 720,
+  "percent": 10.278
+ },
+ "regions": {
+  "covered": 1608,
+  "count": 8525,
+  "percent": 18.862
+ },
+ "branches": {
+  "covered": 945,
+  "count": 5122,
+  "percent": 18.45
+ },
+ "scope": "/src/pugixml/",
+ "files_in_scope": 3,
+ "files_total": 3,
+ "all_linked": {
+  "lines": {
+   "covered": 1181,
+   "count": 7734,
+   "percent": 15.27
+  },
+  "functions": {
+   "covered": 74,
+   "count": 720,
+   "percent": 10.278
+  },
+  "regions": {
+   "covered": 1608,
+   "count": 8525,
+   "percent": 18.862
+  },
+  "branches": {
+   "covered": 945,
+   "count": 5122,
+   "percent": 18.45
+  }
+ },
+ "timestamp": "2026-08-28T20:45:11Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

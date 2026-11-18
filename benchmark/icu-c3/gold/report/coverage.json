@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 8349,
+  "count": 22703,
+  "percent": 36.775
+ },
+ "functions": {
+  "covered": 736,
+  "count": 1729,
+  "percent": 42.568
+ },
+ "regions": {
+  "covered": 8946,
+  "count": 23027,
+  "percent": 38.85
+ },
+ "branches": {
+  "covered": 3532,
+  "count": 11399,
+  "percent": 30.985
+ },
+ "scope": "/src/icu/",
+ "files_in_scope": 112,
+ "files_total": 112,
+ "all_linked": {
+  "lines": {
+   "covered": 8349,
+   "count": 22703,
+   "percent": 36.775
+  },
+  "functions": {
+   "covered": 736,
+   "count": 1729,
+   "percent": 42.568
+  },
+  "regions": {
+   "covered": 8946,
+   "count": 23027,
+   "percent": 38.85
+  },
+  "branches": {
+   "covered": 3532,
+   "count": 11399,
+   "percent": 30.985
+  }
+ },
+ "timestamp": "2026-08-28T20:34:48Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

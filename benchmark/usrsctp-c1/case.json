@@ -1,0 +1,32 @@
+{
+  "case": "usrsctp-c1",
+  "case_id": "usrsctp/fuzzer_listen",
+  "project": "usrsctp",
+  "fuzzer_name": "fuzzer_listen",
+  "language": "c++",
+  "gold_harness_path": "$SRC/usrsctp/fuzzer/fuzzer_listen.c",
+  "gold_source_file": "/src/usrsctp/fuzzer/fuzzer_listen.c",
+  "target_function": "usrsctp_conninput",
+  "target_declaration": "void usrsctp_conninput(void *, const void *, size_t, uint8_t);",
+  "target_location": "usrsctp.h:1023",
+  "prompt": "Project: usrsctp\nRepository: https://github.com/sctplab/usrsctp\nRevision: fd070e05a7474f38c7fecdf4d4b6005d2547ee00\nLanguage: C++\n\nTarget function: usrsctp_conninput\nDeclared in: usrsctp.h:1023\nDeclaration: void usrsctp_conninput(void *, const void *, size_t, uint8_t);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/sctplab/usrsctp",
+      "rev": "fd070e05a7474f38c7fecdf4d4b6005d2547ee00",
+      "type": "git"
+    },
+    "upstream_path": "/src/usrsctp",
+    "all_repos": {
+      "/src/usrsctp": {
+        "url": "https://github.com/sctplab/usrsctp",
+        "rev": "fd070e05a7474f38c7fecdf4d4b6005d2547ee00",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/usrsctp.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

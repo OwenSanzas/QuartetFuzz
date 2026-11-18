@@ -1,0 +1,28 @@
+{
+  "name": "FLAC stream decoder frame-by-frame decoding",
+  "description": "FLAC__stream_decoder_process_single drives the stream decoder's internal state machine one step at a time (metadata search, metadata parse, frame-sync search, or single frame decode) over attacker-controlled FLAC/OggFLAC bitstream data. It is security relevant because the state machine parses untrusted length/size/count fields from metadata blocks (STREAMINFO, SEEKTABLE, VORBIS_COMMENT, CUESHEET, PICTURE) and frame/subframe headers (channel assignment, bit depth, blocksize, Rice-coded residual, etc.), performing buffer allocation and bit-level decoding that is a classic target for heap overflows, OOB reads and integer issues.\n- FLAC__stream_decoder_process_single: target; advances the decoder exactly one state-machine step, invoking find_metadata_, read_metadata_ (and its sub-parsers read_metadata_streaminfo_/seektable_/vorbiscomment_/cuesheet_/picture_), frame_sync_, and read_frame_ (which calls read_frame_header_, allocate_output_, read_subframe_, read_zero_padding_, undo_channel_coding) depending on current decoder state.\n- FLAC__stream_decoder_process_until_end_of_metadata: variant, repeatedly loops the same state machine until all metadata is consumed, exercising the metadata-block parsers (core) over many blocks.\n- FLAC__stream_decoder_process_until_end_of_stream: variant, loops the same state machine through metadata and all frames to end of stream, exercising read_frame_ repeatedly.\n- FLAC__stream_decoder_skip_single_frame: variant of the target that walks the frame-sync/read-frame path with do_full_decode=false, exercising header parsing/CRC checks without full subframe decode.\n- FLAC__stream_decoder_seek_absolute: consumer/config that seeks within the stream (uses the seek table / binary search over frames), changing the state that subsequent process_single calls resume from and exercising different byte offsets into the core frame parser.\n- FLAC__stream_decoder_set_md5_checking / set_metadata_respond_all / set_metadata_ignore_all / set_decode_chained_stream: configuration setters that toggle which metadata blocks reach the metadata callback (and whether chained/OggFLAC link-boundaries are honored), selecting different code paths inside read_metadata_ and the chained-stream handling in the state machine.\n- FLAC__stream_decoder_init_stream / init_file / init_ogg_stream / init_ogg_file: lifecycle/variant initializers needed to set up callbacks and (for the ogg_* forms) select the FLAC__ogg_decoder_aspect wrapper, which changes how bytes are delivered to the same core parsers (plain FLAC container vs Ogg-encapsulated FLAC).\nInput space: the raw FLAC/OggFLAC byte stream (header, metadata blocks with varying type/length, frame headers with varying channel-assignment/bits-per-sample/blocksize/sample-rate codes, Rice-coded subframe residuals); the decoder's current protected_->state (SEARCH_FOR_METADATA, READ_METADATA, SEARCH_FOR_FRAME_SYNC, READ_FRAME, END_OF_STREAM/LINK/ABORTED) which determines the branch taken inside process_single; the md5-checking, metadata-respond/ignore-all, and decode-chained-stream boolean configuration flags; whether the container is plain FLAC or Ogg-encapsulated (init_stream vs init_ogg_stream); and seek target sample positions passed to seek_absolute that reposition the bitreader before the next process_single call.",
+  "entries": [
+    "FLAC__stream_decoder_process_single",
+    "FLAC__stream_decoder_process_until_end_of_metadata",
+    "FLAC__stream_decoder_process_until_end_of_stream",
+    "FLAC__stream_decoder_skip_single_frame",
+    "FLAC__stream_decoder_seek_absolute",
+    "FLAC__stream_decoder_set_md5_checking",
+    "FLAC__stream_decoder_set_metadata_respond_all",
+    "FLAC__stream_decoder_set_decode_chained_stream",
+    "FLAC__stream_decoder_init_stream"
+  ],
+  "core": [
+    "find_metadata_",
+    "read_metadata_",
+    "read_metadata_streaminfo_",
+    "read_metadata_seektable_",
+    "read_metadata_vorbiscomment_",
+    "frame_sync_",
+    "read_frame_",
+    "read_subframe_"
+  ],
+  "project": "flac",
+  "risk_level": "",
+  "danger_scores": {}
+}

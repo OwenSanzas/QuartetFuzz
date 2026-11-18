@@ -1,0 +1,24 @@
+{
+  "name": "zlib one-shot buffer compression (compress2 / deflate)",
+  "description": "compress2() is the one-shot, in-memory wrapper around zlib's streaming deflate engine: it takes an untrusted source buffer and length, picks a compression level/strategy, drives deflateInit/deflate/deflateEnd internally and writes compressed output into a caller-supplied destination buffer. Because the level parameter and the input bytes themselves (their redundancy/content) select different internal match-finding and Huffman-coding code paths (deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff, and the bit-level tree/output routines in trees.c), this is a security-relevant surface for buffer/length handling bugs, integer overflow in size bookkeeping (destLen/sourceLen, max chunking by UINT_MAX), and memory-safety bugs in the LZ77/Huffman implementation when fed arbitrary/adversarial byte content.\n- compress2: target; one-shot compressor, calls compress2_z which runs deflateInit(level) + loop of deflate(Z_NO_FLUSH/Z_FINISH) + deflateEnd over the whole source buffer in <=UINT_MAX chunks.\n- compress2_z: size_t variant of the target (same code path), source of behavior - validates destLen/source pointers then drives the deflate state machine identically; useful to vary length types/edge sizes.\n- compress: variant/config wrapper, fixes level=Z_DEFAULT_COMPRESSION, otherwise identical path into compress2_z/deflate.\n- compressBound / compressBound_z: configuration/support function a correct caller must use to size the destination buffer before calling compress2; varying sourceLen exercises the bound formula and feeds a realistic destLen into compress2.\n- uncompress2 / uncompress2_z: inverse operation (consumer of compress2's output) \u2014 round-trips the compressed buffer back through inflateInit/inflate/inflateEnd, letting the harness validate that the exact bytes produced by compress2 decode back correctly and exercising the complementary decompression state machine (inflate_fast, inflate table building, etc.) on attacker-influenced compressed data.\nInput space: sourceLen/source content (controls match lengths, repeats, literal runs that select deflate_stored vs deflate_fast vs deflate_slow internally), level (0-9, plus special Z_DEFAULT_COMPRESSION=-1, Z_NO_COMPRESSION=0, Z_BEST_SPEED=1, Z_BEST_COMPRESSION=9 \u2014 each maps to a different row of configuration_table and thus a different deflate_* function and max_lazy/good/nice/chain parameters), destLen (caller-provided output buffer size, including the under/over-allocated edge cases relative to compressBound(sourceLen), to hit Z_BUF_ERROR/Z_STREAM_ERROR paths), and strategy-dependent sub-paths reachable only through deflateInit2/deflateParams if the harness also exercises those (Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED) via deflate_rle/deflate_huff.",
+  "entries": [
+    "compress2",
+    "compress2_z",
+    "compress",
+    "compressBound",
+    "uncompress2"
+  ],
+  "core": [
+    "deflate",
+    "deflate_stored",
+    "deflate_fast",
+    "deflate_slow",
+    "deflate_rle",
+    "deflate_huff",
+    "flush_pending",
+    "inflate"
+  ],
+  "project": "zlib",
+  "risk_level": "",
+  "danger_scores": {}
+}

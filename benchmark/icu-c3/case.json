@@ -1,0 +1,32 @@
+{
+  "case": "icu-c3",
+  "case_id": "icu/locale_morph_fuzzer",
+  "project": "icu",
+  "fuzzer_name": "locale_morph_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/icu/icu4c/source/test/fuzzer/locale_morph_fuzzer.cpp",
+  "gold_source_file": "/src/icu/icu4c/source/test/fuzzer/locale_morph_fuzzer.cpp",
+  "target_function": "icu::Locale::addLikelySubtags",
+  "target_declaration": "U_COMMON_API void addLikelySubtags(UErrorCode& status);",
+  "target_location": "unicode/locid.h:547",
+  "prompt": "Project: icu\nRepository: https://github.com/unicode-org/icu.git\nRevision: f44e167de2ea3adff255d942cc604fab36819367\nLanguage: C++\n\nTarget function: icu::Locale::addLikelySubtags\nDeclared in: unicode/locid.h:547\nDeclaration: U_COMMON_API void addLikelySubtags(UErrorCode& status);\nEnclosing scope: namespace icu (U_NAMESPACE_BEGIN, line 54), class U_COMMON_API_CLASS Locale : public UObject (line 198), public section\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/unicode-org/icu.git",
+      "rev": "f44e167de2ea3adff255d942cc604fab36819367",
+      "type": "git"
+    },
+    "upstream_path": "/src/icu",
+    "all_repos": {
+      "/src/icu": {
+        "url": "https://github.com/unicode-org/icu.git",
+        "rev": "f44e167de2ea3adff255d942cc604fab36819367",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/icu.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

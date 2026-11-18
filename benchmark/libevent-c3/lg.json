@@ -1,0 +1,24 @@
+{
+  "name": "libevent WebSocket session (ws.c)",
+  "description": "This feature implements a minimal RFC6455 WebSocket layer on top of libevent's HTTP server. `evws_new_session` upgrades an incoming `evhttp_request` into a WebSocket session: it validates the handshake headers (`Upgrade: websocket`, `Connection: Upgrade`, `Sec-WebSocket-Key`), computes the `Sec-WebSocket-Accept` value via SHA1+Base64 over attacker-controlled key bytes, hijacks the underlying bufferevent from the HTTP connection (`evhttp_start_ws_`), and installs a read callback (`ws_evhttp_read_cb`) that becomes the sole consumer of all further bytes on the socket. From that point on, every byte sent by the (untrusted) WebSocket peer is parsed frame-by-frame by `get_ws_frame`, which decodes the RFC6455 base header (opcode, FIN bit, MASK bit, 7/16/64-bit extended length fields), unmasks the payload in place, and enforces a 10 MiB single-frame limit; `ws_evhttp_read_cb` then reassembles fragmented messages into `incomplete_frames` while `ws_message_limit_exceeded_` enforces a 10 MiB cap on the reassembled message to prevent unbounded memory growth, before finally handing the raw payload to the user callback. Because the length/mask/opcode decoding, buffer pull-up, draining and reassembly all operate directly on attacker-supplied bytes with manual pointer/length arithmetic, this is prime fuzzing territory for OOB reads/writes and integer errors. The outbound path (`make_ws_frame`/`evws_send`) mirrors the same length-encoding logic in the opposite direction and is exercised as a round-trip once a session exists.\n- evws_new_session: target; parses HTTP upgrade headers, builds the handshake response, takes over the bufferevent and installs ws_evhttp_read_cb as the frame-parsing entry point (reaches get_ws_frame via the read callback once wired up).\n- evws_send_text: variant/consumer; encodes a text frame (make_ws_frame) and writes it to the connection's output buffer, exercising the outbound length-field encoding path (7/16/64-bit lengths) symmetric to get_ws_frame.\n- evws_send_binary: variant; same as evws_send_text but for arbitrary-length binary payloads, letting the fuzz input pick len to hit the 125/65535 boundary branches in make_ws_frame.\n- evws_connection_set_closecb: configuration; registers ws_on_close_cb invoked from evws_connection_free, so the harness can observe/trigger the close path that frame errors (ERROR_FRAME/CLOSING_FRAME) drive via evws_force_disconnect_.\n- evws_close: consumer/variant; sends an RFC6455 close frame with a reason code and switches the bufferevent callbacks to the close/drain path, which is the same path get_ws_frame's ERROR_FRAME/CLOSING_FRAME/oversized-frame handling triggers internally.\n- evws_connection_get_bufferevent: consumer; exposes the underlying bufferevent so the harness can feed raw attacker bytes into it (bufferevent_read/evbuffer) to drive ws_evhttp_read_cb -> get_ws_frame with arbitrary frame headers/payload/opcode/mask/length-field combinations.\nThe input space that selects different paths through the core parsing/reassembly code: the HTTP upgrade headers (Upgrade, Connection, Sec-WebSocket-Key, Sec-WebSocket-Protocol presence/absence/case), the `options` bit BEV_OPT_THREADSAFE passed to evws_new_session, and, dominantly, the raw WebSocket frame bytes fed to the bufferevent afterwards: opcode nibble (TEXT_FRAME 0x1, BINARY_FRAME 0x2, CLOSING_FRAME 0x8, PING_FRAME 0x9, PONG_FRAME 0xA, reserved 0x3-0x7/0xb-0xf), the FIN bit (fragmentation), the MASK bit and 4-byte mask key, and the 7-bit/16-bit(126)/64-bit(127) payload length encoding including values that exceed WS_MAX_RECV_FRAME_SZ (10 MiB per frame) or WS_MAX_RECV_MSG_SZ (10 MiB reassembled) to exercise the DoS-prevention and error branches.",
+  "entries": [
+    "evws_new_session",
+    "evws_send_text",
+    "evws_send_binary",
+    "evws_connection_set_closecb",
+    "evws_close",
+    "evws_connection_get_bufferevent"
+  ],
+  "core": [
+    "get_ws_frame",
+    "ws_evhttp_read_cb",
+    "ws_message_limit_exceeded_",
+    "make_ws_frame",
+    "ws_gen_accept_key",
+    "evhttp_start_ws_",
+    "evws_force_disconnect_"
+  ],
+  "project": "libevent",
+  "risk_level": "",
+  "danger_scores": {}
+}

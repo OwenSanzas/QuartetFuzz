@@ -1,0 +1,37 @@
+{
+  "case": "libevent-c2",
+  "case_id": "libevent/utils_fuzzer",
+  "project": "libevent",
+  "fuzzer_name": "utils_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/utils_fuzzer.cc",
+  "gold_source_file": "/src/utils_fuzzer.cc",
+  "target_function": "evutil_parse_sockaddr_port",
+  "target_declaration": "EVENT2_EXPORT_SYMBOL int evutil_parse_sockaddr_port(const char *str, struct sockaddr *out, int *outlen);",
+  "target_location": "event2/util.h:697",
+  "prompt": "Project: libevent\nRepository: https://github.com/libevent/libevent.git\nRevision: c96ddc2727a4ed0ca744500efff7230316b4118d\nLanguage: C++\n\nTarget function: evutil_parse_sockaddr_port\nDeclared in: event2/util.h:697\nDeclaration: EVENT2_EXPORT_SYMBOL int evutil_parse_sockaddr_port(const char *str, struct sockaddr *out, int *outlen);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/libevent/libevent.git",
+      "rev": "c96ddc2727a4ed0ca744500efff7230316b4118d",
+      "type": "git"
+    },
+    "upstream_path": "/src/libevent",
+    "all_repos": {
+      "/src/fuzzing": {
+        "url": "https://github.com/google/fuzzing",
+        "rev": "734e55f3cfed1adbb51bf6cb5c65b4c1197b7089",
+        "type": "git"
+      },
+      "/src/libevent": {
+        "url": "https://github.com/libevent/libevent.git",
+        "rev": "c96ddc2727a4ed0ca744500efff7230316b4118d",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260820"
+  },
+  "callgraph": "callgraphs/libevent.callgraph.sqlite.xz",
+  "lg_version": "lg100v4"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "simdjson DOM raw tape dump (debug serializer of parsed document)",
+  "description": "dump_raw_tape walks the internal tape representation produced by simdjson::dom::parser::parse() and prints a human-readable disassembly of it to an std::ostream. It is marked @private/debug-only, but it directly reinterprets attacker-controlled parsed data: it reads the 8-bit tape-entry type tag, interprets the low 56 bits as either a scope-count/offset or a JSON_VALUE_MASK payload, follows payload offsets into document::string_buf to read a 32-bit length prefix and then a string of that length (for STRING and BIGINT tape entries), reinterprets 8-byte tape slots as raw int64/uint64/double, and iterates until it reaches a matching root/closing marker. Any corruption or crafted edge case in the tape (e.g. via a parser bug, or by calling dump_raw_tape on a tape that was not successfully validated) can cause out-of-bounds reads of string_buf/tape, so this routine is a good fuzz target for the tape's binary format itself, reached only after feeding attacker JSON through the normal parse path.\n- dom::element::dump_raw_tape: target; thin wrapper that forwards to tape.doc->dump_raw_tape(out), i.e. document::dump_raw_tape, the core tape-walking function.\n- dom::parser::parse (all overloads: parse(buf,len), parse(std::string&), parse(padded_string&), parse(padded_string_view&)): source, builds the parser's internal document/tape from raw untrusted JSON bytes; this is what fills document::tape and document::string_buf that dump_raw_tape later reads.\n- dom::parser::number_as_string: configuration, toggles _number_as_string so the parser emits BIGINT ('Z') tape entries (string-stored big integers) instead of returning BIGINT_ERROR, exercising the 'Z' branch of the dump switch.\n- dom::document::root: consumer/variant, returns the dom::element wrapping tape index 1 (the root), the natural way to obtain the element on which dump_raw_tape is invoked after parsing.\n- dom::parser::dump_raw_tape / dom::document::dump_raw_tape: variants of the same feature at different object levels (parser-level convenience wrapper and the actual document-level walker) that a harness may call directly instead of through element.\n- dom::element::operator<< / document::operator<< (regular JSON printer): consumer, an alternative \"pretty\" dump of the same tape used for comparison/differential testing against the raw dump.\nThe input space is entirely the JSON text fed to parser::parse (array/object nesting depth and shape select the '{','}','[',']' branches and their saturated counts; numeric literals of various magnitudes select 'l' (int64), 'u' (uint64), 'd' (double) or, when number_as_string(true) is set and the integer overflows 64 bits, 'Z' (bigint-as-string); string literals (including ones with escapes, embedded control characters, and unicode) select the '\"' branch and exercise escape_json_string; true/false/null literals select 't'/'f'/'n'; and malformed/truncated or deeply nested documents probe the various `return false` error paths (missing root marker, truncated numeric payload, unexpected 'r' mid-tape, unknown tag byte) inside document::dump_raw_tape.",
+  "entries": [
+    "simdjson::dom::element::dump_raw_tape",
+    "simdjson::dom::parser::parse",
+    "simdjson::dom::parser::number_as_string",
+    "simdjson::dom::document::root",
+    "simdjson::dom::parser::dump_raw_tape",
+    "simdjson::dom::document::dump_raw_tape"
+  ],
+  "core": [
+    "simdjson::dom::document::dump_raw_tape",
+    "simdjson::internal::escape_json_string",
+    "simdjson::internal::tape_ref::tape_ref",
+    "simdjson::dom::element::dump_raw_tape"
+  ],
+  "project": "simdjson",
+  "risk_level": "",
+  "danger_scores": {}
+}

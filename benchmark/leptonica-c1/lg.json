@@ -1,0 +1,30 @@
+{
+  "name": "Leptonica box/boxa rendering onto a Pix (graphics overlay)",
+  "description": "pixRenderBox() is part of Leptonica's \"graphics\" rendering feature (src/graphics.c), which draws geometric shapes (box outlines, arrays of boxes, hashed boxes, lines, polylines) directly onto the pixel data of a PIX image. The untrusted input here is the image (PIX, which may come from a decoded image file) together with the BOX/BOXA geometry (which, in several fuzzers and tools, is itself deserialized from untrusted bytes via boxaReadMem/boxaRead). Because the box coordinates/width and the pix dimensions/depth are attacker-controllable, the point-generation and pixel-set/clear/flip routines are a classic place for off-by-one or integer-wraparound issues when computing line offsets and indices into the raster buffer, making this feature security relevant.\n\n- pixRenderBox: target entry; builds a PTA outline of one BOX via generatePtaBox() and stamps it onto pix with one of L_SET_PIXELS/L_CLEAR_PIXELS/L_FLIP_PIXELS through pixRenderPta(); requires pix not colormapped.\n- pixRenderBoxArb: sibling/variant; same geometry generation (generatePtaBox) but renders an arbitrary RGB/gray color via pixRenderPtaArb(), and additionally allows a colormapped pix (exercises the cmap-color-matching branch).\n- pixRenderBoxBlend: variant; same geometry generation but alpha-blends the color into a 32bpp RGB pix via pixRenderPtaBlend(), adding the fract-based blending arithmetic path.\n- pixRenderBoxa / pixRenderBoxaArb / pixRenderBoxaBlend: variants operating on a BOXA (array of boxes) instead of a single BOX, driving generatePtaBoxa() (loops generatePtaBox-equivalent per box, optional duplicate-point removal) before the same pixRenderPta*/pixRenderPtaArb/pixRenderPtaBlend core.\n- pixRenderHashBox / pixRenderHashBoxArb / pixRenderHashBoxBlend: siblings that draw a box outline plus internal hash lines using generatePtaHashBox(), exercising the orientation switch (L_HORIZONTAL_LINE, L_VERTICAL_LINE, L_POS_SLOPE_LINE, L_NEG_SLOPE_LINE) and the spacing/outline parameters, then the same render core.\n- boxaReadMem / boxaRead: source; deserializes a BOXA (and its constituent BOX coordinates) straight from fuzzer-controlled bytes (as used by leptonica's own boxfunc3/boxfunc4 fuzzers), so the box geometry fed into the renderer is attacker controlled rather than hand-built.\n\nInput space: the \"op\" parameter (L_SET_PIXELS / L_CLEAR_PIXELS / L_FLIP_PIXELS) selects the per-pixel operation branch in pixRenderPta (pixSetPixel/pixClearPixel/pixFlipPixel, with maxval depending on pix depth 1/2/4/8/16/32); \"width\" (line thickness, clamped to >=1 with a warning) changes how many offset lines generatePtaWideLine/generatePtaBox produce, including the odd/even-width branch; whether the pix has a colormap selects plain vs. Arb/colormap-aware rendering; the Arb/Blend variants add an RGB triple and, for Blend, a blend \"fract\" in [0,1] and (for Boxa) a removedups flag; the HashBox variants add \"spacing\" (>1) and \"orient\". A harness should vary these together with box coordinates (including negative/degenerate/out-of-bounds boxes, since pixRenderPta clips x/y against pix width/height) and pix depth (1/2/4/8/16/32bpp, colormapped or not).\n\nInput format: no magic/header is required for the PIX/BOX objects themselves if built directly from parsed integers out of the fuzz data (pixCreate(w,h,depth) + boxCreate(x,y,w,h)); if driving box geometry through the public deserializer, boxaReadMem()/boxaRead() expect Leptonica's own BOXA text/serialization format (lines such as \"Boxa Version\", box count, then per-box \"x = .., y = .., w = .., h = ..\" entries) \u2014 see src/boxbasic.c for the exact grammar and prog/*_reg.c / fuzzing/boxfunc*_fuzzer.cc for example inputs/seed usage. Any such seed bytes should be preserved at the front and extra control bytes (op, width, color, fract, orient) drawn from elsewhere in the fuzz buffer rather than corrupting the serialized geometry.\n\nInit rejections: pixRenderBox*/pixRenderHashBox* return an error (no crash) if pix or box/boxa is NULL, if op is not one of the three valid constants, if width<1 (silently clamped to 1, not rejected) or if spacing<=1 for the hash variants; pixRenderPta additionally rejects colormapped pix. There is no strict/relaxed compatibility switch to worry about \u2014 rejections just short-circuit before any pixel writes, so a harness should supply valid pix/box pointers and only fuzz width/op/color/fract/orient/spacing to keep reaching the core.\n\nStructured input: not a language; BOX/BOXA are simple numeric records, see src/boxbasic.c (boxaReadStream) for the exact textual record format and prog/boxa1_reg.c / prog/graphicstest.c for realistic combinations of box geometry and rendering calls.\n\nTest hooks/debug switches: leptfuzz.h's leptSetStdNullHandler() (used by all project fuzzers) redirects Leptonica's error/warning stderr handler to a no-op, keeping the width<1 and other L_WARNING messages silent; this should stay enabled. No allocation-failure-injection or SIMD-disable hooks were found for this feature.",
+  "entries": [
+    "pixRenderBox",
+    "pixRenderBoxArb",
+    "pixRenderBoxBlend",
+    "pixRenderBoxa",
+    "pixRenderBoxaArb",
+    "pixRenderBoxaBlend",
+    "pixRenderHashBox",
+    "pixRenderHashBoxArb",
+    "boxaReadMem"
+  ],
+  "core": [
+    "generatePtaBox",
+    "generatePtaBoxa",
+    "generatePtaWideLine",
+    "generatePtaHashBox",
+    "pixRenderPta",
+    "pixRenderPtaArb",
+    "pixRenderPtaBlend",
+    "pixSetPixel",
+    "pixClearPixel",
+    "pixFlipPixel"
+  ],
+  "project": "leptonica",
+  "risk_level": "",
+  "danger_scores": {}
+}

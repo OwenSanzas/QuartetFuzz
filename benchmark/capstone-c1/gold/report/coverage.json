@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 248394,
+  "count": 285341,
+  "percent": 87.052
+ },
+ "functions": {
+  "covered": 2356,
+  "count": 3275,
+  "percent": 71.939
+ },
+ "regions": {
+  "covered": 52877,
+  "count": 108901,
+  "percent": 48.555
+ },
+ "branches": {
+  "covered": 44485,
+  "count": 89918,
+  "percent": 49.473
+ },
+ "scope": "/src/capstonenext/",
+ "files_in_scope": 194,
+ "files_total": 194,
+ "all_linked": {
+  "lines": {
+   "covered": 248394,
+   "count": 285341,
+   "percent": 87.052
+  },
+  "functions": {
+   "covered": 2356,
+   "count": 3275,
+   "percent": 71.939
+  },
+  "regions": {
+   "covered": 52877,
+   "count": 108901,
+   "percent": 48.555
+  },
+  "branches": {
+   "covered": 44485,
+   "count": 89918,
+   "percent": 49.473
+  }
+ },
+ "timestamp": "2026-08-31T20:45:05Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

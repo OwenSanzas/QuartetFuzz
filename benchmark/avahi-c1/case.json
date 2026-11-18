@@ -1,0 +1,32 @@
+{
+  "case": "avahi-c1",
+  "case_id": "avahi/fuzz-strlst",
+  "project": "avahi",
+  "fuzzer_name": "fuzz-strlst",
+  "language": "c++",
+  "gold_harness_path": "$SRC/avahi/fuzz/fuzz-strlst.c",
+  "gold_source_file": "/src/avahi/fuzz/fuzz-strlst.c",
+  "target_function": "avahi_string_list_parse",
+  "target_declaration": "int avahi_string_list_parse(const void *data, size_t size, AvahiStringList **ret);",
+  "target_location": "avahi-common/strlst.h:120",
+  "prompt": "Project: avahi\nRepository: https://github.com/avahi/avahi\nRevision: 825ebdfac3820f014db61a593dae47d16bd6e057\nLanguage: C++\n\nTarget function: avahi_string_list_parse\nDeclared in: avahi-common/strlst.h:120\nDeclaration: int avahi_string_list_parse(const void *data, size_t size, AvahiStringList **ret);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/avahi/avahi",
+      "rev": "825ebdfac3820f014db61a593dae47d16bd6e057",
+      "type": "git"
+    },
+    "upstream_path": "/src/avahi",
+    "all_repos": {
+      "/src/avahi": {
+        "url": "https://github.com/avahi/avahi",
+        "rev": "825ebdfac3820f014db61a593dae47d16bd6e057",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/avahi.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

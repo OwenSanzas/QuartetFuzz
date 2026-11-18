@@ -1,0 +1,25 @@
+{
+  "name": "ListFormatter list concatenation",
+  "description": "ListFormatter joins an array of UnicodeString items into a single natural-language list (e.g. \"Alice, Bob and Charlie\") using locale-specific CLDR patterns (\"two\", \"start\", \"middle\", \"end\") that are loaded as SimpleFormatter templates and combined with the untrusted item strings. Because the item strings (length, content, first-character script) directly influence pattern selection (via ContextualHandler conditions) and are spliced into formatter templates with {0}/{1} placeholder replacement, malformed/edge-case inputs (empty strings, zero items, very long arrays, strings beginning with specific Unicode scripts such as Hebrew, or strings mimicking Spanish \"y/o\" triggers) exercise distinct code paths in the pattern-building/concatenation logic, making this a good fuzzing surface for buffer/string-building bugs.\n- icu::ListFormatter::format (target): drives formatStringsToValue, then appends the FormattedList result to appendTo via UnicodeStringAppendable; reaches core.\n- icu::ListFormatter::formatStringsToValue: variant/consumer-equivalent entry producing a FormattedList with field position info instead of a plain UnicodeString; same core (formatStringsToValue, FormattedListBuilder::append) as the target, exposes additional consumer surface (FormattedList::toString/appendTo/nextPosition).\n- icu::ListFormatter::createInstance(UErrorCode&): source/config - builds default-locale ListFormatInternal via loadListFormatInternal/getListFormatInternal, loading CLDR \"standard\" list patterns; sets the state (startPattern/middlePattern/patternHandler) that the core reads.\n- icu::ListFormatter::createInstance(const Locale&, UErrorCode&): source/config - same as above for an explicit locale, selects different CLDR resource bundles (different two/start/middle/end patterns, e.g. different ContextualHandler per language such as \"es\" or \"he\"), reaching the same core loader and pattern-handler construction code.\n- icu::ListFormatter::createInstance(const Locale&, UListFormatterType, UListFormatterWidth, UErrorCode&): config - maps {ULISTFMT_TYPE_AND, ULISTFMT_TYPE_OR, ULISTFMT_TYPE_UNITS} x {ULISTFMT_WIDTH_WIDE, ULISTFMT_WIDTH_SHORT, ULISTFMT_WIDTH_NARROW} to a CLDR style string (\"standard\", \"standard-short\", \"or\", \"unit-narrow\", ...) that is passed to the same loadListFormatInternal/getListFormatInternal core, selecting entirely different pattern sets and thus different literal/argument splice points in FormattedListBuilder::append.\n- FormattedList::toString / FormattedList::appendTo / FormattedList::nextPosition: consumers of formatStringsToValue's output; walk the internally-built FormattedStringBuilder/span data, exercising the field-position iteration code that the target's result feeds (reached only via formatStringsToValue).\nThe input space to fuzz: (1) the `items[]` array content and `n_items` (0, 1, 2, and >2 items each take a separate branch in formatStringsToValue - the >2 branch is the most complete code path, visiting start/middle*/end patterns); (2) item string content, in particular strings that trigger the per-language ContextualHandler tests (shouldChangeToE/shouldChangeToU for Spanish locale \"es\", shouldChangeToVavDash based on uscript_getScript for Hebrew locale \"he\") - these add extra pattern-substitution branches; (3) the locale passed to createInstance (drives which CLDR two/start/middle/end patterns and which PatternHandler/ContextualHandler subclass is built); (4) UListFormatterType x UListFormatterWidth combination (selects the CLDR style key, hence a different resource and pattern shape) - ULISTFMT_TYPE_AND/ULISTFMT_WIDTH_WIDE is default/most common but not necessarily most path-covering, vary all 9 combinations. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "icu::ListFormatter::format",
+    "icu::ListFormatter::formatStringsToValue",
+    "icu::ListFormatter::createInstance",
+    "icu::FormattedList::toString",
+    "icu::FormattedList::appendTo",
+    "icu::FormattedList::nextPosition"
+  ],
+  "core": [
+    "formatStringsToValue",
+    "loadListFormatInternal",
+    "getListFormatInternal",
+    "createPatternHandler",
+    "FormattedListBuilder::append",
+    "shouldChangeToE",
+    "shouldChangeToU",
+    "shouldChangeToVavDash"
+  ],
+  "project": "icu",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "crypto_box public-key authenticated decryption (NaCl box)",
+  "description": "crypto_box_open_easy verifies and decrypts a ciphertext that was authenticated-encrypted with crypto_box_easy using curve25519xsalsa20poly1305: it derives a shared session key from the caller's secret key and the peer's public key (ECDH via crypto_scalarmult_curve25519 + HSalsa20), checks the Poly1305 MAC prefixed to the ciphertext in constant time, and if valid XSalsa20-decrypts the remaining bytes into the plaintext buffer. Because all of c, n, pk and sk are attacker-influenced in a fuzz harness (only sk should be trusted, but a harness exploring robustness will vary it too), this routine is the main boundary where malformed/forged ciphertexts, truncated lengths, or unauthorized keys must be safely rejected without crashing, leaking plaintext, or going out of bounds on clen.\n- crypto_box_open_easy: target, core: crypto_box_beforenm -> crypto_box_curve25519xsalsa20poly1305_beforenm (scalarmult+hsalsa20) and crypto_secretbox_open_detached (poly1305 verify + salsa20 decrypt)\n- crypto_box_easy: inverse/producer of the target's input; builds a valid encrypted+authenticated ciphertext from plaintext, same core key-derivation and secretbox detached encryption path, needed as a source to generate well-formed inputs that the fuzzer can then also mutate\n- crypto_box_detached / crypto_box_open_detached: variant forms that separate the MAC from the ciphertext; reach the same core (crypto_box_beforenm, crypto_secretbox_detached / crypto_secretbox_open_detached) but exercise the API with a user-supplied MAC buffer, a different call shape worth covering\n- crypto_box_beforenm / crypto_box_easy_afternm / crypto_box_open_easy_afternm: precomputed-shared-key variants; crypto_box_beforenm is configuration (derives k once) and the *_afternm functions reuse that k to skip repeated scalarmult, reaching crypto_box_curve25519xsalsa20poly1305_afternm/open_afternm and crypto_secretbox_detached/open_detached directly\n- crypto_box_seal / crypto_box_seal_open: higher-level anonymous-sender variant that generates an ephemeral keypair (crypto_box_keypair), derives the nonce from both public keys, and internally calls crypto_box_easy / crypto_box_open_easy, so it drives the same core while adding ephemeral-key and nonce-derivation logic\n- crypto_box_keypair / crypto_box_seed_keypair: produce pk/sk pairs (via crypto_scalarmult_curve25519_base) needed to set up valid or crafted key material for the target and its variants\nInput space that adds paths through the core: the ciphertext length clen relative to crypto_box_MACBYTES (clen < MACBYTES short-circuits with -1 before touching the core, clen == MACBYTES exercises the zero-length-message decrypt path, clen > MACBYTES exercises real plaintext recovery and the block-boundary split in crypto_secretbox_open_detached/crypto_secretbox_detached at 64 - ZEROBYTES bytes), whether the MAC verifies (forged/corrupted ciphertext bytes vs. a MAC produced by crypto_box_easy) which selects the \"reject\" vs \"decrypt\" branch, and whether pk/sk form a matching or mismatched keypair, which changes the derived shared key k and therefore whether decryption plaintext/MAC checks out; using crypto_box_easy/_detached as a source (versus feeding raw fuzzer bytes as ciphertext) is the most permissive setting since it reaches the full encrypt+decrypt round trip including the MAC-success branch, which raw random ciphertext essentially never reaches. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "crypto_box_open_easy",
+    "crypto_box_easy",
+    "crypto_box_detached",
+    "crypto_box_open_detached",
+    "crypto_box_beforenm",
+    "crypto_box_easy_afternm",
+    "crypto_box_open_easy_afternm",
+    "crypto_box_seal",
+    "crypto_box_seal_open",
+    "crypto_box_keypair",
+    "crypto_box_seed_keypair"
+  ],
+  "core": [
+    "crypto_box_curve25519xsalsa20poly1305_beforenm",
+    "crypto_scalarmult_curve25519",
+    "crypto_core_hsalsa20",
+    "crypto_secretbox_detached",
+    "crypto_secretbox_open_detached",
+    "crypto_onetimeauth_poly1305_verify",
+    "crypto_stream_salsa20_xor"
+  ],
+  "project": "libsodium",
+  "risk_level": "",
+  "danger_scores": {}
+}

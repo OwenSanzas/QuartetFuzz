@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/llhttp-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/llhttp_fuzz_parser/public.zip",
+ "qualified_name": "llhttp_fuzz_parser",
+ "seeds": 4591,
+ "unpacked_bytes": 10414087,
+ "zip_bytes": 1203779,
+ "zip_sha256": "e39e2067d7d6fd02aa2ddb128fa524745f90e287cb9033d3bb9e3a3defefe501",
+ "content_digest_sha256": "fd18e9d993ef0678e34c25b5120261a1a4bd175a14bbfa7da5798ff328acc052",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

@@ -1,0 +1,2 @@
+/src/gnulib git://git.savannah.gnu.org/gnulib.git b201da757520ca70e9c09c55c2771768b620605f
+/src/libtasn1 https://gitlab.com/gnutls/libtasn1.git 2b2065b2383aebe138c7d0f7b5646369e5f56ec3

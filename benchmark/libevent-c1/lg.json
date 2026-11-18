@@ -1,0 +1,25 @@
+{
+  "name": "libevent tagged-data unmarshaling (event_tagging.c)",
+  "description": "This feature implements libevent's simple \"tag/length/value\" wire format used by legacy RPC-style code: a public API that parses untrusted bytes out of an evbuffer into tag id + length + typed payload. evtag_unmarshal and its siblings decode a variable-length tag id, a nibble-encoded length integer, and then pull/copy exactly that many payload bytes out of the source evbuffer, so a malformed/truncated/oversized length or tag value directly drives buffer-pullup/drain logic and is security-relevant (classic \"trust the attacker-controlled length field\" parsing code).\n- evtag_unmarshal: target. Reads header (tag+length) via evtag_unmarshal_header, then evbuffer_pullup(src,len)+evbuffer_add(dst,...)+evbuffer_drain(src,len) to copy the raw payload into dst. Core: evtag_unmarshal_header, decode_tag_internal, decode_int_internal, evbuffer_pullup/evbuffer_drain.\n- evtag_unmarshal_header: variant/building block, same core (decode_tag_internal + decode_int_internal), used standalone to just peek length/tag without copying payload.\n- evtag_unmarshal_int / evtag_unmarshal_int64: variants that decode the header themselves (decode_tag_internal + evtag_decode_int) but then interpret the payload as a nibble-encoded integer via decode_int_internal/decode_int64_internal instead of raw bytes \u2014 exercises the 64-bit nibble-decoding path (DECODE_INT_INTERNAL with maxnibbles=16) not reached by the plain evtag_unmarshal.\n- evtag_unmarshal_fixed: variant, reuses evtag_unmarshal_header then evbuffer_remove with an exact expected length check \u2014 exercises the tag_len != len mismatch branch.\n- evtag_unmarshal_string: variant, reuses evtag_unmarshal_header then mm_malloc(tag_len+1)+evbuffer_remove \u2014 exercises the allocation-sized-by-attacker-length path.\n- evtag_unmarshal_timeval: variant, reuses evtag_unmarshal_header then calls decode_int_internal twice at increasing offsets to fill tv_sec/tv_usec, checking offset+offset2>len \u2014 exercises multi-field sequential decode within one payload.\n- evtag_marshal / evtag_marshal_buffer / evtag_marshal_int / evtag_marshal_int64 / evtag_marshal_string / evtag_marshal_timeval: inverse/source operations that encode tag+length+data into an evbuffer using evtag_encode_tag/evtag_encode_int; useful both as a source to build syntactically-plausible fuzz input and to round-trip encode\u2192decode.\nInput space to fuzz: the raw bytes placed into the source evbuffer before calling evtag_unmarshal* (the harness should be able to feed both well-formed marshal() output for structured coverage and raw fuzz bytes for the decoder's error paths); the most permissive dimension is calling plain evtag_unmarshal (accepts arbitrary payload bytes, no type constraint) vs. the *_int/*_int64/*_fixed/*_string/*_timeval variants which add extra type-specific validation (nibble count <=8/16, exact length match, tag-id match via need_tag) that narrows accepted inputs; also vary the tag encoding length (1 vs multi-byte continuation-bit tags up to 5 bytes) and the length-nibble encoding (0..8/16 nibbles, including the >28-bit-shift overflow-rejection branch in decode_tag_internal/decode_int_internal) and boundary lengths (len==0, len==evbuffer_get_length(src), len>evbuffer_get_length(src) which must fail, len==INT_MAX boundary).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "evtag_unmarshal",
+    "evtag_unmarshal_header",
+    "evtag_unmarshal_int",
+    "evtag_unmarshal_int64",
+    "evtag_unmarshal_fixed",
+    "evtag_unmarshal_string",
+    "evtag_unmarshal_timeval",
+    "evtag_marshal"
+  ],
+  "core": [
+    "decode_tag_internal",
+    "decode_int_internal",
+    "decode_int64_internal",
+    "evtag_unmarshal_header",
+    "evbuffer_pullup",
+    "evbuffer_drain"
+  ],
+  "project": "libevent",
+  "risk_level": "",
+  "danger_scores": {}
+}

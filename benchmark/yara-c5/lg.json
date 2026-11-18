@@ -1,0 +1,27 @@
+{
+  "name": "YARA in-memory buffer scanning",
+  "description": "yr_rules_scan_mem is the core API that scans an arbitrary in-memory buffer against a previously compiled YR_RULES set: it creates a transient YR_SCANNER, wires in the caller's callback/timeout/flags, and runs the Aho-Corasick matcher plus the compiled rule-condition VM over the buffer. The buffer bytes are fully untrusted (file/network data) and drive both a multi-pattern string-matching automaton and a bytecode interpreter that executes module parsers (PE/ELF/dex/dotnet/macho) on the same bytes, so this is the primary security boundary for YARA: most memory-safety bugs in YARA are found by fuzzing this exact path.\n- yr_rules_scan_mem: target; builds a scanner, calls yr_scanner_scan_mem over the buffer, reaching the same core as yr_scanner_scan_mem directly.\n- yr_rules_scan_mem_blocks: variant, lets the caller supply a YR_MEMORY_BLOCK_ITERATOR (multi-block buffer) instead of one flat buffer; reaches the same core (_yr_scanner_scan_mem_block / yr_execute_code) through yr_scanner_scan_mem_blocks.\n- yr_rules_scan_file / yr_rules_scan_fd: variants/sources, map a file (or fd) into memory and then call yr_rules_scan_mem internally, so file content becomes the scanned buffer; same core.\n- yr_scanner_create / yr_scanner_set_flags / yr_scanner_set_callback / yr_scanner_set_timeout / yr_scanner_scan_mem: lower-level scanner API that yr_rules_scan_mem itself wraps; calling it directly lets the harness vary flags/timeout and reuse one scanner across several scans, same core.\n- yr_rules_define_integer_variable / yr_rules_define_boolean_variable / yr_rules_define_float_variable / yr_rules_define_string_variable: config, set external variable values used by rule conditions evaluated by yr_execute_code, changing which condition branches run over the matched data.\n- The input space to vary for fuzzing: the `flags` bitmask passed to yr_rules_scan_mem \u2014 SCAN_FLAGS_NO_TRYCATCH (run without exception guarding, most permissive, maximizes crash surface), SCAN_FLAGS_FAST_MODE (changes string-match-once short-circuiting in yr_scan_verify_match), SCAN_FLAGS_PROCESS_MEMORY (switches entry-point computation between yr_get_entry_point_address/offset, i.e. simulated process memory vs. file layout), SCAN_FLAGS_REPORT_RULES_MATCHING/NOT_MATCHING (controls which CALLBACK_MSG_* messages fire); the `buffer`/`buffer_size` content itself, since it is consumed both by the raw Aho-Corasick scan in _yr_scanner_scan_mem_block and by module data parsers invoked from the rule VM (yr_execute_code) when rules import modules (pe, elf, dex, macho, dotnet); and the compiled rule set loaded via the compiler (yr_compiler_add_string/_file) or yr_rules_load, since rule content (string patterns, conditions, imported modules) determines which parts of the core actually execute on the buffer.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "yr_rules_scan_mem",
+    "yr_rules_scan_mem_blocks",
+    "yr_rules_scan_file",
+    "yr_rules_scan_fd",
+    "yr_scanner_create",
+    "yr_scanner_set_flags",
+    "yr_scanner_scan_mem",
+    "yr_rules_define_integer_variable",
+    "yr_rules_define_string_variable"
+  ],
+  "core": [
+    "yr_scanner_scan_mem_blocks",
+    "_yr_scanner_scan_mem_block",
+    "yr_scan_verify_match",
+    "yr_execute_code",
+    "yr_get_entry_point_address",
+    "yr_get_entry_point_offset",
+    "_yr_scanner_clean_matches"
+  ],
+  "project": "yara",
+  "risk_level": "",
+  "danger_scores": {}
+}

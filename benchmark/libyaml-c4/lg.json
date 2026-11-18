@@ -1,0 +1,26 @@
+{
+  "name": "libyaml token scanner (yaml_parser_scan)",
+  "description": "yaml_parser_scan is the low-level token API of libyaml: it drives the YAML scanner state machine that reads raw bytes from an application-supplied input source (string/file/custom handler), auto-detects the character encoding (UTF-8/16LE/16BE via BOM sniffing), decodes it to the internal buffer, and tokenizes the byte stream into YAML tokens (directives, anchors, tags, flow/block indicators, plain/quoted/block scalars) while tracking indentation, flow-level nesting and \"simple key\" candidates. Because it operates directly on untrusted, attacker-controlled byte streams and implements a hand-written recursive-descent/state-machine lexer with many branches on specific punctuation, escape sequences, indentation levels and encoding, it is prime territory for out-of-bounds reads, infinite loops or logic errors, making it a high-value fuzzing target.\n- yaml_parser_scan: target; the public token-scanning loop that calls yaml_parser_fetch_more_tokens/yaml_parser_fetch_next_token to dispatch on the current input character and produce one yaml_token_t per call; must be called repeatedly until YAML_STREAM_END_TOKEN or an error.\n- yaml_parser_initialize: lifecycle setup required before scanning; initializes internal queues/stacks consumed by the scanner.\n- yaml_parser_set_input_string: source, feeds the fuzz bytes directly into parser->input.string so the raw byte content fully controls the scan; this is the main way to put fuzz data under the target's control.\n- yaml_parser_set_input / yaml_parser_set_input_file: variant sources, alternative ways to attach the byte stream (generic read-handler callback or FILE*) exercising the same reader path through a different code path (yaml_string_read_handler vs yaml_file_read_handler vs custom handler) feeding yaml_parser_update_raw_buffer.\n- yaml_parser_set_encoding: configuration, pre-selects YAML_UTF8/UTF16LE/UTF16BE_ENCODING instead of letting yaml_parser_determine_encoding auto-detect from BOM, changing the byte-to-character decoding path exercised inside the reader/scanner.\n- yaml_parser_delete: lifecycle teardown, frees scanner-internal buffers/stacks/queues allocated during scanning, needed to avoid leaks across fuzz iterations.\nThe input space that selects different code paths through the core: the raw byte content and length (arbitrary bytes drive which token-fetcher branch in yaml_parser_fetch_next_token is taken: '%', '-', '.', '[',']','{','}',',','?',':','*','&','!','|','>','\"','\\'' or plain text), the chosen/auto-detected encoding (YAML_UTF8_ENCODING, YAML_UTF16LE_ENCODING, YAML_UTF16BE_ENCODING and presence/absence of a BOM), indentation/column position (mark.column==0 vs not, affecting document start/end and directive detection), flow vs block context (parser->flow_level), and literal ('|') vs folded ('>') block scalar style and single vs double quoted flow scalar style \u2014 all of which are naturally driven by feeding varied byte sequences as the fuzz input string.",
+  "entries": [
+    "yaml_parser_scan",
+    "yaml_parser_initialize",
+    "yaml_parser_set_input_string",
+    "yaml_parser_set_input",
+    "yaml_parser_set_input_file",
+    "yaml_parser_set_encoding",
+    "yaml_parser_delete"
+  ],
+  "core": [
+    "yaml_parser_fetch_more_tokens",
+    "yaml_parser_fetch_next_token",
+    "yaml_parser_scan_plain_scalar",
+    "yaml_parser_scan_flow_scalar",
+    "yaml_parser_scan_block_scalar",
+    "yaml_parser_scan_tag",
+    "yaml_parser_update_buffer",
+    "yaml_parser_determine_encoding"
+  ],
+  "project": "libyaml",
+  "risk_level": "",
+  "danger_scores": {}
+}

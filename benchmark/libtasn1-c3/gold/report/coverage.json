@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 166,
+  "count": 5195,
+  "percent": 3.195
+ },
+ "functions": {
+  "covered": 6,
+  "count": 119,
+  "percent": 5.042
+ },
+ "regions": {
+  "covered": 222,
+  "count": 7837,
+  "percent": 2.833
+ },
+ "branches": {
+  "covered": 90,
+  "count": 4719,
+  "percent": 1.907
+ },
+ "scope": "/src/libtasn1/",
+ "files_in_scope": 15,
+ "files_total": 15,
+ "all_linked": {
+  "lines": {
+   "covered": 166,
+   "count": 5195,
+   "percent": 3.195
+  },
+  "functions": {
+   "covered": 6,
+   "count": 119,
+   "percent": 5.042
+  },
+  "regions": {
+   "covered": 222,
+   "count": 7837,
+   "percent": 2.833
+  },
+  "branches": {
+   "covered": 90,
+   "count": 4719,
+   "percent": 1.907
+  }
+ },
+ "timestamp": "2026-08-28T20:35:52Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

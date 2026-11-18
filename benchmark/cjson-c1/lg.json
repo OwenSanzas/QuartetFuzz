@@ -1,0 +1,25 @@
+{
+  "name": "cJSON text parsing (ParseWithOpts family)",
+  "description": "cJSON_ParseWithOpts drives the recursive-descent JSON parser over an attacker-controlled byte buffer, turning raw untrusted text into a tree of cJSON nodes (objects, arrays, strings, numbers, booleans, null). This is the main untrusted-input boundary of the library: the parser must correctly handle UTF-8 BOM skipping, whitespace, nested containers, string escape/unicode decoding, and number parsing without buffer over-reads, so it is highly security relevant.\n- cJSON_ParseWithOpts: target itself; computes buffer_length via strlen(value) and forwards to cJSON_ParseWithLengthOpts, exercising the full parser core.\n- cJSON_ParseWithLengthOpts: variant taking an explicit length instead of relying on NUL-termination, letting the fuzzer supply a length that differs from any embedded NUL, reaching the same core; also exposes require_null_terminated behavior directly.\n- cJSON_Parse / cJSON_ParseWithLength: simpler variants (require_null_terminated=0, no return_parse_end) of the same core, useful as alternate call shapes.\n- cJSON_Minify: source-adjacent transform that strips comments/whitespace from a raw buffer before parsing, can be chained before the target to create more interesting parser input and exercises its own scanning logic over the buffer.\n- cJSON_Print / cJSON_PrintUnformatted / cJSON_PrintBuffered / cJSON_PrintPreallocated: consumers that serialize the parsed cJSON tree back out, exercising print_value/print_string/print_number and thus validating that parsed structures (including deeply nested or escaped-string ones) round-trip correctly.\nCore functions reached: parse_value (dispatcher on first byte: '\"' / '-' or digit / '{' / '[' / 't' / 'f' / 'n'), parse_string (handles escape sequences \\\", \\\\, \\/, \\b,\\f,\\n,\\r,\\t, \\u unicode and surrogate pairs), parse_number (sign, exponent, overflow-to-double handling), parse_array and parse_object (recursive descent with comma/colon/brace matching and depth tracking via CJSON_NESTING_LIMIT).\nInput space to fuzz: the raw JSON text itself (nesting depth up to and beyond CJSON_NESTING_LIMIT, string escapes including malformed \\u sequences and lone surrogates, numbers at the edges of double precision, large arrays/objects, UTF-8 BOM prefix, trailing garbage), the buffer_length parameter (shorter/longer than strlen(value), to probe boundary truncation), and require_null_terminated (0 is the more permissive setting letting trailing bytes after a valid value be accepted/ignored at the boundary check, vs 1 which enforces strict termination and exercises the extra whitespace-skip + NUL check path).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "cJSON_ParseWithOpts",
+    "cJSON_ParseWithLengthOpts",
+    "cJSON_Parse",
+    "cJSON_ParseWithLength",
+    "cJSON_Minify",
+    "cJSON_Print",
+    "cJSON_PrintUnformatted"
+  ],
+  "core": [
+    "parse_value",
+    "parse_string",
+    "parse_number",
+    "parse_array",
+    "parse_object",
+    "buffer_skip_whitespace",
+    "skip_utf8_bom"
+  ],
+  "project": "cjson",
+  "risk_level": "",
+  "danger_scores": {}
+}

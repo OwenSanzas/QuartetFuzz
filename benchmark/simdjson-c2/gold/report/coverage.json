@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 3226,
+  "count": 14739,
+  "percent": 21.888
+ },
+ "functions": {
+  "covered": 442,
+  "count": 2061,
+  "percent": 21.446
+ },
+ "regions": {
+  "covered": 1949,
+  "count": 5144,
+  "percent": 37.889
+ },
+ "branches": {
+  "covered": 986,
+  "count": 2262,
+  "percent": 43.59
+ },
+ "scope": "/src/simdjson/",
+ "files_in_scope": 99,
+ "files_total": 99,
+ "all_linked": {
+  "lines": {
+   "covered": 3226,
+   "count": 14739,
+   "percent": 21.888
+  },
+  "functions": {
+   "covered": 442,
+   "count": 2061,
+   "percent": 21.446
+  },
+  "regions": {
+   "covered": 1949,
+   "count": 5144,
+   "percent": 37.889
+  },
+  "branches": {
+   "covered": 986,
+   "count": 2262,
+   "percent": 43.59
+  }
+ },
+ "timestamp": "2026-08-28T20:46:08Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

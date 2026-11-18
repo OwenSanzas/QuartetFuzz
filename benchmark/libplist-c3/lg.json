@@ -1,0 +1,23 @@
+{
+  "name": "OpenStep (\"old-style\") plist text parser",
+  "description": "plist_from_openstep parses a NeXT/OpenStep \"old-style\" property list (the `{ key = value; }` / `( a, b )` / `<hex bytes>` / quoted-or-bareword string text format) from an untrusted in-memory byte buffer into a plist_t tree. The recursive-descent parser (node_from_openstep + parse_dict_data) walks attacker-controlled bytes directly: it tracks recursion depth, character offsets and quoting/escaping state by hand, decodes octal (\\0-\\7) and \\U-unicode escapes into UTF-8, converts hex digit pairs into raw PLIST_DATA bytes, and falls back to re-parsing the whole buffer as a flat \"strings\" dictionary (key = value; ...) when a bare '=' follows the first value - all classic territory for off-by-one / unterminated-token / integer-length / recursion bugs, so it is highly security relevant.\n- plist_from_openstep: target; core = node_from_openstep/parse_dict_data (dict/array/data/quoted-string/unquoted-string branches, octal/\\U escape decoding, the \"strings file\" fallback re-parse).\n- plist_from_memory: source/variant, same core - auto-detects XML vs JSON vs OpenStep by sniffing the buffer and, when it decides the data isn't XML/JSON, calls plist_from_openstep itself; feeding it OpenStep-looking bytes drives the same parser through an extra public dispatcher layer.\n- plist_to_openstep / plist_to_openstep_with_options: inverse/consumer, reaches a different but paired core (node_to_openstep writer); running the parsed tree back through the writer (round trip) exercises re-serialization of every node type the parser produced (dict/array/data/string, prettify vs compact via PLIST_OPT_COMPACT) and is how the project's own regression test (plist_otest.c) and the real callers of plist_from_openstep use the result.\n- plist_to_bin / plist_from_bin: consumers used by the project's own test to further convert the parsed tree, exercising the generic plist_t traversal/serialization code on whatever structure the OpenStep parser built.\nInput space to fuzz: the raw OpenStep text itself - dictionaries `{...}` (nested, recursion up to PLIST_MAX_NESTING_DEPTH), arrays `(...)`, data blocks `<hex...>` (even/odd hex digit counts, non-hex chars), quoted strings with `\"` or `'` delimiters and backslash escapes (plain chars, octal \\NNN, \\U unicode with 1-4 hex digits producing 1/2/3-byte UTF-8), unquoted bareword strings restricted to allowed_unquoted_chars, whitespace-only input (treated as empty dict), and buffers whose first non-ws value is followed by a bare `=` (triggers the whole-buffer \"strings data\" fallback via parse_dict_data) vs. well-formed single-value buffers; for plist_to_openstep(_with_options) the prettify/PLIST_OPT_COMPACT flag selects a different writer path over the same tree.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "plist_from_openstep",
+    "plist_from_memory",
+    "plist_to_openstep",
+    "plist_to_openstep_with_options",
+    "plist_to_bin",
+    "plist_from_bin"
+  ],
+  "core": [
+    "node_from_openstep",
+    "parse_dict_data",
+    "parse_skip_ws",
+    "node_to_openstep",
+    "plist_new_plist_data",
+    "plist_new_node"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {}
+}

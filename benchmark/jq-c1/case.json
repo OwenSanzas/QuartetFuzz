@@ -1,0 +1,32 @@
+{
+  "case": "jq-c1",
+  "case_id": "jq/jq_fuzz_fixed",
+  "project": "jq",
+  "fuzzer_name": "jq_fuzz_fixed",
+  "language": "c",
+  "gold_harness_path": "$SRC/jq/tests/jq_fuzz_fixed.cpp",
+  "gold_source_file": "/src/jq/tests/jq_fuzz_fixed.cpp",
+  "target_function": "jq_next",
+  "target_declaration": "jv jq_next(jq_state *);",
+  "target_location": "jq.h:30",
+  "prompt": "Project: jq\nRepository: https://github.com/jqlang/jq\nRevision: 4bb50d772bd35666dcd3ae460f2ddfae3864e16c\nLanguage: C\n\nTarget function: jq_next\nDeclared in: jq.h:30\nDeclaration: jv jq_next(jq_state *);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/jqlang/jq",
+      "rev": "4bb50d772bd35666dcd3ae460f2ddfae3864e16c",
+      "type": "git"
+    },
+    "upstream_path": "/src/jq",
+    "all_repos": {
+      "/src/jq": {
+        "url": "https://github.com/jqlang/jq",
+        "rev": "4bb50d772bd35666dcd3ae460f2ddfae3864e16c",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/jq.callgraph.sqlite.xz",
+  "lg_version": "lg100v2"
+}

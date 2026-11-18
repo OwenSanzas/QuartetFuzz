@@ -1,0 +1,50 @@
+{
+ "lines": {
+  "covered": 28118,
+  "count": 72851,
+  "percent": 38.597
+ },
+ "functions": {
+  "covered": 2060,
+  "count": 4542,
+  "percent": 45.354
+ },
+ "regions": {
+  "covered": 42446,
+  "count": 118623,
+  "percent": 35.782
+ },
+ "branches": {
+  "covered": 8318,
+  "count": 42769,
+  "percent": 19.449
+ },
+ "scope": "/src/libvips/",
+ "files_in_scope": 396,
+ "files_total": 1632,
+ "all_linked": {
+  "lines": {
+   "covered": 119537,
+   "count": 415371,
+   "percent": 28.778
+  },
+  "functions": {
+   "covered": 7590,
+   "count": 22307,
+   "percent": 34.025
+  },
+  "regions": {
+   "covered": 115282,
+   "count": 400458,
+   "percent": 28.788
+  },
+  "branches": {
+   "covered": 45429,
+   "count": 196823,
+   "percent": 23.081
+  }
+ },
+ "timestamp": "2026-08-28T20:37:06Z",
+ "deterministic": true,
+ "method": "-merge=1 replay, llvm-cov -summary-only, scoped to project sources"
+}

@@ -1,0 +1,32 @@
+{
+  "case": "cjson-c1",
+  "case_id": "cjson/cjson_read_fuzzer",
+  "project": "cjson",
+  "fuzzer_name": "cjson_read_fuzzer",
+  "language": "c++",
+  "gold_harness_path": "$SRC/cjson/fuzzing/cjson_read_fuzzer.c",
+  "gold_source_file": "/src/cjson/fuzzing/cjson_read_fuzzer.c",
+  "target_function": "cJSON_ParseWithOpts",
+  "target_declaration": "CJSON_PUBLIC(cJSON *) cJSON_ParseWithOpts(const char *value, const char **return_parse_end, cJSON_bool require_null_terminated);",
+  "target_location": "cjson/cJSON.h:158",
+  "prompt": "Project: cjson\nRepository: https://github.com/DaveGamble/cJSON.git\nRevision: fb16e5cf358798aabb049655975cde8427101056\nLanguage: C++\n\nTarget function: cJSON_ParseWithOpts\nDeclared in: cjson/cJSON.h:158\nDeclaration: CJSON_PUBLIC(cJSON *) cJSON_ParseWithOpts(const char *value, const char **return_parse_end, cJSON_bool require_null_terminated);\n\nWrite one libFuzzer harness that exercises this function.\n\n  - define LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)\n  - reach the named function with data derived from the fuzz input\n  - it will be compiled inside the project's OSS-Fuzz image with\n    $CXX/$CC, $CXXFLAGS/$CFLAGS and $LIB_FUZZING_ENGINE\n  - it will be run with no starting corpus\n\nOutput the harness source only.",
+  "version_pins": {
+    "oss_fuzz_revision": "955c6866c152471d78c7472c0f1f354343548b9f",
+    "upstream": {
+      "url": "https://github.com/DaveGamble/cJSON.git",
+      "rev": "fb16e5cf358798aabb049655975cde8427101056",
+      "type": "git"
+    },
+    "upstream_path": "/src/cjson",
+    "all_repos": {
+      "/src/cjson": {
+        "url": "https://github.com/DaveGamble/cJSON.git",
+        "rev": "fb16e5cf358798aabb049655975cde8427101056",
+        "type": "git"
+      }
+    },
+    "pin_source": "OSS-Fuzz srcmap for 20260821"
+  },
+  "callgraph": "callgraphs/cjson.callgraph.sqlite.xz",
+  "lg_version": "lg100v5"
+}

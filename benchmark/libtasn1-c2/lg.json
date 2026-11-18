@@ -1,0 +1,23 @@
+{
+  "name": "Simple DER/BER element decoding",
+  "description": "Decodes a single \"simple\" (non-constructed-definite) ASN.1 universal-class element \u2014 a tag/length/value triplet for a string-like type \u2014 from an untrusted DER/BER byte buffer, without needing a full asn1_node schema. This is security relevant because it directly parses attacker-controlled tag, length and content fields, performing arithmetic on signed/unsigned lengths and (in the BER variant) recursive reassembly of constructed indefinite-length string fragments, so it is a prime target for integer underflow/overflow, out-of-bounds pointer arithmetic and stack-exhaustion-via-recursion bugs.\n- asn1_decode_simple_der: target. Calls the static _asn1_decode_simple_der with DECODE_FLAG_HAVE_TAG set; validates etype via ETYPE_OK/ETYPE_IS_STRING/ETYPE_CLASS, reads the tag (asn1_get_tag_der), checks tag/class match, reads the length (asn1_get_length_der) and returns a pointer+length into the original buffer (no allocation).\n- asn1_decode_simple_ber: variant/BER counterpart in the same file; handles the additional case of indefinite-length constructed string encoding (0x80 length octet, nested octet-string fragments terminated by EOC), recursing through _asn1_decode_simple_ber up to three levels (DECODE_FLAG_LEVEL1/2/3) and allocating/appending the reassembled value with append()/_asn1_realloc; for non-string/definite classes it falls back to calling _asn1_decode_simple_der directly. Exercises a different, allocation-based and recursive code path than the plain DER target.\n- asn1_encode_simple_der: inverse operation (round trip): encodes tag+length+value back into DER, useful to build well-formed and malformed DER inputs for the decoders and to test encode/decode symmetry.\n- asn1_get_length_der / asn1_get_length_ber: low-level length-field parsers invoked by both decode paths; expose short/indefinite/overlong length encodings.\n- asn1_get_tag_der: low-level tag-field parser invoked when DECODE_FLAG_HAVE_TAG is set; exposes multi-byte high-tag-number encodings and class bits.\n\nInput space the harness should vary: the `etype` argument (which must be an ASN1_ETYPE_* universal string type such as ASN1_ETYPE_OCTET_STRING, ASN1_ETYPE_GENERALSTRING, etc., validated by ETYPE_OK/ETYPE_IS_STRING \u2014 non-string or non-UNIVERSAL-class etypes are rejected early), the raw `der` buffer bytes and `_der_len` (tag byte(s), length byte(s): short-form, long-form, 0x80 indefinite-form, truncated/garbage lengths), and whether to drive the plain-DER path (asn1_decode_simple_der, definite-length, no recursion) versus the BER path (asn1_decode_simple_ber, which can switch into the indefinite/constructed recursive branch up to 3 nesting levels) versus round-tripping through asn1_encode_simple_der first to produce structurally valid DER/BER before mutating it.",
+  "entries": [
+    "asn1_decode_simple_der",
+    "asn1_decode_simple_ber",
+    "asn1_encode_simple_der",
+    "asn1_get_length_der",
+    "asn1_get_length_ber",
+    "asn1_get_tag_der"
+  ],
+  "core": [
+    "_asn1_decode_simple_der",
+    "_asn1_decode_simple_ber",
+    "append",
+    "asn1_get_length_der",
+    "asn1_get_length_ber",
+    "asn1_get_tag_der"
+  ],
+  "project": "libtasn1",
+  "risk_level": "",
+  "danger_scores": {}
+}

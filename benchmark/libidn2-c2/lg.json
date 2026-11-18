@@ -1,0 +1,25 @@
+{
+  "name": "IDNA2008 ToASCII lookup conversion (idn2_to_ascii_8z)",
+  "description": "idn2_to_ascii_8z converts an untrusted, attacker-controlled UTF-8 domain-name string into its ASCII/ACE (\"xn--\") DNS lookup form following RFC 5891 and the Unicode TR46 amendments. It is the main public entry for domain-name normalization in libidn2: it splits the string on label-separating dots, maps/validates each Unicode codepoint according to the TR46 mapping tables (when TR46 processing is enabled), runs the IDNA2008 label tests (NFC form, hyphen/leading-combining-mark/disallowed-codepoint/ContextJ/ContextO/Bidi rules), and punycode-encodes each label, with an optional A-label\u2192U-label round-trip check. Because it parses complex Unicode mapping/normalization tables and a custom punycode codec directly on attacker bytes, it is a classic target for buffer/length-miscalculation and state-machine bugs.\n- idn2_to_ascii_8z: target; thin wrapper directly forwarding the UTF-8 string to idn2_lookup_u8, driving the whole TR46+IDNA2008 pipeline.\n- idn2_lookup_u8: source/core-driver variant taking the same UTF-8 encoding directly (the function idn2_to_ascii_8z delegates to); exercising it directly also covers the `lookupname == NULL` size-probing path.\n- idn2_to_ascii_4z: variant taking UCS-4 (uint32_t*) input instead of UTF-8, converted internally to UTF-8 and then also routed through idn2_lookup_u8/label \u2014 a different input-encoding path into the same core.\n- idn2_to_ascii_lz: variant taking a locale-encoded string, converted to UTF-8 via iconv before entering the same lookup core; exercises the locale-conversion error paths in addition to the IDNA core.\n- idn2_to_unicode_8z8z: inverse/consumer operation (ToUnicode / decode direction) that punycode-decodes and TR46-maps the ACE labels produced by the target, useful to round-trip and validate encoder output and exercise idn2_punycode_decode on attacker-influenced data.\n- idn2_register_u8: consumer/variant that calls into the same per-label test/encode machinery (ulabel/alabel consistency check) used for domain registration, sharing idna.c/punycode core code.\n\nInput space: the `flags` bitmask selects very different code paths through the TR46/IDNA2008 core \u2014 IDN2_NFC_INPUT (force NFC normalization before testing), IDN2_TRANSITIONAL vs IDN2_NONTRANSITIONAL (mutually exclusive TR46 modes, selecting deviation-character mapping rules), IDN2_NO_TR46 (skip the whole _tr46 mapping/validation stage and go straight to per-label IDNA2008 tests), IDN2_USE_STD3_ASCII_RULES (toggles disallowed-STD3 character handling in both _tr46 and label tests), IDN2_ALABEL_ROUNDTRIP/IDN2_NO_ALABEL_ROUNDTRIP (enable/disable decode-and-compare verification when a label already looks like an A-label \"xn--...\"), and IDN2_ALLOW_UNASSIGNED (compat no-op). The input string itself selects paths based on: number/length of dot-separated labels (label and domain length limits IDN2_LABEL_MAX_LENGTH=63 / IDN2_DOMAIN_MAX_LENGTH=255), whether a label is already pure ASCII vs needs Unicode mapping, whether a label starts with the \"xn--\" ACE prefix (triggers punycode_decode + roundtrip verification), and which Unicode codepoints appear (selecting DISALLOWED/MAPPED/VALID/IGNORED/DEVIATION TR46 classes and which IDNA2008 label tests \u2014 NFC, 2-hyphen, leading combining mark, ContextJ/ContextO, Bidi, unassigned \u2014 trigger errors).",
+  "entries": [
+    "idn2_to_ascii_8z",
+    "idn2_lookup_u8",
+    "idn2_to_ascii_4z",
+    "idn2_to_ascii_lz",
+    "idn2_to_unicode_8z8z",
+    "idn2_register_u8"
+  ],
+  "core": [
+    "label",
+    "_tr46",
+    "_idn2_label_test",
+    "_idn2_u8_to_u32_nfc",
+    "idn2_punycode_encode",
+    "idn2_punycode_decode",
+    "_idn2_ascii_p",
+    "get_idna_map"
+  ],
+  "project": "libidn2",
+  "risk_level": "",
+  "danger_scores": {}
+}

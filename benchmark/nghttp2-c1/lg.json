@@ -1,0 +1,27 @@
+{
+  "name": "HTTP/2 wire-format frame ingestion (nghttp2_session_mem_recv2)",
+  "description": "nghttp2_session_mem_recv2 is the core entry point that feeds a byte buffer coming straight from the network (or any untrusted transport) into the HTTP/2 session's inbound state machine. Internally it calls session_mem_recv, a large for(;;) switch over iframe->state that incrementally parses the client preface, frame headers and per-type frame payloads (SETTINGS, HEADERS/CONTINUATION with HPACK decompression, DATA with padding, WINDOW_UPDATE, GOAWAY, RST_STREAM, PING, PRIORITY, ALTSVC/ORIGIN and unknown extension frames), dispatching into per-frame processing functions and invoking user callbacks. Because the parser is a resumable byte-at-a-time state machine driven entirely by attacker-controlled bytes (frame length/type/flags, HPACK-encoded header blocks, padding lengths, settings values, window-update increments), this is one of the most security-critical code paths in the library \u2014 malformed, truncated, or adversarial fragmentation of the input is exactly what a fuzzer should explore.\n- nghttp2_session_mem_recv2: target; drives arbitrary-length byte chunks through session_mem_recv's frame/header state machine and checks the outbound-queue flood limit afterward.\n- nghttp2_session_server_new / nghttp2_session_client_new: lifecycle/source \u2014 creates the nghttp2_session object with a callback table; selects server vs. client inbound-frame expectations (server expects client HTTP/2 preface magic first, client does not), which changes the very first states session_mem_recv walks through (NGHTTP2_IB_READ_CLIENT_MAGIC vs NGHTTP2_IB_READ_FIRST_SETTINGS/HEAD).\n- nghttp2_submit_settings: configuration \u2014 queues an outbound SETTINGS frame and sets session->local_settings constraints (e.g. max_frame_size, header table size) that the inbound parser enforces (frame-size checks, HPACK dynamic table size updates) while processing incoming frames in C.\n- nghttp2_session_upgrade2: variant/source \u2014 alternate way to inject a SETTINGS payload (from an HTTP Upgrade header) directly into the settings-processing core (session_process_settings_frame / nghttp2_session_on_settings_received) without going through the byte-stream parser, exercising the same core logic from a different input path.\n- nghttp2_session_consume: consumer \u2014 after frames are parsed, explicitly releases flow-controlled bytes, driving nghttp2_session_update_recv_stream_window_size / nghttp2_session_update_recv_connection_window_size and queuing WINDOW_UPDATE frames, reached only when auto-window-update is disabled via options.\n- nghttp2_session_mem_send2 / nghttp2_session_send: consumer/variant \u2014 serializes whatever state changes (SETTINGS acks, WINDOW_UPDATE, GOAWAY, RST_STREAM) the inbound parsing produced, so the round trip (recv -> internal reaction -> send) is exercised, matching how real callers (shrpx, nghttp, h2load, HttpServer) use the API.\n- nghttp2_session_recv: variant that repeatedly calls nghttp2_session_mem_recv2 itself using a user-supplied recv callback, showing the intended call-order pattern around the target.\nThe input space is almost entirely the raw byte stream: how it is chunked across multiple mem_recv2 calls (partial frame headers/payloads must be correctly resumed by iframe->state), the frame type byte (DATA, HEADERS, PRIORITY, RST_STREAM, SETTINGS, PUSH_PROMISE, PING, GOAWAY, WINDOW_UPDATE, CONTINUATION, ALTSVC, ORIGIN, or an unknown/extension type), the flags byte (END_STREAM, END_HEADERS, PADDED, PRIORITY, ACK), the 24-bit length field versus the negotiated max_frame_size, padding length byte vs. remaining payload, HPACK-encoded header block bytes (static/dynamic table references, Huffman-coded strings, dynamic table size updates), SETTINGS entries (id/value pairs such as MAX_CONCURRENT_STREAMS, INITIAL_WINDOW_SIZE, MAX_FRAME_SIZE, ENABLE_PUSH), WINDOW_UPDATE increment values (including overflow/zero-increment edge cases), and whether the session was created as server (expects preface magic) or client.",
+  "entries": [
+    "nghttp2_session_mem_recv2",
+    "nghttp2_session_server_new",
+    "nghttp2_session_client_new",
+    "nghttp2_submit_settings",
+    "nghttp2_session_upgrade2",
+    "nghttp2_session_consume",
+    "nghttp2_session_mem_send2",
+    "nghttp2_session_recv"
+  ],
+  "core": [
+    "session_mem_recv",
+    "session_process_headers_frame",
+    "session_process_settings_frame",
+    "session_process_data_frame",
+    "session_process_window_update_frame",
+    "session_process_goaway_frame",
+    "inflate_header_block",
+    "nghttp2_session_on_settings_received"
+  ],
+  "project": "nghttp2",
+  "risk_level": "",
+  "danger_scores": {}
+}

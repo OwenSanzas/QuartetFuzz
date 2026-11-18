@@ -1,0 +1,23 @@
+{
+  "name": "LZ4 Frame single-shot compression (LZ4F_compressFrame)",
+  "description": "LZ4F_compressFrame takes an arbitrary byte buffer (srcBuffer/srcSize) supplied by the caller/fuzzer plus an optional LZ4F_preferences_t describing frame format options, and in one call builds a complete, self-describing LZ4 \"Frame\" (header + one or more compressed/uncompressed blocks + optional block/content checksums + end marker) into dstBuffer. It is security-relevant because it exercises the frame header serialization, block-size selection, the LZ4/LZ4HC block compressors, dictionary loading and the XXH32 checksum logic, all driven by untrusted content and by preference fields (several of which are not otherwise validated before being used to size buffers and loop bounds).\n\n- LZ4F_compressFrame: target. Internally allocates/initializes an LZ4F_cctx_t (heap or stack, depending on LZ4F_HEAPMODE) and immediately forwards to LZ4F_compressFrame_usingCDict with cdict=NULL; this is the thin top-level wrapper around the core.\n- LZ4F_compressFrame_usingCDict: variant, same core as the target but adds an explicit LZ4F_CDict* dictionary path (reaches LZ4F_compressBegin_internal's dictID/dict-loading code, LZ4_loadDict/LZ4_loadDictHC) that the plain target never exercises; also lets a harness combine it with a prebuilt dictionary from LZ4F_createCDict.\n- LZ4F_compressFrameBound: config/source-of-size helper; must be called first to size dstBuffer correctly (same preferences struct is consulted), exercising LZ4F_compressBound_internal and the blockSizeID \u2192 block-size/-count arithmetic that the core also uses.\n- LZ4F_decompress (with LZ4F_createDecompressionContext/LZ4F_freeDecompressionContext) and LZ4F_decompress_usingDict: consumers/inverse operation; decode the frame LZ4F_compressFrame just produced, which is exactly what the project's own ossfuzz round_trip_frame_fuzzer.c does, driving the decoder state machine (header parsing, block decoding, checksum verification) over attacker-influenced compressed output and catching corruption/round-trip mismatches that a compress-only harness would miss.\n- Core functions reached from the target: LZ4F_compressBegin_internal (frame-header build, dictID/content-size writing, context/dictionary init), LZ4F_compressUpdateImpl (block buffering/splitting logic, calls LZ4F_selectCompression/LZ4F_makeBlock), LZ4F_makeBlock (per-block compress-or-store + optional block checksum), LZ4F_selectCompression (dispatch among the fast/HC/continue/uncompressed block compressors), LZ4F_flush, LZ4F_compressEnd (final flush + content checksum + end mark), LZ4F_compressBound_internal (size accounting shared with LZ4F_compressFrameBound).\n- Input space that adds paths through the core: preferencesPtr may be NULL (defaults) or a filled LZ4F_preferences_t; within it, frameInfo.blockSizeID (LZ4F_max64KB/max256KB/max1MB/max4MB, each changing block count/size and the \"single block => blockIndependent\" optimization at srcSize<=blockSize), frameInfo.blockMode (LZ4F_blockLinked vs LZ4F_blockIndependent, selecting *_continue vs plain compress functions), frameInfo.contentChecksumFlag and frameInfo.blockChecksumFlag (toggle XXH32 checksum code paths), frameInfo.contentSize (auto-corrected but affects header size/serialization), compressionLevel (negative = fast/acceleration path via LZ4_compress_fast*, >=LZ4HC_CLEVEL_MIN switches the whole context to the HC state machine and LZ4_compress_HC* block functions, values clamped at LZ4HC_CLEVEL_MAX), favorDecSpeed (only meaningful at high HC levels, calls LZ4_favorDecompressionSpeed), and autoFlush/dictID. srcSize itself (0, smaller than one block, exactly one block, many blocks) changes nbBlocks/flush behavior. This is the most permissive axis (compressionLevel \u2265 LZ4HC_CLEVEL_MIN plus blockChecksum/contentChecksum enabled exercises the largest portion of the core); dstCapacity being undersized vs LZ4F_compressFrameBound is a boundary/error path, not a feature switch to maximize.\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "LZ4F_compressFrame",
+    "LZ4F_compressFrame_usingCDict",
+    "LZ4F_compressFrameBound",
+    "LZ4F_decompress",
+    "LZ4F_decompress_usingDict"
+  ],
+  "core": [
+    "LZ4F_compressBegin_internal",
+    "LZ4F_compressUpdateImpl",
+    "LZ4F_makeBlock",
+    "LZ4F_selectCompression",
+    "LZ4F_flush",
+    "LZ4F_compressEnd",
+    "LZ4F_compressBound_internal"
+  ],
+  "project": "lz4",
+  "risk_level": "",
+  "danger_scores": {}
+}

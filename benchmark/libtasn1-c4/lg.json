@@ -1,0 +1,26 @@
+{
+  "name": "libtasn1 DER decoding of ASN.1 structures",
+  "description": "asn1_der_decoding() is the core parser of libtasn1: given an in-memory DER/BER-encoded byte buffer and an asn1_node tree previously created from an ASN.1 module definition (via asn1_array2tree/asn1_parser2tree + asn1_create_element), it walks the node tree top-down, repeatedly pulling tag/length/value triplets out of the untrusted buffer (asn1_get_tag_der, asn1_get_length_der, extract_tag_der_recursive, _asn1_get_time_der, asn1_get_object_id_der, _asn1_decode_simple_ber, _asn1_get_indefinite_length_string) and attaching the decoded values to the tree (_asn1_set_value/_asn1_set_value_lv), handling SEQUENCE/SET/CHOICE/OPTIONAL/DEFAULT/ANY semantics, indefinite-length BER constructs, and padding. Because the byte layout, lengths, tag classes and nesting are all attacker controlled, this is the most security sensitive code path in the library (historical CVEs were found here), making it an ideal fuzz target. The feature naturally includes the functions that build/inspect the decoded tree and the companion encoder, since real callers in the source tree (GnuTLS, the asn1Decoding tool, examples) always pair decoding with tree construction, sub-element inspection/expansion, and often with asn1_der_coding/asn1_read_value to validate round-tripping.\n- asn1_der_decoding: target; parses the full DER buffer against the node tree, calling asn1_der_decoding2 internally with flags=0.\n- asn1_der_decoding2: variant of the target exposing the ASN1_DECODE_FLAG_ALLOW_PADDING / ASN1_DECODE_FLAG_STRICT_DER flags and returning the number of bytes actually consumed; selects the BER-tolerant vs strict-DER code paths in the shared core.\n- asn1_array2tree: source; builds the in-memory ASN.1 definition tree (from a static node array) that is the schema against which decoding interprets the fuzz bytes \u2014 needed to set up any non-trivial structure.\n- asn1_create_element: source/lifecycle precursor; instantiates a fresh asn1_node of a chosen type (SEQUENCE/CHOICE/SET/primitive) from the definitions tree \u2014 this is the object asn1_der_decoding fills in, and choosing a different source_name changes which part of C is exercised (different field types, OPTIONAL/DEFAULT/CHOICE branches).\n- asn1_der_decoding_element / asn1_der_decoding_startEnd: variants/consumers; the former is a thin wrapper around asn1_der_decoding, the latter locates the start/end byte offsets of a named sub-element after decoding, re-invoking asn1_der_decoding internally if the element wasn't decoded yet, exercising asn1_find_node traversal of the freshly built tree.\n- asn1_expand_any_defined_by: consumer that post-processes a decoded tree, finding ASN1_ETYPE_ANY fields defined by an OBJECT IDENTIFIER sibling, matching it against OIDs in the definitions, and re-invoking asn1_der_decoding recursively on the embedded value bytes to expand it to its concrete type \u2014 a natural second decode pass many real callers (certificate/CRL parsers) perform on the output of the target.\n- asn1_der_coding: inverse operation / consumer; re-encodes a decoded (or freshly built) node tree back to DER, useful as a round-trip check that stresses the dual of the decoding core (asn1_length_der, asn1_octet_der, etc.) on attacker-shaped trees.\nInput space: the ider byte buffer and ider_len (fuzzable raw bytes/size) drive branch selection on the ASN.1 type of each node \u2014 ASN1_ETYPE_SEQUENCE/SET/SET_OF/SEQUENCE_OF/CHOICE/OPTION/DEFAULT change tree traversal order; ASN1_ETYPE_INTEGER/ENUMERATED/OBJECT_ID/GENERALIZED_TIME/UTC_TIME/OCTET_STRING/BIT_STRING/*_STRING select distinct value-extraction routines; within OCTET_STRING, the tag's ASN1_CLASS_STRUCTURED bit together with the ASN1_DECODE_FLAG_STRICT_DER flag chooses between a flat DER length/value read and a recursive BER (_asn1_decode_simple_ber/_asn1_get_indefinite_length_string) decode of constructed/indefinite-length content; the definitions array passed to asn1_array2tree and the source_name passed to asn1_create_element select which schema (and thus which mix of node types/CHOICE options) is applied to the same input bytes, which is itself a rich part of the input space the harness can vary together with the DER bytes.",
+  "entries": [
+    "asn1_der_decoding",
+    "asn1_der_decoding2",
+    "asn1_array2tree",
+    "asn1_create_element",
+    "asn1_der_decoding_startEnd",
+    "asn1_expand_any_defined_by",
+    "asn1_der_coding"
+  ],
+  "core": [
+    "asn1_get_tag_der",
+    "asn1_get_length_der",
+    "extract_tag_der_recursive",
+    "_asn1_decode_simple_ber",
+    "_asn1_get_indefinite_length_string",
+    "_asn1_get_time_der",
+    "asn1_get_object_id_der",
+    "delete_unneeded_choice_fields"
+  ],
+  "project": "libtasn1",
+  "risk_level": "",
+  "danger_scores": {}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Binary plist (bplist) parsing",
+  "description": "plist_from_bin parses an Apple binary property-list blob (magic \"bplist00\") taken straight from untrusted bytes: it validates the trailer (offset_size, ref_size, num_objects, root_object, offset table position), then walks the offset table to recursively decode every node (parse_bin_node / parse_bin_node_at_index) into the generic plist_t tree, resolving integer, real, date, string/unicode, data, UID, array and dict nodes, with manual bounds checks on every pointer arithmetic step, a nesting-depth guard and a recursion/circular-reference guard. Because every offset, size and child-index comes from the file, this is the classic place for out-of-bounds reads, integer overflows and unbounded recursion, making it a high-value fuzz target.\n- plist_from_bin: target; core = trailer validation, parse_bin_node, parse_bin_node_at_index, parse_dict_node, parse_array_node, parse_string_node/parse_unicode_node, parse_int_node/parse_real_node/parse_date_node.\n- plist_from_memory: source/variant, auto-detects the format (via plist_is_binary) and calls plist_from_bin itself when the magic matches, so feeding it raw bytes exercises the exact same core while also covering the format-sniffing branch (binary vs xml vs json vs openstep) that gates entry into the bplist core.\n- plist_is_binary: config/detector used by plist_from_memory to pick the binary path; useful to confirm the fuzz input is routed into the bplist core.\n- plist_to_bin: inverse/round-trip entry (encoder for the same binary-plist data model: write_int/write_real/write_date/write_string/write_unicode/write_data/write_uid/write_array/write_dict + serialize_plist), useful to run the tree produced by plist_from_bin back through the opposite transform and catch inconsistencies between encode/decode of deeply nested or duplicate-referenced structures.\n- plist_to_xml / plist_to_json: consumers that traverse and serialize the plist_t tree returned by plist_from_bin, exercising all node types and nested containers the parser built.\nThe input space to fuzz: the raw binary blob content (magic+version+body+offset table+trailer with varying offset_size/ref_size/num_objects/root_object), node type/size bytes (BPLIST_NULL/BOOL, BPLIST_INT, BPLIST_REAL, BPLIST_DATE, BPLIST_DATA, BPLIST_STRING, BPLIST_UNICODE, BPLIST_UID, BPLIST_ARRAY, BPLIST_SET, BPLIST_DICT) including the \"fill\" extended-size encoding, deeply nested/duplicated array and dict index references (to hit the recursion/circular-reference and max-nesting-depth checks), and malformed offset/ref sizes or out-of-range indices to exercise all bounds-check branches; also vary length to hit the minimum-size and magic/version checks. This list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "plist_from_bin",
+    "plist_from_memory",
+    "plist_is_binary",
+    "plist_to_bin",
+    "plist_to_xml",
+    "plist_to_json"
+  ],
+  "core": [
+    "parse_bin_node",
+    "parse_bin_node_at_index",
+    "parse_dict_node",
+    "parse_array_node",
+    "parse_string_node",
+    "parse_unicode_node",
+    "parse_real_node",
+    "parse_date_node"
+  ],
+  "project": "libplist",
+  "risk_level": "",
+  "danger_scores": {}
+}

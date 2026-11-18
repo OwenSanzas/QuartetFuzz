@@ -1,0 +1,23 @@
+{
+  "name": "X.509 CSR (PKCS#10) parsing",
+  "description": "Parses an untrusted X.509 Certificate Signing Request (PKCS#10) given as raw bytes, auto-detecting PEM or DER encoding, and decodes it into an mbedtls_x509_csr structure: ASN.1 SEQUENCE/INTEGER/OID/BIT STRING tags, the subject Name, the SubjectPublicKeyInfo (via the pk module), the attributes (including the PKCS#9 extensionRequest holding key usage / subjectAltName / NsCertType extensions), and the signature algorithm/signature. Because the whole structure is attacker-controlled, bugs in the recursive ASN.1 walkers (length/tag mismatches, missing bounds checks, OID confusion) here are classic memory-safety fuzzing targets.\n- mbedtls_x509_csr_parse: target; auto-detects PEM (base64/header-footer) vs raw DER, strips PEM armor via mbedtls_pem_read_buffer, then hands the decoded bytes to the DER parser - this is the input-format dispatch (PEM vs DER) that selects a different pre-processing path before reaching the core.\n- mbedtls_x509_csr_parse_der: variant/consumer of the core; skips the PEM auto-detection and calls the internal DER parser directly (mbedtls_x509_csr_parse_der_internal) with no extension callback, exercising the same core ASN.1 state machine as the target on raw DER input.\n- mbedtls_x509_csr_parse_der_with_ext_cb: variant of the DER parser that supplies a custom mbedtls_x509_csr_ext_cb_t, changing the \"unknown/unsupported extension\" branch of x509_csr_parse_extensions from \"fail unless non-critical\" to \"invoke callback\", so it opens a different path through the extension parser core.\n- mbedtls_x509_csr_parse_file: source/variant; reads a CSR from the filesystem into memory and then calls mbedtls_x509_csr_parse, i.e. the same core but fed from a file instead of an in-memory buffer (useful as an alternate way to source bytes though the harness itself will typically just call parse directly).\n- mbedtls_x509_csr_info: consumer; walks the parsed csr (subject name, public key info, signature OID/algorithm, key usage, subject alt names) and formats it into a text buffer, exercising the correctness of the structures the core filled in and catching bugs that only manifest when the parsed fields are later used/printed.\nThe input space is primarily selected by the DER content itself: PEM vs DER framing (presence of \"-----BEGIN\" header selects the PEM/base64 decode branch in mbedtls_x509_csr_parse), the CSR version field (must decode to v1/0 or MBEDTLS_ERR_X509_UNKNOWN_VERSION is returned), the subject Name ASN.1 structure, the SubjectPublicKeyInfo algorithm OID (parsed by mbedtls_pk_parse_subpubkey, selecting RSA/EC/etc. key types), the PKCS#9 attribute OID (only MBEDTLS_OID_PKCS9_CSR_EXT_REQ is recognized, others are skipped), the extension-request OIDs inside that attribute (MBEDTLS_X509_EXT_KEY_USAGE, MBEDTLS_X509_EXT_SUBJECT_ALT_NAME, MBEDTLS_X509_EXT_NS_CERT_TYPE take dedicated parsers, anything else is skipped if non-critical or rejected if marked critical), and the signature algorithm OID/parameters (mbedtls_x509_get_sig_alg). Varying these ASN.1 tags/lengths/OID bytes in the fuzz input drives the parser through its different branches.",
+  "entries": [
+    "mbedtls_x509_csr_parse",
+    "mbedtls_x509_csr_parse_der",
+    "mbedtls_x509_csr_parse_der_with_ext_cb",
+    "mbedtls_x509_csr_parse_file",
+    "mbedtls_x509_csr_info"
+  ],
+  "core": [
+    "mbedtls_x509_csr_parse_der_internal",
+    "x509_csr_get_version",
+    "x509_csr_parse_attributes",
+    "x509_csr_parse_extensions",
+    "mbedtls_x509_get_name",
+    "mbedtls_pk_parse_subpubkey",
+    "mbedtls_x509_get_sig_alg"
+  ],
+  "project": "mbedtls",
+  "risk_level": "",
+  "danger_scores": {}
+}

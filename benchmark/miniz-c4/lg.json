@@ -1,0 +1,25 @@
+{
+  "name": "miniz single-call zlib decompression (mz_uncompress2/mz_uncompress)",
+  "description": "This feature is miniz's one-shot zlib/deflate decompression API: it takes a byte buffer that is assumed to hold a zlib-wrapped (or raw) DEFLATE stream and expands it into a caller-supplied output buffer in a single call, internally driving the full mz_inflateInit/mz_inflate/mz_inflateEnd state machine down to the tinfl bit-level decoder. Because the compressed bytes fully control Huffman tables, block types, back-reference lengths/distances and the zlib header/adler32 trailer, this is the most security-relevant parsing surface in miniz and is exactly the code fuzzed by zlib-compatible fuzzers.\n- mz_uncompress2: target itself; builds a one-shot mz_stream from pSource/*pSource_len and pDest/*pDest_len, calls mz_inflateInit (window_bits = MZ_DEFAULT_WINDOW_BITS, i.e. zlib-wrapped) then mz_inflate(..., MZ_FINISH), reaches core (mz_inflateInit, mz_inflate, tinfl_decompress).\n- mz_uncompress: variant/wrapper with a plain mz_ulong source_len instead of a pointer, calls mz_uncompress2 directly; same core, no extra coverage.\n- mz_inflateInit / mz_inflateInit2: configuration \u2014 mz_inflateInit2's window_bits selects zlib-header parsing (TINFL_FLAG_PARSE_ZLIB_HEADER, window_bits>0) vs raw deflate (negative window_bits); mz_uncompress2 always uses the zlib-wrapped path, so calling mz_inflateInit2 directly with a negative window_bits exercises the raw-deflate branch of the same core that mz_uncompress2 cannot reach.\n- mz_inflate: core streaming entry \u2014 called internally by mz_uncompress2 with flush=MZ_FINISH and first_call=1, which sets TINFL_FLAG_USING_NON_WRAPPING_OUTPUT_BUF and runs tinfl_decompress once; calling it directly with multiple smaller buffers and MZ_NO_FLUSH/MZ_SYNC_FLUSH exercises the streaming/partial-input/partial-output branches of tinfl_decompress (dictionary wraparound, \"needs more input/output\" states) that the single-shot mz_uncompress2 path skips.\n- mz_inflateReset / mz_inflateEnd: lifecycle used around mz_inflate to reuse/free the inflator state; needed to drive the inflate loop more than once on the same stream object.\n- mz_compress / mz_compress2: inverse operation (the encode side) producing valid zlib streams via mz_deflateInit/mz_deflate (tdefl); useful as a *source* to generate well-formed compressed inputs (including with different compression levels, which change block types/dictionary use) that mz_uncompress2 then decodes, enabling true round-trip fuzzing instead of only random bytes.\nInput space (parameters/flags that add paths through the shared inflate core, most permissive first): the raw compressed byte content handed to mz_uncompress2 (controls Huffman tables, stored/fixed/dynamic block type bits, LZ77 length/distance codes, zlib CMF/FLG header bytes and trailing Adler-32); the relative sizes of pDest_len vs the true decompressed size (triggers MZ_BUF_ERROR / truncated output paths in tinfl_decompress); mz_inflateInit2's window_bits (MZ_DEFAULT_WINDOW_BITS for zlib-wrapped vs -MZ_DEFAULT_WINDOW_BITS for raw deflate, selecting TINFL_FLAG_PARSE_ZLIB_HEADER); the flush argument to mz_inflate (MZ_NO_FLUSH/MZ_SYNC_FLUSH vs MZ_FINISH, selecting streaming vs single-shot TINFL_FLAG_USING_NON_WRAPPING_OUTPUT_BUF decode paths); mz_compress2's level (0-10/MZ_DEFAULT_COMPRESSION, changing which deflate block encodings are produced to later decompress).\nThis list is incomplete; what the project's own fuzzers and tests do with the target stays.",
+  "entries": [
+    "mz_uncompress2",
+    "mz_uncompress",
+    "mz_inflateInit2",
+    "mz_inflate",
+    "mz_inflateReset",
+    "mz_inflateEnd",
+    "mz_compress2"
+  ],
+  "core": [
+    "mz_inflateInit",
+    "mz_inflateInit2",
+    "mz_inflate",
+    "tinfl_decompress",
+    "tinfl_init",
+    "mz_deflate",
+    "mz_deflateInit"
+  ],
+  "project": "miniz",
+  "risk_level": "",
+  "danger_scores": {}
+}

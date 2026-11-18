@@ -1,0 +1,11 @@
+{
+ "ok": true,
+ "url": "https://storage.googleapis.com/janet-backup.clusterfuzz-external.appspot.com/corpus/libFuzzer/janet_fuzz_dostring/public.zip",
+ "qualified_name": "janet_fuzz_dostring",
+ "seeds": 6257,
+ "unpacked_bytes": 77526701,
+ "zip_bytes": 2453068,
+ "zip_sha256": "228cec19d97b7dacb97486692b5243aa05e9d7b14a415815fc7809b189c43243",
+ "content_digest_sha256": "87be9862730276902adab57e56869e7731ab57a568203ca2f8faadb40843d502",
+ "content_digest_note": "sha256 over the sorted sha256 of every seed; stable across repacking and ordering, unlike the archive digest, which OSS-Fuzz overwrites daily"
+}

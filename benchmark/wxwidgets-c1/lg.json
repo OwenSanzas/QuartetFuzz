@@ -1,0 +1,24 @@
+{
+  "name": "wxZipInputStream zip archive entry enumeration and extraction",
+  "description": "wxZipInputStream::GetNextEntry() drives the untrusted-ZIP-parsing engine: it walks the archive sequentially (or, for seekable streams, through the central directory) locating the next local/central file header, parses the fixed and variable-length ZIP header fields (name, extra data incl. Zip64 extensions, compression method, sizes, CRC) into a wxZipEntry object, and returns it so the caller can then read the entry's (possibly compressed) data. Because every field comes straight from attacker-controlled bytes (lengths, offsets, magic numbers, extra-field IDs/lengths), this is a classic archive-parser attack surface for buffer overreads, integer overflow in offset/size handling, and infinite-loop/resource-exhaustion bugs.\n- wxZipInputStream::GetNextEntry: target; locates the next header (LoadEndRecord/FindEndRecord, ReadLocal/ReadCentral) and parses it into a new wxZipEntry, registering it in m_weaklinks.\n- wxZipInputStream::OpenEntry (and the inline `bool OpenEntry(wxZipEntry&)`): variant/consumer that opens a specific previously-returned entry at its stored offset via DoOpen, exercising ReadLocal header re-parsing and the seekable-offset path.\n- wxZipInputStream::GetComment: consumer/source-adjacent call that, for non-seekable streams, forces parsing to the end to discover the ZIP comment (exercises ReadLocal(true) path).\n- wxZipInputStream::GetTotalEntries: consumer that forces LoadEndRecord()/FindEndRecord() to run (end-of-central-directory signature search) and returns the declared entry count from attacker data.\n- wxZipInputStream::OnSysRead (invoked indirectly through wxInputStream::Read on the stream after GetNextEntry): consumer that actually decompresses the entry's payload (DoOpen + OpenDecompressor), validating declared size/CRC against the real decompressed bytes \u2014 the natural \"read what GetNextEntry found\" follow-up that a harness should perform.\nCore internal functions: wxZipEntry::ReadLocal (parses local file header: name/extra field lengths, compression method, sizes, flags), wxZipEntry::ReadCentral (parses central directory header, offsets), wxZipEntry::LoadExtraInfo (parses variable-length \"extra field\" records, including Zip64 64-bit size/offset overrides \u2014 has explicit overflow/underflow guards that are a prime fuzzing target), wxZipEntry::ReadDescriptor (parses the optional trailing data descriptor when sizes are unknown at header time), wxZipInputStream::LoadEndRecord/FindEndRecord (searches backwards through the stream for the end-of-central-directory signature), wxZipInputStream::ReadLocal/ReadCentral (stream-level dispatch that call the entry parsers and handle signature transitions), wxZipInputStream::DoOpen/OpenDecompressor (select and open the correct decompressor: store vs. deflate vs. raw).\nInput space (what the fuzz input should vary, driving different paths through C): the raw zip byte stream itself (magic/signatures LOCAL_MAGIC, CENTRAL_MAGIC, END_MAGIC, Z64_END_MAGIC; whether a valid EOCD is present/findable and at what offset), whether the underlying stream is seekable (selects ReadCentral vs. ReadLocal walking and the \"non-seekable, growing archive\" code path with m_streamlink/m_weaklinks), per-entry header fields (name length, extra-field length/content including the Zip64 header ID=1 with 0xffffffff sentinel values for size/compressed-size/offset triggering 64-bit overrides), compression method (wxZIP_METHOD_STORE vs wxZIP_METHOD_DEFLATE, selecting OpenDecompressor path and store-vs-inflate stream), the wxZIP_SUMS_FOLLOW flag bit (data-descriptor-follows vs. sizes-known-up-front, selecting whether ReadDescriptor runs after reading the payload), and the `raw` flag to OpenEntry/DoOpen (raw vs. decompressed read mode).",
+  "entries": [
+    "wxZipInputStream::GetNextEntry",
+    "wxZipInputStream::OpenEntry",
+    "wxZipInputStream::GetComment",
+    "wxZipInputStream::GetTotalEntries",
+    "wxZipInputStream::OnSysRead"
+  ],
+  "core": [
+    "wxZipEntry::ReadLocal",
+    "wxZipEntry::ReadCentral",
+    "wxZipEntry::LoadExtraInfo",
+    "wxZipEntry::ReadDescriptor",
+    "wxZipInputStream::LoadEndRecord",
+    "wxZipInputStream::FindEndRecord",
+    "wxZipInputStream::DoOpen",
+    "wxZipInputStream::OpenDecompressor"
+  ],
+  "project": "wxwidgets",
+  "risk_level": "",
+  "danger_scores": {}
+}
