@@ -948,10 +948,9 @@ def run_system_check(
                 log.warning("flow.lg_save_failed", error=str(exc))
 
     # ── 5a'. Logic Group around the given target (Mode C, full system) ──
-    # The LG and the P2 report built on it are kept in QF_LG_DIR/<case>
-    # (default: <run dir>/lg_store) and reused by later runs of the same case.
-    lg_store = (Path(os.environ["QF_LG_DIR"]) / case_id.replace("/", "_")
-                if os.environ.get("QF_LG_DIR") else case_dir / "lg_store")
+    # w/o LG ablation: no Logic Group stage.  Generation starts from the
+    # project and the target function; the P2 agent researches the target.
+    lg_store = None
     if mode == "C" and lg_store is not None:
         lg_store.mkdir(parents=True, exist_ok=True)
         if (lg_store / "lg.json").is_file():
